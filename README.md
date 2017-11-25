@@ -55,4 +55,4 @@ Change log
 Version 1.1.0
 
 * fixed some error messages in locallib.php.
-* added a webcam enable/disable selector in plugin setting page.
+* added a webcam enable/disable checkbox in plugin setting page.

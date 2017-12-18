@@ -524,7 +524,7 @@ class KalturaBulkUploadService extends KalturaServiceBase
         $kparams = array();
         $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         $kfiles = array();
-        $this->client->addParam($kfiles, "csvFileData", $csvfilefata);
+        $this->client->addParam($kfiles, "csvFileData", $csvfiledata);
         $this->client->addParam($kparams, "bulkUploadType", $bulkuploadtype);
         $this->client->addParam($kparams, "uploadedBy", $uploadedby);
         $this->client->queueServiceActionCall("bulkupload", "add", $kparams, $kfiles);
@@ -966,7 +966,7 @@ class KalturaDocumentService extends KalturaServiceBase
     public function addFromEntry($sourceentryid, KalturaDocumentEntry $documententry = null, $sourceflavorparamsid = null) {
         $kparams = array();
         $this->client->addParam($kparams, "sourceEntryId", $sourceentryid);
-        if ($documentEntry !== null) {
+        if ($documententry !== null) {
             $this->client->addParam($kparams, "documentEntry", $documententry->toParams());
         }
         $this->client->addParam($kparams, "sourceFlavorParamsId", $sourceflavorparamsid);
@@ -983,7 +983,7 @@ class KalturaDocumentService extends KalturaServiceBase
     public function addFromFlavorAsset($sourceflavorassetid, KalturaDocumentEntry $documententry = null) {
         $kparams = array();
         $this->client->addParam($kparams, "sourceFlavorAssetId", $sourceflavorassetid);
-        if ($documentEntry !== null) {
+        if ($documententry !== null) {
             $this->client->addParam($kparams, "documentEntry", $documententry->toParams());
         }
         $this->client->queueServiceActionCall("document", "addFromFlavorAsset", $kparams);
@@ -3367,8 +3367,8 @@ class KalturaThumbAssetService extends KalturaServiceBase
     public function generate($entryid, KalturaThumbParams $thumbparams, $sourceassetid = null) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
-        $this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
-        $this->client->addParam($kparams, "sourceAssetId", $sourceAssetid);
+        $this->client->addParam($kparams, "thumbParams", $thumbparams->toParams());
+        $this->client->addParam($kparams, "sourceAssetId", $sourceassetid);
         $this->client->queueServiceActionCall("thumbasset", "generate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3792,7 +3792,7 @@ class KalturaUploadTokenService extends KalturaServiceBase
 
     public function add(KalturaUploadToken $uploadtoken = null) {
         $kparams = array();
-        if ($uploadToken !== null) {
+        if ($uploadtoken !== null) {
             $this->client->addParam($kparams, "uploadToken", $uploadtoken->toParams());
         }
         $this->client->queueServiceActionCall("uploadtoken", "add", $kparams);

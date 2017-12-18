@@ -926,18 +926,18 @@ class KalturaConfiguration
 {
     private $logger;
 
-    public $serviceUrl                    = "http://www.kaltura.com/";
-    public $partnerId                    = null;
-    public $format                        = 3;
-    public $clientTag                       = "php5";
-    public $curlTimeout                   = 10;
-    public $userAgent                    = '';
-    public $startZendDebuggerSession     = false;
-    public $proxyHost                    = null;
-    public $proxyPort                   = null;
-    public $proxyType                   = 'HTTP';
-    public $proxyUser                   = null;
-    public $proxyPassword               = '';
+    public $serviceUrl               = "http://www.kaltura.com/";
+    public $partnerId                = null;
+    public $format                   = 3;
+    public $clientTag                = "php5";
+    public $curlTimeout              = 10;
+    public $userAgent                = '';
+    public $startZendDebuggerSession = false;
+    public $proxyHost                = null;
+    public $proxyPort                = null;
+    public $proxyType                = 'HTTP';
+    public $proxyUser                = null;
+    public $proxyPassword            = '';
 
 
 

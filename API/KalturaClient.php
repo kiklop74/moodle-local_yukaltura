@@ -1785,7 +1785,7 @@ class KalturaMediaService extends KalturaServiceBase
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         if ($dynamicconversionattributes !== null) {
-            foreach($dynamicconversionattributes as $index => $obj) {
+            foreach ($dynamicconversionattributes as $index => $obj) {
                 $this->client->addParam($kparams, "dynamicConversionAttributes:$index", $obj->toParams());
             }
         }
@@ -2690,7 +2690,7 @@ class KalturaPlaylistService extends KalturaServiceBase
 
     public function executeFromFilters(array $filters, $totalresults, $detailed = "") {
         $kparams = array();
-        foreach($filters as $index => $obj) {
+        foreach ($filters as $index => $obj) {
             $this->client->addParam($kparams, "filters:$index", $obj->toParams());
         }
         $this->client->addParam($kparams, "totalResults", $totalresults);

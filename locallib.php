@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Kaltura video assignment grade preferences form
+ * Local libraries of YU Kaltura Media package
  *
  * @package    local_yukaltura
- * @copyright  (C) 2016-2017 Yamaguchi University <info-cc@ml.cc.yamaguchi-u.ac.jp>
+ * @copyright  (C) 2016-2017 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -1245,7 +1245,7 @@ function local_yukaltura_get_kwidget_code($entryobj, $uiconfid = 0, $session = '
 /**
  * Kaltura connection class
  * @package    local_yukaltura
- * @copyright  (C) 2016-2017 Yamaguchi University <info-cc@ml.cc.yamaguchi-u.ac.jp>
+ * @copyright  (C) 2016-2017 Yamaguchi University <gh-cc@mlex.cc.yamaguchi-u.ac.jp>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class yukaltura_connection {
@@ -1479,7 +1479,7 @@ function local_yukaltura_get_default_access_control($connection) {
             }
         }
     } catch (Exception $ex) {
-        $errormessage = 'Error in local_yukaltura_get_internal_profile(' . $ex->getMessage() . ')';
+        $errormessage = 'Error in local_yukaltura_get_default_access_control(' . $ex->getMessage() . ')';
         print_error($errormessage, 'local_yukaltura');
         return null;
     }

@@ -790,13 +790,13 @@ class KalturaAuditTrailTextInfo extends KalturaAuditTrailInfo
  */
 class KalturaAuditTrailService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaAuditTrail $auditTrail) {
+    public function add(KalturaAuditTrail $audittrail) {
         $kparams = array();
-        $this->client->addParam($kparams, "auditTrail", $auditTrail->toParams());
+        $this->client->addParam($kparams, "auditTrail", $audittrail->toParams());
         $this->client->queueServiceActionCall("audit_audittrail", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -807,7 +807,7 @@ class KalturaAuditTrailService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("audit_audittrail", "get", $kparams);
@@ -820,7 +820,7 @@ class KalturaAuditTrailService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaAuditTrailFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaAuditTrailFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());

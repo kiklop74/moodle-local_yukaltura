@@ -23,15 +23,12 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
+defined('MOODLE_INTERNAL') || die();
+
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
 require_once(dirname(__FILE__) . "/../KalturaTypes.php");
-require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
-
-if (!defined('MOODLE_INTERNAL')) {
-    // It must be included from a Moodle page.
-    die('Direct access to this script is forbidden.');
-}
 
 /**
  * Kaltura Client API.
@@ -328,11 +325,11 @@ class KalturaVirusScanProfileListResponse extends KalturaObjectBase
  */
 class KalturaVirusScanProfileService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function listAction(KalturaVirusScanProfileFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaVirusScanProfileFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -350,9 +347,9 @@ class KalturaVirusScanProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function add(KalturaVirusScanProfile $virusScanProfile) {
+    public function add(KalturaVirusScanProfile $virusscanprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "virusScanProfile", $virusScanProfile->toParams());
+        $this->client->addParam($kparams, "virusScanProfile", $virusscanprofile->toParams());
         $this->client->queueServiceActionCall("virusscan_virusscanprofile", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -363,9 +360,9 @@ class KalturaVirusScanProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($virusScanProfileId) {
+    public function get($virusscanprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "virusScanProfileId", $virusScanProfileId);
+        $this->client->addParam($kparams, "virusScanProfileId", $virusscanprofileid);
         $this->client->queueServiceActionCall("virusscan_virusscanprofile", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -376,10 +373,10 @@ class KalturaVirusScanProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($virusScanProfileId, KalturaVirusScanProfile $virusScanProfile) {
+    public function update($virusscanprofileid, KalturaVirusScanProfile $virusscanprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "virusScanProfileId", $virusScanProfileId);
-        $this->client->addParam($kparams, "virusScanProfile", $virusScanProfile->toParams());
+        $this->client->addParam($kparams, "virusScanProfileId", $virusscanprofileid);
+        $this->client->addParam($kparams, "virusScanProfile", $virusscanprofile->toParams());
         $this->client->queueServiceActionCall("virusscan_virusscanprofile", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -390,9 +387,9 @@ class KalturaVirusScanProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($virusScanProfileId) {
+    public function delete($virusscanprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "virusScanProfileId", $virusScanProfileId);
+        $this->client->addParam($kparams, "virusScanProfileId", $virusscanprofileid);
         $this->client->queueServiceActionCall("virusscan_virusscanprofile", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -403,10 +400,10 @@ class KalturaVirusScanProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function scan($flavorAssetId, $virusScanProfileId = null) {
+    public function scan($flavorassetid, $virusscanprofileid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "flavorAssetId", $flavorAssetId);
-        $this->client->addParam($kparams, "virusScanProfileId", $virusScanProfileId);
+        $this->client->addParam($kparams, "flavorAssetId", $flavorassetid);
+        $this->client->addParam($kparams, "virusScanProfileId", $virusscanprofileid);
         $this->client->queueServiceActionCall("virusscan_virusscanprofile", "scan", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();

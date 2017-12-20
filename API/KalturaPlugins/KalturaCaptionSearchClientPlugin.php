@@ -29,10 +29,7 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 require_once(dirname(__FILE__) . "/KalturaCaptionClientPlugin.php");
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 
-if (!defined('MOODLE_INTERNAL')) {
-    // It must be included from a Moodle page.
-    die('Direct access to this script is forbidden.');
-}
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Kaltura Caption Asset Item Filter class
@@ -229,20 +226,20 @@ class KalturaCaptionAssetItemListResponse extends KalturaObjectBase
  */
 class KalturaCaptionAssetItemService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function search(KalturaBaseEntryFilter $entryFilter = null, KalturaCaptionAssetItemFilter $captionAssetItemFilter = null, KalturaFilterPager $captionAssetItemPager = null) {
+    public function search(KalturaBaseEntryFilter $entryfilter = null, KalturaCaptionAssetItemFilter $captionassetitemfilter = null, KalturaFilterPager $captionassetitempager = null) {
         $kparams = array();
-        if ($entryFilter !== null) {
-            $this->client->addParam($kparams, "entryFilter", $entryFilter->toParams());
+        if ($entryfilter !== null) {
+            $this->client->addParam($kparams, "entryFilter", $entryfilter->toParams());
         }
-        if ($captionAssetItemFilter !== null) {
-            $this->client->addParam($kparams, "captionAssetItemFilter", $captionAssetItemFilter->toParams());
+        if ($captionassetitemfilter !== null) {
+            $this->client->addParam($kparams, "captionAssetItemFilter", $captionassetitemfilter->toParams());
         }
-        if ($captionAssetItemPager !== null) {
-            $this->client->addParam($kparams, "captionAssetItemPager", $captionAssetItemPager->toParams());
+        if ($captionassetitempager !== null) {
+            $this->client->addParam($kparams, "captionAssetItemPager", $captionassetitempager->toParams());
         }
         $this->client->queueServiceActionCall("captionsearch_captionassetitem", "search", $kparams);
         if ($this->client->isMultiRequest()) {

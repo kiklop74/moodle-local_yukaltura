@@ -29,10 +29,7 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 require_once(dirname(__FILE__) . "/KalturaMetadataClientPlugin.php");
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 
-if (!defined('MOODLE_INTERNAL')) {
-    // It must be included from a Moodle page.
-    die('Direct access to this script is forbidden.');
-}
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Kaltura Client API.
@@ -2279,13 +2276,13 @@ class KalturaSyndicationDistributionProvider extends KalturaDistributionProvider
  */
 class KalturaDistributionProfileService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaDistributionProfile $distributionProfile) {
+    public function add(KalturaDistributionProfile $distributionprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "distributionProfile", $distributionProfile->toParams());
+        $this->client->addParam($kparams, "distributionProfile", $distributionprofile->toParams());
         $this->client->queueServiceActionCall("contentdistribution_distributionprofile", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2296,7 +2293,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_distributionprofile", "get", $kparams);
@@ -2309,10 +2306,10 @@ class KalturaDistributionProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaDistributionProfile $distributionProfile) {
+    public function update($id, KalturaDistributionProfile $distributionprofile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "distributionProfile", $distributionProfile->toParams());
+        $this->client->addParam($kparams, "distributionProfile", $distributionprofile->toParams());
         $this->client->queueServiceActionCall("contentdistribution_distributionprofile", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2323,7 +2320,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function updateStatus($id, $status) {
+    public function updateStatus($id, $status) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "status", $status);
@@ -2337,7 +2334,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($id) {
+    public function delete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_distributionprofile", "delete", $kparams);
@@ -2350,7 +2347,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaDistributionProfileFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaDistributionProfileFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -2368,7 +2365,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listByPartner(KalturaPartnerFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listByPartner(KalturaPartnerFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -2397,11 +2394,11 @@ class KalturaDistributionProfileService extends KalturaServiceBase
  */
 class KalturaEntryDistributionService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaEntryDistribution $entryDistribution) {
+    public function add(KalturaEntryDistribution $entryDistribution) {
         $kparams = array();
         $this->client->addParam($kparams, "entryDistribution", $entryDistribution->toParams());
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "add", $kparams);
@@ -2414,7 +2411,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "get", $kparams);
@@ -2427,7 +2424,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function validate($id) {
+    public function validate($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "validate", $kparams);
@@ -2440,10 +2437,10 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaEntryDistribution $entryDistribution) {
+    public function update($id, KalturaEntryDistribution $entrydistribution) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "entryDistribution", $entryDistribution->toParams());
+        $this->client->addParam($kparams, "entryDistribution", $entrydistribution->toParams());
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2454,7 +2451,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($id) {
+    public function delete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "delete", $kparams);
@@ -2467,7 +2464,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaEntryDistributionFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaEntryDistributionFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -2485,10 +2482,10 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function submitAdd($id, $submitWhenReady = false) {
+    public function submitAdd($id, $submitwhenready = false) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "submitWhenReady", $submitWhenReady);
+        $this->client->addParam($kparams, "submitWhenReady", $submitwhenready);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitAdd", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2499,7 +2496,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function submitUpdate($id) {
+    public function submitUpdate($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitUpdate", $kparams);
@@ -2512,7 +2509,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function submitFetchReport($id) {
+    public function submitFetchReport($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitFetchReport", $kparams);
@@ -2525,7 +2522,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function submitDelete($id) {
+    public function submitDelete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitDelete", $kparams);
@@ -2538,7 +2535,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function retrySubmit($id) {
+    public function retrySubmit($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "retrySubmit", $kparams);
@@ -2551,19 +2548,19 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function serveSentData($id, $actionType) {
+    public function serveSentData($id, $actiontype) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "actionType", $actionType);
+        $this->client->addParam($kparams, "actionType", $actiontype);
         $this->client->queueServiceActionCall('contentdistribution_entrydistribution', 'serveSentData', $kparams);
         $resultobject = $this->client->getServeUrl();
         return $resultobject;
     }
 
-    function serveReturnedData($id, $actionType) {
+    public function serveReturnedData($id, $actiontype) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "actionType", $actionType);
+        $this->client->addParam($kparams, "actionType", $actiontype);
         $this->client->queueServiceActionCall('contentdistribution_entrydistribution', 'serveReturnedData', $kparams);
         $resultobject = $this->client->getServeUrl();
         return $resultobject;
@@ -2580,11 +2577,11 @@ class KalturaEntryDistributionService extends KalturaServiceBase
  */
 class KalturaDistributionProviderService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function listAction(KalturaDistributionProviderFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaDistributionProviderFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -2613,13 +2610,13 @@ class KalturaDistributionProviderService extends KalturaServiceBase
  */
 class KalturaGenericDistributionProviderService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaGenericDistributionProvider $genericDistributionProvider) {
+    public function add(KalturaGenericDistributionProvider $genericdistributionprovider) {
         $kparams = array();
-        $this->client->addParam($kparams, "genericDistributionProvider", $genericDistributionProvider->toParams());
+        $this->client->addParam($kparams, "genericDistributionProvider", $genericdistributionprovider->toParams());
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2630,7 +2627,7 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "get", $kparams);
@@ -2643,10 +2640,10 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaGenericDistributionProvider $genericDistributionProvider) {
+    public function update($id, KalturaGenericDistributionProvider $genericdistributionprovider) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "genericDistributionProvider", $genericDistributionProvider->toParams());
+        $this->client->addParam($kparams, "genericDistributionProvider", $genericdistributionprovider->toParams());
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2657,7 +2654,7 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($id) {
+    public function delete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "delete", $kparams);
@@ -2670,7 +2667,7 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaGenericDistributionProviderFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaGenericDistributionProviderFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -2699,13 +2696,13 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase
  */
 class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaGenericDistributionProviderAction $genericDistributionProviderAction) {
+    public function add(KalturaGenericDistributionProviderAction $genericdistributionprovideraction) {
         $kparams = array();
-        $this->client->addParam($kparams, "genericDistributionProviderAction", $genericDistributionProviderAction->toParams());
+        $this->client->addParam($kparams, "genericDistributionProviderAction", $genericdistributionprovideraction->toParams());
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2716,10 +2713,10 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addMrssTransform($id, $xslData) {
+    public function addMrssTransform($id, $xsldata) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "xslData", $xslData);
+        $this->client->addParam($kparams, "xslData", $xsldata);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssTransform", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2730,11 +2727,11 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addMrssTransformFromFile($id, $xslFile) {
+    public function addMrssTransformFromFile($id, $xslfile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $kfiles = array();
-        $this->client->addParam($kfiles, "xslFile", $xslFile);
+        $this->client->addParam($kfiles, "xslFile", $xslfile);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssTransformFromFile", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2745,10 +2742,10 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addMrssValidate($id, $xsdData) {
+    public function addMrssValidate($id, $xsddata) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "xsdData", $xsdData);
+        $this->client->addParam($kparams, "xsdData", $xsddata);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssValidate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2759,11 +2756,11 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addMrssValidateFromFile($id, $xsdFile) {
+    public function addMrssValidateFromFile($id, $xsdfile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $kfiles = array();
-        $this->client->addParam($kfiles, "xsdFile", $xsdFile);
+        $this->client->addParam($kfiles, "xsdFile", $xsdfile);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssValidateFromFile", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2774,10 +2771,10 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addResultsTransform($id, $transformData) {
+    public function addResultsTransform($id, $transformdata) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "transformData", $transformData);
+        $this->client->addParam($kparams, "transformData", $transformdata);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addResultsTransform", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2788,11 +2785,11 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addResultsTransformFromFile($id, $transformFile) {
+    public function addResultsTransformFromFile($id, $transformfile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $kfiles = array();
-        $this->client->addParam($kfiles, "transformFile", $transformFile);
+        $this->client->addParam($kfiles, "transformFile", $transformfile);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addResultsTransformFromFile", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2803,7 +2800,7 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "get", $kparams);
@@ -2816,10 +2813,10 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function getByProviderId($genericDistributionProviderId, $actionType) {
+    public function getByProviderId($genericdistributionproviderid, $actiontype) {
         $kparams = array();
-        $this->client->addParam($kparams, "genericDistributionProviderId", $genericDistributionProviderId);
-        $this->client->addParam($kparams, "actionType", $actionType);
+        $this->client->addParam($kparams, "genericDistributionProviderId", $genericdistributionproviderid);
+        $this->client->addParam($kparams, "actionType", $actiontype);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "getByProviderId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2830,11 +2827,11 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function updateByProviderId($genericDistributionProviderId, $actionType, KalturaGenericDistributionProviderAction $genericDistributionProviderAction) {
+    public function updateByProviderId($genericdistributionproviderid, $actiontype, KalturaGenericDistributionProviderAction $genericdistributionprovideraction) {
         $kparams = array();
-        $this->client->addParam($kparams, "genericDistributionProviderId", $genericDistributionProviderId);
-        $this->client->addParam($kparams, "actionType", $actionType);
-        $this->client->addParam($kparams, "genericDistributionProviderAction", $genericDistributionProviderAction->toParams());
+        $this->client->addParam($kparams, "genericDistributionProviderId", $genericdistributionproviderid);
+        $this->client->addParam($kparams, "actionType", $actiontype);
+        $this->client->addParam($kparams, "genericDistributionProviderAction", $genericdistributionprovideraction->toParams());
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "updateByProviderId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2845,10 +2842,10 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaGenericDistributionProviderAction $genericDistributionProviderAction) {
+    public function update($id, KalturaGenericDistributionProviderAction $genericdistributionprovideraction) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "genericDistributionProviderAction", $genericDistributionProviderAction->toParams());
+        $this->client->addParam($kparams, "genericDistributionProviderAction", $genericdistributionprovideraction->toParams());
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2859,7 +2856,7 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($id) {
+    public function delete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "delete", $kparams);
@@ -2872,10 +2869,10 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function deleteByProviderId($genericDistributionProviderId, $actionType) {
+    public function deleteByProviderId($genericdistributionproviderid, $actiontype) {
         $kparams = array();
-        $this->client->addParam($kparams, "genericDistributionProviderId", $genericDistributionProviderId);
-        $this->client->addParam($kparams, "actionType", $actionType);
+        $this->client->addParam($kparams, "genericDistributionProviderId", $genericdistributionproviderid);
+        $this->client->addParam($kparams, "actionType", $actiontype);
         $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "deleteByProviderId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2886,7 +2883,7 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaGenericDistributionProviderActionFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaGenericDistributionProviderActionFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -2915,13 +2912,13 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
  */
 class KalturaTvComService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function getFeed($distributionProfileId, $hash) {
+    public function getFeed($distributionprofileid, $hash) {
         $kparams = array();
-        $this->client->addParam($kparams, "distributionProfileId", $distributionProfileId);
+        $this->client->addParam($kparams, "distributionProfileId", $distributionprofileid);
         $this->client->addParam($kparams, "hash", $hash);
         $this->client->queueServiceActionCall("tvcomdistribution_tvcom", "getFeed", $kparams);
         if ($this->client->isMultiRequest()) {

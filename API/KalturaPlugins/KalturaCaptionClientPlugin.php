@@ -28,10 +28,7 @@ require_once(dirname(__FILE__) . "/../KalturaEnums.php");
 require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 
-if (!defined('MOODLE_INTERNAL')) {
-    // It must be included from a Moodle page.
-    die('Direct access to this script is forbidden.');
-}
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Kaltura Client API.
@@ -380,7 +377,7 @@ class KalturaCaptionAssetService extends KalturaServiceBase
      * Constructor
      * @param KalturaClient $client - client object
      */
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
@@ -390,7 +387,7 @@ class KalturaCaptionAssetService extends KalturaServiceBase
      * @param KalturaCaptionAsset #captionasset - caption asset
      * @return obj - result object
      */
-    function add($entryid, KalturaCaptionAsset $captionasset) {
+    public function add($entryid, KalturaCaptionAsset $captionasset) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "captionAsset", $captionasset->toParams());
@@ -404,10 +401,10 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function setContent($id, KalturaContentResource $contentResource) {
+    public function setContent($id, KalturaContentResource $contentresource) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+        $this->client->addParam($kparams, "contentResource", $contentresource->toParams());
         $this->client->queueServiceActionCall("caption_captionasset", "setContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -418,10 +415,10 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaCaptionAsset $captionAsset) {
+    public function update($id, KalturaCaptionAsset $captionasset) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "captionAsset", $captionAsset->toParams());
+        $this->client->addParam($kparams, "captionAsset", $captionasset->toParams());
         $this->client->queueServiceActionCall("caption_captionasset", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -432,19 +429,19 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function serveByEntryId($entryId, $captionParamId = null) {
+    public function serveByEntryId($entryid, $captionparamid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "captionParamId", $captionParamId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "captionParamId", $captionparamid);
         $this->client->queueServiceActionCall('caption_captionasset', 'serveByEntryId', $kparams);
         $resultobject = $this->client->getServeUrl();
         return $resultobject;
     }
 
-    function getUrl($id, $storageId = null) {
+    public function getUrl($id, $storageid = null) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "storageId", $storageId);
+        $this->client->addParam($kparams, "storageId", $storageid);
         $this->client->queueServiceActionCall("caption_captionasset", "getUrl", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -455,7 +452,7 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function getRemotePaths($id) {
+    public function getRemotePaths($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("caption_captionasset", "getRemotePaths", $kparams);
@@ -468,17 +465,17 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function serve($captionAssetId) {
+    public function serve($captionassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "captionAssetId", $captionAssetId);
+        $this->client->addParam($kparams, "captionAssetId", $captionassetid);
         $this->client->queueServiceActionCall('caption_captionasset', 'serve', $kparams);
         $resultobject = $this->client->getServeUrl();
         return $resultobject;
     }
 
-    function setAsDefault($captionAssetId) {
+    public function setAsDefault($captionassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "captionAssetId", $captionAssetId);
+        $this->client->addParam($kparams, "captionAssetId", $captionassetid);
         $this->client->queueServiceActionCall("caption_captionasset", "setAsDefault", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -489,9 +486,9 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($captionAssetId) {
+    public function get($captionassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "captionAssetId", $captionAssetId);
+        $this->client->addParam($kparams, "captionAssetId", $captionassetid);
         $this->client->queueServiceActionCall("caption_captionasset", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -502,7 +499,7 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -520,9 +517,9 @@ class KalturaCaptionAssetService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($captionAssetId) {
+    public function delete($captionassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "captionAssetId", $captionAssetId);
+        $this->client->addParam($kparams, "captionAssetId", $captionassetid);
         $this->client->queueServiceActionCall("caption_captionasset", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -544,13 +541,13 @@ class KalturaCaptionAssetService extends KalturaServiceBase
  */
 class KalturaCaptionParamsService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaCaptionParams $captionParams) {
+    public function add(KalturaCaptionParams $captionparams) {
         $kparams = array();
-        $this->client->addParam($kparams, "captionParams", $captionParams->toParams());
+        $this->client->addParam($kparams, "captionParams", $captionparams->toParams());
         $this->client->queueServiceActionCall("caption_captionparams", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -561,7 +558,7 @@ class KalturaCaptionParamsService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("caption_captionparams", "get", $kparams);
@@ -574,10 +571,10 @@ class KalturaCaptionParamsService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaCaptionParams $captionParams) {
+    public function update($id, KalturaCaptionParams $captionparams) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "captionParams", $captionParams->toParams());
+        $this->client->addParam($kparams, "captionParams", $captionparams->toParams());
         $this->client->queueServiceActionCall("caption_captionparams", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();

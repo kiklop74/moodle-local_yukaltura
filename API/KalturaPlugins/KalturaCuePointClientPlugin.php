@@ -28,10 +28,7 @@ require_once(dirname(__FILE__) . "/../KalturaEnums.php");
 require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 
-if (!defined('MOODLE_INTERNAL')) {
-    // It must be included from a Moodle page.
-    die('Direct access to this script is forbidden.');
-}
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Kaltura Client API.
@@ -442,13 +439,13 @@ class KalturaCuePointListResponse extends KalturaObjectBase
  */
 class KalturaCuePointService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function add(KalturaCuePoint $cuePoint) {
+    public function add(KalturaCuePoint $cuepoint) {
         $kparams = array();
-        $this->client->addParam($kparams, "cuePoint", $cuePoint->toParams());
+        $this->client->addParam($kparams, "cuePoint", $cuepoint->toParams());
         $this->client->queueServiceActionCall("cuepoint_cuepoint", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -459,10 +456,10 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function addFromBulk($fileData) {
+    public function addFromBulk($filedata) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->queueServiceActionCall("cuepoint_cuepoint", "addFromBulk", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -473,7 +470,7 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function serveBulk(KalturaCuePointFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function serveBulk(KalturaCuePointFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -486,7 +483,7 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function get($id) {
+    public function get($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("cuepoint_cuepoint", "get", $kparams);
@@ -499,7 +496,7 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaCuePointFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaCuePointFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -517,7 +514,7 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function count(KalturaCuePointFilter $filter = null) {
+    public function count(KalturaCuePointFilter $filter = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -532,10 +529,10 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function update($id, KalturaCuePoint $cuePoint) {
+    public function update($id, KalturaCuePoint $cuepoint) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "cuePoint", $cuePoint->toParams());
+        $this->client->addParam($kparams, "cuePoint", $cuepoint->toParams());
         $this->client->queueServiceActionCall("cuepoint_cuepoint", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();

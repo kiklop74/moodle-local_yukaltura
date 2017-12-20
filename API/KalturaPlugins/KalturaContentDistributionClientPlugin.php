@@ -2398,9 +2398,9 @@ class KalturaEntryDistributionService extends KalturaServiceBase
         parent::__construct($client);
     }
 
-    public function add(KalturaEntryDistribution $entryDistribution) {
+    public function add(KalturaEntryDistribution $entrydistribution) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryDistribution", $entryDistribution->toParams());
+        $this->client->addParam($kparams, "entryDistribution", $entrydistribution->toParams());
         $this->client->queueServiceActionCall("contentdistribution_entrydistribution", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();

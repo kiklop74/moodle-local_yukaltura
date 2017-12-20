@@ -543,7 +543,7 @@ class KalturaCuePointService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($id) {
+    public function delete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("cuepoint_cuepoint", "delete", $kparams);

@@ -29,10 +29,7 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 require_once(dirname(__FILE__) . "/KalturaContentDistributionClientPlugin.php");
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 
-if (!defined('MOODLE_INTERNAL')) {
-    // It must be included from a Moodle page.
-    die('Direct access to this script is forbidden.');
-}
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Kaltura Client API.
@@ -191,13 +188,13 @@ class KalturaDoubleClickDistributionProvider extends KalturaDistributionProvider
  */
 class KalturaDoubleClickService extends KalturaServiceBase
 {
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
-    function getFeed($distributionProfileId, $hash, $page = 1, $period = -1) {
+    public function getFeed($distributionprofileid, $hash, $page = 1, $period = -1) {
         $kparams = array();
-        $this->client->addParam($kparams, "distributionProfileId", $distributionProfileId);
+        $this->client->addParam($kparams, "distributionProfileId", $distributionprofileid);
         $this->client->addParam($kparams, "hash", $hash);
         $this->client->addParam($kparams, "page", $page);
         $this->client->addParam($kparams, "period", $period);

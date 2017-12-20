@@ -585,7 +585,7 @@ class KalturaCaptionParamsService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function delete($id) {
+    public function delete($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("caption_captionparams", "delete", $kparams);
@@ -598,7 +598,7 @@ class KalturaCaptionParamsService extends KalturaServiceBase
         return $resultobject;
     }
 
-    function listAction(KalturaCaptionParamsFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaCaptionParamsFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());

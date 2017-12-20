@@ -663,11 +663,11 @@ class KalturaDocumentsService extends KalturaServiceBase
         return $resultobject;
     }
 
-    public function serve($entryId, $flavorAssetId = null, $forceProxy = false) {
+    public function serve($entryid, $flavorassetid = null, $forceproxy = false) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "flavorAssetId", $flavorAssetId);
-        $this->client->addParam($kparams, "forceProxy", $forceProxy);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "flavorAssetId", $flavorassetid);
+        $this->client->addParam($kparams, "forceProxy", $forceproxy);
         $this->client->queueServiceActionCall('document_documents', 'serve', $kparams);
         $resultobject = $this->client->getServeUrl();
         return $resultobject;

@@ -31,7 +31,7 @@ before_install:
   - phpenv config-rm xdebug.ini
   - nvm ls-remote
   - nvm install v8.9
-  - nvm use --lts
+  - nvm use v8.9
   - nvm alias default v8.9.1
   - node --version
   - cd ../..

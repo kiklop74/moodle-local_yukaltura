@@ -668,7 +668,6 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Activate CategoryEntry when it is pending moderation
-     * 
      * @param string $entryid
      * @param int $categoryid
      */
@@ -751,7 +750,7 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
      * @param int $categoryid
      * @param bool $shouldupdate
      * @return int
-      */
+     */
     public function index($entryid, $categoryid, $shouldupdate = true) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);

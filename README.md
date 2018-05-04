@@ -34,7 +34,7 @@ How to use
 
 User's guide, click [here](http://www.cc.yamaguchi-u.ac.jp/guides/cas/plugins/userguide_version1.1.pdf).
 
-Now, we wrote sections about installation, initial configuration and summary of "My Media".
+Now, we wrote sections about installation, initial configuration and summary of "My Media", summary of "Kaltura Media Resource".
 
 Rest sections will be written soon...
 

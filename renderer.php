@@ -42,6 +42,57 @@ class local_yukaltura_renderer extends plugin_renderer_base {
      * @return string - HTML markup for media table
      */
     public function create_media_table($medialist = array()) {
+        $output = '';
+        $maxcolumns = 3;
+
+        $attr = array('border' => '0', 'align' => 'center', 'id' => 'selector_media');
+
+        $output .= html_writer::start_tag('table', $attr);
+
+        $row = 0;
+        $col = 0;
+
+        foreach ($medialist as $key => $media) {
+            if ($col == 0) {
+                $output .= html_writer::start_tag('tr');
+            }
+
+            $attr = array();
+
+            if ($row == 0) {
+                $attr = array('class' => 'selector_entry', 'align' => 'center', 'width' => '25%');
+            } else {
+                $attr = array('class' => 'selector_entry', 'align' => 'center');
+            }
+
+            $output .= html_writer::start_tag('td', $attr);
+            if (KalturaEntryStatus::READY == $media->status) {
+                $output .= $this->create_media_entry_markup($media, true);
+            } else {
+                $output .= $this->create_media_entry_markup($media, false);
+            }
+
+            $output .= html_writer::end_tag('td');
+
+            $col= $col + 1;
+            if ($col ==  $maxcolumns) {
+                $row = $row + 1;
+                $col = 0;
+               $output .= html_writer::end_tag('tr');
+            }
+        }
+
+        if ($col >= 1) {
+            $output .= html_writer::end_tag('tr');
+        }
+
+        $output .= html_writer::end_tag('table');
+
+        return $output;
+    }
+
+
+    public function create_media_table2($medialist = array()) {
 
         $output      = '';
         $maxcolumns = 3;
@@ -50,6 +101,7 @@ class local_yukaltura_renderer extends plugin_renderer_base {
 
         $table->id = 'selector_media';
         $table->size = array('25%', '25%', '25%');
+        $table->border = 5;
         $table->colclasses = array('media column 1', 'media column 2', 'media column 3');
 
         $table->align = array('center', 'center', 'center');
@@ -290,11 +342,11 @@ class local_yukaltura_renderer extends plugin_renderer_base {
         $attr   = array('class' => 'selector media thumbnail');
         $output .= html_writer::start_tag('div', $attr);
 
-        $attr    = array('src' => $url . '/width/120/height/80/type/3',
+        $attr    = array('src' => $url . '/width/120/height/90/type/3',
                          'class' => 'media_thumbnail',
                          'id' => $entryid,
                          'alt' => $alt,
-                         'height' => '80',
+                         'height' => '90',
                          'width'  => '120',
                          'title' => $alt);
 
@@ -572,11 +624,11 @@ class local_yukaltura_renderer extends plugin_renderer_base {
 
         // Panel markup to set media properties.
 
-        $attr = array('class' => 'hd');
+        $attr = array('class' => 'media_properties_header');
         $output .= html_writer::tag('div', '<center>' . get_string('media_prop_header', 'local_yukaltura') . '</center>', $attr);
         $output .= html_writer::start_tag('br', array());
 
-        $attr = array('class' => 'bd');
+        $attr = array('class' => 'media_properties_body');
 
         $propertiesmarkup = $this->get_media_preferences_markup();
 

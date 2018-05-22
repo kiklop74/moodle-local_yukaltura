@@ -23,6 +23,11 @@ Requirements
 * PHP5.6 or greater.
 * Web browsers must support the JavaScript and HTML5.
 
+Supported themes
+-----
+
+"YU Kaltura media Package" can work well with "Clean" and "Boost" (version 1.1.7 and later) Themes of the Moodle. This package might be able to work with other themes.
+
 Installation
 ------
 

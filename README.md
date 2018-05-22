@@ -26,7 +26,10 @@ Requirements
 Supported themes
 -----
 
-"YU Kaltura media Package" can work well with "Clean" and "Boost" (version 1.1.7 and later) Themes of the Moodle. This package might be able to work with other themes.
+* Clean
+* Boost (version 1.1.7 and later)
+
+This plugin package might be able to work with other themes.
 
 Installation
 ------

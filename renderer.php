@@ -91,69 +91,6 @@ class local_yukaltura_renderer extends plugin_renderer_base {
         return $output;
     }
 
-
-    public function create_media_table2($medialist = array()) {
-
-        $output      = '';
-        $maxcolumns = 3;
-
-        $table = new html_table();
-
-        $table->id = 'selector_media';
-        $table->size = array('25%', '25%', '25%');
-        $table->border = 5;
-        $table->colclasses = array('media column 1', 'media column 2', 'media column 3');
-
-        $table->align = array('center', 'center', 'center');
-        $table->data = array();
-
-        $i = 0;
-        $x = 0;
-        $data = array();
-
-        foreach ($medialist as $key => $media) {
-            if (KalturaEntryStatus::READY == $media->status) {
-                $data[] = $this->create_media_entry_markup($media, true);
-            } else {
-                $data[] = $this->create_media_entry_markup($media, false);
-            }
-
-            // When the max number of columns is reached, add the data to the table object.
-            if ($maxcolumns == count($data)) {
-
-                $table->data[]       = $data;
-                $table->rowclasses[] = 'row_' . $i;
-                $data                = array();
-                $i++;
-
-            } else if ($x == count($medialist) - 1 ) {
-
-                $leftovercells = $maxcolumns - count($data);
-
-                // Add some extra cells to make the table symetrical.
-                if ($leftovercells) {
-                    for ($t = 1; $t <= $leftovercells; $t++) {
-                        $data[] = '';
-                    }
-                }
-                $table->data[] = $data;
-                $table->rowclasses[] = 'row_' . $i;
-
-            }
-
-            $x++;
-        }
-
-        $attr = array('style' => 'overflow:auto;overflow-y:hidden');
-        $output .= html_writer::start_tag('div', $attr);
-        $output .= html_writer::start_tag('center', array());
-        $output .= html_writer::table($table);
-        $output .= html_writer::end_tag('center', array());
-        $output .= html_writer::end_tag('div');
-
-        echo $output;
-    }
-
     /**
      * This function creates HTML markup used to sort the media listing.
      * @return string - HTML markup for sorting pulldown.

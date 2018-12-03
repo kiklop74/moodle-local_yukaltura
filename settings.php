@@ -300,7 +300,8 @@ if ($hassiteconfig) {
 
     // Upload checkbox.
     $adminsetting = new admin_setting_configcheckbox('kalmediaassign_upload',
-                                                     get_string('kalmediaassign_upload', 'local_yukaltura'),                                                                 get_string('kalmediaassign_upload_desc', 'local_yukaltura'), '0');
+                                                     get_string('kalmediaassign_upload', 'local_yukaltura'),
+                                                     get_string('kalmediaassign_upload_desc', 'local_yukaltura'), '0');
     $adminsetting->plugin = KALTURA_PLUGIN_NAME;
     $settings->add($adminsetting);
 

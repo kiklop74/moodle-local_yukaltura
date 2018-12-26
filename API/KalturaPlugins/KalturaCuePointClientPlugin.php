@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -458,10 +457,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "KalturaCuePoint");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "KalturaCuePoint");
+        return $resultobject;
     }
 
     /**
@@ -477,10 +476,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "KalturaCuePointListResponse");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "KalturaCuePointListResponse");
+        return $resultobject;
     }
 
     /**
@@ -497,10 +496,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "KalturaCuePoint");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "KalturaCuePoint");
+        return $resultobject;
     }
 
     /**
@@ -517,10 +516,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "integer");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "integer");
+        return $resultobject;
     }
 
     /**
@@ -534,9 +533,9 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "null");
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "null");
     }
 
     /**
@@ -551,10 +550,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "KalturaCuePoint");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "KalturaCuePoint");
+        return $resultobject;
     }
 
     /**
@@ -575,10 +574,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "KalturaCuePointListResponse");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "KalturaCuePointListResponse");
+        return $resultobject;
     }
 
     /**
@@ -599,7 +598,7 @@ class KalturaCuePointService extends KalturaServiceBase {
             $this->client->addParam($kparams, "pager", $pager->toParams());
         }
         $this->client->queueServiceActionCall("cuepoint_cuepoint", "serveBulk", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();
@@ -619,10 +618,10 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "KalturaCuePoint");
-        return $resultObject;
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "KalturaCuePoint");
+        return $resultobject;
     }
 
     /**
@@ -638,9 +637,9 @@ class KalturaCuePointService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "null");
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "null");
     }
 }
 /**

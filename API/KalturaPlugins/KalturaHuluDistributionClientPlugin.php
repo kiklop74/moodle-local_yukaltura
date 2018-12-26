@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -72,7 +72,8 @@ class KalturaHuluDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaHuluDistributionProvider extends KalturaDistributionProvider {}
+class KalturaHuluDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -246,7 +247,8 @@ class KalturaHuluDistributionProfile extends KalturaConfigurableDistributionProf
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaHuluDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaHuluDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -256,7 +258,8 @@ abstract class KalturaHuluDistributionProviderBaseFilter extends KalturaDistribu
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaHuluDistributionProviderFilter extends KalturaHuluDistributionProviderBaseFilter {}
+class KalturaHuluDistributionProviderFilter extends KalturaHuluDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -266,7 +269,8 @@ class KalturaHuluDistributionProviderFilter extends KalturaHuluDistributionProvi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaHuluDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaHuluDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -276,7 +280,8 @@ abstract class KalturaHuluDistributionProfileBaseFilter extends KalturaConfigura
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaHuluDistributionProfileFilter extends KalturaHuluDistributionProfileBaseFilter {}
+class KalturaHuluDistributionProfileFilter extends KalturaHuluDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

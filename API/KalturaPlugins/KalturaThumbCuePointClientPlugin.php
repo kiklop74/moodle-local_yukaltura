@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -212,7 +212,8 @@ abstract class KalturaThumbCuePointBaseFilter extends KalturaCuePointFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaThumbCuePointFilter extends KalturaThumbCuePointBaseFilter {}
+class KalturaThumbCuePointFilter extends KalturaThumbCuePointBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -222,7 +223,8 @@ class KalturaThumbCuePointFilter extends KalturaThumbCuePointBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaTimedThumbAssetBaseFilter extends KalturaThumbAssetFilter {}
+abstract class KalturaTimedThumbAssetBaseFilter extends KalturaThumbAssetFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -232,7 +234,8 @@ abstract class KalturaTimedThumbAssetBaseFilter extends KalturaThumbAssetFilter 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaTimedThumbAssetFilter extends KalturaTimedThumbAssetBaseFilter {}
+class KalturaTimedThumbAssetFilter extends KalturaTimedThumbAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.

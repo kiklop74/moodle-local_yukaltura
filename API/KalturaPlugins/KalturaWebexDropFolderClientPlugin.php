@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -238,7 +237,8 @@ class KalturaWebexDropFolderContentProcessorJobData extends KalturaDropFolderCon
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaWebexDropFolderBaseFilter extends KalturaDropFolderFilter {}
+abstract class KalturaWebexDropFolderBaseFilter extends KalturaDropFolderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -248,7 +248,8 @@ abstract class KalturaWebexDropFolderBaseFilter extends KalturaDropFolderFilter 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaWebexDropFolderFileBaseFilter extends KalturaDropFolderFileFilter {}
+abstract class KalturaWebexDropFolderFileBaseFilter extends KalturaDropFolderFileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -258,7 +259,8 @@ abstract class KalturaWebexDropFolderFileBaseFilter extends KalturaDropFolderFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWebexDropFolderFileFilter extends KalturaWebexDropFolderFileBaseFilter {}
+class KalturaWebexDropFolderFileFilter extends KalturaWebexDropFolderFileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -268,7 +270,8 @@ class KalturaWebexDropFolderFileFilter extends KalturaWebexDropFolderFileBaseFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWebexDropFolderFilter extends KalturaWebexDropFolderBaseFilter {}
+class KalturaWebexDropFolderFilter extends KalturaWebexDropFolderBaseFilter {
+}
 
 /**
  * Kaltura Client API.

@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -170,7 +170,8 @@ class KalturaDailymotionDistributionCaptionInfo extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDailymotionDistributionProvider extends KalturaDistributionProvider {}
+class KalturaDailymotionDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -235,7 +236,8 @@ class KalturaDailymotionDistributionProfile extends KalturaConfigurableDistribut
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaDailymotionDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaDailymotionDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -245,7 +247,8 @@ abstract class KalturaDailymotionDistributionProviderBaseFilter extends KalturaD
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDailymotionDistributionProviderFilter extends KalturaDailymotionDistributionProviderBaseFilter {}
+class KalturaDailymotionDistributionProviderFilter extends KalturaDailymotionDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -255,7 +258,8 @@ class KalturaDailymotionDistributionProviderFilter extends KalturaDailymotionDis
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaDailymotionDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaDailymotionDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -265,7 +269,8 @@ abstract class KalturaDailymotionDistributionProfileBaseFilter extends KalturaCo
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDailymotionDistributionProfileFilter extends KalturaDailymotionDistributionProfileBaseFilter {}
+class KalturaDailymotionDistributionProfileFilter extends KalturaDailymotionDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

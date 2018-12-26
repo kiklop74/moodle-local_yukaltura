@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -129,7 +128,8 @@ class KalturaFtpDistributionFile extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFtpDistributionProvider extends KalturaDistributionProvider {}
+class KalturaFtpDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -274,7 +274,8 @@ class KalturaFtpDistributionProfile extends KalturaConfigurableDistributionProfi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFtpScheduledDistributionProvider extends KalturaFtpDistributionProvider {}
+class KalturaFtpScheduledDistributionProvider extends KalturaFtpDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -284,7 +285,8 @@ class KalturaFtpScheduledDistributionProvider extends KalturaFtpDistributionProv
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaFtpDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaFtpDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -294,7 +296,8 @@ abstract class KalturaFtpDistributionProviderBaseFilter extends KalturaDistribut
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFtpDistributionProviderFilter extends KalturaFtpDistributionProviderBaseFilter {}
+class KalturaFtpDistributionProviderFilter extends KalturaFtpDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -304,7 +307,8 @@ class KalturaFtpDistributionProviderFilter extends KalturaFtpDistributionProvide
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaFtpDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaFtpDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -314,7 +318,8 @@ abstract class KalturaFtpDistributionProfileBaseFilter extends KalturaConfigurab
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaFtpScheduledDistributionProviderBaseFilter extends KalturaFtpDistributionProviderFilter {}
+abstract class KalturaFtpScheduledDistributionProviderBaseFilter extends KalturaFtpDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -324,7 +329,8 @@ abstract class KalturaFtpScheduledDistributionProviderBaseFilter extends Kaltura
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFtpDistributionProfileFilter extends KalturaFtpDistributionProfileBaseFilter {}
+class KalturaFtpDistributionProfileFilter extends KalturaFtpDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -334,7 +340,8 @@ class KalturaFtpDistributionProfileFilter extends KalturaFtpDistributionProfileB
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFtpScheduledDistributionProviderFilter extends KalturaFtpScheduledDistributionProviderBaseFilter {}
+class KalturaFtpScheduledDistributionProviderFilter extends KalturaFtpScheduledDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.

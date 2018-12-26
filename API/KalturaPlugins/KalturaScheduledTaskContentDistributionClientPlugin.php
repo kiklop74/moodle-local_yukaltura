@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -64,8 +64,7 @@ class KalturaScheduledTaskContentDistributionClientPlugin extends KalturaClientP
      * Constructor of Kaltura Scheduled Task Content Distribution Client Plugin.
      * @param KalturaClient $client - instance of KalturaClinet.
      */
-    public function __construct(KalturaClient $client)
-    {
+    public function __construct(KalturaClient $client) {
         parent::__construct($client);
     }
 

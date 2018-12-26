@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -277,7 +277,8 @@ class KalturaShortLinkListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaShortLinkFilter extends KalturaShortLinkBaseFilter {}
+class KalturaShortLinkFilter extends KalturaShortLinkBaseFilter {
+}
 
 
 /**
@@ -365,7 +366,7 @@ class KalturaShortLinkService extends KalturaServiceBase {
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "proxy", $proxy);
         $this->client->queueServiceActionCall("shortlink_shortlink", "goto", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();

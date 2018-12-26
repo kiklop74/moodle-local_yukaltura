@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -335,7 +335,8 @@ class KalturaDeleteEntryFlavorsObjectTask extends KalturaObjectTask {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDeleteEntryObjectTask extends KalturaObjectTask {}
+class KalturaDeleteEntryObjectTask extends KalturaObjectTask {
+}
 
 /**
  * Kaltura Client API.
@@ -345,7 +346,8 @@ class KalturaDeleteEntryObjectTask extends KalturaObjectTask {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDeleteLocalContentObjectTask extends KalturaObjectTask {}
+class KalturaDeleteLocalContentObjectTask extends KalturaObjectTask {
+}
 
 /**
  * Kaltura Client API.
@@ -653,7 +655,8 @@ class KalturaStorageExportObjectTask extends KalturaObjectTask {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaScheduledTaskProfileFilter extends KalturaScheduledTaskProfileBaseFilter {}
+class KalturaScheduledTaskProfileFilter extends KalturaScheduledTaskProfileBaseFilter {
+}
 
 
 /**
@@ -758,8 +761,9 @@ class KalturaScheduledTaskProfileService extends KalturaServiceBase {
             $this->client->addParam($kparams, "pager", $pager->toParams());
         }
         $this->client->queueServiceActionCall("scheduledtask_scheduledtaskprofile", "list", $kparams);
-        if ($this->client->isMultiRequest())
+        if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
+        }
         $resultobject = $this->client->doQueue();
         $this->client->throwExceptionIfError($resultobject);
         $this->client->validateObjectType($resultobject, "KalturaScheduledTaskProfileListResponse");

@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 /**
  * Kaltura Client API.
@@ -67,7 +66,8 @@ class KalturaListResponse extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBaseRestriction extends KalturaObjectBase {}
+abstract class KalturaBaseRestriction extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -173,7 +173,8 @@ class KalturaContextTypeHolder extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAccessControlContextTypeHolder extends KalturaContextTypeHolder {}
+class KalturaAccessControlContextTypeHolder extends KalturaContextTypeHolder {
+}
 
 /**
  * Kaltura Client API.
@@ -940,7 +941,8 @@ class KalturaAssetParams extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaResource extends KalturaObjectBase {}
+abstract class KalturaResource extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -951,8 +953,8 @@ abstract class KalturaResource extends KalturaObjectBase {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaContentResource extends KalturaResource
-{}
+abstract class KalturaContentResource extends KalturaResource{
+}
 
 /**
  * Kaltura Client API.
@@ -963,8 +965,7 @@ abstract class KalturaContentResource extends KalturaResource
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAssetParamsResourceContainer extends KalturaResource
-{
+class KalturaAssetParamsResourceContainer extends KalturaResource {
     /**
      * The content resource to associate with asset params
      *
@@ -1012,7 +1013,8 @@ class KalturaAssetServeOptions extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaOperationAttributes extends KalturaObjectBase {}
+abstract class KalturaOperationAttributes extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -1367,7 +1369,8 @@ class KalturaBaseEntry extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBaseEntryCloneOptionItem extends KalturaObjectBase {}
+abstract class KalturaBaseEntryCloneOptionItem extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -1378,7 +1381,8 @@ abstract class KalturaBaseEntryCloneOptionItem extends KalturaObjectBase {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBaseResponseProfile extends KalturaObjectBase {}
+abstract class KalturaBaseResponseProfile extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -1556,7 +1560,8 @@ abstract class KalturaBaseSyndicationFeed extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaJobData extends KalturaObjectBase {}
+class KalturaJobData extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -2629,7 +2634,8 @@ class KalturaBulkUpload extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBulkUploadObjectData extends KalturaObjectBase {}
+abstract class KalturaBulkUploadObjectData extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -2742,8 +2748,8 @@ class KalturaCategory extends KalturaObjectBase {
     public $partnerId = null;
 
     /**
-     * The name of the Category. 
-     *      The following characters are not allowed: '<', '>', ','
+     * The name of the Category.
+     * The following characters are not allowed: '<', '>', ','
      *
      * @var string
      */
@@ -3174,7 +3180,8 @@ class KalturaClientNotification extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaContext extends KalturaObjectBase {}
+abstract class KalturaContext extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -3414,7 +3421,8 @@ class KalturaCropDimensions extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaPluginReplacementOptionsItem extends KalturaObjectBase {}
+abstract class KalturaPluginReplacementOptionsItem extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -3895,7 +3903,8 @@ class KalturaUrlTokenizer extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaSearchItem extends KalturaObjectBase {}
+abstract class KalturaSearchItem extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -3929,7 +3938,8 @@ abstract class KalturaFilter extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaRelatedFilter extends KalturaFilter {}
+abstract class KalturaRelatedFilter extends KalturaFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -4258,7 +4268,8 @@ class KalturaFileSyncDescriptor extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDestFileSyncDescriptor extends KalturaFileSyncDescriptor {}
+class KalturaDestFileSyncDescriptor extends KalturaFileSyncDescriptor {
+}
 
 /**
  * Kaltura Client API.
@@ -4294,8 +4305,8 @@ class KalturaPager extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaFilterPager extends KalturaPager
-{}
+class KalturaFilterPager extends KalturaPager{
+}
 
 /**
  * Kaltura Client API.
@@ -4390,7 +4401,8 @@ class KalturaDetachedResponseProfile extends KalturaBaseResponseProfile {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPluginData extends KalturaObjectBase {}
+class KalturaPluginData extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -8000,7 +8012,8 @@ abstract class KalturaPlayableEntryBaseFilter extends KalturaBaseEntryFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPlayableEntryFilter extends KalturaPlayableEntryBaseFilter {}
+class KalturaPlayableEntryFilter extends KalturaPlayableEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -8082,7 +8095,8 @@ abstract class KalturaMediaEntryBaseFilter extends KalturaPlayableEntryFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaEntryFilter extends KalturaMediaEntryBaseFilter {}
+class KalturaMediaEntryFilter extends KalturaMediaEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -8590,10 +8604,10 @@ class KalturaPlaybackContext extends KalturaObjectBase {
 
 class KalturaPlaylist extends KalturaBaseEntry {
     /**
-     * Content of the playlist - 
-     *      XML if the playlistType is dynamic 
-     *      text if the playlistType is static 
-     *      url if the playlistType is mRss
+     * Content of the playlist -
+     * XML if the playlistType is dynamic
+     * text if the playlistType is static
+     * url if the playlistType is mRss
      *
      * @var string
      */
@@ -9137,7 +9151,8 @@ class KalturaResponseProfileCacheRecalculateResults extends KalturaObjectBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaScope extends KalturaObjectBase {}
+class KalturaScope extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -11192,7 +11207,8 @@ abstract class KalturaBatchJobBaseFilter extends KalturaFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBatchJobFilter extends KalturaBatchJobBaseFilter {}
+class KalturaBatchJobFilter extends KalturaBatchJobBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -11203,7 +11219,8 @@ class KalturaBatchJobFilter extends KalturaBatchJobBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAccessControlBlockAction extends KalturaRuleAction {}
+class KalturaAccessControlBlockAction extends KalturaRuleAction {
+}
 
 /**
  * Kaltura Client API.
@@ -11262,7 +11279,8 @@ class KalturaAccessControlLimitFlavorsAction extends KalturaRuleAction {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAccessControlLimitThumbnailCaptureAction extends KalturaRuleAction {}
+class KalturaAccessControlLimitThumbnailCaptureAction extends KalturaRuleAction {
+}
 
 /**
  * Kaltura Client API.
@@ -11376,7 +11394,8 @@ class KalturaAccessControlServeRemoteEdgeServerAction extends KalturaRuleAction 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAdminUser extends KalturaUser {}
+class KalturaAdminUser extends KalturaUser {
+}
 
 /**
  * Kaltura Client API.
@@ -11730,7 +11749,8 @@ class KalturaBaseEntryListResponse extends KalturaListResponse {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBaseSyndicationFeedBaseFilter extends KalturaFilter {}
+abstract class KalturaBaseSyndicationFeedBaseFilter extends KalturaFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -11844,7 +11864,8 @@ abstract class KalturaBulkUploadBaseFilter extends KalturaFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBulkUploadCategoryData extends KalturaBulkUploadObjectData {}
+class KalturaBulkUploadCategoryData extends KalturaBulkUploadObjectData {
+}
 
 /**
  * Kaltura Client API.
@@ -11855,7 +11876,8 @@ class KalturaBulkUploadCategoryData extends KalturaBulkUploadObjectData {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBulkUploadCategoryEntryData extends KalturaBulkUploadObjectData {}
+class KalturaBulkUploadCategoryEntryData extends KalturaBulkUploadObjectData {
+}
 
 /**
  * Kaltura Client API.
@@ -11866,7 +11888,8 @@ class KalturaBulkUploadCategoryEntryData extends KalturaBulkUploadObjectData {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBulkUploadCategoryUserData extends KalturaBulkUploadObjectData {}
+class KalturaBulkUploadCategoryUserData extends KalturaBulkUploadObjectData {
+}
 
 /**
  * Kaltura Client API.
@@ -12704,7 +12727,8 @@ abstract class KalturaCompareCondition extends KalturaCondition {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDataCenterContentResource extends KalturaContentResource {}
+abstract class KalturaDataCenterContentResource extends KalturaContentResource {
+}
 
 /**
  * Kaltura Client API.
@@ -14265,7 +14289,8 @@ class KalturaEntryServerNodeListResponse extends KalturaListResponse {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBooleanField extends KalturaBooleanValue {}
+abstract class KalturaBooleanField extends KalturaBooleanValue {
+}
 
 /**
  * Kaltura Client API.
@@ -14312,7 +14337,8 @@ class KalturaFileAssetListResponse extends KalturaListResponse {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaFlattenJobData extends KalturaJobData {}
+class KalturaFlattenJobData extends KalturaJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -14403,7 +14429,8 @@ class KalturaGoogleVideoSyndicationFeed extends KalturaBaseSyndicationFeed {
      *
      * @var KalturaGoogleSyndicationFeedAdultValues
      */
-    public $adultContent = null;}
+    public $adultContent = null;
+}
 
 /**
  * Kaltura Client API.
@@ -15559,7 +15586,8 @@ class KalturaQuizUserEntry extends KalturaUserEntry {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaRecalculateCacheJobData extends KalturaJobData {}
+abstract class KalturaRecalculateCacheJobData extends KalturaJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -16093,7 +16121,8 @@ class KalturaServerNodeListResponse extends KalturaListResponse {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaSessionResponse extends KalturaStartWidgetSessionResponse {}
+class KalturaSessionResponse extends KalturaStartWidgetSessionResponse {
+}
 
 /**
  * Kaltura Client API.
@@ -16104,7 +16133,8 @@ class KalturaSessionResponse extends KalturaStartWidgetSessionResponse {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaSessionRestriction extends KalturaBaseRestriction {}
+class KalturaSessionRestriction extends KalturaBaseRestriction {
+}
 
 /**
  * Kaltura Client API.
@@ -16140,7 +16170,8 @@ class KalturaSiteRestriction extends KalturaBaseRestriction {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaStorageAddAction extends KalturaRuleAction {}
+class KalturaStorageAddAction extends KalturaRuleAction {
+}
 
 /**
  * Kaltura Client API.
@@ -16405,7 +16436,8 @@ class KalturaThumbParamsListResponse extends KalturaListResponse {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaThumbnailServeOptions extends KalturaAssetServeOptions {}
+class KalturaThumbnailServeOptions extends KalturaAssetServeOptions {
+}
 
 /**
  * Kaltura Client API.
@@ -16951,7 +16983,8 @@ class KalturaUrlTokenizerLevel3 extends KalturaUrlTokenizer {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUrlTokenizerLimeLight extends KalturaUrlTokenizer {}
+class KalturaUrlTokenizerLimeLight extends KalturaUrlTokenizer {
+}
 
 /**
  * Kaltura Client API.
@@ -17531,7 +17564,8 @@ class KalturaAnonymousIPCondition extends KalturaMatchCondition {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAppTokenFilter extends KalturaAppTokenBaseFilter {}
+class KalturaAppTokenFilter extends KalturaAppTokenBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -17607,7 +17641,8 @@ class KalturaAssetResource extends KalturaContentResource {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBaseSyndicationFeedFilter extends KalturaBaseSyndicationFeedBaseFilter {}
+class KalturaBaseSyndicationFeedFilter extends KalturaBaseSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -17618,7 +17653,8 @@ class KalturaBaseSyndicationFeedFilter extends KalturaBaseSyndicationFeedBaseFil
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBulkUploadFilter extends KalturaBulkUploadBaseFilter {}
+class KalturaBulkUploadFilter extends KalturaBulkUploadBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -17957,7 +17993,8 @@ abstract class KalturaCategoryEntryBaseFilter extends KalturaRelatedFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaControlPanelCommandFilter extends KalturaControlPanelCommandBaseFilter {}
+class KalturaControlPanelCommandFilter extends KalturaControlPanelCommandBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -18382,7 +18419,8 @@ class KalturaEndUserReportInputFilter extends KalturaReportInputFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaEntryIndexAdvancedFilter extends KalturaIndexAdvancedFilter {}
+class KalturaEntryIndexAdvancedFilter extends KalturaIndexAdvancedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -18435,7 +18473,8 @@ class KalturaEntryResource extends KalturaContentResource {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaEntryServerNodeFilter extends KalturaEntryServerNodeBaseFilter {}
+class KalturaEntryServerNodeFilter extends KalturaEntryServerNodeBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -18505,7 +18544,8 @@ class KalturaFairPlayPlaybackPluginData extends KalturaDrmPlaybackPluginData {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaIntegerField extends KalturaIntegerValue {}
+abstract class KalturaIntegerField extends KalturaIntegerValue {
+}
 
 /**
  * Kaltura Client API.
@@ -18534,7 +18574,8 @@ class KalturaFieldCompareCondition extends KalturaCompareCondition {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaStringField extends KalturaStringValue {}
+abstract class KalturaStringField extends KalturaStringValue {
+}
 
 /**
  * Kaltura Client API.
@@ -18957,7 +18998,8 @@ class KalturaLiveParams extends KalturaFlavorParams {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaFlavorParams extends KalturaFlavorParams {}
+class KalturaMediaFlavorParams extends KalturaFlavorParams {
+}
 
 /**
  * Kaltura Client API.
@@ -18968,7 +19010,8 @@ class KalturaMediaFlavorParams extends KalturaFlavorParams {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaInfoFilter extends KalturaMediaInfoBaseFilter {}
+class KalturaMediaInfoFilter extends KalturaMediaInfoBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19042,7 +19085,8 @@ class KalturaOperationResource extends KalturaContentResource {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPartnerFilter extends KalturaPartnerBaseFilter {}
+class KalturaPartnerFilter extends KalturaPartnerBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19267,7 +19311,8 @@ abstract class KalturaPermissionItemBaseFilter extends KalturaRelatedFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPlaybackContextOptions extends KalturaEntryContextDataParams {}
+class KalturaPlaybackContextOptions extends KalturaEntryContextDataParams {
+}
 
 /**
  * Kaltura Client API.
@@ -19409,7 +19454,8 @@ class KalturaRecalculateResponseProfileCacheJobData extends KalturaRecalculateCa
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaRegexCondition extends KalturaMatchCondition {}
+abstract class KalturaRegexCondition extends KalturaMatchCondition {
+}
 
 /**
  * Kaltura Client API.
@@ -19517,7 +19563,8 @@ class KalturaSearchMatchCondition extends KalturaSearchCondition {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaServerNodeFilter extends KalturaServerNodeBaseFilter {}
+class KalturaServerNodeFilter extends KalturaServerNodeBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19528,7 +19575,8 @@ class KalturaServerNodeFilter extends KalturaServerNodeBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaSiteCondition extends KalturaMatchCondition {}
+class KalturaSiteCondition extends KalturaMatchCondition {
+}
 
 /**
  * Kaltura Client API.
@@ -19568,7 +19616,8 @@ class KalturaSshImportJobData extends KalturaImportJobData {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaStorageDeleteJobData extends KalturaStorageJobData {}
+class KalturaStorageDeleteJobData extends KalturaStorageJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -19602,7 +19651,8 @@ class KalturaStorageExportJobData extends KalturaStorageJobData {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaStorageProfileFilter extends KalturaStorageProfileBaseFilter {}
+class KalturaStorageProfileFilter extends KalturaStorageProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19631,7 +19681,8 @@ class KalturaStringResource extends KalturaContentResource {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUiConfFilter extends KalturaUiConfBaseFilter {}
+class KalturaUiConfFilter extends KalturaUiConfBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19642,7 +19693,8 @@ class KalturaUiConfFilter extends KalturaUiConfBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUploadTokenFilter extends KalturaUploadTokenBaseFilter {}
+class KalturaUploadTokenFilter extends KalturaUploadTokenBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19902,7 +19954,8 @@ abstract class KalturaUserRoleBaseFilter extends KalturaRelatedFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaWidgetFilter extends KalturaWidgetBaseFilter {}
+class KalturaWidgetFilter extends KalturaWidgetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19913,7 +19966,8 @@ class KalturaWidgetFilter extends KalturaWidgetBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAccessControlFilter extends KalturaAccessControlBaseFilter {}
+class KalturaAccessControlFilter extends KalturaAccessControlBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -19924,7 +19978,8 @@ class KalturaAccessControlFilter extends KalturaAccessControlBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAccessControlProfileFilter extends KalturaAccessControlProfileBaseFilter {}
+class KalturaAccessControlProfileFilter extends KalturaAccessControlProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20144,7 +20199,8 @@ class KalturaCategoryFilter extends KalturaCategoryBaseFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaConstantXsltSyndicationFeed extends KalturaGenericXsltSyndicationFeed {}
+abstract class KalturaConstantXsltSyndicationFeed extends KalturaGenericXsltSyndicationFeed {
+}
 
 /**
  * Kaltura Client API.
@@ -20155,7 +20211,8 @@ abstract class KalturaConstantXsltSyndicationFeed extends KalturaGenericXsltSynd
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaConversionProfileFilter extends KalturaConversionProfileBaseFilter {}
+class KalturaConversionProfileFilter extends KalturaConversionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20259,7 +20316,8 @@ class KalturaDataEntryMatchAttributeCondition extends KalturaSearchMatchAttribut
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileAkamaiAppleHttpManifestBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileAkamaiAppleHttpManifestBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20270,7 +20328,8 @@ abstract class KalturaDeliveryProfileAkamaiAppleHttpManifestBaseFilter extends K
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileAkamaiHdsBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileAkamaiHdsBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20281,7 +20340,8 @@ abstract class KalturaDeliveryProfileAkamaiHdsBaseFilter extends KalturaDelivery
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileAkamaiHttpBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileAkamaiHttpBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20292,7 +20352,8 @@ abstract class KalturaDeliveryProfileAkamaiHttpBaseFilter extends KalturaDeliver
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileGenericAppleHttpBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileGenericAppleHttpBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20303,7 +20364,8 @@ abstract class KalturaDeliveryProfileGenericAppleHttpBaseFilter extends KalturaD
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileGenericHdsBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileGenericHdsBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20314,7 +20376,8 @@ abstract class KalturaDeliveryProfileGenericHdsBaseFilter extends KalturaDeliver
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileGenericHttpBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileGenericHttpBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20325,7 +20388,8 @@ abstract class KalturaDeliveryProfileGenericHttpBaseFilter extends KalturaDelive
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileGenericSilverLightBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileGenericSilverLightBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20336,7 +20400,8 @@ abstract class KalturaDeliveryProfileGenericSilverLightBaseFilter extends Kaltur
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileLiveAppleHttpBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileLiveAppleHttpBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20347,7 +20412,8 @@ abstract class KalturaDeliveryProfileLiveAppleHttpBaseFilter extends KalturaDeli
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileRtmpBaseFilter extends KalturaDeliveryProfileFilter {}
+abstract class KalturaDeliveryProfileRtmpBaseFilter extends KalturaDeliveryProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20358,7 +20424,8 @@ abstract class KalturaDeliveryProfileRtmpBaseFilter extends KalturaDeliveryProfi
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryServerNodeBaseFilter extends KalturaServerNodeFilter {}
+abstract class KalturaDeliveryServerNodeBaseFilter extends KalturaServerNodeFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20473,7 +20540,8 @@ class KalturaExternalMediaEntryMatchAttributeCondition extends KalturaSearchMatc
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaFileAssetFilter extends KalturaFileAssetBaseFilter {}
+class KalturaFileAssetFilter extends KalturaFileAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20484,7 +20552,8 @@ class KalturaFileAssetFilter extends KalturaFileAssetBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaGenericDataCenterContentResource extends KalturaDataCenterContentResource {}
+abstract class KalturaGenericDataCenterContentResource extends KalturaDataCenterContentResource {
+}
 
 /**
  * Kaltura Client API.
@@ -20495,7 +20564,8 @@ abstract class KalturaGenericDataCenterContentResource extends KalturaDataCenter
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaGenericSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {}
+abstract class KalturaGenericSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20506,7 +20576,8 @@ abstract class KalturaGenericSyndicationFeedBaseFilter extends KalturaBaseSyndic
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaGoogleVideoSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {}
+abstract class KalturaGoogleVideoSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20528,7 +20599,8 @@ class KalturaGroupUserFilter extends KalturaGroupUserBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaITunesSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {}
+abstract class KalturaITunesSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20584,7 +20656,8 @@ class KalturaLiveChannelMatchAttributeCondition extends KalturaSearchMatchAttrib
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveChannelSegmentFilter extends KalturaLiveChannelSegmentBaseFilter {}
+class KalturaLiveChannelSegmentFilter extends KalturaLiveChannelSegmentBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20731,7 +20804,8 @@ class KalturaMediaEntryMatchAttributeCondition extends KalturaSearchMatchAttribu
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaFlavorParamsOutput extends KalturaFlavorParamsOutput {}
+class KalturaMediaFlavorParamsOutput extends KalturaFlavorParamsOutput {
+}
 
 /**
  * Kaltura Client API.
@@ -20776,7 +20850,8 @@ class KalturaMixEntryMatchAttributeCondition extends KalturaSearchMatchAttribute
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaObjectIdField extends KalturaStringField {}
+class KalturaObjectIdField extends KalturaStringField {
+}
 
 /**
  * Kaltura Client API.
@@ -20787,7 +20862,8 @@ class KalturaObjectIdField extends KalturaStringField {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPermissionFilter extends KalturaPermissionBaseFilter {}
+class KalturaPermissionFilter extends KalturaPermissionBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20798,7 +20874,8 @@ class KalturaPermissionFilter extends KalturaPermissionBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPermissionItemFilter extends KalturaPermissionItemBaseFilter {}
+class KalturaPermissionItemFilter extends KalturaPermissionItemBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20927,7 +21004,8 @@ class KalturaTimeContextField extends KalturaIntegerField {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaTubeMogulSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {}
+abstract class KalturaTubeMogulSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20938,7 +21016,8 @@ abstract class KalturaTubeMogulSyndicationFeedBaseFilter extends KalturaBaseSynd
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUserAgentCondition extends KalturaRegexCondition {}
+class KalturaUserAgentCondition extends KalturaRegexCondition {
+}
 
 /**
  * Kaltura Client API.
@@ -20949,7 +21028,8 @@ class KalturaUserAgentCondition extends KalturaRegexCondition {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUserAgentContextField extends KalturaStringField {}
+class KalturaUserAgentContextField extends KalturaStringField {
+}
 
 /**
  * Kaltura Client API.
@@ -20960,7 +21040,8 @@ class KalturaUserAgentContextField extends KalturaStringField {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUserEmailContextField extends KalturaStringField {}
+class KalturaUserEmailContextField extends KalturaStringField {
+}
 
 /**
  * Kaltura Client API.
@@ -21006,7 +21087,8 @@ class KalturaUserEntryFilter extends KalturaUserEntryBaseFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUserLoginDataFilter extends KalturaUserLoginDataBaseFilter {}
+class KalturaUserLoginDataFilter extends KalturaUserLoginDataBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21017,7 +21099,8 @@ class KalturaUserLoginDataFilter extends KalturaUserLoginDataBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUserRoleFilter extends KalturaUserRoleBaseFilter {}
+class KalturaUserRoleFilter extends KalturaUserRoleBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21046,7 +21129,8 @@ class KalturaWebcamTokenResource extends KalturaDataCenterContentResource {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaYahooSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {}
+abstract class KalturaYahooSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21057,7 +21141,8 @@ abstract class KalturaYahooSyndicationFeedBaseFilter extends KalturaBaseSyndicat
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaAdminUserBaseFilter extends KalturaUserFilter {}
+abstract class KalturaAdminUserBaseFilter extends KalturaUserFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21068,7 +21153,8 @@ abstract class KalturaAdminUserBaseFilter extends KalturaUserFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAmazonS3StorageProfileFilter extends KalturaAmazonS3StorageProfileBaseFilter {}
+class KalturaAmazonS3StorageProfileFilter extends KalturaAmazonS3StorageProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21079,7 +21165,8 @@ class KalturaAmazonS3StorageProfileFilter extends KalturaAmazonS3StorageProfileB
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaApiActionPermissionItemBaseFilter extends KalturaPermissionItemFilter {}
+abstract class KalturaApiActionPermissionItemBaseFilter extends KalturaPermissionItemFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21090,7 +21177,8 @@ abstract class KalturaApiActionPermissionItemBaseFilter extends KalturaPermissio
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaApiParameterPermissionItemBaseFilter extends KalturaPermissionItemFilter {}
+abstract class KalturaApiParameterPermissionItemBaseFilter extends KalturaPermissionItemFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21101,7 +21189,8 @@ abstract class KalturaApiParameterPermissionItemBaseFilter extends KalturaPermis
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaAssetParamsOutputBaseFilter extends KalturaAssetParamsFilter {}
+abstract class KalturaAssetParamsOutputBaseFilter extends KalturaAssetParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21112,7 +21201,8 @@ abstract class KalturaAssetParamsOutputBaseFilter extends KalturaAssetParamsFilt
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDataEntryBaseFilter extends KalturaBaseEntryFilter {}
+abstract class KalturaDataEntryBaseFilter extends KalturaBaseEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21123,7 +21213,8 @@ abstract class KalturaDataEntryBaseFilter extends KalturaBaseEntryFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileAkamaiAppleHttpManifestFilter extends KalturaDeliveryProfileAkamaiAppleHttpManifestBaseFilter {}
+class KalturaDeliveryProfileAkamaiAppleHttpManifestFilter extends KalturaDeliveryProfileAkamaiAppleHttpManifestBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21134,7 +21225,8 @@ class KalturaDeliveryProfileAkamaiAppleHttpManifestFilter extends KalturaDeliver
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileAkamaiHdsFilter extends KalturaDeliveryProfileAkamaiHdsBaseFilter {}
+class KalturaDeliveryProfileAkamaiHdsFilter extends KalturaDeliveryProfileAkamaiHdsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21145,7 +21237,8 @@ class KalturaDeliveryProfileAkamaiHdsFilter extends KalturaDeliveryProfileAkamai
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileAkamaiHttpFilter extends KalturaDeliveryProfileAkamaiHttpBaseFilter {}
+class KalturaDeliveryProfileAkamaiHttpFilter extends KalturaDeliveryProfileAkamaiHttpBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21156,7 +21249,8 @@ class KalturaDeliveryProfileAkamaiHttpFilter extends KalturaDeliveryProfileAkama
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileGenericAppleHttpFilter extends KalturaDeliveryProfileGenericAppleHttpBaseFilter {}
+class KalturaDeliveryProfileGenericAppleHttpFilter extends KalturaDeliveryProfileGenericAppleHttpBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21167,7 +21261,8 @@ class KalturaDeliveryProfileGenericAppleHttpFilter extends KalturaDeliveryProfil
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileGenericHdsFilter extends KalturaDeliveryProfileGenericHdsBaseFilter {}
+class KalturaDeliveryProfileGenericHdsFilter extends KalturaDeliveryProfileGenericHdsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21178,7 +21273,8 @@ class KalturaDeliveryProfileGenericHdsFilter extends KalturaDeliveryProfileGener
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileGenericHttpFilter extends KalturaDeliveryProfileGenericHttpBaseFilter {}
+class KalturaDeliveryProfileGenericHttpFilter extends KalturaDeliveryProfileGenericHttpBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21189,7 +21285,8 @@ class KalturaDeliveryProfileGenericHttpFilter extends KalturaDeliveryProfileGene
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileGenericSilverLightFilter extends KalturaDeliveryProfileGenericSilverLightBaseFilter {}
+class KalturaDeliveryProfileGenericSilverLightFilter extends KalturaDeliveryProfileGenericSilverLightBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21200,7 +21297,8 @@ class KalturaDeliveryProfileGenericSilverLightFilter extends KalturaDeliveryProf
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileLiveAppleHttpFilter extends KalturaDeliveryProfileLiveAppleHttpBaseFilter {}
+class KalturaDeliveryProfileLiveAppleHttpFilter extends KalturaDeliveryProfileLiveAppleHttpBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21211,7 +21309,8 @@ class KalturaDeliveryProfileLiveAppleHttpFilter extends KalturaDeliveryProfileLi
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileRtmpFilter extends KalturaDeliveryProfileRtmpBaseFilter {}
+class KalturaDeliveryProfileRtmpFilter extends KalturaDeliveryProfileRtmpBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21222,7 +21321,8 @@ class KalturaDeliveryProfileRtmpFilter extends KalturaDeliveryProfileRtmpBaseFil
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryServerNodeFilter extends KalturaDeliveryServerNodeBaseFilter {}
+class KalturaDeliveryServerNodeFilter extends KalturaDeliveryServerNodeBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21291,7 +21391,8 @@ abstract class KalturaFlavorParamsBaseFilter extends KalturaAssetParamsFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaGenericSyndicationFeedFilter extends KalturaGenericSyndicationFeedBaseFilter {}
+class KalturaGenericSyndicationFeedFilter extends KalturaGenericSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21302,7 +21403,8 @@ class KalturaGenericSyndicationFeedFilter extends KalturaGenericSyndicationFeedB
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaGoogleVideoSyndicationFeedFilter extends KalturaGoogleVideoSyndicationFeedBaseFilter {}
+class KalturaGoogleVideoSyndicationFeedFilter extends KalturaGoogleVideoSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21313,7 +21415,8 @@ class KalturaGoogleVideoSyndicationFeedFilter extends KalturaGoogleVideoSyndicat
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaITunesSyndicationFeedFilter extends KalturaITunesSyndicationFeedBaseFilter {}
+class KalturaITunesSyndicationFeedFilter extends KalturaITunesSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21324,7 +21427,8 @@ class KalturaITunesSyndicationFeedFilter extends KalturaITunesSyndicationFeedBas
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaOperaSyndicationFeed extends KalturaConstantXsltSyndicationFeed {}
+class KalturaOperaSyndicationFeed extends KalturaConstantXsltSyndicationFeed {
+}
 
 /**
  * Kaltura Client API.
@@ -21335,7 +21439,8 @@ class KalturaOperaSyndicationFeed extends KalturaConstantXsltSyndicationFeed {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaPlaylistBaseFilter extends KalturaBaseEntryFilter {}
+abstract class KalturaPlaylistBaseFilter extends KalturaBaseEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21346,7 +21451,8 @@ abstract class KalturaPlaylistBaseFilter extends KalturaBaseEntryFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaQuizUserEntryBaseFilter extends KalturaUserEntryFilter {}
+abstract class KalturaQuizUserEntryBaseFilter extends KalturaUserEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21357,7 +21463,8 @@ abstract class KalturaQuizUserEntryBaseFilter extends KalturaUserEntryFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaRokuSyndicationFeed extends KalturaConstantXsltSyndicationFeed {}
+class KalturaRokuSyndicationFeed extends KalturaConstantXsltSyndicationFeed {
+}
 
 /**
  * Kaltura Client API.
@@ -21451,7 +21558,8 @@ abstract class KalturaThumbParamsBaseFilter extends KalturaAssetParamsFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaTubeMogulSyndicationFeedFilter extends KalturaTubeMogulSyndicationFeedBaseFilter {}
+class KalturaTubeMogulSyndicationFeedFilter extends KalturaTubeMogulSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21480,7 +21588,8 @@ class KalturaUploadedFileTokenResource extends KalturaGenericDataCenterContentRe
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaYahooSyndicationFeedFilter extends KalturaYahooSyndicationFeedBaseFilter {}
+class KalturaYahooSyndicationFeedFilter extends KalturaYahooSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21491,7 +21600,8 @@ class KalturaYahooSyndicationFeedFilter extends KalturaYahooSyndicationFeedBaseF
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAdminUserFilter extends KalturaAdminUserBaseFilter {}
+class KalturaAdminUserFilter extends KalturaAdminUserBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21502,7 +21612,8 @@ class KalturaAdminUserFilter extends KalturaAdminUserBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaApiActionPermissionItemFilter extends KalturaApiActionPermissionItemBaseFilter {}
+class KalturaApiActionPermissionItemFilter extends KalturaApiActionPermissionItemBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21513,7 +21624,8 @@ class KalturaApiActionPermissionItemFilter extends KalturaApiActionPermissionIte
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaApiParameterPermissionItemFilter extends KalturaApiParameterPermissionItemBaseFilter {}
+class KalturaApiParameterPermissionItemFilter extends KalturaApiParameterPermissionItemBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21524,7 +21636,8 @@ class KalturaApiParameterPermissionItemFilter extends KalturaApiParameterPermiss
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAssetParamsOutputFilter extends KalturaAssetParamsOutputBaseFilter {}
+class KalturaAssetParamsOutputFilter extends KalturaAssetParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21535,7 +21648,8 @@ class KalturaAssetParamsOutputFilter extends KalturaAssetParamsOutputBaseFilter 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDataEntryFilter extends KalturaDataEntryBaseFilter {}
+class KalturaDataEntryFilter extends KalturaDataEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21546,7 +21660,8 @@ class KalturaDataEntryFilter extends KalturaDataEntryBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaDeliveryProfileGenericRtmpBaseFilter extends KalturaDeliveryProfileRtmpFilter {}
+abstract class KalturaDeliveryProfileGenericRtmpBaseFilter extends KalturaDeliveryProfileRtmpFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21586,7 +21701,8 @@ abstract class KalturaEdgeServerNodeBaseFilter extends KalturaDeliveryServerNode
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaFlavorAssetFilter extends KalturaFlavorAssetBaseFilter {}
+class KalturaFlavorAssetFilter extends KalturaFlavorAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21597,7 +21713,8 @@ class KalturaFlavorAssetFilter extends KalturaFlavorAssetBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaFlavorParamsFilter extends KalturaFlavorParamsBaseFilter {}
+class KalturaFlavorParamsFilter extends KalturaFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21608,7 +21725,8 @@ class KalturaFlavorParamsFilter extends KalturaFlavorParamsBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaGenericXsltSyndicationFeedBaseFilter extends KalturaGenericSyndicationFeedFilter {}
+abstract class KalturaGenericXsltSyndicationFeedBaseFilter extends KalturaGenericSyndicationFeedFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21619,7 +21737,8 @@ abstract class KalturaGenericXsltSyndicationFeedBaseFilter extends KalturaGeneri
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveStreamAdminEntry extends KalturaLiveStreamEntry {}
+class KalturaLiveStreamAdminEntry extends KalturaLiveStreamEntry {
+}
 
 /**
  * Kaltura Client API.
@@ -21630,7 +21749,8 @@ class KalturaLiveStreamAdminEntry extends KalturaLiveStreamEntry {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaMediaServerNodeBaseFilter extends KalturaDeliveryServerNodeFilter {}
+abstract class KalturaMediaServerNodeBaseFilter extends KalturaDeliveryServerNodeFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21641,7 +21761,8 @@ abstract class KalturaMediaServerNodeBaseFilter extends KalturaDeliveryServerNod
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaPlaylistFilter extends KalturaPlaylistBaseFilter {}
+class KalturaPlaylistFilter extends KalturaPlaylistBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21652,7 +21773,8 @@ class KalturaPlaylistFilter extends KalturaPlaylistBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaThumbAssetFilter extends KalturaThumbAssetBaseFilter {}
+class KalturaThumbAssetFilter extends KalturaThumbAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21663,7 +21785,8 @@ class KalturaThumbAssetFilter extends KalturaThumbAssetBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaThumbParamsFilter extends KalturaThumbParamsBaseFilter {}
+class KalturaThumbParamsFilter extends KalturaThumbParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21674,7 +21797,8 @@ class KalturaThumbParamsFilter extends KalturaThumbParamsBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaDeliveryProfileGenericRtmpFilter extends KalturaDeliveryProfileGenericRtmpBaseFilter {}
+class KalturaDeliveryProfileGenericRtmpFilter extends KalturaDeliveryProfileGenericRtmpBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21685,7 +21809,8 @@ class KalturaDeliveryProfileGenericRtmpFilter extends KalturaDeliveryProfileGene
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaEdgeServerNodeFilter extends KalturaEdgeServerNodeBaseFilter {}
+class KalturaEdgeServerNodeFilter extends KalturaEdgeServerNodeBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21731,7 +21856,8 @@ abstract class KalturaFlavorParamsOutputBaseFilter extends KalturaFlavorParamsFi
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaGenericXsltSyndicationFeedFilter extends KalturaGenericXsltSyndicationFeedBaseFilter {}
+class KalturaGenericXsltSyndicationFeedFilter extends KalturaGenericXsltSyndicationFeedBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21742,7 +21868,8 @@ class KalturaGenericXsltSyndicationFeedFilter extends KalturaGenericXsltSyndicat
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaLiveAssetBaseFilter extends KalturaFlavorAssetFilter {}
+abstract class KalturaLiveAssetBaseFilter extends KalturaFlavorAssetFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21753,7 +21880,8 @@ abstract class KalturaLiveAssetBaseFilter extends KalturaFlavorAssetFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaLiveParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaLiveParamsBaseFilter extends KalturaFlavorParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21764,7 +21892,8 @@ abstract class KalturaLiveParamsBaseFilter extends KalturaFlavorParamsFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaMediaFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaMediaFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21775,7 +21904,8 @@ abstract class KalturaMediaFlavorParamsBaseFilter extends KalturaFlavorParamsFil
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaServerNodeFilter extends KalturaMediaServerNodeBaseFilter {}
+class KalturaMediaServerNodeFilter extends KalturaMediaServerNodeBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21786,7 +21916,8 @@ class KalturaMediaServerNodeFilter extends KalturaMediaServerNodeBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaMixEntryBaseFilter extends KalturaPlayableEntryFilter {}
+abstract class KalturaMixEntryBaseFilter extends KalturaPlayableEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21832,7 +21963,8 @@ abstract class KalturaThumbParamsOutputBaseFilter extends KalturaThumbParamsFilt
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaFlavorParamsOutputFilter extends KalturaFlavorParamsOutputBaseFilter {}
+class KalturaFlavorParamsOutputFilter extends KalturaFlavorParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21843,7 +21975,8 @@ class KalturaFlavorParamsOutputFilter extends KalturaFlavorParamsOutputBaseFilte
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveAssetFilter extends KalturaLiveAssetBaseFilter {}
+class KalturaLiveAssetFilter extends KalturaLiveAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21854,7 +21987,8 @@ class KalturaLiveAssetFilter extends KalturaLiveAssetBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveParamsFilter extends KalturaLiveParamsBaseFilter {}
+class KalturaLiveParamsFilter extends KalturaLiveParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21865,7 +21999,8 @@ class KalturaLiveParamsFilter extends KalturaLiveParamsBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaFlavorParamsFilter extends KalturaMediaFlavorParamsBaseFilter {}
+class KalturaMediaFlavorParamsFilter extends KalturaMediaFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21876,7 +22011,8 @@ class KalturaMediaFlavorParamsFilter extends KalturaMediaFlavorParamsBaseFilter 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMixEntryFilter extends KalturaMixEntryBaseFilter {}
+class KalturaMixEntryFilter extends KalturaMixEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21887,7 +22023,8 @@ class KalturaMixEntryFilter extends KalturaMixEntryBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaThumbParamsOutputFilter extends KalturaThumbParamsOutputBaseFilter {}
+class KalturaThumbParamsOutputFilter extends KalturaThumbParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21898,7 +22035,8 @@ class KalturaThumbParamsOutputFilter extends KalturaThumbParamsOutputBaseFilter 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaLiveEntryBaseFilter extends KalturaMediaEntryFilter {}
+abstract class KalturaLiveEntryBaseFilter extends KalturaMediaEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21909,7 +22047,8 @@ abstract class KalturaLiveEntryBaseFilter extends KalturaMediaEntryFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaMediaFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {}
+abstract class KalturaMediaFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21949,7 +22088,8 @@ class KalturaLiveEntryFilter extends KalturaLiveEntryBaseFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaMediaFlavorParamsOutputFilter extends KalturaMediaFlavorParamsOutputBaseFilter {}
+class KalturaMediaFlavorParamsOutputFilter extends KalturaMediaFlavorParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21960,7 +22100,8 @@ class KalturaMediaFlavorParamsOutputFilter extends KalturaMediaFlavorParamsOutpu
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaLiveChannelBaseFilter extends KalturaLiveEntryFilter {}
+abstract class KalturaLiveChannelBaseFilter extends KalturaLiveEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21971,7 +22112,8 @@ abstract class KalturaLiveChannelBaseFilter extends KalturaLiveEntryFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaLiveStreamEntryBaseFilter extends KalturaLiveEntryFilter {}
+abstract class KalturaLiveStreamEntryBaseFilter extends KalturaLiveEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21982,7 +22124,8 @@ abstract class KalturaLiveStreamEntryBaseFilter extends KalturaLiveEntryFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveChannelFilter extends KalturaLiveChannelBaseFilter {}
+class KalturaLiveChannelFilter extends KalturaLiveChannelBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -21993,7 +22136,8 @@ class KalturaLiveChannelFilter extends KalturaLiveChannelBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveStreamEntryFilter extends KalturaLiveStreamEntryBaseFilter {}
+class KalturaLiveStreamEntryFilter extends KalturaLiveStreamEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -22004,7 +22148,8 @@ class KalturaLiveStreamEntryFilter extends KalturaLiveStreamEntryBaseFilter {}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaLiveStreamAdminEntryBaseFilter extends KalturaLiveStreamEntryFilter {}
+abstract class KalturaLiveStreamAdminEntryBaseFilter extends KalturaLiveStreamEntryFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -22015,5 +22160,6 @@ abstract class KalturaLiveStreamAdminEntryBaseFilter extends KalturaLiveStreamEn
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaLiveStreamAdminEntryFilter extends KalturaLiveStreamAdminEntryBaseFilter {}
+class KalturaLiveStreamAdminEntryFilter extends KalturaLiveStreamAdminEntryBaseFilter {
+}
 

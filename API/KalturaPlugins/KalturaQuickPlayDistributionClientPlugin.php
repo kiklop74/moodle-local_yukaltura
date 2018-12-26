@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -71,7 +71,8 @@ class KalturaQuickPlayDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaQuickPlayDistributionProvider extends KalturaDistributionProvider {}
+class KalturaQuickPlayDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -221,7 +222,8 @@ class KalturaQuickPlayDistributionProfile extends KalturaConfigurableDistributio
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaQuickPlayDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaQuickPlayDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -231,7 +233,8 @@ abstract class KalturaQuickPlayDistributionProviderBaseFilter extends KalturaDis
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaQuickPlayDistributionProviderFilter extends KalturaQuickPlayDistributionProviderBaseFilter {}
+class KalturaQuickPlayDistributionProviderFilter extends KalturaQuickPlayDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -241,7 +244,8 @@ class KalturaQuickPlayDistributionProviderFilter extends KalturaQuickPlayDistrib
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaQuickPlayDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaQuickPlayDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -251,7 +255,8 @@ abstract class KalturaQuickPlayDistributionProfileBaseFilter extends KalturaConf
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaQuickPlayDistributionProfileFilter extends KalturaQuickPlayDistributionProfileBaseFilter {}
+class KalturaQuickPlayDistributionProfileFilter extends KalturaQuickPlayDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

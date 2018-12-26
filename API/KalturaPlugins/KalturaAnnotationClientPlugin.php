@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -225,8 +224,8 @@ abstract class KalturaAnnotationBaseFilter extends KalturaCuePointFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAnnotationFilter extends KalturaAnnotationBaseFilter {}
-
+class KalturaAnnotationFilter extends KalturaAnnotationBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -399,7 +398,7 @@ class KalturaAnnotationService extends KalturaServiceBase {
             $this->client->addParam($kparams, "pager", $pager->toParams());
         }
         $this->client->queueServiceActionCall("annotation_annotation", "serveBulk", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();

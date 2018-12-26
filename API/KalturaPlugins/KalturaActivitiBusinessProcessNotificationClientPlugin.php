@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -100,7 +100,8 @@ class KalturaActivitiBusinessProcessServer extends KalturaBusinessProcessServer 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@ml.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaActivitiBusinessProcessServerBaseFilter extends KalturaBusinessProcessServerFilter {}
+abstract class KalturaActivitiBusinessProcessServerBaseFilter extends KalturaBusinessProcessServerFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -110,7 +111,8 @@ abstract class KalturaActivitiBusinessProcessServerBaseFilter extends KalturaBus
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@ml.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaActivitiBusinessProcessServerFilter extends KalturaActivitiBusinessProcessServerBaseFilter {}
+class KalturaActivitiBusinessProcessServerFilter extends KalturaActivitiBusinessProcessServerBaseFilter {
+}
 
 /**
  * Kaltura Client API.

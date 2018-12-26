@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -41,8 +40,8 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaBulkServiceData extends KalturaObjectBase {}
-
+abstract class KalturaBulkServiceData extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -98,7 +97,7 @@ class KalturaBulkService extends KalturaServiceBase {
     }
 
     /**
-     * List bulk upload batch jobs 
+     * List bulk upload batch jobs
      * @param KalturaBulkUploadFilter $bulkuploadfilter - instance of KalturaBulkUploadFilter
      * @param KalturaFilterPager $pager - instance of KalturaFilterPager.
      * @return KalturaBulkUploadListResponse - instance of KalturaBulkUploadListResponse.
@@ -151,7 +150,7 @@ class KalturaBulkService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("bulkupload_bulk", "serveLog", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();

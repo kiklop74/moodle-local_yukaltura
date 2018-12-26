@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -155,7 +155,8 @@ abstract class KalturaEmailNotificationRecipientJobData extends KalturaObjectBas
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaEmailNotificationRecipientProvider extends KalturaObjectBase {}
+abstract class KalturaEmailNotificationRecipientProvider extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -293,7 +294,8 @@ class KalturaEmailNotificationCategoryRecipientProvider extends KalturaEmailNoti
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaEmailNotificationParameter extends KalturaEventNotificationParameter {}
+class KalturaEmailNotificationParameter extends KalturaEventNotificationParameter {
+}
 
 /**
  * Kaltura Client API.
@@ -417,7 +419,7 @@ class KalturaEmailNotificationTemplate extends KalturaEventNotificationTemplate 
 
     /**
      * Hostname to use in Message-Id and Received headers and as default HELLO string. 
-     *      If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
+     * If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
      *
      * @var string
      */
@@ -425,7 +427,7 @@ class KalturaEmailNotificationTemplate extends KalturaEventNotificationTemplate 
 
     /**
      * Sets the message ID to be used in the Message-Id header.
-     *      If empty, a unique id will be generated.
+     * If empty, a unique id will be generated.
      *
      * @var string
      */
@@ -540,7 +542,7 @@ class KalturaEmailNotificationDispatchJobData extends KalturaEventNotificationDi
 
     /**
      * Hostname to use in Message-Id and Received headers and as default HELO string. 
-     *      If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
+     * If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
      *
      * @var string
      */
@@ -548,7 +550,7 @@ class KalturaEmailNotificationDispatchJobData extends KalturaEventNotificationDi
 
     /**
      * Sets the message ID to be used in the Message-Id header.
-     *      If empty, a unique id will be generated.
+     * If empty, a unique id will be generated.
      *
      * @var string
      */
@@ -570,7 +572,8 @@ class KalturaEmailNotificationDispatchJobData extends KalturaEventNotificationDi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaEmailNotificationTemplateBaseFilter extends KalturaEventNotificationTemplateFilter {}
+abstract class KalturaEmailNotificationTemplateBaseFilter extends KalturaEventNotificationTemplateFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -580,7 +583,8 @@ abstract class KalturaEmailNotificationTemplateBaseFilter extends KalturaEventNo
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaEmailNotificationTemplateFilter extends KalturaEmailNotificationTemplateBaseFilter {}
+class KalturaEmailNotificationTemplateFilter extends KalturaEmailNotificationTemplateBaseFilter {
+}
 
 /**
  * Kaltura Client API.

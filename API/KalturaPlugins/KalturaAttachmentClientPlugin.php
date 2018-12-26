@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -163,7 +162,8 @@ class KalturaAttachmentAssetListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaAttachmentServeOptions extends KalturaAssetServeOptions {}
+class KalturaAttachmentServeOptions extends KalturaAssetServeOptions {
+}
 
 /**
  * Kaltura Client API.
@@ -208,7 +208,8 @@ abstract class KalturaAttachmentAssetBaseFilter extends KalturaAssetFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaAttachmentAssetFilter extends KalturaAttachmentAssetBaseFilter {}
+class KalturaAttachmentAssetFilter extends KalturaAttachmentAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -359,7 +360,7 @@ class KalturaAttachmentAssetService extends KalturaServiceBase {
             $this->client->addParam($kparams, "serveOptions", $serveoptions->toParams());
         }
         $this->client->queueServiceActionCall("attachment_attachmentasset", "serve", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();

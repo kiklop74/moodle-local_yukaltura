@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -403,7 +403,8 @@ abstract class KalturaQuestionCuePointBaseFilter extends KalturaCuePointFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaAnswerCuePointFilter extends KalturaAnswerCuePointBaseFilter {}
+class KalturaAnswerCuePointFilter extends KalturaAnswerCuePointBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -413,7 +414,8 @@ class KalturaAnswerCuePointFilter extends KalturaAnswerCuePointBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaQuestionCuePointFilter extends KalturaQuestionCuePointBaseFilter {}
+class KalturaQuestionCuePointFilter extends KalturaQuestionCuePointBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -423,8 +425,8 @@ class KalturaQuestionCuePointFilter extends KalturaQuestionCuePointBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaQuizUserEntryFilter extends KalturaQuizUserEntryBaseFilter {}
-
+class KalturaQuizUserEntryFilter extends KalturaQuizUserEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -541,7 +543,7 @@ class KalturaQuizService extends KalturaServiceBase {
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "quizOutputType", $quizoutputtype);
         $this->client->queueServiceActionCall("quiz_quiz", "serve", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();
@@ -604,7 +606,7 @@ class KalturaQuizClientPlugin extends KalturaClientPlugin {
      * @return array - array of KalturaServiceBase.
      */
     public function getServices() {
-        $services = array('quiz' => $this->quiz,);
+        $services = array('quiz' => $this->quiz);
         return $services;
     }
 

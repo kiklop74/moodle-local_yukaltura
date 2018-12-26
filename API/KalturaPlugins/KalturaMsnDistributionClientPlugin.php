@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -72,7 +71,8 @@ class KalturaMsnDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaMsnDistributionProvider extends KalturaDistributionProvider {}
+class KalturaMsnDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -198,7 +198,8 @@ class KalturaMsnDistributionProfile extends KalturaConfigurableDistributionProfi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaMsnDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaMsnDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -208,7 +209,8 @@ abstract class KalturaMsnDistributionProviderBaseFilter extends KalturaDistribut
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaMsnDistributionProviderFilter extends KalturaMsnDistributionProviderBaseFilter {}
+class KalturaMsnDistributionProviderFilter extends KalturaMsnDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -218,7 +220,8 @@ class KalturaMsnDistributionProviderFilter extends KalturaMsnDistributionProvide
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaMsnDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaMsnDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -228,7 +231,8 @@ abstract class KalturaMsnDistributionProfileBaseFilter extends KalturaConfigurab
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaMsnDistributionProfileFilter extends KalturaMsnDistributionProfileBaseFilter {}
+class KalturaMsnDistributionProfileFilter extends KalturaMsnDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

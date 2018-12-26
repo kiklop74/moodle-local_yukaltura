@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -244,10 +243,11 @@ class KalturaCaptionAssetItemService extends KalturaServiceBase {
      */
     public function search(KalturaBaseEntryFilter $entryfilter = null, KalturaCaptionAssetItemFilter $captionassetitemfilter = null, KalturaFilterPager $captionassetitempager = null) {
         $kparams = array();
-        if ($entryfilter !== null)
+        if ($entryfilter !== null) {
             $this->client->addParam($kparams, "entryFilter", $entryfilter->toParams());
+        }
         if ($captionassetitemfilter !== null) {
-            $this->client->addParam($kparams, "captionAssetItemFilter", $captionAssetItemFilter->toParams());
+            $this->client->addParam($kparams, "captionAssetItemFilter", $captionassetitemfilter->toParams());
         }
         if ($captionassetitempager !== null) {
             $this->client->addParam($kparams, "captionAssetItemPager", $captionassetitempager->toParams());
@@ -278,7 +278,7 @@ class KalturaCaptionAssetItemService extends KalturaServiceBase {
             $this->client->addParam($kparams, "captionAssetItemFilter", $captionassetitemfilter->toParams());
         }
         if ($captionassetitempager !== null) {
-            $this->client->addParam($kparams, "captionAssetItemPager", $captionassetitemaager->toParams());
+            $this->client->addParam($kparams, "captionAssetItemPager", $captionassetitempager->toParams());
         }
         $this->client->queueServiceActionCall("captionsearch_captionassetitem", "searchEntries", $kparams);
         if ($this->client->isMultiRequest()) {

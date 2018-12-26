@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -226,7 +226,8 @@ class KalturaAuditTrailOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaAuditTrailInfo extends KalturaObjectBase {}
+abstract class KalturaAuditTrailInfo extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -699,7 +700,8 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaRelatedFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaAuditTrailFilter extends KalturaAuditTrailBaseFilter {}
+class KalturaAuditTrailFilter extends KalturaAuditTrailBaseFilter {
+}
 
 
 /**

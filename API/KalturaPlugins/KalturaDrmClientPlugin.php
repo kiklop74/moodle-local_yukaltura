@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -567,7 +567,8 @@ class KalturaDrmProfileListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDrmPolicyFilter extends KalturaDrmPolicyBaseFilter {}
+class KalturaDrmPolicyFilter extends KalturaDrmPolicyBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -577,8 +578,8 @@ class KalturaDrmPolicyFilter extends KalturaDrmPolicyBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDrmProfileFilter extends KalturaDrmProfileBaseFilter {}
-
+class KalturaDrmProfileFilter extends KalturaDrmProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

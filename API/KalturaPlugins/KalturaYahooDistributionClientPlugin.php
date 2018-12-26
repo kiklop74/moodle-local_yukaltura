@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -87,7 +86,8 @@ class KalturaYahooDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaYahooDistributionProvider extends KalturaDistributionProvider {}
+class KalturaYahooDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -177,7 +177,8 @@ class KalturaYahooDistributionProfile extends KalturaConfigurableDistributionPro
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaYahooDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaYahooDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -187,7 +188,8 @@ abstract class KalturaYahooDistributionProviderBaseFilter extends KalturaDistrib
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaYahooDistributionProviderFilter extends KalturaYahooDistributionProviderBaseFilter {}
+class KalturaYahooDistributionProviderFilter extends KalturaYahooDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -197,7 +199,8 @@ class KalturaYahooDistributionProviderFilter extends KalturaYahooDistributionPro
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaYahooDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaYahooDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -207,7 +210,8 @@ abstract class KalturaYahooDistributionProfileBaseFilter extends KalturaConfigur
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaYahooDistributionProfileFilter extends KalturaYahooDistributionProfileBaseFilter {}
+class KalturaYahooDistributionProfileFilter extends KalturaYahooDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

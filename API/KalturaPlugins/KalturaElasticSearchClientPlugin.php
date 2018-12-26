@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -382,7 +382,8 @@ class KalturaESearchUserOrderByFieldName extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaESearchBaseItem extends KalturaObjectBase {}
+abstract class KalturaESearchBaseItem extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -684,7 +685,8 @@ class KalturaESearchCategoryOrderByItem extends KalturaESearchOrderByItem {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaESearchCategoryResult extends KalturaESearchResult {}
+class KalturaESearchCategoryResult extends KalturaESearchResult {
+}
 
 /**
  * Kaltura Client API.
@@ -795,7 +797,8 @@ class KalturaESearchEntryOrderByItem extends KalturaESearchOrderByItem {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaESearchEntryResult extends KalturaESearchResult {}
+class KalturaESearchEntryResult extends KalturaESearchResult {
+}
 
 /**
  * Kaltura Client API.
@@ -910,7 +913,8 @@ class KalturaESearchUserOrderByItem extends KalturaESearchOrderByItem {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaESearchUserResult extends KalturaESearchResult {}
+class KalturaESearchUserResult extends KalturaESearchResult {
+}
 
 /**
  * Kaltura Client API.
@@ -1018,7 +1022,8 @@ class KalturaESearchMetadataItem extends KalturaESearchItem {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaESearchUnifiedItem extends KalturaESearchItem {}
+class KalturaESearchUnifiedItem extends KalturaESearchItem {
+}
 
 /**
  * Kaltura Client API.

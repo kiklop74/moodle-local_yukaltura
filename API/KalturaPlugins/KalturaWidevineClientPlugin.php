@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -234,7 +233,8 @@ class KalturaWidevineFlavorAsset extends KalturaFlavorAsset {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWidevineFlavorParams extends KalturaFlavorParams {}
+class KalturaWidevineFlavorParams extends KalturaFlavorParams {
+}
 
 /**
  * Kaltura Client API.
@@ -278,7 +278,8 @@ abstract class KalturaWidevineProfileBaseFilter extends KalturaDrmProfileFilter 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWidevineProfileFilter extends KalturaWidevineProfileBaseFilter {}
+class KalturaWidevineProfileFilter extends KalturaWidevineProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -288,7 +289,8 @@ class KalturaWidevineProfileFilter extends KalturaWidevineProfileBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaWidevineFlavorAssetBaseFilter extends KalturaFlavorAssetFilter {}
+abstract class KalturaWidevineFlavorAssetBaseFilter extends KalturaFlavorAssetFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -298,7 +300,8 @@ abstract class KalturaWidevineFlavorAssetBaseFilter extends KalturaFlavorAssetFi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaWidevineFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaWidevineFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -308,7 +311,8 @@ abstract class KalturaWidevineFlavorParamsBaseFilter extends KalturaFlavorParams
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWidevineFlavorAssetFilter extends KalturaWidevineFlavorAssetBaseFilter {}
+class KalturaWidevineFlavorAssetFilter extends KalturaWidevineFlavorAssetBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -318,7 +322,8 @@ class KalturaWidevineFlavorAssetFilter extends KalturaWidevineFlavorAssetBaseFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWidevineFlavorParamsFilter extends KalturaWidevineFlavorParamsBaseFilter {}
+class KalturaWidevineFlavorParamsFilter extends KalturaWidevineFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -328,7 +333,8 @@ class KalturaWidevineFlavorParamsFilter extends KalturaWidevineFlavorParamsBaseF
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaWidevineFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {}
+abstract class KalturaWidevineFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -338,7 +344,8 @@ abstract class KalturaWidevineFlavorParamsOutputBaseFilter extends KalturaFlavor
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaWidevineFlavorParamsOutputFilter extends KalturaWidevineFlavorParamsOutputBaseFilter {}
+class KalturaWidevineFlavorParamsOutputFilter extends KalturaWidevineFlavorParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.

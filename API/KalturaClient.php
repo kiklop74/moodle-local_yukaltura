@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/KalturaEnums.php");
@@ -133,14 +132,14 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
      * @param {object} $accesscontrol - instance of KalturaAccessControl has description of access control profile.
      * @return {object} - instance of KalturaAccessControl after update.
      */
-    public function update($id, KalturaAccessControlProfile $accesscontrolprofile)
-    {
+    public function update($id, KalturaAccessControlProfile $accesscontrolprofile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "accessControlProfile", $accesscontrolprofile->toParams());
         $this->client->queueServiceActionCall("accesscontrolprofile", "update", $kparams);
-        if ($this->client->isMultiRequest())
+        if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
+        }
         $resultobject = $this->client->doQueue();
         $this->client->throwExceptionIfError($resultobject);
         $this->client->validateObjectType($resultobject, "KalturaAccessControlProfile");
@@ -192,8 +191,9 @@ class KalturaAccessControlService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("accesscontrol", "delete", $kparams);
-        if ($this->client->isMultiRequest())
+        if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
+        }
         $resultobject = $this->client->doQueue();
         $this->client->throwExceptionIfError($resultobject);
         $this->client->validateObjectType($resultobject, "null");
@@ -208,8 +208,9 @@ class KalturaAccessControlService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("accesscontrol", "get", $kparams);
-        if ($this->client->isMultiRequest())
+        if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
+        }
         $resultobject = $this->client->doQueue();
         $this->client->throwExceptionIfError($resultobject);
         $this->client->validateObjectType($resultobject, "KalturaAccessControl");
@@ -387,8 +388,9 @@ class KalturaAnalyticsService extends KalturaServiceBase {
     public function query(KalturaAnalyticsFilter $filter, KalturaFilterPager $pager = null) {
         $kparams = array();
         $this->client->addParam($kparams, "filter", $filter->toParams());
-        if ($pager !== null)
+        if ($pager !== null) {
             $this->client->addParam($kparams, "pager", $pager->toParams());
+        }
         $this->client->queueServiceActionCall("analytics", "query", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -460,8 +462,9 @@ class KalturaAppTokenService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("apptoken", "get", $kparams);
-        if ($this->client->isMultiRequest())
+        if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
+        }
         $resultobject = $this->client->doQueue();
         $this->client->throwExceptionIfError($resultobject);
         $this->client->validateObjectType($resultobject, "KalturaAppToken");
@@ -470,8 +473,8 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * List application authentication tokens by filter and pager
-     * @param KalturaAppTokenFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaAppTokenFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaAppTokenListResponse
      */
     public function listAction(KalturaAppTokenFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -520,8 +523,8 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Update application authentication token by id
-     * @param string $id 
-     * @param KalturaAppToken $appToken 
+     * @param string $id
+     * @param KalturaAppToken $appToken
      * @return KalturaAppToken
      */
     public function update($id, KalturaAppToken $apptoken) {
@@ -556,8 +559,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Generic add entry, should be used when the uploaded entry type is not known.
-     * @param KalturaBaseEntry $entry 
-     * @param string $type 
+     * @param KalturaBaseEntry $entry
+     * @param string $type
      * @return KalturaBaseEntry
      */
     public function add(KalturaBaseEntry $entry, $type = null) {
@@ -576,8 +579,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Attach content resource to entry in status NO_MEDIA
-     * @param string $entryId 
-     * @param KalturaResource $resource 
+     * @param string $entryId
+     * @param KalturaResource $resource
      * @return KalturaBaseEntry
      */
     public function addContent($entryid, KalturaResource $resource) {
@@ -596,9 +599,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Generic add entry using an uploaded file, should be used when the uploaded entry type is not known.
-     * @param KalturaBaseEntry $entry 
-     * @param string $uploadTokenId 
-     * @param string $type 
+     * @param KalturaBaseEntry $entry
+     * @param string $uploadTokenId
+     * @param string $type
      * @return KalturaBaseEntry
      */
     public function addFromUploadedFile(KalturaBaseEntry $entry, $uploadtokenid, $type = null) {
@@ -618,8 +621,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Anonymously rank an entry, no validation is done on duplicate rankings.
-     * @param string $entryId 
-     * @param int $rank 
+     * @param string $entryId
+     * @param int $rank
      */
     public function anonymousRank($entryid, $rank) {
         $kparams = array();
@@ -636,7 +639,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Approve the entry and mark the pending flags (if any) as moderated (this will make the entry playable).
-     * @param string $entryId 
+     * @param string $entryId
      */
     public function approve($entryid) {
         $kparams = array();
@@ -656,7 +659,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
      * @param array $cloneOptions 
      * @return KalturaBaseEntry
      */
-    public function cloneAction($entryId, array $cloneoptions = null) {
+    public function cloneAction($entryid, array $cloneoptions = null) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
         if ($cloneoptions !== null) {
@@ -711,8 +714,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
     }
 
     /**
-     * @param string $entryId 
-     * @param int $storageProfileId 
+     * @param string $entryId
+     * @param int $storageProfileId
      * @return KalturaBaseEntry
      */
     public function export($entryid, $storageprofileid) {
@@ -731,7 +734,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Flag inappropriate entry for moderation.
-     * @param KalturaModerationFlag $moderationFlag 
+     * @param KalturaModerationFlag $moderationFlag
      */
     public function flag(KalturaModerationFlag $moderationflag) {
         $kparams = array();
@@ -805,8 +808,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * This action delivers all data relevant for player
-     * @param string $entryId 
-     * @param KalturaPlaybackContextOptions $contextDataParams 
+     * @param string $entryId
+     * @param KalturaPlaybackContextOptions $contextDataParams
      * @return KalturaPlaybackContext
      */
     public function getPlaybackContext($entryid, KalturaPlaybackContextOptions $contextdataparams) {
@@ -825,7 +828,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Get remote storage existing paths for the asset.
-     * @param string $entryId 
+     * @param string $entryId
      * @return KalturaRemotePathListResponse
      */
     public function getRemotePaths($entryid) {
@@ -843,8 +846,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Index an entry by id.
-     * @param string $id 
-     * @param bool $shouldUpdate 
+     * @param string $id
+     * @param bool $shouldUpdate
      * @return int
      */
     public function index($id, $shouldupdate = true) {
@@ -909,7 +912,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * List all pending flags for the entry.
-     * @param string $entryId 
+     * @param string $entryId
      * @param KalturaFilterPager $pager 
      * @return KalturaModerationFlagListResponse
      */
@@ -931,7 +934,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable).
-     * @param string $entryId 
+     * @param string $entryId
      */
     public function reject($entryid) {
         $kparams = array();
@@ -979,7 +982,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         if ($advancedOptions !== null) {
-            $this->client->addParam($kparams, "advancedOptions", $advancedoptions->toParams());
+            $this->client->addParam($kparams, "advancedoptions", $advancedoptions->toParams());
         }
         $this->client->queueServiceActionCall("baseentry", "updateContent", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -1113,8 +1116,8 @@ class KalturaBulkUploadService extends KalturaServiceBase {
      If no conversion profile was specified, partner's default will be used
      * @param int $conversionProfileId Convertion profile id to use for converting the current bulk (-1 to use partner's default)
      * @param file $csvFileData Bulk upload file
-     * @param string $bulkUploadType 
-     * @param string $uploadedBy 
+     * @param string $bulkUploadType
+     * @param string $uploadedBy
      * @param string $fileName Friendly name of the file, used to be recognized later in the logs.
      * @return KalturaBulkUpload
      */
@@ -1138,7 +1141,7 @@ class KalturaBulkUploadService extends KalturaServiceBase {
 
     /**
      * Get bulk upload batch job by id
-     * @param bigint $id 
+     * @param bigint $id
      * @return KalturaBulkUpload
      */
     public function get($id) {
@@ -1156,7 +1159,7 @@ class KalturaBulkUploadService extends KalturaServiceBase {
 
     /**
      * List bulk upload batch jobs
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFilterPager $pager
      * @return KalturaBulkUploadListResponse
      */
     public function listAction(KalturaFilterPager $pager = null) {
@@ -1227,8 +1230,8 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Activate CategoryEntry when it is pending moderation
-     * @param string $entryId 
-     * @param int $categoryId 
+     * @param string $entryId
+     * @param int $categoryId
      */
     public function activate($entryId, $categoryId) {
         $kparams = array();
@@ -1245,7 +1248,7 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Add new CategoryEntry
-     * @param KalturaCategoryEntry $categoryEntry 
+     * @param KalturaCategoryEntry $categoryEntry
      * @return KalturaCategoryEntry
      */
     public function add(KalturaCategoryEntry $categoryEntry) {
@@ -1262,8 +1265,8 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaBulkServiceData $bulkUploadData 
-     * @param KalturaBulkUploadCategoryEntryData $bulkUploadCategoryEntryData 
+     * @param KalturaBulkServiceData $bulkUploadData
+     * @param KalturaBulkUploadCategoryEntryData $bulkUploadCategoryEntryData
      * @return KalturaBulkUpload
      */
     public function addFromBulkUpload(KalturaBulkServiceData $bulkUploadData, KalturaBulkUploadCategoryEntryData $bulkUploadCategoryEntryData = null) {
@@ -1284,8 +1287,8 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Delete CategoryEntry
-     * @param string $entryId 
-     * @param int $categoryId 
+     * @param string $entryId
+     * @param int $categoryId
      */
     public function delete($entryId, $categoryId) {
         $kparams = array();
@@ -1302,16 +1305,16 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Index CategoryEntry by Id
-     * @param string $entryId 
-     * @param int $categoryId 
-     * @param bool $shouldUpdate 
+     * @param string $entryId
+     * @param int $categoryId
+     * @param bool $shouldUpdate
      * @return int
      */
-    public function index($entryId, $categoryId, $shouldUpdate = true) {
+    public function index($entryid, $categoryid, $shouldupdate = true) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "categoryId", $categoryId);
-        $this->client->addParam($kparams, "shouldUpdate", $shouldUpdate);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "categoryId", $categoryid);
+        $this->client->addParam($kparams, "shouldUpdate", $shouldupdate);
         $this->client->queueServiceActionCall("categoryentry", "index", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1324,8 +1327,8 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * List all categoryEntry
-     * @param KalturaCategoryEntryFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaCategoryEntryFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaCategoryEntryListResponse
      */
     public function listAction(KalturaCategoryEntryFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -1348,8 +1351,8 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Activate CategoryEntry when it is pending moderation
-     * @param string $entryId 
-     * @param int $categoryId 
+     * @param string $entryId
+     * @param int $categoryId
      */
     public function reject($entryId, $categoryId) {
         $kparams = array();
@@ -1366,8 +1369,8 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
 
     /**
      * Update privacy context from the category
-     * @param string $entryId 
-     * @param int $categoryId 
+     * @param string $entryId
+     * @param int $categoryId
      */
     public function syncPrivacyContext($entryId, $categoryId) {
         $kparams = array();
@@ -1399,7 +1402,7 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * Add new Category
-     * @param KalturaCategory $category 
+     * @param KalturaCategory $category
      * @return KalturaCategory
      */
     public function add(KalturaCategory $category) {
@@ -1416,20 +1419,20 @@ class KalturaCategoryService extends KalturaServiceBase {
     }
 
     /**
-     * @param file $fileData 
-     * @param KalturaBulkUploadJobData $bulkUploadData 
-     * @param KalturaBulkUploadCategoryData $bulkUploadCategoryData 
+     * @param file $fileData
+     * @param KalturaBulkUploadJobData $bulkUploadData
+     * @param KalturaBulkUploadCategoryData $bulkUploadCategoryData
      * @return KalturaBulkUpload
      */
-    public function addFromBulkUpload($fileData, KalturaBulkUploadJobData $bulkUploadData = null, KalturaBulkUploadCategoryData $bulkUploadCategoryData = null) {
+    public function addFromBulkUpload($filedata, KalturaBulkUploadJobData $bulkuploaddata = null, KalturaBulkUploadCategoryData $bulkuploadcategorydata = null) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
-        if ($bulkUploadData !== null) {
-            $this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+        $this->client->addParam($kfiles, "fileData", $filedata);
+        if ($bulkuploaddata !== null) {
+            $this->client->addParam($kparams, "bulkUploadData", $bulkuploaddata->toParams());
         }
-        if ($bulkUploadCategoryData !== null) {
-            $this->client->addParam($kparams, "bulkUploadCategoryData", $bulkUploadCategoryData->toParams());
+        if ($bulkuploadcategorydata !== null) {
+            $this->client->addParam($kparams, "bulkUploadCategoryData", $bulkuploadcategorydata->toParams());
         }
         $this->client->queueServiceActionCall("category", "addFromBulkUpload", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
@@ -1443,13 +1446,13 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * Delete a Category
-     * @param int $id 
-     * @param int $moveEntriesToParentCategory 
+     * @param int $id
+     * @param int $moveEntriesToParentCategory
      */
-    public function delete($id, $moveEntriesToParentCategory = 1) {
+    public function delete($id, $moveentriestoparentcategory = 1) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "moveEntriesToParentCategory", $moveEntriesToParentCategory);
+        $this->client->addParam($kparams, "moveEntriesToParentCategory", $moveentriestoparentcategory);
         $this->client->queueServiceActionCall("category", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1461,7 +1464,7 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * Get Category by id
-     * @param int $id 
+     * @param int $id
      * @return KalturaCategory
      */
     public function get($id) {
@@ -1479,14 +1482,14 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * Index Category by id
-     * @param int $id 
-     * @param bool $shouldUpdate 
+     * @param int $id
+     * @param bool $shouldUpdate
      * @return int
      */
-    public function index($id, $shouldUpdate = true) {
+    public function index($id, $shouldupdate = true) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "shouldUpdate", $shouldUpdate);
+        $this->client->addParam($kparams, "shouldUpdate", $shouldupdate);
         $this->client->queueServiceActionCall("category", "index", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1499,8 +1502,8 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * List all categories
-     * @param KalturaCategoryFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaCategoryFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaCategoryListResponse
      */
     public function listAction(KalturaCategoryFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -1523,14 +1526,14 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement
-     * @param string $categoryIds 
-     * @param int $targetCategoryParentId 
+     * @param string $categoryIds
+     * @param int $targetCategoryParentId
      * @return bool
      */
-    public function move($categoryIds, $targetCategoryParentId) {
+    public function move($categoryids, $targetcategoryparentid) {
         $kparams = array();
-        $this->client->addParam($kparams, "categoryIds", $categoryIds);
-        $this->client->addParam($kparams, "targetCategoryParentId", $targetCategoryParentId);
+        $this->client->addParam($kparams, "categoryIds", $categoryids);
+        $this->client->addParam($kparams, "targetCategoryParentId", $targetcategoryparentid);
         $this->client->queueServiceActionCall("category", "move", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1557,8 +1560,8 @@ class KalturaCategoryService extends KalturaServiceBase {
 
     /**
      * Update Category
-     * @param int $id 
-     * @param KalturaCategory $category 
+     * @param int $id
+     * @param KalturaCategory $category
      * @return KalturaCategory
      */
     public function update($id, KalturaCategory $category) {
@@ -1592,8 +1595,8 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Activate CategoryUser
-     * @param int $categoryId 
-     * @param string $userId 
+     * @param int $categoryId
+     * @param string $userId
      * @return KalturaCategoryUser
      */
     public function activate($categoryId, $userId) {
@@ -1612,7 +1615,7 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Add new CategoryUser
-     * @param KalturaCategoryUser $categoryUser 
+     * @param KalturaCategoryUser $categoryUser
      * @return KalturaCategoryUser
      */
     public function add(KalturaCategoryUser $categoryUser) {
@@ -1629,20 +1632,20 @@ class KalturaCategoryUserService extends KalturaServiceBase {
     }
 
     /**
-     * @param file $fileData 
-     * @param KalturaBulkUploadJobData $bulkUploadData 
-     * @param KalturaBulkUploadCategoryUserData $bulkUploadCategoryUserData 
+     * @param file $fileData
+     * @param KalturaBulkUploadJobData $bulkUploadData
+     * @param KalturaBulkUploadCategoryUserData $bulkUploadCategoryUserData
      * @return KalturaBulkUpload
      */
-    public function addFromBulkUpload($fileData, KalturaBulkUploadJobData $bulkUploadData = null, KalturaBulkUploadCategoryUserData $bulkUploadCategoryUserData = null) {
+    public function addFromBulkUpload($filedata, KalturaBulkUploadJobData $bulkuploaddata = null, KalturaBulkUploadCategoryUserData $bulkuploadcategoryuserdata = null) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
-        if ($bulkUploadData !== null) {
-            $this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+        $this->client->addParam($kfiles, "fileData", $filedata);
+        if ($bulkuploaddata !== null) {
+            $this->client->addParam($kparams, "bulkUploadData", $bulkuploaddata->toParams());
         }
-        if ($bulkUploadCategoryUserData !== null) {
-            $this->client->addParam($kparams, "bulkUploadCategoryUserData", $bulkUploadCategoryUserData->toParams());
+        if ($bulkuploadcategoryuserdata !== null) {
+            $this->client->addParam($kparams, "bulkUploadCategoryUserData", $bulkuploadcategoryuserdata->toParams());
         }
         $this->client->queueServiceActionCall("categoryuser", "addFromBulkUpload", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
@@ -1656,11 +1659,11 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Copy all memeber from parent category
-     * @param int $categoryId 
+     * @param int $categoryId
      */
-    public function copyFromCategory($categoryId) {
+    public function copyFromCategory($categoryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "categoryId", $categoryId);
+        $this->client->addParam($kparams, "categoryId", $categoryid);
         $this->client->queueServiceActionCall("categoryuser", "copyFromCategory", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1672,14 +1675,14 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Reject CategoryUser
-     * @param int $categoryId 
-     * @param string $userId 
+     * @param int $categoryId
+     * @param string $userId
      * @return KalturaCategoryUser
      */
-    public function deactivate($categoryId, $userId) {
+    public function deactivate($categoryid, $userid) {
         $kparams = array();
-        $this->client->addParam($kparams, "categoryId", $categoryId);
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "categoryId", $categoryid);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->queueServiceActionCall("categoryuser", "deactivate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1692,13 +1695,13 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Delete a CategoryUser
-     * @param int $categoryId 
-     * @param string $userId 
+     * @param int $categoryId
+     * @param string $userId
      */
-    public function delete($categoryId, $userId) {
+    public function delete($categoryid, $userid) {
         $kparams = array();
-        $this->client->addParam($kparams, "categoryId", $categoryId);
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "categoryId", $categoryid);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->queueServiceActionCall("categoryuser", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1710,14 +1713,14 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Get CategoryUser by id
-     * @param int $categoryId 
-     * @param string $userId 
+     * @param int $categoryId
+     * @param string $userId
      * @return KalturaCategoryUser
      */
-    public function get($categoryId, $userId) {
+    public function get($categoryid, $userid) {
         $kparams = array();
-        $this->client->addParam($kparams, "categoryId", $categoryId);
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "categoryId", $categoryid);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->queueServiceActionCall("categoryuser", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1730,16 +1733,16 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Index CategoryUser by userid and category id
-     * @param string $userId 
-     * @param int $categoryId 
-     * @param bool $shouldUpdate 
+     * @param string $userId
+     * @param int $categoryId
+     * @param bool $shouldUpdate
      * @return int
      */
-    public function index($userId, $categoryId, $shouldUpdate = true) {
+    public function index($userid, $categoryid, $shouldupdate = true) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
-        $this->client->addParam($kparams, "categoryId", $categoryId);
-        $this->client->addParam($kparams, "shouldUpdate", $shouldUpdate);
+        $this->client->addParam($kparams, "userId", $userid);
+        $this->client->addParam($kparams, "categoryId", $categoryid);
+        $this->client->addParam($kparams, "shouldUpdate", $shouldupdate);
         $this->client->queueServiceActionCall("categoryuser", "index", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1752,8 +1755,8 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * List all categories
-     * @param KalturaCategoryUserFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaCategoryUserFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaCategoryUserListResponse
      */
     public function listAction(KalturaCategoryUserFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -1776,17 +1779,17 @@ class KalturaCategoryUserService extends KalturaServiceBase {
 
     /**
      * Update CategoryUser by id
-     * @param int $categoryId 
-     * @param string $userId 
-     * @param KalturaCategoryUser $categoryUser 
+     * @param int $categoryId
+     * @param string $userId
+     * @param KalturaCategoryUser $categoryUser
      * @param bool $override - to override manual changes
      * @return KalturaCategoryUser
      */
-    public function update($categoryId, $userId, KalturaCategoryUser $categoryUser, $override = false) {
+    public function update($categoryid, $userid, KalturaCategoryUser $categoryuser, $override = false) {
         $kparams = array();
-        $this->client->addParam($kparams, "categoryId", $categoryId);
-        $this->client->addParam($kparams, "userId", $userId);
-        $this->client->addParam($kparams, "categoryUser", $categoryUser->toParams());
+        $this->client->addParam($kparams, "categoryId", $categoryid);
+        $this->client->addParam($kparams, "userId", $userid);
+        $this->client->addParam($kparams, "categoryUser", $categoryuser->toParams());
         $this->client->addParam($kparams, "override", $override);
         $this->client->queueServiceActionCall("categoryuser", "update", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -1815,8 +1818,8 @@ class KalturaConversionProfileAssetParamsService extends KalturaServiceBase {
 
     /**
      * Lists asset parmas of conversion profile by ID
-     * @param KalturaConversionProfileAssetParamsFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaConversionProfileAssetParamsFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaConversionProfileAssetParamsListResponse
      */
     public function listAction(KalturaConversionProfileAssetParamsFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -1839,16 +1842,16 @@ class KalturaConversionProfileAssetParamsService extends KalturaServiceBase {
 
     /**
      * Update asset parmas of conversion profile by ID
-     * @param int $conversionProfileId 
-     * @param int $assetParamsId 
-     * @param KalturaConversionProfileAssetParams $conversionProfileAssetParams 
+     * @param int $conversionProfileId
+     * @param int $assetParamsId
+     * @param KalturaConversionProfileAssetParams $conversionProfileAssetParams
      * @return KalturaConversionProfileAssetParams
      */
-    public function update($conversionProfileId, $assetParamsId, KalturaConversionProfileAssetParams $conversionProfileAssetParams) {
+    public function update($conversionprofileid, $assetparamsid, KalturaConversionProfileAssetParams $conversionprofileassetparams) {
         $kparams = array();
-        $this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
-        $this->client->addParam($kparams, "assetParamsId", $assetParamsId);
-        $this->client->addParam($kparams, "conversionProfileAssetParams", $conversionProfileAssetParams->toParams());
+        $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
+        $this->client->addParam($kparams, "assetParamsId", $assetparamsid);
+        $this->client->addParam($kparams, "conversionProfileAssetParams", $conversionprofileassetparams->toParams());
         $this->client->queueServiceActionCall("conversionprofileassetparams", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1876,12 +1879,12 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * Add new Conversion Profile
-     * @param KalturaConversionProfile $conversionProfile 
+     * @param KalturaConversionProfile $conversionProfile
      * @return KalturaConversionProfile
      */
-    public function add(KalturaConversionProfile $conversionProfile) {
+    public function add(KalturaConversionProfile $conversionprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "conversionProfile", $conversionProfile->toParams());
+        $this->client->addParam($kparams, "conversionProfile", $conversionprofile->toParams());
         $this->client->queueServiceActionCall("conversionprofile", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1894,7 +1897,7 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * Delete Conversion Profile by ID
-     * @param int $id 
+     * @param int $id
      */
     public function delete($id) {
         $kparams = array();
@@ -1910,7 +1913,7 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * Get Conversion Profile by ID
-     * @param int $id 
+     * @param int $id
      * @return KalturaConversionProfile
      */
     public function get($id) {
@@ -1928,7 +1931,7 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * Get the partner's default conversion profile
-     * @param string $type 
+     * @param string $type
      * @return KalturaConversionProfile
      */
     public function getDefault($type = null) {
@@ -1970,7 +1973,7 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * Set Conversion Profile to be the partner default
-     * @param int $id 
+     * @param int $id
      * @return KalturaConversionProfile
      */
     public function setAsDefault($id) {
@@ -1988,14 +1991,14 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * Update Conversion Profile by ID
-     * @param int $id 
+     * @param int $id
      * @param KalturaConversionProfile $conversionProfile 
      * @return KalturaConversionProfile
      */
-    public function update($id, KalturaConversionProfile $conversionProfile) {
+    public function update($id, KalturaConversionProfile $conversionprofile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "conversionProfile", $conversionProfile->toParams());
+        $this->client->addParam($kparams, "conversionProfile", $conversionprofile->toParams());
         $this->client->queueServiceActionCall("conversionprofile", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2026,9 +2029,9 @@ class KalturaDataService extends KalturaServiceBase {
      * @param KalturaDataEntry $dataEntry Data entry
      * @return KalturaDataEntry
      */
-    public function add(KalturaDataEntry $dataEntry) {
+    public function add(KalturaDataEntry $dataentry) {
         $kparams = array();
-        $this->client->addParam($kparams, "dataEntry", $dataEntry->toParams());
+        $this->client->addParam($kparams, "dataEntry", $dataentry->toParams());
         $this->client->queueServiceActionCall("data", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2041,13 +2044,13 @@ class KalturaDataService extends KalturaServiceBase {
 
     /**
      * Update the dataContent of data entry using a resource
-     * @param string $entryId 
+     * @param string $entryId
      * @param KalturaGenericDataCenterContentResource $resource 
      * @return string
      */
-    public function addContent($entryId, KalturaGenericDataCenterContentResource $resource) {
+    public function addContent($entryid, KalturaGenericDataCenterContentResource $resource) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->queueServiceActionCall("data", "addContent", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -2063,9 +2066,9 @@ class KalturaDataService extends KalturaServiceBase {
      * Delete a data entry.
      * @param string $entryId Data entry id to delete
      */
-    public function delete($entryId) {
+    public function delete($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("data", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2081,9 +2084,9 @@ class KalturaDataService extends KalturaServiceBase {
      * @param int $version Desired version of the data
      * @return KalturaDataEntry
      */
-    public function get($entryId, $version = -1) {
+    public function get($entryid, $version = -1) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "version", $version);
         $this->client->queueServiceActionCall("data", "get", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -2126,15 +2129,15 @@ class KalturaDataService extends KalturaServiceBase {
      * @param bool $forceProxy Force to get the content without redirect
      * @return file
      */
-    public function serve($entryId, $version = -1, $forceProxy = false) {
+    public function serve($entryid, $version = -1, $forceproxy = false) {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "version", $version);
-        $this->client->addParam($kparams, "forceProxy", $forceProxy);
+        $this->client->addParam($kparams, "forceProxy", $forceproxy);
         $this->client->queueServiceActionCall("data", "serve", $kparams);
         if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
@@ -2179,7 +2182,7 @@ class KalturaDeliveryProfileService extends KalturaServiceBase {
 
     /**
      * Add new delivery.
-     * @param KalturaDeliveryProfile $delivery 
+     * @param KalturaDeliveryProfile $delivery
      * @return KalturaDeliveryProfile
      */
     public function add(KalturaDeliveryProfile $delivery) {
@@ -2198,12 +2201,12 @@ class KalturaDeliveryProfileService extends KalturaServiceBase {
     /**
      * Add delivery based on existing delivery.
     Must provide valid sourceDeliveryId
-     * @param int $deliveryId 
+     * @param int $deliveryId
      * @return KalturaDeliveryProfile
      */
-    public function cloneAction($deliveryId) {
+    public function cloneAction($deliveryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "deliveryId", $deliveryId);
+        $this->client->addParam($kparams, "deliveryId", $deliveryid);
         $this->client->queueServiceActionCall("deliveryprofile", "clone", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2216,7 +2219,7 @@ class KalturaDeliveryProfileService extends KalturaServiceBase {
 
     /**
      * Get delivery by id
-     * @param string $id 
+     * @param string $id
      * @return KalturaDeliveryProfile
      */
     public function get($id) {
@@ -2234,8 +2237,8 @@ class KalturaDeliveryProfileService extends KalturaServiceBase {
 
     /**
      * Retrieve a list of available delivery depends on the filter given
-     * @param KalturaDeliveryProfileFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaDeliveryProfileFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaDeliveryProfileListResponse
      */
     public function listAction(KalturaDeliveryProfileFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -2258,8 +2261,8 @@ class KalturaDeliveryProfileService extends KalturaServiceBase {
 
     /**
      * Update exisiting delivery
-     * @param string $id 
-     * @param KalturaDeliveryProfile $delivery 
+     * @param string $id
+     * @param KalturaDeliveryProfile $delivery
      * @return KalturaDeliveryProfile
      */
     public function update($id, KalturaDeliveryProfile $delivery) {
@@ -2313,18 +2316,18 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
      * Add KalturaMediaEntry from email ingestion
      * @param KalturaMediaEntry $mediaEntry Media entry metadata
      * @param string $uploadTokenId Upload token id
-     * @param int $emailProfId 
-     * @param string $fromAddress 
-     * @param string $emailMsgId 
+     * @param int $emailProfId
+     * @param string $fromAddress
+     * @param string $emailMsgId
      * @return KalturaMediaEntry
      */
-    public function addMediaEntry(KalturaMediaEntry $mediaEntry, $uploadTokenId, $emailProfId, $fromAddress, $emailMsgId) {
+    public function addMediaEntry(KalturaMediaEntry $mediaentry, $uploadtokenid, $emailprofid, $fromaddress, $emailmsgid) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
-        $this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
-        $this->client->addParam($kparams, "emailProfId", $emailProfId);
-        $this->client->addParam($kparams, "fromAddress", $fromAddress);
-        $this->client->addParam($kparams, "emailMsgId", $emailMsgId);
+        $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
+        $this->client->addParam($kparams, "uploadTokenId", $uploadtokenid);
+        $this->client->addParam($kparams, "emailProfId", $emailprofid);
+        $this->client->addParam($kparams, "fromAddress", $fromaddress);
+        $this->client->addParam($kparams, "emailMsgId", $emailmsgid);
         $this->client->queueServiceActionCall("emailingestionprofile", "addMediaEntry", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2337,7 +2340,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
 
     /**
      * Delete an existing EmailIngestionProfile
-     * @param int $id 
+     * @param int $id
      */
     public function delete($id) {
         $kparams = array();
@@ -2353,7 +2356,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
 
     /**
      * Retrieve a EmailIngestionProfile by id
-     * @param int $id 
+     * @param int $id
      * @return KalturaEmailIngestionProfile
      */
     public function get($id) {
@@ -2371,12 +2374,12 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
 
     /**
      * Retrieve a EmailIngestionProfile by email address
-     * @param string $emailAddress 
+     * @param string $emailAddress
      * @return KalturaEmailIngestionProfile
      */
-    public function getByEmailAddress($emailAddress) {
+    public function getByEmailAddress($emailaddress) {
         $kparams = array();
-        $this->client->addParam($kparams, "emailAddress", $emailAddress);
+        $this->client->addParam($kparams, "emailAddress", $emailaddress);
         $this->client->queueServiceActionCall("emailingestionprofile", "getByEmailAddress", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2390,13 +2393,13 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
     /**
      * Update an existing EmailIngestionProfile
      * @param int $id 
-     * @param KalturaEmailIngestionProfile $EmailIP 
+     * @param KalturaEmailIngestionProfile $EmailIP
      * @return KalturaEmailIngestionProfile
      */
-    public function update($id, KalturaEmailIngestionProfile $EmailIP) {
+    public function update($id, KalturaEmailIngestionProfile $emailip) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "EmailIP", $EmailIP->toParams());
+        $this->client->addParam($kparams, "EmailIP", $emailip->toParams());
         $this->client->queueServiceActionCall("emailingestionprofile", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2440,8 +2443,8 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaEntryServerNodeFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaEntryServerNodeFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaEntryServerNodeListResponse
      */
     public function listAction(KalturaEntryServerNodeFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -2463,14 +2466,14 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id 
-     * @param KalturaEntryServerNode $entryServerNode 
+     * @param int $id
+     * @param KalturaEntryServerNode $entryServerNode
      * @return KalturaEntryServerNode
      */
-    public function update($id, KalturaEntryServerNode $entryServerNode) {
+    public function update($id, KalturaEntryServerNode $entryservernode) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "entryServerNode", $entryServerNode->toParams());
+        $this->client->addParam($kparams, "entryServerNode", $entryservernode->toParams());
         $this->client->queueServiceActionCall("entryservernode", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2514,12 +2517,12 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * Add new file asset
-     * @param KalturaFileAsset $fileAsset 
+     * @param KalturaFileAsset $fileAsset
      * @return KalturaFileAsset
      */
-    public function add(KalturaFileAsset $fileAsset) {
+    public function add(KalturaFileAsset $fileasset) {
         $kparams = array();
-        $this->client->addParam($kparams, "fileAsset", $fileAsset->toParams());
+        $this->client->addParam($kparams, "fileAsset", $fileasset->toParams());
         $this->client->queueServiceActionCall("fileasset", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2532,7 +2535,7 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * Delete file asset by id
-     * @param bigint $id 
+     * @param bigint $id
      */
     public function delete($id) {
         $kparams = array();
@@ -2548,7 +2551,7 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * Get file asset by id
-     * @param bigint $id 
+     * @param bigint $id
      * @return KalturaFileAsset
      */
     public function get($id) {
@@ -2566,8 +2569,8 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * List file assets by filter and pager
-     * @param KalturaFileAssetFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFileAssetFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaFileAssetListResponse
      */
     public function listAction(KalturaFileAssetFilter $filter, KalturaFilterPager $pager = null) {
@@ -2588,7 +2591,7 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * Serve file asset by id
-     * @param bigint $id 
+     * @param bigint $id
      * @return file
      */
     public function serve($id) {
@@ -2606,14 +2609,14 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * Set content of file asset
-     * @param bigint $id 
-     * @param KalturaContentResource $contentResource 
+     * @param bigint $id
+     * @param KalturaContentResource $contentResource
      * @return KalturaFileAsset
      */
-    public function setContent($id, KalturaContentResource $contentResource) {
+    public function setContent($id, KalturaContentResource $contentresource) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+        $this->client->addParam($kparams, "contentResource", $contentresource->toParams());
         $this->client->queueServiceActionCall("fileasset", "setContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2626,14 +2629,14 @@ class KalturaFileAssetService extends KalturaServiceBase {
 
     /**
      * Update file asset by id
-     * @param bigint $id 
-     * @param KalturaFileAsset $fileAsset 
+     * @param bigint $id
+     * @param KalturaFileAsset $fileAsset
      * @return KalturaFileAsset
      */
-    public function update($id, KalturaFileAsset $fileAsset) {
+    public function update($id, KalturaFileAsset $fileasset) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "fileAsset", $fileAsset->toParams());
+        $this->client->addParam($kparams, "fileAsset", $fileasset->toParams());
         $this->client->queueServiceActionCall("fileasset", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2661,14 +2664,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Add flavor asset
-     * @param string $entryId 
-     * @param KalturaFlavorAsset $flavorAsset 
+     * @param string $entryId
+     * @param KalturaFlavorAsset $flavorAsset
      * @return KalturaFlavorAsset
      */
-    public function add($entryId, KalturaFlavorAsset $flavorAsset) {
+    public function add($entryid, KalturaFlavorAsset $flavorasset) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "flavorAsset", $flavorAsset->toParams());
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "flavorAsset", $flavorasset->toParams());
         $this->client->queueServiceActionCall("flavorasset", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2681,14 +2684,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Add and convert new Flavor Asset for Entry with specific Flavor Params
-     * @param string $entryId 
-     * @param int $flavorParamsId 
-     * @param int $priority 
+     * @param string $entryId
+     * @param int $flavorParamsId
+     * @param int $priority
      */
-    public function convert($entryId, $flavorParamsId, $priority = 0) {
+    public function convert($entryid, $flavorparamsid, $priority = 0) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "flavorParamsId", $flavorparamsid);
         $this->client->addParam($kparams, "priority", $priority);
         $this->client->queueServiceActionCall("flavorasset", "convert", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -2701,7 +2704,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Delete Flavor Asset by ID
-     * @param string $id 
+     * @param string $id
      */
     public function delete($id) {
         $kparams = array();
@@ -2717,11 +2720,11 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Delete all local file syncs for this asset
-     * @param string $assetId 
+     * @param string $assetId
      */
-    public function deleteLocalContent($assetId) {
+    public function deleteLocalContent($assetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "assetId", $assetId);
+        $this->client->addParam($kparams, "assetId", $assetid);
         $this->client->queueServiceActionCall("flavorasset", "deleteLocalContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2733,14 +2736,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Manually export an asset
-     * @param string $assetId 
-     * @param int $storageProfileId 
+     * @param string $assetId
+     * @param int $storageProfileId
      * @return KalturaFlavorAsset
      */
-    public function export($assetId, $storageProfileId) {
+    public function export($assetid, $storageprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "assetId", $assetId);
-        $this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+        $this->client->addParam($kparams, "assetId", $assetid);
+        $this->client->addParam($kparams, "storageProfileId", $storageprofileid);
         $this->client->queueServiceActionCall("flavorasset", "export", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2753,7 +2756,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get Flavor Asset by ID
-     * @param string $id 
+     * @param string $id
      * @return KalturaFlavorAsset
      */
     public function get($id) {
@@ -2771,12 +2774,12 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get Flavor Assets for Entry
-     * @param string $entryId 
+     * @param string $entryId
      * @return array
      */
-    public function getByEntryId($entryId) {
+    public function getByEntryId($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("flavorasset", "getByEntryId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2789,14 +2792,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get download URL for the Flavor Asset
-     * @param string $id 
-     * @param bool $useCdn 
+     * @param string $id
+     * @param bool $useCdn
      * @return string
      */
-    public function getDownloadUrl($id, $useCdn = false) {
+    public function getDownloadUrl($id, $usecdn = false) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "useCdn", $useCdn);
+        $this->client->addParam($kparams, "useCdn", $usecdn);
         $this->client->queueServiceActionCall("flavorasset", "getDownloadUrl", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2809,12 +2812,12 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get Flavor Asset with the relevant Flavor Params (Flavor Params can exist without Flavor Asset & vice versa)
-     * @param string $entryId 
+     * @param string $entryId
      * @return array
      */
-    public function getFlavorAssetsWithParams($entryId) {
+    public function getFlavorAssetsWithParams($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("flavorasset", "getFlavorAssetsWithParams", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2845,17 +2848,17 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get download URL for the asset
-     * @param string $id 
-     * @param int $storageId 
-     * @param bool $forceProxy 
-     * @param KalturaFlavorAssetUrlOptions $options 
+     * @param string $id
+     * @param int $storageId
+     * @param bool $forceProxy
+     * @param KalturaFlavorAssetUrlOptions $options
      * @return string
      */
-    public function getUrl($id, $storageId = null, $forceProxy = false, KalturaFlavorAssetUrlOptions $options = null) {
+    public function getUrl($id, $storageid = null, $forceproxy = false, KalturaFlavorAssetUrlOptions $options = null) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "storageId", $storageId);
-        $this->client->addParam($kparams, "forceProxy", $forceProxy);
+        $this->client->addParam($kparams, "storageId", $storageid);
+        $this->client->addParam($kparams, "forceProxy", $forceproxy);
         if ($options !== null) {
             $this->client->addParam($kparams, "options", $options->toParams());
         }
@@ -2874,12 +2877,12 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
      * @param string $flavorId Flavor id
      * @return file
      */
-    public function getVolumeMap($flavorId) {
+    public function getVolumeMap($flavorid) {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
-        $this->client->addParam($kparams, "flavorId", $flavorId);
+        $this->client->addParam($kparams, "flavorId", $flavorid);
         $this->client->queueServiceActionCall("flavorasset", "getVolumeMap", $kparams);
         if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
@@ -2889,12 +2892,12 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get web playable Flavor Assets for Entry
-     * @param string $entryId 
+     * @param string $entryId
      * @return array
      */
-    public function getWebPlayableByEntryId($entryId) {
+    public function getWebPlayableByEntryId($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("flavorasset", "getWebPlayableByEntryId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2907,8 +2910,8 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * List Flavor Assets by filter and pager
-     * @param KalturaAssetFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaAssetFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaFlavorAssetListResponse
      */
     public function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -2947,9 +2950,9 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Serve cmd line to transcode the ad
-     * @param string $assetId 
-     * @param string $ffprobeJson 
-     * @param string $duration 
+     * @param string $assetId
+     * @param string $ffprobeJson
+     * @param string $duration
      * @return string
      */
     public function serveAdStitchCmd($assetId, $ffprobeJson = null, $duration = null) {
@@ -2969,11 +2972,11 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Set a given flavor as the original flavor
-     * @param string $assetId 
+     * @param string $assetId
      */
-    public function setAsSource($assetId) {
+    public function setAsSource($assetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "assetId", $assetId);
+        $this->client->addParam($kparams, "assetId", $assetid);
         $this->client->queueServiceActionCall("flavorasset", "setAsSource", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -2985,14 +2988,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Update content of flavor asset
-     * @param string $id 
-     * @param KalturaContentResource $contentResource 
+     * @param string $id
+     * @param KalturaContentResource $contentResource
      * @return KalturaFlavorAsset
      */
-    public function setContent($id, KalturaContentResource $contentResource) {
+    public function setContent($id, KalturaContentResource $contentresource) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+        $this->client->addParam($kparams, "contentResource", $contentresource->toParams());
         $this->client->queueServiceActionCall("flavorasset", "setContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3005,14 +3008,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Update flavor asset
-     * @param string $id 
-     * @param KalturaFlavorAsset $flavorAsset 
+     * @param string $id
+     * @param KalturaFlavorAsset $flavorAsset
      * @return KalturaFlavorAsset
      */
-    public function update($id, KalturaFlavorAsset $flavorAsset) {
+    public function update($id, KalturaFlavorAsset $flavorasset) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "flavorAsset", $flavorAsset->toParams());
+        $this->client->addParam($kparams, "flavorAsset", $flavorasset->toParams());
         $this->client->queueServiceActionCall("flavorasset", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3058,8 +3061,8 @@ class KalturaFlavorParamsOutputService extends KalturaServiceBase {
 
     /**
      * List flavor params output objects by filter and pager
-     * @param KalturaFlavorParamsOutputFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFlavorParamsOutputFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaFlavorParamsOutputListResponse
      */
     public function listAction(KalturaFlavorParamsOutputFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -3097,12 +3100,12 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Add new Flavor Params
-     * @param KalturaFlavorParams $flavorParams 
+     * @param KalturaFlavorParams $flavorParams
      * @return KalturaFlavorParams
      */
-    public function add(KalturaFlavorParams $flavorParams) {
+    public function add(KalturaFlavorParams $flavorparams) {
         $kparams = array();
-        $this->client->addParam($kparams, "flavorParams", $flavorParams->toParams());
+        $this->client->addParam($kparams, "flavorParams", $flavorparams->toParams());
         $this->client->queueServiceActionCall("flavorparams", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3115,7 +3118,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Delete Flavor Params by ID
-     * @param int $id 
+     * @param int $id
      */
     public function delete($id) {
         $kparams = array();
@@ -3131,7 +3134,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Get Flavor Params by ID
-     * @param int $id 
+     * @param int $id
      * @return KalturaFlavorParams
      */
     public function get($id) {
@@ -3149,12 +3152,12 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Get Flavor Params by Conversion Profile ID
-     * @param int $conversionProfileId 
+     * @param int $conversionProfileId
      * @return array
      */
-    public function getByConversionProfileId($conversionProfileId) {
+    public function getByConversionProfileId($conversionprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
+        $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         $this->client->queueServiceActionCall("flavorparams", "getByConversionProfileId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3167,8 +3170,8 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * List Flavor Params by filter with paging support (By default - all system default params will be listed too)
-     * @param KalturaFlavorParamsFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFlavorParamsFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaFlavorParamsListResponse
      */
     public function listAction(KalturaFlavorParamsFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -3191,14 +3194,14 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Update Flavor Params by ID
-     * @param int $id 
-     * @param KalturaFlavorParams $flavorParams 
+     * @param int $id
+     * @param KalturaFlavorParams $flavorParams
      * @return KalturaFlavorParams
      */
-    public function update($id, KalturaFlavorParams $flavorParams) {
+    public function update($id, KalturaFlavorParams $flavorparams) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "flavorParams", $flavorParams->toParams());
+        $this->client->addParam($kparams, "flavorParams", $flavorparams->toParams());
         $this->client->queueServiceActionCall("flavorparams", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3229,9 +3232,9 @@ class KalturaGroupUserService extends KalturaServiceBase {
      * @param KalturaGroupUser $groupUser 
      * @return KalturaGroupUser
      */
-    public function add(KalturaGroupUser $groupUser) {
+    public function add(KalturaGroupUser $groupuser) {
         $kparams = array();
-        $this->client->addParam($kparams, "groupUser", $groupUser->toParams());
+        $this->client->addParam($kparams, "groupUser", $groupuser->toParams());
         $this->client->queueServiceActionCall("groupuser", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3244,13 +3247,13 @@ class KalturaGroupUserService extends KalturaServiceBase {
 
     /**
      * Delete by userId and groupId
-     * @param string $userId 
+     * @param string $userId
      * @param string $groupId 
      */
-    public function delete($userId, $groupId) {
+    public function delete($userid, $groupid) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
-        $this->client->addParam($kparams, "groupId", $groupId);
+        $this->client->addParam($kparams, "userId", $userid);
+        $this->client->addParam($kparams, "groupId", $groupid);
         $this->client->queueServiceActionCall("groupuser", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3262,8 +3265,8 @@ class KalturaGroupUserService extends KalturaServiceBase {
 
     /**
      * List all GroupUsers
-     * @param KalturaGroupUserFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaGroupUserFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaGroupUserListResponse
      */
     public function listAction(KalturaGroupUserFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -3304,9 +3307,9 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
      * @param KalturaLiveChannelSegment $liveChannelSegment 
      * @return KalturaLiveChannelSegment
      */
-    public function add(KalturaLiveChannelSegment $liveChannelSegment) {
+    public function add(KalturaLiveChannelSegment $livechannelsegment) {
         $kparams = array();
-        $this->client->addParam($kparams, "liveChannelSegment", $liveChannelSegment->toParams());
+        $this->client->addParam($kparams, "liveChannelSegment", $livechannelsegment->toParams());
         $this->client->queueServiceActionCall("livechannelsegment", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3319,7 +3322,7 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
 
     /**
      * Delete live channel segment by id
-     * @param bigint $id 
+     * @param bigint $id
      */
     public function delete($id) {
         $kparams = array();
@@ -3335,7 +3338,7 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
 
     /**
      * Get live channel segment by id
-     * @param bigint $id 
+     * @param bigint $id
      * @return KalturaLiveChannelSegment
      */
     public function get($id) {
@@ -3353,8 +3356,8 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
 
     /**
      * List live channel segments by filter and pager
-     * @param KalturaLiveChannelSegmentFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaLiveChannelSegmentFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaLiveChannelSegmentListResponse
      */
     public function listAction(KalturaLiveChannelSegmentFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -3377,14 +3380,14 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
 
     /**
      * Update live channel segment by id
-     * @param bigint $id 
-     * @param KalturaLiveChannelSegment $liveChannelSegment 
+     * @param bigint $id
+     * @param KalturaLiveChannelSegment $liveChannelSegment
      * @return KalturaLiveChannelSegment
      */
-    public function update($id, KalturaLiveChannelSegment $liveChannelSegment) {
+    public function update($id, KalturaLiveChannelSegment $livechannelsegment) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "liveChannelSegment", $liveChannelSegment->toParams());
+        $this->client->addParam($kparams, "liveChannelSegment", $livechannelsegment->toParams());
         $this->client->queueServiceActionCall("livechannelsegment", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3415,9 +3418,9 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * @param KalturaLiveChannel $liveChannel Live channel metadata
      * @return KalturaLiveChannel
      */
-    public function add(KalturaLiveChannel $liveChannel) {
+    public function add(KalturaLiveChannel $livechannel) {
         $kparams = array();
-        $this->client->addParam($kparams, "liveChannel", $liveChannel->toParams());
+        $this->client->addParam($kparams, "liveChannel", $livechannel->toParams());
         $this->client->queueServiceActionCall("livechannel", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3432,20 +3435,20 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * Append recorded video to live entry
      * @param string $entryId Live entry id
      * @param string $assetId Live asset id
-     * @param string $mediaServerIndex 
-     * @param KalturaDataCenterContentResource $resource 
+     * @param string $mediaServerIndex
+     * @param KalturaDataCenterContentResource $resource
      * @param float $duration In seconds
      * @param bool $isLastChunk Is this the last recorded chunk in the current session (i.e. following a stream stop event)
      * @return KalturaLiveEntry
      */
-    public function appendRecording($entryId, $assetId, $mediaServerIndex, KalturaDataCenterContentResource $resource, $duration, $isLastChunk = false) {
+    public function appendRecording($entryid, $assetid, $mediaserverindex, KalturaDataCenterContentResource $resource, $duration, $islastchunk = false) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "assetId", $assetId);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "assetId", $assetid);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->addParam($kparams, "duration", $duration);
-        $this->client->addParam($kparams, "isLastChunk", $isLastChunk);
+        $this->client->addParam($kparams, "isLastChunk", $islastchunk);
         $this->client->queueServiceActionCall("livechannel", "appendRecording", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3463,11 +3466,11 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * @param int $liveEntryStatus The status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING
      * @return KalturaLiveEntry
      */
-    public function createRecordedEntry($entryId, $mediaServerIndex, $liveEntryStatus) {
+    public function createRecordedEntry($entryid, $mediaserverindex, $liveentrystatus) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-        $this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
+        $this->client->addParam($kparams, "liveEntryStatus", $liveentrystatus);
         $this->client->queueServiceActionCall("livechannel", "createRecordedEntry", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3564,14 +3567,14 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * @param bool $shouldCreateRecordedEntry 
      * @return KalturaLiveEntry
      */
-    public function registerMediaServer($entryId, $hostname, $mediaServerIndex, $applicationName = null, $liveEntryStatus = 1, $shouldCreateRecordedEntry = true) {
+    public function registerMediaServer($entryid, $hostname, $mediaserverindex, $applicationname = null, $liveentrystatus = 1, $shouldcreaterecordedentry = true) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "hostname", $hostname);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-        $this->client->addParam($kparams, "applicationName", $applicationName);
-        $this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
-        $this->client->addParam($kparams, "shouldCreateRecordedEntry", $shouldCreateRecordedEntry);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
+        $this->client->addParam($kparams, "applicationName", $applicationname);
+        $this->client->addParam($kparams, "liveEntryStatus", $liveentrystatus);
+        $this->client->addParam($kparams, "shouldCreateRecordedEntry", $shouldcreaterecordedentry);
         $this->client->queueServiceActionCall("livechannel", "registerMediaServer", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3585,21 +3588,21 @@ class KalturaLiveChannelService extends KalturaServiceBase {
     /**
      * Set recorded video to live entry
      * @param string $entryId Live entry id
-     * @param string $mediaServerIndex 
-     * @param KalturaDataCenterContentResource $resource 
+     * @param string $mediaServerIndex
+     * @param KalturaDataCenterContentResource $resource
      * @param float $duration In seconds
      * @param string $recordedEntryId Recorded entry Id
      * @param int $flavorParamsId Recorded entry Id
      * @return KalturaLiveEntry
      */
-    public function setRecordedContent($entryId, $mediaServerIndex, KalturaDataCenterContentResource $resource, $duration, $recordedEntryId = null, $flavorParamsId = null) {
+    public function setRecordedContent($entryid, $mediaserverindex, KalturaDataCenterContentResource $resource, $duration, $recordedentryid = null, $flavorparamsid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->addParam($kparams, "duration", $duration);
-        $this->client->addParam($kparams, "recordedEntryId", $recordedEntryId);
-        $this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
+        $this->client->addParam($kparams, "recordedEntryId", $recordedentryid);
+        $this->client->addParam($kparams, "flavorParamsId", $flavorparamsid);
         $this->client->queueServiceActionCall("livechannel", "setRecordedContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3617,11 +3620,11 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * @param string $mediaServerIndex Media server index primary / secondary
      * @return KalturaLiveEntry
      */
-    public function unregisterMediaServer($entryId, $hostname, $mediaServerIndex) {
+    public function unregisterMediaServer($entryid, $hostname, $mediaserverindex) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "hostname", $hostname);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
         $this->client->queueServiceActionCall("livechannel", "unregisterMediaServer", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3638,10 +3641,10 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * @param KalturaLiveChannel $liveChannel Live channel metadata to update
      * @return KalturaLiveChannel
      */
-    public function update($id, KalturaLiveChannel $liveChannel) {
+    public function update($id, KalturaLiveChannel $livechannel) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "liveChannel", $liveChannel->toParams());
+        $this->client->addParam($kparams, "liveChannel", $livechannel->toParams());
         $this->client->queueServiceActionCall("livechannel", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3656,9 +3659,9 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * Validates all registered media servers
      * @param string $entryId Live entry id
      */
-    public function validateRegisteredMediaServers($entryId) {
+    public function validateRegisteredMediaServers($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("livechannel", "validateRegisteredMediaServers", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3684,13 +3687,13 @@ class KalturaLiveReportsService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $reportType 
-     * @param KalturaLiveReportExportParams $params 
+     * @param int $reportType
+     * @param KalturaLiveReportExportParams $params
      * @return KalturaLiveReportExportResponse
      */
-    public function exportToCsv($reportType, KalturaLiveReportExportParams $params) {
+    public function exportToCsv($reporttype, KalturaLiveReportExportParams $params) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportType", $reportType);
+        $this->client->addParam($kparams, "reportType", $reporttype);
         $this->client->addParam($kparams, "params", $params->toParams());
         $this->client->queueServiceActionCall("livereports", "exportToCsv", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -3703,9 +3706,9 @@ class KalturaLiveReportsService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $reportType 
-     * @param KalturaLiveReportInputFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param string $reportType
+     * @param KalturaLiveReportInputFilter $filter
+     * @param KalturaFilterPager $pager
      * @return array
      */
     public function getEvents($reportType, KalturaLiveReportInputFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -3728,14 +3731,14 @@ class KalturaLiveReportsService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $reportType 
+     * @param string $reportType
      * @param KalturaLiveReportInputFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFilterPager $pager
      * @return KalturaLiveStatsListResponse
      */
-    public function getReport($reportType, KalturaLiveReportInputFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function getReport($reporttype, KalturaLiveReportInputFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportType", $reportType);
+        $this->client->addParam($kparams, "reportType", $reporttype);
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
         }
@@ -3826,10 +3829,10 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param string $sourceType Live stream source type
      * @return KalturaLiveStreamEntry
      */
-    public function add(KalturaLiveStreamEntry $liveStreamEntry, $sourceType = null) {
+    public function add(KalturaLiveStreamEntry $livestreamentry, $sourcetype = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "liveStreamEntry", $liveStreamEntry->toParams());
-        $this->client->addParam($kparams, "sourceType", $sourceType);
+        $this->client->addParam($kparams, "liveStreamEntry", $livestreamentry->toParams());
+        $this->client->addParam($kparams, "sourceType", $sourcetype);
         $this->client->queueServiceActionCall("livestream", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3843,18 +3846,18 @@ class KalturaLiveStreamService extends KalturaServiceBase {
     /**
      * Add new pushPublish configuration to entry
      * @param string $entryId 
-     * @param string $protocol 
-     * @param string $url 
-     * @param KalturaLiveStreamConfiguration $liveStreamConfiguration 
+     * @param string $protocol
+     * @param string $url
+     * @param KalturaLiveStreamConfiguration $liveStreamConfiguration
      * @return KalturaLiveStreamEntry
      */
-    public function addLiveStreamPushPublishConfiguration($entryId, $protocol, $url = null, KalturaLiveStreamConfiguration $liveStreamConfiguration = null) {
+    public function addLiveStreamPushPublishConfiguration($entryid, $protocol, $url = null, KalturaLiveStreamConfiguration $livestreamconfiguration = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "protocol", $protocol);
         $this->client->addParam($kparams, "url", $url);
-        if ($liveStreamConfiguration !== null) {
-            $this->client->addParam($kparams, "liveStreamConfiguration", $liveStreamConfiguration->toParams());
+        if ($livestreamconfiguration !== null) {
+            $this->client->addParam($kparams, "liveStreamConfiguration", $livestreamconfiguration->toParams());
         }
         $this->client->queueServiceActionCall("livestream", "addLiveStreamPushPublishConfiguration", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -3870,20 +3873,20 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * Append recorded video to live entry
      * @param string $entryId Live entry id
      * @param string $assetId Live asset id
-     * @param string $mediaServerIndex 
-     * @param KalturaDataCenterContentResource $resource 
+     * @param string $mediaServerIndex
+     * @param KalturaDataCenterContentResource $resource
      * @param float $duration In seconds
      * @param bool $isLastChunk Is this the last recorded chunk in the current session (i.e. following a stream stop event)
      * @return KalturaLiveEntry
      */
-    public function appendRecording($entryId, $assetId, $mediaServerIndex, KalturaDataCenterContentResource $resource, $duration, $isLastChunk = false) {
+    public function appendRecording($entryid, $assetid, $mediaserverindex, KalturaDataCenterContentResource $resource, $duration, $islastchunk = false) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "assetId", $assetId);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "assetId", $assetid);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->addParam($kparams, "duration", $duration);
-        $this->client->addParam($kparams, "isLastChunk", $isLastChunk);
+        $this->client->addParam($kparams, "isLastChunk", $islastchunk);
         $this->client->queueServiceActionCall("livestream", "appendRecording", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3903,13 +3906,13 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param string $applicationName The application to which entry is being broadcast
      * @return KalturaLiveStreamEntry
      */
-    public function authenticate($entryId, $token, $hostname = null, $mediaServerIndex = null, $applicationName = null) {
+    public function authenticate($entryid, $token, $hostname = null, $mediaserverindex = null, $applicationname = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "token", $token);
         $this->client->addParam($kparams, "hostname", $hostname);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-        $this->client->addParam($kparams, "applicationName", $applicationName);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
+        $this->client->addParam($kparams, "applicationName", $applicationname);
         $this->client->queueServiceActionCall("livestream", "authenticate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3926,9 +3929,9 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param int $interval Events interval in seconds
      * @param int $duration Duration in seconds
      */
-    public function createPeriodicSyncPoints($entryId, $interval, $duration) {
+    public function createPeriodicSyncPoints($entryid, $interval, $duration) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "interval", $interval);
         $this->client->addParam($kparams, "duration", $duration);
         $this->client->queueServiceActionCall("livestream", "createPeriodicSyncPoints", $kparams);
@@ -3947,11 +3950,11 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param int $liveEntryStatus The status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING
      * @return KalturaLiveEntry
      */
-    public function createRecordedEntry($entryId, $mediaServerIndex, $liveEntryStatus) {
+    public function createRecordedEntry($entryid, $mediaserverindex, $liveentrystatus) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-        $this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
+        $this->client->addParam($kparams, "liveEntryStatus", $liveentrystatus);
         $this->client->queueServiceActionCall("livestream", "createRecordedEntry", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3966,9 +3969,9 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * Delete a live stream entry.
      * @param string $entryId Live stream entry id to delete
      */
-    public function delete($entryId) {
+    public function delete($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("livestream", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -3984,9 +3987,9 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param int $version Desired version of the data
      * @return KalturaLiveStreamEntry
      */
-    public function get($entryId, $version = -1) {
+    public function get($entryid, $version = -1) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "version", $version);
         $this->client->queueServiceActionCall("livestream", "get", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4046,9 +4049,9 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * Regenerate new secure token for liveStream
      * @param string $entryId Live stream entry id to regenerate secure token for
      */
-    public function regenerateStreamToken($entryId) {
+    public function regenerateStreamToken($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("livestream", "regenerateStreamToken", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4065,17 +4068,17 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param string $mediaServerIndex Media server index primary / secondary
      * @param string $applicationName The application to which entry is being broadcast
      * @param int $liveEntryStatus The status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING
-     * @param bool $shouldCreateRecordedEntry 
+     * @param bool $shouldCreateRecordedEntry
      * @return KalturaLiveEntry
      */
-    public function registerMediaServer($entryId, $hostname, $mediaServerIndex, $applicationName = null, $liveEntryStatus = 1, $shouldCreateRecordedEntry = true) {
+    public function registerMediaServer($entryid, $hostname, $mediaserverindex, $applicationname = null, $liveentrystatus = 1, $shouldcreaterecordedentry = true) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "hostname", $hostname);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-        $this->client->addParam($kparams, "applicationName", $applicationName);
-        $this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
-        $this->client->addParam($kparams, "shouldCreateRecordedEntry", $shouldCreateRecordedEntry);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
+        $this->client->addParam($kparams, "applicationName", $applicationname);
+        $this->client->addParam($kparams, "liveEntryStatus", $liveentrystatus);
+        $this->client->addParam($kparams, "shouldCreateRecordedEntry", $shouldcreaterecordedentry);
         $this->client->queueServiceActionCall("livestream", "registerMediaServer", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4088,13 +4091,13 @@ class KalturaLiveStreamService extends KalturaServiceBase {
 
     /**
      * Remove push publish configuration from entry
-     * @param string $entryId 
-     * @param string $protocol 
+     * @param string $entryId
+     * @param string $protocol
      * @return KalturaLiveStreamEntry
      */
-    public function removeLiveStreamPushPublishConfiguration($entryId, $protocol) {
+    public function removeLiveStreamPushPublishConfiguration($entryid, $protocol) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "protocol", $protocol);
         $this->client->queueServiceActionCall("livestream", "removeLiveStreamPushPublishConfiguration", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4109,21 +4112,21 @@ class KalturaLiveStreamService extends KalturaServiceBase {
     /**
      * Set recorded video to live entry
      * @param string $entryId Live entry id
-     * @param string $mediaServerIndex 
-     * @param KalturaDataCenterContentResource $resource 
+     * @param string $mediaServerIndex
+     * @param KalturaDataCenterContentResource $resource
      * @param float $duration In seconds
      * @param string $recordedEntryId Recorded entry Id
      * @param int $flavorParamsId Recorded entry Id
      * @return KalturaLiveEntry
      */
-    public function setRecordedContent($entryId, $mediaServerIndex, KalturaDataCenterContentResource $resource, $duration, $recordedEntryId = null, $flavorParamsId = null) {
+    public function setRecordedContent($entryid, $mediaserverindex, KalturaDataCenterContentResource $resource, $duration, $recordedentryid = null, $flavorParamsId = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->addParam($kparams, "duration", $duration);
-        $this->client->addParam($kparams, "recordedEntryId", $recordedEntryId);
-        $this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
+        $this->client->addParam($kparams, "recordedEntryId", $recordedentryid);
+        $this->client->addParam($kparams, "flavorParamsId", $flavorparamsid);
         $this->client->queueServiceActionCall("livestream", "setRecordedContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4141,11 +4144,11 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param string $mediaServerIndex Media server index primary / secondary
      * @return KalturaLiveEntry
      */
-    public function unregisterMediaServer($entryId, $hostname, $mediaServerIndex) {
+    public function unregisterMediaServer($entryid, $hostname, $mediaserverindex) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "hostname", $hostname);
-        $this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+        $this->client->addParam($kparams, "mediaServerIndex", $mediaserverindex);
         $this->client->queueServiceActionCall("livestream", "unregisterMediaServer", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4162,10 +4165,10 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param KalturaLiveStreamEntry $liveStreamEntry Live stream entry metadata to update
      * @return KalturaLiveStreamEntry
      */
-    public function update($entryId, KalturaLiveStreamEntry $liveStreamEntry) {
+    public function update($entryid, KalturaLiveStreamEntry $livestreamentry) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "liveStreamEntry", $liveStreamEntry->toParams());
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "liveStreamEntry", $livestreamentry->toParams());
         $this->client->queueServiceActionCall("livestream", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4182,9 +4185,9 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param string $url File url
      * @return KalturaLiveStreamEntry
      */
-    public function updateOfflineThumbnailFromUrl($entryId, $url) {
+    public function updateOfflineThumbnailFromUrl($entryid, $url) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "url", $url);
         $this->client->queueServiceActionCall("livestream", "updateOfflineThumbnailFromUrl", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4202,11 +4205,11 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * @param file $fileData Jpeg file data
      * @return KalturaLiveStreamEntry
      */
-    public function updateOfflineThumbnailJpeg($entryId, $fileData) {
+    public function updateOfflineThumbnailJpeg($entryid, $filedata) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->queueServiceActionCall("livestream", "updateOfflineThumbnailJpeg", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4221,9 +4224,9 @@ class KalturaLiveStreamService extends KalturaServiceBase {
      * Validates all registered media servers
      * @param string $entryId Live entry id
      */
-    public function validateRegisteredMediaServers($entryId) {
+    public function validateRegisteredMediaServers($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("livestream", "validateRegisteredMediaServers", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4251,7 +4254,7 @@ class KalturaMediaInfoService extends KalturaServiceBase {
     /**
      * List media info objects by filter and pager
      * @param KalturaMediaInfoFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFilterPager $pager
      * @return KalturaMediaInfoListResponse
      */
     public function listAction(KalturaMediaInfoFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -4289,7 +4292,7 @@ class KalturaMediaService extends KalturaServiceBase {
 
     /**
      * Add entry
-     * @param KalturaMediaEntry $entry 
+     * @param KalturaMediaEntry $entry
      * @return KalturaMediaEntry
      */
     public function add(KalturaMediaEntry $entry) {
@@ -4308,13 +4311,13 @@ class KalturaMediaService extends KalturaServiceBase {
     /**
      * Add content to media entry which is not yet associated with content (therefore is in status NO_CONTENT).
      If the requirement is to replace the entry's associated content, use action updateContent.
-     * @param string $entryId 
-     * @param KalturaResource $resource 
+     * @param string $entryId
+     * @param KalturaResource $resource
      * @return KalturaMediaEntry
      */
-    public function addContent($entryId, KalturaResource $resource = null) {
+    public function addContent($entryid, KalturaResource $resource = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         if ($resource !== null) {
             $this->client->addParam($kparams, "resource", $resource->toParams());
         }
@@ -4337,11 +4340,11 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param int $bulkUploadId The id of the bulk upload job
      * @return KalturaMediaEntry
      */
-    public function addFromBulk(KalturaMediaEntry $mediaEntry, $url, $bulkUploadId) {
+    public function addFromBulk(KalturaMediaEntry $mediaentry, $url, $bulkuploadId) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+        $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
         $this->client->addParam($kparams, "url", $url);
-        $this->client->addParam($kparams, "bulkUploadId", $bulkUploadId);
+        $this->client->addParam($kparams, "bulkUploadId", $bulkuploadId);
         $this->client->queueServiceActionCall("media", "addFromBulk", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4359,13 +4362,13 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param int $sourceFlavorParamsId The flavor to be used as the new entry source, source flavor will be used if not specified
      * @return KalturaMediaEntry
      */
-    public function addFromEntry($sourceEntryId, KalturaMediaEntry $mediaEntry = null, $sourceFlavorParamsId = null) {
+    public function addFromEntry($sourceentryid, KalturaMediaEntry $mediaentry = null, $sourceflavorparamsid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "sourceEntryId", $sourceEntryId);
-        if ($mediaEntry !== null) {
-            $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+        $this->client->addParam($kparams, "sourceEntryId", $sourceentryid);
+        if ($mediaentry !== null) {
+            $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
         }
-        $this->client->addParam($kparams, "sourceFlavorParamsId", $sourceFlavorParamsId);
+        $this->client->addParam($kparams, "sourceFlavorParamsId", $sourceflavorparamsid);
         $this->client->queueServiceActionCall("media", "addFromEntry", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4382,11 +4385,11 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param KalturaMediaEntry $mediaEntry Media entry metadata
      * @return KalturaMediaEntry
      */
-    public function addFromFlavorAsset($sourceFlavorAssetId, KalturaMediaEntry $mediaEntry = null) {
+    public function addFromFlavorAsset($sourceflavorassetid, KalturaMediaEntry $mediaentry = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "sourceFlavorAssetId", $sourceFlavorAssetId);
-        if ($mediaEntry !== null) {
-            $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+        $this->client->addParam($kparams, "sourceFlavorAssetId", $sourceflavorassetid);
+        if ($mediaentry !== null) {
+            $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
         }
         $this->client->queueServiceActionCall("media", "addFromFlavorAsset", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4404,10 +4407,10 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $webcamTokenId Token id for the recored webcam file
      * @return KalturaMediaEntry
      */
-    public function addFromRecordedWebcam(KalturaMediaEntry $mediaEntry, $webcamTokenId) {
+    public function addFromRecordedWebcam(KalturaMediaEntry $mediaentry, $webcamtokenid) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
-        $this->client->addParam($kparams, "webcamTokenId", $webcamTokenId);
+        $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
+        $this->client->addParam($kparams, "webcamTokenId", $webcamtokenid);
         $this->client->queueServiceActionCall("media", "addFromRecordedWebcam", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4425,13 +4428,13 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param KalturaSearchResult $searchResult Result object from search service
      * @return KalturaMediaEntry
      */
-    public function addFromSearchResult(KalturaMediaEntry $mediaEntry = null, KalturaSearchResult $searchResult = null) {
+    public function addFromSearchResult(KalturaMediaEntry $mediaentry = null, KalturaSearchResult $searchresult = null) {
         $kparams = array();
-        if ($mediaEntry !== null) {
-            $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+        if ($mediaentry !== null) {
+            $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
         }
-        if ($searchResult !== null) {
-            $this->client->addParam($kparams, "searchResult", $searchResult->toParams());
+        if ($searchresult !== null) {
+            $this->client->addParam($kparams, "searchResult", $searchresult->toParams());
         }
         $this->client->queueServiceActionCall("media", "addFromSearchResult", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4449,10 +4452,10 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $uploadTokenId Upload token id
      * @return KalturaMediaEntry
      */
-    public function addFromUploadedFile(KalturaMediaEntry $mediaEntry, $uploadTokenId) {
+    public function addFromUploadedFile(KalturaMediaEntry $mediaentry, $uploadtokenid) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
-        $this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
+        $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
+        $this->client->addParam($kparams, "uploadTokenId", $uploadtokenid);
         $this->client->queueServiceActionCall("media", "addFromUploadedFile", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4470,9 +4473,9 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $url An HTTP or FTP URL
      * @return KalturaMediaEntry
      */
-    public function addFromUrl(KalturaMediaEntry $mediaEntry, $url) {
+    public function addFromUrl(KalturaMediaEntry $mediaentry, $url) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+        $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
         $this->client->addParam($kparams, "url", $url);
         $this->client->queueServiceActionCall("media", "addFromUrl", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4486,12 +4489,12 @@ class KalturaMediaService extends KalturaServiceBase {
 
     /**
      * Anonymously rank a media entry, no validation is done on duplicate rankings
-     * @param string $entryId 
-     * @param int $rank 
+     * @param string $entryId
+     * @param int $rank
      */
-    public function anonymousRank($entryId, $rank) {
+    public function anonymousRank($entryid, $rank) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "rank", $rank);
         $this->client->queueServiceActionCall("media", "anonymousRank", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4504,11 +4507,11 @@ class KalturaMediaService extends KalturaServiceBase {
 
     /**
      * Approve the media entry and mark the pending flags (if any) as moderated (this will make the entry playable)
-     * @param string $entryId 
+     * @param string $entryId
      */
-    public function approve($entryId) {
+    public function approve($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("media", "approve", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4523,9 +4526,9 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $entryId Media entry id to replace
      * @return KalturaMediaEntry
      */
-    public function approveReplace($entryId) {
+    public function approveReplace($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("media", "approveReplace", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4540,20 +4543,20 @@ class KalturaMediaService extends KalturaServiceBase {
      * Add new bulk upload batch job
      Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
      If no conversion profile was specified, partner's default will be used
-     * @param file $fileData 
-     * @param KalturaBulkUploadJobData $bulkUploadData 
-     * @param KalturaBulkUploadEntryData $bulkUploadEntryData 
+     * @param file $fileData
+     * @param KalturaBulkUploadJobData $bulkUploadData
+     * @param KalturaBulkUploadEntryData $bulkUploadEntryData
      * @return KalturaBulkUpload
      */
-    public function bulkUploadAdd($fileData, KalturaBulkUploadJobData $bulkUploadData = null, KalturaBulkUploadEntryData $bulkUploadEntryData = null) {
+    public function bulkUploadAdd($filedata, KalturaBulkUploadJobData $bulkuploaddata = null, KalturaBulkUploadEntryData $bulkuploadentrydata = null) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         if ($bulkUploadData !== null) {
-            $this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+            $this->client->addParam($kparams, "bulkUploadData", $bulkuploaddata->toParams());
         }
-        if ($bulkUploadEntryData !== null) {
-            $this->client->addParam($kparams, "bulkUploadEntryData", $bulkUploadEntryData->toParams());
+        if ($bulkuploadentrydata !== null) {
+            $this->client->addParam($kparams, "bulkUploadEntryData", $bulkuploadentrydata->toParams());
         }
         $this->client->queueServiceActionCall("media", "bulkUploadAdd", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
@@ -4570,9 +4573,9 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $entryId Media entry id to cancel
      * @return KalturaMediaEntry
      */
-    public function cancelReplace($entryId) {
+    public function cancelReplace($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("media", "cancelReplace", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4586,16 +4589,16 @@ class KalturaMediaService extends KalturaServiceBase {
     /**
      * Convert entry
      * @param string $entryId Media entry id
-     * @param int $conversionProfileId 
-     * @param array $dynamicConversionAttributes 
+     * @param int $conversionProfileId
+     * @param array $dynamicConversionAttributes
      * @return bigint
      */
-    public function convert($entryId, $conversionProfileId = null, array $dynamicConversionAttributes = null) {
+    public function convert($entryid, $conversionprofileid = null, array $dynamicconversionattributes = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
-        if ($dynamicConversionAttributes !== null) {
-            foreach ($dynamicConversionAttributes as $index => $obj) {
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
+        if ($dynamicconversionattributes !== null) {
+            foreach ($dynamicconversionattributes as $index => $obj) {
                 $this->client->addParam($kparams, "dynamicConversionAttributes:$index", $obj->toParams());
             }
         }
@@ -4633,9 +4636,9 @@ class KalturaMediaService extends KalturaServiceBase {
      * Delete a media entry.
      * @param string $entryId Media entry id to delete
      */
-    public function delete($entryId) {
+    public function delete($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("media", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4647,11 +4650,11 @@ class KalturaMediaService extends KalturaServiceBase {
 
     /**
      * Flag inappropriate media entry for moderation
-     * @param KalturaModerationFlag $moderationFlag 
+     * @param KalturaModerationFlag $moderationFlag
      */
-    public function flag(KalturaModerationFlag $moderationFlag) {
+    public function flag(KalturaModerationFlag $moderationflag) {
         $kparams = array();
-        $this->client->addParam($kparams, "moderationFlag", $moderationFlag->toParams());
+        $this->client->addParam($kparams, "moderationFlag", $moderationflag->toParams());
         $this->client->queueServiceActionCall("media", "flag", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4667,9 +4670,9 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param int $version Desired version of the data
      * @return KalturaMediaEntry
      */
-    public function get($entryId, $version = -1) {
+    public function get($entryid, $version = -1) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "version", $version);
         $this->client->queueServiceActionCall("media", "get", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4685,15 +4688,15 @@ class KalturaMediaService extends KalturaServiceBase {
      * Get MRSS by entry id
      XML will return as an escaped string
      * @param string $entryId Entry id
-     * @param array $extendingItemsArray 
-     * @param string $features 
+     * @param array $extendingItemsArray
+     * @param string $features
      * @return string
      */
-    public function getMrss($entryId, array $extendingItemsArray = null, $features = null) {
+    public function getMrss($entryid, array $extendingitemsarray = null, $features = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        if ($extendingItemsArray !== null) {
-            foreach ($extendingItemsArray as $index => $obj) {
+        $this->client->addParam($kparams, "entryId", $entryid);
+        if ($extendingitemsarray !== null) {
+            foreach ($extendingitemsarray as $index => $obj) {
                 $this->client->addParam($kparams, "extendingItemsArray:$index", $obj->toParams());
             }
         }
@@ -4713,12 +4716,12 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $entryId Entry id
      * @return file
      */
-    public function getVolumeMap($entryId) {
+    public function getVolumeMap($entryid) {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("media", "getVolumeMap", $kparams);
         if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
@@ -4752,11 +4755,11 @@ class KalturaMediaService extends KalturaServiceBase {
 
     /**
      * List all pending flags for the media entry
-     * @param string $entryId 
-     * @param KalturaFilterPager $pager 
+     * @param string $entryId
+     * @param KalturaFilterPager $pager
      * @return KalturaModerationFlagListResponse
      */
-    public function listFlags($entryId, KalturaFilterPager $pager = null) {
+    public function listFlags($entryid, KalturaFilterPager $pager = null) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryId);
         if ($pager !== null) {
@@ -4774,11 +4777,11 @@ class KalturaMediaService extends KalturaServiceBase {
 
     /**
      * Reject the media entry and mark the pending flags (if any) as moderated (this will make the entry non playable)
-     * @param string $entryId 
+     * @param string $entryId
      */
-    public function reject($entryId) {
+    public function reject($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("media", "reject", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4794,10 +4797,10 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $fileFormat Format to convert
      * @return int
      */
-    public function requestConversion($entryId, $fileFormat) {
+    public function requestConversion($entryid, $fileformat) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "fileFormat", $fileFormat);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "fileFormat", $fileformat);
         $this->client->queueServiceActionCall("media", "requestConversion", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4814,10 +4817,10 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param KalturaMediaEntry $mediaEntry Media entry metadata to update
      * @return KalturaMediaEntry
      */
-    public function update($entryId, KalturaMediaEntry $mediaEntry) {
+    public function update($entryid, KalturaMediaEntry $mediaentry) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "mediaEntry", $mediaentry->toParams());
         $this->client->queueServiceActionCall("media", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4836,13 +4839,13 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param KalturaEntryReplacementOptions $advancedOptions Additional update content options
      * @return KalturaMediaEntry
      */
-    public function updateContent($entryId, KalturaResource $resource, $conversionProfileId = null, KalturaEntryReplacementOptions $advancedOptions = null) {
+    public function updateContent($entryid, KalturaResource $resource, $conversionprofileId = null, KalturaEntryReplacementOptions $advancedoptions = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "resource", $resource->toParams());
-        $this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
+        $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         if ($advancedOptions !== null) {
-            $this->client->addParam($kparams, "advancedOptions", $advancedOptions->toParams());
+            $this->client->addParam($kparams, "advancedOptions", $advancedoptions->toParams());
         }
         $this->client->queueServiceActionCall("media", "updateContent", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4862,11 +4865,11 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param int $flavorParamsId The flavor params id to be used
      * @return KalturaMediaEntry
      */
-    public function updateThumbnail($entryId, $timeOffset, $flavorParamsId = null) {
+    public function updateThumbnail($entryid, $timeoffset, $flavorparamsid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "timeOffset", $timeOffset);
-        $this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "timeOffset", $timeoffset);
+        $this->client->addParam($kparams, "flavorParamsId", $flavorparamsid);
         $this->client->queueServiceActionCall("media", "updateThumbnail", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4886,12 +4889,12 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param int $flavorParamsId The flavor params id to be used
      * @return KalturaMediaEntry
      */
-    public function updateThumbnailFromSourceEntry($entryId, $sourceEntryId, $timeOffset, $flavorParamsId = null) {
+    public function updateThumbnailFromSourceEntry($entryid, $sourceentryid, $timeoffset, $flavorparamsid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "sourceEntryId", $sourceEntryId);
-        $this->client->addParam($kparams, "timeOffset", $timeOffset);
-        $this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "sourceEntryId", $sourceentryid);
+        $this->client->addParam($kparams, "timeOffset", $timeoffset);
+        $this->client->addParam($kparams, "flavorParamsId", $flavorparamsid);
         $this->client->queueServiceActionCall("media", "updateThumbnailFromSourceEntry", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4908,9 +4911,9 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param string $url File url
      * @return KalturaBaseEntry
      */
-    public function updateThumbnailFromUrl($entryId, $url) {
+    public function updateThumbnailFromUrl($entryid, $url) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "url", $url);
         $this->client->queueServiceActionCall("media", "updateThumbnailFromUrl", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -4928,11 +4931,11 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param file $fileData Jpeg file data
      * @return KalturaMediaEntry
      */
-    public function updateThumbnailJpeg($entryId, $fileData) {
+    public function updateThumbnailJpeg($entryid, $filedata) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->queueServiceActionCall("media", "updateThumbnailJpeg", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4948,10 +4951,10 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param file $fileData The file data
      * @return string
      */
-    public function upload($fileData) {
+    public function upload($filedata) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->queueServiceActionCall("media", "upload", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4983,9 +4986,9 @@ class KalturaMixingService extends KalturaServiceBase {
      * @param KalturaMixEntry $mixEntry Mix entry metadata
      * @return KalturaMixEntry
      */
-    public function add(KalturaMixEntry $mixEntry) {
+    public function add(KalturaMixEntry $mixentry) {
         $kparams = array();
-        $this->client->addParam($kparams, "mixEntry", $mixEntry->toParams());
+        $this->client->addParam($kparams, "mixEntry", $mixentry->toParams());
         $this->client->queueServiceActionCall("mixing", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -4998,12 +5001,12 @@ class KalturaMixingService extends KalturaServiceBase {
 
     /**
      * Anonymously rank a mix entry, no validation is done on duplicate rankings
-     * @param string $entryId 
-     * @param int $rank 
+     * @param string $entryId
+     * @param int $rank
      */
-    public function anonymousRank($entryId, $rank) {
+    public function anonymousRank($entryid, $rank) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "rank", $rank);
         $this->client->queueServiceActionCall("mixing", "anonymousRank", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -5020,10 +5023,10 @@ class KalturaMixingService extends KalturaServiceBase {
      * @param string $mediaEntryId Media entry to append to the timeline
      * @return KalturaMixEntry
      */
-    public function appendMediaEntry($mixEntryId, $mediaEntryId) {
+    public function appendMediaEntry($mixentryid, $mediaentryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "mixEntryId", $mixEntryId);
-        $this->client->addParam($kparams, "mediaEntryId", $mediaEntryId);
+        $this->client->addParam($kparams, "mixEntryId", $mixentryid);
+        $this->client->addParam($kparams, "mediaEntryId", $mediaentryid);
         $this->client->queueServiceActionCall("mixing", "appendMediaEntry", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5039,9 +5042,9 @@ class KalturaMixingService extends KalturaServiceBase {
      * @param string $entryId Mix entry id to clone
      * @return KalturaMixEntry
      */
-    public function cloneAction($entryId) {
+    public function cloneAction($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("mixing", "clone", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5076,9 +5079,9 @@ class KalturaMixingService extends KalturaServiceBase {
      * Delete a mix entry.
      * @param string $entryId Mix entry id to delete
      */
-    public function delete($entryId) {
+    public function delete($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("mixing", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5094,7 +5097,7 @@ class KalturaMixingService extends KalturaServiceBase {
      * @param int $version Desired version of the data
      * @return KalturaMixEntry
      */
-    public function get($entryId, $version = -1) {
+    public function get($entryid, $version = -1) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryId);
         $this->client->addParam($kparams, "version", $version);
@@ -5113,9 +5116,9 @@ class KalturaMixingService extends KalturaServiceBase {
      * @param string $mediaEntryId 
      * @return array
      */
-    public function getMixesByMediaId($mediaEntryId) {
+    public function getMixesByMediaId($mediaentryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaEntryId", $mediaEntryId);
+        $this->client->addParam($kparams, "mediaEntryId", $mediaentryid);
         $this->client->queueServiceActionCall("mixing", "getMixesByMediaId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5128,13 +5131,13 @@ class KalturaMixingService extends KalturaServiceBase {
 
     /**
      * Get all ready media entries that exist in the given mix id
-     * @param string $mixId 
+     * @param string $mixId
      * @param int $version Desired version to get the data from
      * @return array
      */
-    public function getReadyMediaEntries($mixId, $version = -1) {
+    public function getReadyMediaEntries($mixid, $version = -1) {
         $kparams = array();
-        $this->client->addParam($kparams, "mixId", $mixId);
+        $this->client->addParam($kparams, "mixId", $mixid);
         $this->client->addParam($kparams, "version", $version);
         $this->client->queueServiceActionCall("mixing", "getReadyMediaEntries", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -5177,10 +5180,10 @@ class KalturaMixingService extends KalturaServiceBase {
      * @param KalturaMixEntry $mixEntry Mix entry metadata to update
      * @return KalturaMixEntry
      */
-    public function update($entryId, KalturaMixEntry $mixEntry) {
+    public function update($entryid, KalturaMixEntry $mixentry) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "mixEntry", $mixEntry->toParams());
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "mixEntry", $mixentry->toParams());
         $this->client->queueServiceActionCall("mixing", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5208,13 +5211,13 @@ class KalturaNotificationService extends KalturaServiceBase {
 
     /**
      * Return the notifications for a specific entry id and type
-     * @param string $entryId 
-     * @param int $type 
+     * @param string $entryId
+     * @param int $type
      * @return KalturaClientNotification
      */
-    public function getClientNotification($entryId, $type) {
+    public function getClientNotification($entryid, $type) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "type", $type);
         $this->client->queueServiceActionCall("notification", "getClientNotification", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -5263,7 +5266,7 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Retrieve partner object by Id
-     * @param int $id 
+     * @param int $id
      * @return KalturaPartner
      */
     public function get($id = null) {
@@ -5298,16 +5301,16 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Retrieve partner secret and admin secret
-     * @param int $partnerId 
-     * @param string $adminEmail 
-     * @param string $cmsPassword 
+     * @param int $partnerId
+     * @param string $adminEmail
+     * @param string $cmsPassword
      * @return KalturaPartner
      */
-    public function getSecrets($partnerId, $adminEmail, $cmsPassword) {
+    public function getSecrets($partnerid, $adminemail, $cmspassword) {
         $kparams = array();
-        $this->client->addParam($kparams, "partnerId", $partnerId);
-        $this->client->addParam($kparams, "adminEmail", $adminEmail);
-        $this->client->addParam($kparams, "cmsPassword", $cmsPassword);
+        $this->client->addParam($kparams, "partnerId", $partnerid);
+        $this->client->addParam($kparams, "adminEmail", $adminemail);
+        $this->client->addParam($kparams, "cmsPassword", $cmspassword);
         $this->client->queueServiceActionCall("partner", "getSecrets", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5320,7 +5323,7 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Get usage statistics for a partner
-     Calculation is done according to partner's package
+     * Calculation is done according to partner's package
      * @return KalturaPartnerStatistics
      */
     public function getStatistics() {
@@ -5337,12 +5340,12 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Get usage statistics for a partner
-     Calculation is done according to partner's package
-     Additional data returned is a graph points of streaming usage in a timeframe
-     The resolution can be "days" or "months"
-     * @param int $year 
-     * @param int $month 
-     * @param string $resolution 
+     * Calculation is done according to partner's package
+     * Additional data returned is a graph points of streaming usage in a timeframe
+     * The resolution can be "days" or "months"
+     * @param int $year
+     * @param int $month
+     * @param string $resolution
      * @return KalturaPartnerUsage
      */
     public function getUsage($year = "", $month = 1, $resolution = null) {
@@ -5362,10 +5365,10 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * List partners by filter with paging support
-     Current implementation will only list the sub partners of the partner initiating the api call (using the current KS).
-     This action is only partially implemented to support listing sub partners of a VAR partner.
-     * @param KalturaPartnerFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * Current implementation will only list the sub partners of the partner initiating the api call (using the current KS).
+     * This action is only partially implemented to support listing sub partners of a VAR partner.
+     * @param KalturaPartnerFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaPartnerListResponse
      */
     public function listAction(KalturaPartnerFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -5404,14 +5407,14 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Retrieve a list of partner objects which the current user is allowed to access.
-     * @param KalturaPartnerFilter $partnerFilter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaPartnerFilter $partnerFilter
+     * @param KalturaFilterPager $pager
      * @return KalturaPartnerListResponse
      */
-    public function listPartnersForUser(KalturaPartnerFilter $partnerFilter = null, KalturaFilterPager $pager = null) {
+    public function listPartnersForUser(KalturaPartnerFilter $partnerfilter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
-        if ($partnerFilter !== null) {
-            $this->client->addParam($kparams, "partnerFilter", $partnerFilter->toParams());
+        if ($partnerfilter !== null) {
+            $this->client->addParam($kparams, "partnerFilter", $partnerfilter->toParams());
         }
         if ($pager !== null) {
             $this->client->addParam($kparams, "pager", $pager->toParams());
@@ -5428,17 +5431,17 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Create a new Partner object
-     * @param KalturaPartner $partner 
-     * @param string $cmsPassword 
-     * @param int $templatePartnerId 
-     * @param bool $silent 
+     * @param KalturaPartner $partner
+     * @param string $cmsPassword
+     * @param int $templatePartnerId
+     * @param bool $silent
      * @return KalturaPartner
      */
-    public function register(KalturaPartner $partner, $cmsPassword = "", $templatePartnerId = null, $silent = false) {
+    public function register(KalturaPartner $partner, $cmspassword = "", $templatepartnerid = null, $silent = false) {
         $kparams = array();
         $this->client->addParam($kparams, "partner", $partner->toParams());
-        $this->client->addParam($kparams, "cmsPassword", $cmsPassword);
-        $this->client->addParam($kparams, "templatePartnerId", $templatePartnerId);
+        $this->client->addParam($kparams, "cmsPassword", $cmspassword);
+        $this->client->addParam($kparams, "templatePartnerId", $templatepartnerid);
         $this->client->addParam($kparams, "silent", $silent);
         $this->client->queueServiceActionCall("partner", "register", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -5452,14 +5455,14 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Update details and settings of an existing partner
-     * @param KalturaPartner $partner 
-     * @param bool $allowEmpty 
+     * @param KalturaPartner $partner
+     * @param bool $allowEmpty
      * @return KalturaPartner
      */
-    public function update(KalturaPartner $partner, $allowEmpty = false) {
+    public function update(KalturaPartner $partner, $allowempty = false) {
         $kparams = array();
         $this->client->addParam($kparams, "partner", $partner->toParams());
-        $this->client->addParam($kparams, "allowEmpty", $allowEmpty);
+        $this->client->addParam($kparams, "allowEmpty", $allowempty);
         $this->client->queueServiceActionCall("partner", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5487,13 +5490,13 @@ class KalturaPermissionItemService extends KalturaServiceBase {
 
     /**
      * Adds a new permission item object to the account.
-     This action is available only to Kaltura system administrators.
+     * This action is available only to Kaltura system administrators.
      * @param KalturaPermissionItem $permissionItem The new permission item
      * @return KalturaPermissionItem
      */
-    public function add(KalturaPermissionItem $permissionItem) {
+    public function add(KalturaPermissionItem $permissionitem) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionItem", $permissionItem->toParams());
+        $this->client->addParam($kparams, "permissionItem", $permissionitem->toParams());
         $this->client->queueServiceActionCall("permissionitem", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5506,13 +5509,13 @@ class KalturaPermissionItemService extends KalturaServiceBase {
 
     /**
      * Deletes an existing permission item object.
-     This action is available only to Kaltura system administrators.
+     * This action is available only to Kaltura system administrators.
      * @param int $permissionItemId The permission item's unique identifier
      * @return KalturaPermissionItem
      */
-    public function delete($permissionItemId) {
+    public function delete($permissionitemid) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionItemId", $permissionItemId);
+        $this->client->addParam($kparams, "permissionItemId", $permissionitemid);
         $this->client->queueServiceActionCall("permissionitem", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5528,9 +5531,9 @@ class KalturaPermissionItemService extends KalturaServiceBase {
      * @param int $permissionItemId The permission item's unique identifier
      * @return KalturaPermissionItem
      */
-    public function get($permissionItemId) {
+    public function get($permissionitemid) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionItemId", $permissionItemId);
+        $this->client->addParam($kparams, "permissionItemId", $permissionitemid);
         $this->client->queueServiceActionCall("permissionitem", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5567,15 +5570,15 @@ class KalturaPermissionItemService extends KalturaServiceBase {
 
     /**
      * Updates an existing permission item object.
-     This action is available only to Kaltura system administrators.
+     * This action is available only to Kaltura system administrators.
      * @param int $permissionItemId The permission item's unique identifier
      * @param KalturaPermissionItem $permissionItem Id The permission item's unique identifier
      * @return KalturaPermissionItem
      */
-    public function update($permissionItemId, KalturaPermissionItem $permissionItem) {
+    public function update($permissionitemid, KalturaPermissionItem $permissionitem) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionItemId", $permissionItemId);
-        $this->client->addParam($kparams, "permissionItem", $permissionItem->toParams());
+        $this->client->addParam($kparams, "permissionItemId", $permissionitemid);
+        $this->client->addParam($kparams, "permissionItem", $permissionitem->toParams());
         $this->client->queueServiceActionCall("permissionitem", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5624,9 +5627,9 @@ class KalturaPermissionService extends KalturaServiceBase {
      * @param string $permissionName The name assigned to the permission
      * @return KalturaPermission
      */
-    public function delete($permissionName) {
+    public function delete($permissionname) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionName", $permissionName);
+        $this->client->addParam($kparams, "permissionName", $permissionname);
         $this->client->queueServiceActionCall("permission", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5642,9 +5645,9 @@ class KalturaPermissionService extends KalturaServiceBase {
      * @param string $permissionName The name assigned to the permission
      * @return KalturaPermission
      */
-    public function get($permissionName) {
+    public function get($permissionname) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionName", $permissionName);
+        $this->client->addParam($kparams, "permissionName", $permissionname);
         $this->client->queueServiceActionCall("permission", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5673,8 +5676,8 @@ class KalturaPermissionService extends KalturaServiceBase {
 
     /**
      * Lists permission objects that are associated with an account.
-     Blocked permissions are listed unless you use a filter to exclude them.
-     Blocked permissions are listed unless you use a filter to exclude them.
+     * Blocked permissions are listed unless you use a filter to exclude them.
+     * Blocked permissions are listed unless you use a filter to exclude them.
      * @param KalturaPermissionFilter $filter A filter used to exclude specific types of permissions
      * @param KalturaFilterPager $pager A limit for the number of records to display on a page
      * @return KalturaPermissionListResponse
@@ -5703,9 +5706,9 @@ class KalturaPermissionService extends KalturaServiceBase {
      * @param KalturaPermission $permission Name The name assigned to the permission
      * @return KalturaPermission
      */
-    public function update($permissionName, KalturaPermission $permission) {
+    public function update($permissionname, KalturaPermission $permission) {
         $kparams = array();
-        $this->client->addParam($kparams, "permissionName", $permissionName);
+        $this->client->addParam($kparams, "permissionName", $permissionname);
         $this->client->addParam($kparams, "permission", $permission->toParams());
         $this->client->queueServiceActionCall("permission", "update", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -5734,15 +5737,15 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Add new playlist
-     Note that all entries used in a playlist will become public and may appear in KalturaNetwork
-     * @param KalturaPlaylist $playlist 
+     * Note that all entries used in a playlist will become public and may appear in KalturaNetwork
+     * @param KalturaPlaylist $playlist
      * @param bool $updateStats Indicates that the playlist statistics attributes should be updated synchronously now
      * @return KalturaPlaylist
      */
-    public function add(KalturaPlaylist $playlist, $updateStats = false) {
+    public function add(KalturaPlaylist $playlist, $updatestats = false) {
         $kparams = array();
         $this->client->addParam($kparams, "playlist", $playlist->toParams());
-        $this->client->addParam($kparams, "updateStats", $updateStats);
+        $this->client->addParam($kparams, "updateStats", $updatestats);
         $this->client->queueServiceActionCall("playlist", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5759,11 +5762,11 @@ class KalturaPlaylistService extends KalturaServiceBase {
      * @param KalturaPlaylist $newPlaylist Parameters defined here will override the ones in the cloned playlist
      * @return KalturaPlaylist
      */
-    public function cloneAction($id, KalturaPlaylist $newPlaylist = null) {
+    public function cloneAction($id, KalturaPlaylist $newplaylist = null) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         if ($newPlaylist !== null) {
-            $this->client->addParam($kparams, "newPlaylist", $newPlaylist->toParams());
+            $this->client->addParam($kparams, "newPlaylist", $newplaylist->toParams());
         }
         $this->client->queueServiceActionCall("playlist", "clone", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -5793,19 +5796,19 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Retrieve playlist for playing purpose
-     * @param string $id 
-     * @param string $detailed 
-     * @param KalturaContext $playlistContext 
-     * @param KalturaMediaEntryFilterForPlaylist $filter 
-     * @param KalturaFilterPager $pager 
+     * @param string $id
+     * @param string $detailed
+     * @param KalturaContext $playlistContext
+     * @param KalturaMediaEntryFilterForPlaylist $filter
+     * @param KalturaFilterPager $pager
      * @return array
      */
-    public function execute($id, $detailed = "", KalturaContext $playlistContext = null, KalturaMediaEntryFilterForPlaylist $filter = null, KalturaFilterPager $pager = null) {
+    public function execute($id, $detailed = "", KalturaContext $playlistcontext = null, KalturaMediaEntryFilterForPlaylist $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "detailed", $detailed);
-        if ($playlistContext !== null) {
-            $this->client->addParam($kparams, "playlistContext", $playlistContext->toParams());
+        if ($playlistcontext !== null) {
+            $this->client->addParam($kparams, "playlistContext", $playlistcontext->toParams());
         }
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -5825,16 +5828,16 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Retrieve playlist for playing purpose, based on content
-     * @param int $playlistType 
-     * @param string $playlistContent 
-     * @param string $detailed 
-     * @param KalturaFilterPager $pager 
+     * @param int $playlistType
+     * @param string $playlistContent
+     * @param string $detailed
+     * @param KalturaFilterPager $pager
      * @return array
      */
-    public function executeFromContent($playlistType, $playlistContent, $detailed = "", KalturaFilterPager $pager = null) {
+    public function executeFromContent($playlisttype, $playlistcontent, $detailed = "", KalturaFilterPager $pager = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "playlistType", $playlistType);
-        $this->client->addParam($kparams, "playlistContent", $playlistContent);
+        $this->client->addParam($kparams, "playlistType", $playlisttype);
+        $this->client->addParam($kparams, "playlistContent", $playlistcontent);
         $this->client->addParam($kparams, "detailed", $detailed);
         if ($pager !== null) {
             $this->client->addParam($kparams, "pager", $pager->toParams());
@@ -5851,18 +5854,18 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Revrieve playlist for playing purpose, based on media entry filters
-     * @param array $filters 
-     * @param int $totalResults 
-     * @param string $detailed 
-     * @param KalturaFilterPager $pager 
+     * @param array $filters
+     * @param int $totalResults
+     * @param string $detailed
+     * @param KalturaFilterPager $pager
      * @return array
      */
-    public function executeFromFilters(array $filters, $totalResults, $detailed = "1", KalturaFilterPager $pager = null) {
+    public function executeFromFilters(array $filters, $totalresults, $detailed = "1", KalturaFilterPager $pager = null) {
         $kparams = array();
         foreach ($filters as $index => $obj) {
             $this->client->addParam($kparams, "filters:$index", $obj->toParams());
         }
-        $this->client->addParam($kparams, "totalResults", $totalResults);
+        $this->client->addParam($kparams, "totalResults", $totalresults);
         $this->client->addParam($kparams, "detailed", $detailed);
         if ($pager !== null) {
             $this->client->addParam($kparams, "pager", $pager->toParams());
@@ -5899,14 +5902,14 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Retrieve playlist statistics
-     * @param int $playlistType 
-     * @param string $playlistContent 
+     * @param int $playlistType
+     * @param string $playlistContent
      * @return KalturaPlaylist
      */
-    public function getStatsFromContent($playlistType, $playlistContent) {
+    public function getStatsFromContent($playlisttype, $playlistcontent) {
         $kparams = array();
-        $this->client->addParam($kparams, "playlistType", $playlistType);
-        $this->client->addParam($kparams, "playlistContent", $playlistContent);
+        $this->client->addParam($kparams, "playlistType", $playlisttype);
+        $this->client->addParam($kparams, "playlistContent", $playlistcontent);
         $this->client->queueServiceActionCall("playlist", "getStatsFromContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5919,8 +5922,8 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * List available playlists
-     * @param KalturaPlaylistFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaPlaylistFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaPlaylistListResponse
      */
     public function listAction(KalturaPlaylistFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -5943,17 +5946,17 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Update existing playlist
-     Note - you cannot change playlist type. updated playlist must be of the same type.
-     * @param string $id 
-     * @param KalturaPlaylist $playlist 
-     * @param bool $updateStats 
+     * Note - you cannot change playlist type. updated playlist must be of the same type.
+     * @param string $id
+     * @param KalturaPlaylist $playlist
+     * @param bool $updateStats
      * @return KalturaPlaylist
      */
-    public function update($id, KalturaPlaylist $playlist, $updateStats = false) {
+    public function update($id, KalturaPlaylist $playlist, $updatestats = false) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "playlist", $playlist->toParams());
-        $this->client->addParam($kparams, "updateStats", $updateStats);
+        $this->client->addParam($kparams, "updateStats", $updatestats);
         $this->client->queueServiceActionCall("playlist", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -5980,8 +5983,8 @@ class KalturaReportService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id 
-     * @param array $params 
+     * @param int $id
+     * @param array $params
      * @return KalturaReportResponse
      */
     public function execute($id, array $params = null) {
@@ -6004,16 +6007,16 @@ class KalturaReportService extends KalturaServiceBase {
 
     /**
      * Report getBaseTotal action allows to get a the total base for storage reports
-     * @param string $reportType 
-     * @param KalturaReportInputFilter $reportInputFilter 
+     * @param string $reporttype
+     * @param KalturaReportInputFilter $reportinputfilter
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
      * @return array
      */
-    public function getBaseTotal($reportType, KalturaReportInputFilter $reportInputFilter, $objectIds = null) {
+    public function getBaseTotal($reporttype, KalturaReportInputFilter $reportinputfilter, $objectids = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportType", $reportType);
-        $this->client->addParam($kparams, "reportInputFilter", $reportInputFilter->toParams());
-        $this->client->addParam($kparams, "objectIds", $objectIds);
+        $this->client->addParam($kparams, "reportType", $reporttype);
+        $this->client->addParam($kparams, "reportInputFilter", $reportinputfilter->toParams());
+        $this->client->addParam($kparams, "objectIds", $objectids);
         $this->client->queueServiceActionCall("report", "getBaseTotal", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6025,8 +6028,8 @@ class KalturaReportService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id 
-     * @param array $params 
+     * @param int $id
+     * @param array $params
      * @return file
      */
     public function getCsv($id, array $params = null) {
@@ -6050,8 +6053,8 @@ class KalturaReportService extends KalturaServiceBase {
 
     /**
      * Returns report CSV file executed by string params with the following convention: param1=value1;param2=value2
-     * @param int $id 
-     * @param string $params 
+     * @param int $id
+     * @param string $params
      * @return file
      */
     public function getCsvFromStringParams($id, $params = null) {
@@ -6070,18 +6073,18 @@ class KalturaReportService extends KalturaServiceBase {
 
     /**
      * Report getGraphs action allows to get a graph data for a specific report.
-     * @param string $reportType 
-     * @param KalturaReportInputFilter $reportInputFilter 
-     * @param string $dimension 
+     * @param string $reportType
+     * @param KalturaReportInputFilter $reportInputFilter
+     * @param string $dimension
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
      * @return array
      */
-    public function getGraphs($reportType, KalturaReportInputFilter $reportInputFilter, $dimension = null, $objectIds = null) {
+    public function getGraphs($reporttype, KalturaReportInputFilter $reportinputfilter, $dimension = null, $objectids = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportType", $reportType);
-        $this->client->addParam($kparams, "reportInputFilter", $reportInputFilter->toParams());
+        $this->client->addParam($kparams, "reportType", $reporttype);
+        $this->client->addParam($kparams, "reportInputFilter", $reportinputfilter->toParams());
         $this->client->addParam($kparams, "dimension", $dimension);
-        $this->client->addParam($kparams, "objectIds", $objectIds);
+        $this->client->addParam($kparams, "objectIds", $objectids);
         $this->client->queueServiceActionCall("report", "getGraphs", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6094,20 +6097,20 @@ class KalturaReportService extends KalturaServiceBase {
 
     /**
      * Report getTable action allows to get a graph data for a specific report.
-     * @param string $reportType 
-     * @param KalturaReportInputFilter $reportInputFilter 
-     * @param KalturaFilterPager $pager 
-     * @param string $order 
+     * @param string $reportType
+     * @param KalturaReportInputFilter $reportInputFilter
+     * @param KalturaFilterPager $pager
+     * @param string $order
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
      * @return KalturaReportTable
      */
-    public function getTable($reportType, KalturaReportInputFilter $reportInputFilter, KalturaFilterPager $pager, $order = null, $objectIds = null) {
+    public function getTable($reporttype, KalturaReportInputFilter $reportinputfilter, KalturaFilterPager $pager, $order = null, $objectids = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportType", $reportType);
-        $this->client->addParam($kparams, "reportInputFilter", $reportInputFilter->toParams());
+        $this->client->addParam($kparams, "reportType", $reporttype);
+        $this->client->addParam($kparams, "reportInputFilter", $reportinputfilter->toParams());
         $this->client->addParam($kparams, "pager", $pager->toParams());
         $this->client->addParam($kparams, "order", $order);
-        $this->client->addParam($kparams, "objectIds", $objectIds);
+        $this->client->addParam($kparams, "objectIds", $objectids);
         $this->client->queueServiceActionCall("report", "getTable", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6120,16 +6123,16 @@ class KalturaReportService extends KalturaServiceBase {
 
     /**
      * Report getTotal action allows to get a graph data for a specific report.
-     * @param string $reportType 
-     * @param KalturaReportInputFilter $reportInputFilter 
+     * @param string $reportType
+     * @param KalturaReportInputFilter $reportInputFilter
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
      * @return KalturaReportTotal
      */
-    public function getTotal($reportType, KalturaReportInputFilter $reportInputFilter, $objectIds = null) {
+    public function getTotal($reporttype, KalturaReportInputFilter $reportinputfilter, $objectids = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportType", $reportType);
-        $this->client->addParam($kparams, "reportInputFilter", $reportInputFilter->toParams());
-        $this->client->addParam($kparams, "objectIds", $objectIds);
+        $this->client->addParam($kparams, "reportType", $reporttype);
+        $this->client->addParam($kparams, "reportInputFilter", $reportinputfilter->toParams());
+        $this->client->addParam($kparams, "objectIds", $objectids);
         $this->client->queueServiceActionCall("report", "getTotal", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6145,27 +6148,27 @@ class KalturaReportService extends KalturaServiceBase {
      * @param string $reportTitle The title of the report to display at top of CSV
      * @param string $reportText The text of the filter of the report
      * @param string $headers The headers of the columns - a map between the enumerations on the server side and the their display text
-     * @param string $reportType 
-     * @param KalturaReportInputFilter $reportInputFilter 
-     * @param string $dimension 
-     * @param KalturaFilterPager $pager 
-     * @param string $order 
+     * @param string $reportType
+     * @param KalturaReportInputFilter $reportInputFilter
+     * @param string $dimension
+     * @param KalturaFilterPager $pager
+     * @param string $order
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
      * @return string
      */
-    public function getUrlForReportAsCsv($reportTitle, $reportText, $headers, $reportType, KalturaReportInputFilter $reportInputFilter, $dimension = null, KalturaFilterPager $pager = null, $order = null, $objectIds = null) {
+    public function getUrlForReportAsCsv($reporttitle, $reporttext, $headers, $reporttype, KalturaReportInputFilter $reportinputfilter, $dimension = null, KalturaFilterPager $pager = null, $order = null, $objectids = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "reportTitle", $reportTitle);
-        $this->client->addParam($kparams, "reportText", $reportText);
+        $this->client->addParam($kparams, "reportTitle", $reporttitle);
+        $this->client->addParam($kparams, "reportText", $reporttext);
         $this->client->addParam($kparams, "headers", $headers);
-        $this->client->addParam($kparams, "reportType", $reportType);
-        $this->client->addParam($kparams, "reportInputFilter", $reportInputFilter->toParams());
+        $this->client->addParam($kparams, "reportType", $reporttype);
+        $this->client->addParam($kparams, "reportInputFilter", $reportinputfilter->toParams());
         $this->client->addParam($kparams, "dimension", $dimension);
         if ($pager !== null) {
             $this->client->addParam($kparams, "pager", $pager->toParams());
         }
         $this->client->addParam($kparams, "order", $order);
-        $this->client->addParam($kparams, "objectIds", $objectIds);
+        $this->client->addParam($kparams, "objectIds", $objectids);
         $this->client->queueServiceActionCall("report", "getUrlForReportAsCsv", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6211,12 +6214,12 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Add new response profile
-     * @param KalturaResponseProfile $addResponseProfile 
+     * @param KalturaResponseProfile $addResponseProfile
      * @return KalturaResponseProfile
      */
-    public function add(KalturaResponseProfile $addResponseProfile) {
+    public function add(KalturaResponseProfile $addresponseprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "addResponseProfile", $addResponseProfile->toParams());
+        $this->client->addParam($kparams, "addResponseProfile", $addresponseprofile->toParams());
         $this->client->queueServiceActionCall("responseprofile", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6229,8 +6232,8 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Clone an existing response profile
-     * @param bigint $id 
-     * @param KalturaResponseProfile $profile 
+     * @param bigint $id
+     * @param KalturaResponseProfile $profile
      * @return KalturaResponseProfile
      */
     public function cloneAction($id, KalturaResponseProfile $profile) {
@@ -6249,7 +6252,7 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Delete response profile by id
-     * @param bigint $id 
+     * @param bigint $id
      */
     public function delete($id) {
         $kparams = array();
@@ -6265,7 +6268,7 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Get response profile by id
-     * @param bigint $id 
+     * @param bigint $id
      * @return KalturaResponseProfile
      */
     public function get($id) {
@@ -6283,8 +6286,8 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * List response profiles by filter and pager
-     * @param KalturaResponseProfileFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaResponseProfileFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaResponseProfileListResponse
      */
     public function listAction(KalturaResponseProfileFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -6325,14 +6328,14 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Update response profile by id
-     * @param bigint $id 
-     * @param KalturaResponseProfile $updateResponseProfile 
+     * @param bigint $id
+     * @param KalturaResponseProfile $updateResponseProfile
      * @return KalturaResponseProfile
      */
-    public function update($id, KalturaResponseProfile $updateResponseProfile) {
+    public function update($id, KalturaResponseProfile $updateresponseprofile) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "updateResponseProfile", $updateResponseProfile->toParams());
+        $this->client->addParam($kparams, "updateResponseProfile", $updateresponseprofile->toParams());
         $this->client->queueServiceActionCall("responseprofile", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6345,8 +6348,8 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Update response profile status by id
-     * @param bigint $id 
-     * @param int $status 
+     * @param bigint $id
+     * @param int $status
      * @return KalturaResponseProfile
      */
     public function updateStatus($id, $status) {
@@ -6380,7 +6383,7 @@ class KalturaSchemaService extends KalturaServiceBase {
 
     /**
      * Serves the requested XSD according to the type and name.
-     * @param string $type 
+     * @param string $type
      * @return file
      */
     public function serve($type) {
@@ -6412,15 +6415,15 @@ class KalturaSearchService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $searchSource 
-     * @param string $userName 
-     * @param string $password 
+     * @param int $searchSource
+     * @param string $userName
+     * @param string $password
      * @return KalturaSearchAuthData
      */
-    public function externalLogin($searchSource, $userName, $password) {
+    public function externalLogin($searchsource, $username, $password) {
         $kparams = array();
-        $this->client->addParam($kparams, "searchSource", $searchSource);
-        $this->client->addParam($kparams, "userName", $userName);
+        $this->client->addParam($kparams, "searchSource", $searchsource);
+        $this->client->addParam($kparams, "userName", $username);
         $this->client->addParam($kparams, "password", $password);
         $this->client->queueServiceActionCall("search", "externalLogin", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -6434,13 +6437,13 @@ class KalturaSearchService extends KalturaServiceBase {
 
     /**
      * Retrieve extra information about media found in search action
-     Some providers return only part of the fields needed to create entry from, use this action to get the rest of the fields.
+     * Some providers return only part of the fields needed to create entry from, use this action to get the rest of the fields.
      * @param KalturaSearchResult $searchResult KalturaSearchResult object extends KalturaSearch and has all fields required for media:add
      * @return KalturaSearchResult
      */
-    public function getMediaInfo(KalturaSearchResult $searchResult) {
+    public function getMediaInfo(KalturaSearchResult $searchresult) {
         $kparams = array();
-        $this->client->addParam($kparams, "searchResult", $searchResult->toParams());
+        $this->client->addParam($kparams, "searchResult", $searchresult->toParams());
         $this->client->queueServiceActionCall("search", "getMediaInfo", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6454,7 +6457,7 @@ class KalturaSearchService extends KalturaServiceBase {
     /**
      * Search for media in one of the supported media providers
      * @param KalturaSearch $search A KalturaSearch object contains the search keywords, media provider and media type
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFilterPager $pager
      * @return KalturaSearchResultResponse
      */
     public function search(KalturaSearch $search, KalturaFilterPager $pager = null) {
@@ -6475,15 +6478,15 @@ class KalturaSearchService extends KalturaServiceBase {
 
     /**
      * Search for media given a specific URL
-     Kaltura supports a searchURL action on some of the media providers.
-     This action will return a KalturaSearchResult object based on a given URL (assuming the media provider is supported)
-     * @param int $mediaType 
-     * @param string $url 
+     * Kaltura supports a searchURL action on some of the media providers.
+     * This action will return a KalturaSearchResult object based on a given URL (assuming the media provider is supported)
+     * @param int $mediaType
+     * @param string $url
      * @return KalturaSearchResult
      */
-    public function searchUrl($mediaType, $url) {
+    public function searchUrl($mediatype, $url) {
         $kparams = array();
-        $this->client->addParam($kparams, "mediaType", $mediaType);
+        $this->client->addParam($kparams, "mediaType", $mediatype);
         $this->client->addParam($kparams, "url", $url);
         $this->client->queueServiceActionCall("search", "searchUrl", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -6515,9 +6518,9 @@ class KalturaServerNodeService extends KalturaServiceBase {
      * @param KalturaServerNode $serverNode 
      * @return KalturaServerNode
      */
-    public function add(KalturaServerNode $serverNode) {
+    public function add(KalturaServerNode $servernode) {
         $kparams = array();
-        $this->client->addParam($kparams, "serverNode", $serverNode->toParams());
+        $this->client->addParam($kparams, "serverNode", $servernode->toParams());
         $this->client->queueServiceActionCall("servernode", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6530,11 +6533,11 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Delete server node by id
-     * @param string $serverNodeId 
+     * @param string $serverNodeId
      */
-    public function delete($serverNodeId) {
+    public function delete($servernodeid) {
         $kparams = array();
-        $this->client->addParam($kparams, "serverNodeId", $serverNodeId);
+        $this->client->addParam($kparams, "serverNodeId", $servernodeid);
         $this->client->queueServiceActionCall("servernode", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6546,12 +6549,12 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Disable server node by id
-     * @param string $serverNodeId 
+     * @param string $serverNodeId
      * @return KalturaServerNode
      */
-    public function disable($serverNodeId) {
+    public function disable($servernodeid) {
         $kparams = array();
-        $this->client->addParam($kparams, "serverNodeId", $serverNodeId);
+        $this->client->addParam($kparams, "serverNodeId", $servernodeid);
         $this->client->queueServiceActionCall("servernode", "disable", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6564,12 +6567,12 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Enable server node by id
-     * @param string $serverNodeId 
+     * @param string $serverNodeId
      * @return KalturaServerNode
      */
-    public function enable($serverNodeId) {
+    public function enable($servernodeid) {
         $kparams = array();
-        $this->client->addParam($kparams, "serverNodeId", $serverNodeId);
+        $this->client->addParam($kparams, "serverNodeId", $servernodeid);
         $this->client->queueServiceActionCall("servernode", "enable", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6582,12 +6585,12 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Get server node by id
-     * @param int $serverNodeId 
+     * @param int $serverNodeId
      * @return KalturaServerNode
      */
-    public function get($serverNodeId) {
+    public function get($servernodeid) {
         $kparams = array();
-        $this->client->addParam($kparams, "serverNodeId", $serverNodeId);
+        $this->client->addParam($kparams, "serverNodeId", $servernodeid);
         $this->client->queueServiceActionCall("servernode", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6599,8 +6602,8 @@ class KalturaServerNodeService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaServerNodeFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaServerNodeFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaServerNodeListResponse
      */
     public function listAction(KalturaServerNodeFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -6623,15 +6626,15 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Update server node status
-     * @param string $hostName 
-     * @param KalturaServerNode $serverNode 
+     * @param string $hostName
+     * @param KalturaServerNode $serverNode
      * @return KalturaServerNode
      */
-    public function reportStatus($hostName, KalturaServerNode $serverNode = null) {
+    public function reportStatus($hostname, KalturaServerNode $servernode = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "hostName", $hostName);
-        if ($serverNode !== null) {
-            $this->client->addParam($kparams, "serverNode", $serverNode->toParams());
+        $this->client->addParam($kparams, "hostName", $hostname);
+        if ($servernode !== null) {
+            $this->client->addParam($kparams, "serverNode", $servernode->toParams());
         }
         $this->client->queueServiceActionCall("servernode", "reportStatus", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -6645,14 +6648,14 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Update server node by id
-     * @param int $serverNodeId 
+     * @param int $serverNodeId
      * @param KalturaServerNode $serverNode Id
      * @return KalturaServerNode
      */
-    public function update($serverNodeId, KalturaServerNode $serverNode) {
+    public function update($servernodeid, KalturaServerNode $servernode) {
         $kparams = array();
-        $this->client->addParam($kparams, "serverNodeId", $serverNodeId);
-        $this->client->addParam($kparams, "serverNode", $serverNode->toParams());
+        $this->client->addParam($kparams, "serverNodeId", $servernodeid);
+        $this->client->addParam($kparams, "serverNode", $servernode->toParams());
         $this->client->queueServiceActionCall("servernode", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6714,21 +6717,21 @@ class KalturaSessionService extends KalturaServiceBase {
      * Start an impersonated session with Kaltura's server.
      The result KS is the session key that you should pass to all services that requires a ticket.
      * @param string $secret - should be the secret (admin or user) of the original partnerId (not impersonatedPartnerId).
-     * @param int $impersonatedPartnerId 
+     * @param int $impersonatedPartnerId
      * @param string $userId - impersonated userId
-     * @param int $type 
-     * @param int $partnerId 
+     * @param int $type
+     * @param int $partnerId
      * @param int $expiry KS expiry time in seconds
-     * @param string $privileges 
+     * @param string $privileges
      * @return string
      */
-    public function impersonate($secret, $impersonatedPartnerId, $userId = "", $type = 0, $partnerId = null, $expiry = 86400, $privileges = null) {
+    public function impersonate($secret, $impersonatedpartnerid, $userId = "", $type = 0, $partnerid = null, $expiry = 86400, $privileges = null) {
         $kparams = array();
         $this->client->addParam($kparams, "secret", $secret);
-        $this->client->addParam($kparams, "impersonatedPartnerId", $impersonatedPartnerId);
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "impersonatedPartnerId", $impersonatedpartnerid);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->addParam($kparams, "type", $type);
-        $this->client->addParam($kparams, "partnerId", $partnerId);
+        $this->client->addParam($kparams, "partnerId", $partnerid);
         $this->client->addParam($kparams, "expiry", $expiry);
         $this->client->addParam($kparams, "privileges", $privileges);
         $this->client->queueServiceActionCall("session", "impersonate", $kparams);
@@ -6743,8 +6746,8 @@ class KalturaSessionService extends KalturaServiceBase {
 
     /**
      * Start an impersonated session with Kaltura's server.
-     The result KS info contains the session key that you should pass to all services that requires a ticket.
-     Type, expiry and privileges won't be changed if they're not set
+     * The result KS info contains the session key that you should pass to all services that requires a ticket.
+     * Type, expiry and privileges won't be changed if they're not set
      * @param string $session The old KS of the impersonated partner
      * @param int $type Type of the new KS
      * @param int $expiry Expiry time in seconds of the new KS
@@ -6769,21 +6772,21 @@ class KalturaSessionService extends KalturaServiceBase {
 
     /**
      * Start a session with Kaltura's server.
-     The result KS is the session key that you should pass to all services that requires a ticket.
+     * The result KS is the session key that you should pass to all services that requires a ticket.
      * @param string $secret Remember to provide the correct secret according to the sessionType you want
-     * @param string $userId 
+     * @param string $userId
      * @param int $type Regular session or Admin session
-     * @param int $partnerId 
+     * @param int $partnerId
      * @param int $expiry KS expiry time in seconds
-     * @param string $privileges 
+     * @param string $privileges
      * @return string
      */
-    public function start($secret, $userId = "", $type = 0, $partnerId = null, $expiry = 86400, $privileges = null) {
+    public function start($secret, $userid = "", $type = 0, $partnerid = null, $expiry = 86400, $privileges = null) {
         $kparams = array();
         $this->client->addParam($kparams, "secret", $secret);
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->addParam($kparams, "type", $type);
-        $this->client->addParam($kparams, "partnerId", $partnerId);
+        $this->client->addParam($kparams, "partnerId", $partnerid);
         $this->client->addParam($kparams, "expiry", $expiry);
         $this->client->addParam($kparams, "privileges", $privileges);
         $this->client->queueServiceActionCall("session", "start", $kparams);
@@ -6798,13 +6801,13 @@ class KalturaSessionService extends KalturaServiceBase {
 
     /**
      * Start a session for Kaltura's flash widgets
-     * @param string $widgetId 
-     * @param int $expiry 
+     * @param string $widgetId
+     * @param int $expiry
      * @return KalturaStartWidgetSessionResponse
      */
-    public function startWidgetSession($widgetId, $expiry = 86400) {
+    public function startWidgetSession($widgetid, $expiry = 86400) {
         $kparams = array();
-        $this->client->addParam($kparams, "widgetId", $widgetId);
+        $this->client->addParam($kparams, "widgetId", $widgetid);
         $this->client->addParam($kparams, "expiry", $expiry);
         $this->client->queueServiceActionCall("session", "startWidgetSession", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -6833,27 +6836,25 @@ class KalturaStatsService extends KalturaServiceBase {
 
     /**
      * Will write to the event log a single line representing the event
-     client version - will help interprete the line structure. different client versions might have slightly different data/data formats in the line
-event_id - number is the row number in yuval's excel
-datetime - same format as MySql's datetime - can change and should reflect the time zone
-session id - can be some big random number or guid
-partner id
-entry id
-unique viewer
-widget id
-ui_conf id
-uid - the puser id as set by the ppartner
-current point - in milliseconds
-duration - milliseconds
-user ip
-process duration - in milliseconds
-control id
-seek
-new point
-referrer
-    
-    
-     KalturaStatsEvent $event
+     * client version - will help interprete the line structure. different client versions might have slightly different data/data formats in the line
+     * event_id - number is the row number in yuval's excel
+     * datetime - same format as MySql's datetime - can change and should reflect the time zone
+     * session id - can be some big random number or guid
+     * partner id
+     * entry id
+     * unique viewer
+     * widget id
+     * ui_conf id
+     * uid - the puser id as set by the ppartner
+     * current point - in milliseconds
+     * duration - milliseconds
+     * user ip
+     * process duration - in milliseconds
+     * control id
+     * seek
+     * new point
+     * referrer
+     * KalturaStatsEvent $event
      * @param KalturaStatsEvent $event 
      * @return bool
      */
@@ -6872,12 +6873,12 @@ referrer
 
     /**
      * Will collect the kmcEvent sent form the KMC client
-     // this will actually be an empty function because all events will be sent using GET and will anyway be logged in the apache log
-     * @param KalturaStatsKmcEvent $kmcEvent 
+     * this will actually be an empty function because all events will be sent using GET and will anyway be logged in the apache log
+     * @param KalturaStatsKmcEvent $kmcEvent
      */
-    public function kmcCollect(KalturaStatsKmcEvent $kmcEvent) {
+    public function kmcCollect(KalturaStatsKmcEvent $kmcevent) {
         $kparams = array();
-        $this->client->addParam($kparams, "kmcEvent", $kmcEvent->toParams());
+        $this->client->addParam($kparams, "kmcEvent", $kmcevent->toParams());
         $this->client->queueServiceActionCall("stats", "kmcCollect", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6889,7 +6890,7 @@ referrer
 
     /**
      * Use this action to report device capabilities to the kaltura server.
-     * @param string $data 
+     * @param string $data
      */
     public function reportDeviceCapabilities($data) {
         $kparams = array();
@@ -6905,13 +6906,13 @@ referrer
 
     /**
      * Use this action to report errors to the kaltura server.
-     * @param string $errorCode 
-     * @param string $errorMessage 
+     * @param string $errorCode
+     * @param string $errorMessage
      */
-    public function reportError($errorCode, $errorMessage) {
+    public function reportError($errorcode, $errormessage) {
         $kparams = array();
-        $this->client->addParam($kparams, "errorCode", $errorCode);
-        $this->client->addParam($kparams, "errorMessage", $errorMessage);
+        $this->client->addParam($kparams, "errorCode", $errorcode);
+        $this->client->addParam($kparams, "errorMessage", $errormessage);
         $this->client->queueServiceActionCall("stats", "reportError", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6922,12 +6923,12 @@ referrer
     }
 
     /**
-     * @param KalturaCEError $kalturaCEError 
+     * @param KalturaCEError $kalturaCEError
      * @return KalturaCEError
      */
-    public function reportKceError(KalturaCEError $kalturaCEError) {
+    public function reportKceError(KalturaCEError $kalturaceerror) {
         $kparams = array();
-        $this->client->addParam($kparams, "kalturaCEError", $kalturaCEError->toParams());
+        $this->client->addParam($kparams, "kalturaCEError", $kalturaceerror->toParams());
         $this->client->queueServiceActionCall("stats", "reportKceError", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6958,9 +6959,9 @@ class KalturaStorageProfileService extends KalturaServiceBase {
      * @param KalturaStorageProfile $storageProfile 
      * @return KalturaStorageProfile
      */
-    public function add(KalturaStorageProfile $storageProfile) {
+    public function add(KalturaStorageProfile $storageprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "storageProfile", $storageProfile->toParams());
+        $this->client->addParam($kparams, "storageProfile", $storageprofile->toParams());
         $this->client->queueServiceActionCall("storageprofile", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6973,12 +6974,12 @@ class KalturaStorageProfileService extends KalturaServiceBase {
 
     /**
      * Get storage profile by id
-     * @param int $storageProfileId 
+     * @param int $storageProfileId
      * @return KalturaStorageProfile
      */
-    public function get($storageProfileId) {
+    public function get($storageprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+        $this->client->addParam($kparams, "storageProfileId", $storageprofileid);
         $this->client->queueServiceActionCall("storageprofile", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -6990,8 +6991,8 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaStorageProfileFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaStorageProfileFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaStorageProfileListResponse
      */
     public function listAction(KalturaStorageProfileFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -7014,14 +7015,14 @@ class KalturaStorageProfileService extends KalturaServiceBase {
 
     /**
      * Update storage profile by id
-     * @param int $storageProfileId 
+     * @param int $storageProfileId
      * @param KalturaStorageProfile $storageProfile Id
      * @return KalturaStorageProfile
      */
-    public function update($storageProfileId, KalturaStorageProfile $storageProfile) {
+    public function update($storageprofileid, KalturaStorageProfile $storageprofile) {
         $kparams = array();
-        $this->client->addParam($kparams, "storageProfileId", $storageProfileId);
-        $this->client->addParam($kparams, "storageProfile", $storageProfile->toParams());
+        $this->client->addParam($kparams, "storageProfileId", $storageprofileid);
+        $this->client->addParam($kparams, "storageProfile", $storageprofile->toParams());
         $this->client->queueServiceActionCall("storageprofile", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7033,12 +7034,12 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $storageId 
-     * @param int $status 
+     * @param int $storageid
+     * @param int $status
      */
-    public function updateStatus($storageId, $status) {
+    public function updateStatus($storageid, $status) {
         $kparams = array();
-        $this->client->addParam($kparams, "storageId", $storageId);
+        $this->client->addParam($kparams, "storageId", $storageid);
         $this->client->addParam($kparams, "status", $status);
         $this->client->queueServiceActionCall("storageprofile", "updateStatus", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -7066,12 +7067,12 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Add new Syndication Feed
-     * @param KalturaBaseSyndicationFeed $syndicationFeed 
+     * @param KalturaBaseSyndicationFeed $syndicationFeed
      * @return KalturaBaseSyndicationFeed
      */
-    public function add(KalturaBaseSyndicationFeed $syndicationFeed) {
+    public function add(KalturaBaseSyndicationFeed $syndicationfeed) {
         $kparams = array();
-        $this->client->addParam($kparams, "syndicationFeed", $syndicationFeed->toParams());
+        $this->client->addParam($kparams, "syndicationFeed", $syndicationfeed->toParams());
         $this->client->queueServiceActionCall("syndicationfeed", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7084,7 +7085,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Delete Syndication Feed by ID
-     * @param string $id 
+     * @param string $id
      */
     public function delete($id) {
         $kparams = array();
@@ -7100,7 +7101,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Get Syndication Feed by ID
-     * @param string $id 
+     * @param string $id
      * @return KalturaBaseSyndicationFeed
      */
     public function get($id) {
@@ -7118,12 +7119,12 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Get entry count for a syndication feed
-     * @param string $feedId 
+     * @param string $feedId
      * @return KalturaSyndicationFeedEntryCount
      */
-    public function getEntryCount($feedId) {
+    public function getEntryCount($feedid) {
         $kparams = array();
-        $this->client->addParam($kparams, "feedId", $feedId);
+        $this->client->addParam($kparams, "feedId", $feedid);
         $this->client->queueServiceActionCall("syndicationfeed", "getEntryCount", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7136,8 +7137,8 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * List Syndication Feeds by filter with paging support
-     * @param KalturaBaseSyndicationFeedFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaBaseSyndicationFeedFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaBaseSyndicationFeedListResponse
      */
     public function listAction(KalturaBaseSyndicationFeedFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -7160,13 +7161,13 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Request conversion for all entries that doesnt have the required flavor param
-     returns a comma-separated ids of conversion jobs
-     * @param string $feedId 
+     * returns a comma-separated ids of conversion jobs
+     * @param string $feedId
      * @return string
      */
-    public function requestConversion($feedId) {
+    public function requestConversion($feedid) {
         $kparams = array();
-        $this->client->addParam($kparams, "feedId", $feedId);
+        $this->client->addParam($kparams, "feedId", $feedid);
         $this->client->queueServiceActionCall("syndicationfeed", "requestConversion", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7179,14 +7180,14 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Update Syndication Feed by ID
-     * @param string $id 
-     * @param KalturaBaseSyndicationFeed $syndicationFeed 
+     * @param string $id
+     * @param KalturaBaseSyndicationFeed $syndicationFeed
      * @return KalturaBaseSyndicationFeed
      */
-    public function update($id, KalturaBaseSyndicationFeed $syndicationFeed) {
+    public function update($id, KalturaBaseSyndicationFeed $syndicationfeed) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "syndicationFeed", $syndicationFeed->toParams());
+        $this->client->addParam($kparams, "syndicationFeed", $syndicationfeed->toParams());
         $this->client->queueServiceActionCall("syndicationfeed", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7290,13 +7291,13 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     /**
      * Add thumbnail asset
      * @param string $entryId 
-     * @param KalturaThumbAsset $thumbAsset 
+     * @param KalturaThumbAsset $thumbAsset
      * @return KalturaThumbAsset
      */
-    public function add($entryId, KalturaThumbAsset $thumbAsset) {
+    public function add($entryid, KalturaThumbAsset $thumbasset) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "thumbAsset", $thumbAsset->toParams());
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "thumbAsset", $thumbasset->toParams());
         $this->client->queueServiceActionCall("thumbasset", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7308,15 +7309,15 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId 
-     * @param file $fileData 
+     * @param string $entryId
+     * @param file $fileData
      * @return KalturaThumbAsset
      */
-    public function addFromImage($entryId, $fileData) {
+    public function addFromImage($entryid, $filedata) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->queueServiceActionCall("thumbasset", "addFromImage", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7328,13 +7329,13 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId 
-     * @param string $url 
+     * @param string $entryId
+     * @param string $url
      * @return KalturaThumbAsset
      */
-    public function addFromUrl($entryId, $url) {
+    public function addFromUrl($entryid, $url) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "url", $url);
         $this->client->queueServiceActionCall("thumbasset", "addFromUrl", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -7347,11 +7348,11 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $thumbAssetId 
+     * @param string $thumbAssetId
      */
-    public function delete($thumbAssetId) {
+    public function delete($thumbassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+        $this->client->addParam($kparams, "thumbAssetId", $thumbassetid);
         $this->client->queueServiceActionCall("thumbasset", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7363,14 +7364,14 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Manually export an asset
-     * @param string $assetId 
-     * @param int $storageProfileId 
+     * @param string $assetId
+     * @param int $storageProfileId
      * @return KalturaFlavorAsset
      */
-    public function export($assetId, $storageProfileId) {
+    public function export($assetid, $storageprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "assetId", $assetId);
-        $this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+        $this->client->addParam($kparams, "assetId", $assetid);
+        $this->client->addParam($kparams, "storageProfileId", $storageprofileid);
         $this->client->queueServiceActionCall("thumbasset", "export", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7382,16 +7383,16 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId 
-     * @param KalturaThumbParams $thumbParams 
+     * @param string $entryId
+     * @param KalturaThumbParams $thumbParams
      * @param string $sourceAssetId Id of the source asset (flavor or thumbnail) to be used as source for the thumbnail generation
      * @return KalturaThumbAsset
      */
-    public function generate($entryId, KalturaThumbParams $thumbParams, $sourceAssetId = null) {
+    public function generate($entryid, KalturaThumbParams $thumbparams, $sourceassetid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
-        $this->client->addParam($kparams, "sourceAssetId", $sourceAssetId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "thumbParams", $thumbparams->toParams());
+        $this->client->addParam($kparams, "sourceAssetId", $sourceassetid);
         $this->client->queueServiceActionCall("thumbasset", "generate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7403,14 +7404,14 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId 
+     * @param string $entryId
      * @param int $destThumbParamsId Indicate the id of the ThumbParams to be generate this thumbnail by
      * @return KalturaThumbAsset
      */
-    public function generateByEntryId($entryId, $destThumbParamsId) {
+    public function generateByEntryId($entryid, $destthumbparamsid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "destThumbParamsId", $destThumbParamsId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "destThumbParamsId", $destthumbparamsid);
         $this->client->queueServiceActionCall("thumbasset", "generateByEntryId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7422,12 +7423,12 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $thumbAssetId 
+     * @param string $thumbAssetId
      * @return KalturaThumbAsset
      */
-    public function get($thumbAssetId) {
+    public function get($thumbassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+        $this->client->addParam($kparams, "thumbAssetId", $thumbassetid);
         $this->client->queueServiceActionCall("thumbasset", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7439,12 +7440,12 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId 
+     * @param string $entryId
      * @return array
      */
-    public function getByEntryId($entryId) {
+    public function getByEntryId($entryid) {
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
+        $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->queueServiceActionCall("thumbasset", "getByEntryId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7457,7 +7458,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Get remote storage existing paths for the asset
-     * @param string $id 
+     * @param string $id
      * @return KalturaRemotePathListResponse
      */
     public function getRemotePaths($id) {
@@ -7475,17 +7476,17 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Get download URL for the asset
-     * @param string $id 
-     * @param int $storageId 
-     * @param KalturaThumbParams $thumbParams 
+     * @param string $id
+     * @param int $storageId
+     * @param KalturaThumbParams $thumbParams
      * @return string
      */
-    public function getUrl($id, $storageId = null, KalturaThumbParams $thumbParams = null) {
+    public function getUrl($id, $storageid = null, KalturaThumbParams $thumbparams = null) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "storageId", $storageId);
-        if ($thumbParams !== null) {
-            $this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
+        $this->client->addParam($kparams, "storageId", $storageid);
+        if ($thumbparams !== null) {
+            $this->client->addParam($kparams, "thumbParams", $thumbparams->toParams());
         }
         $this->client->queueServiceActionCall("thumbasset", "getUrl", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -7499,8 +7500,8 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * List Thumbnail Assets by filter and pager
-     * @param KalturaAssetFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaAssetFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaThumbAssetListResponse
      */
     public function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null)
@@ -7523,12 +7524,12 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $thumbAssetId 
+     * @param string $thumbAssetId
      * @return KalturaThumbAsset
      */
-    public function regenerate($thumbAssetId) {
+    public function regenerate($thumbassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+        $this->client->addParam($kparams, "thumbAssetId", $thumbassetid);
         $this->client->queueServiceActionCall("thumbasset", "regenerate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7541,21 +7542,21 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Serves thumbnail by its id
-     * @param string $thumbAssetId 
-     * @param int $version 
-     * @param KalturaThumbParams $thumbParams 
+     * @param string $thumbAssetId
+     * @param int $version
+     * @param KalturaThumbParams $thumbParams
      * @param KalturaThumbnailServeOptions $options 
      * @return file
      */
-    public function serve($thumbAssetId, $version = null, KalturaThumbParams $thumbParams = null, KalturaThumbnailServeOptions $options = null) {
+    public function serve($thumbassetid, $version = null, KalturaThumbParams $thumbparams = null, KalturaThumbnailServeOptions $options = null) {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
-        $this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+        $this->client->addParam($kparams, "thumbAssetId", $thumbassetid);
         $this->client->addParam($kparams, "version", $version);
-        if ($thumbParams !== null) {
-            $this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
+        if ($thumbparams !== null) {
+            $this->client->addParam($kparams, "thumbParams", $thumbparams->toParams());
         }
         if ($options !== null) {
             $this->client->addParam($kparams, "options", $options->toParams());
@@ -7569,17 +7570,17 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Serves thumbnail by entry id and thumnail params id
-     * @param string $entryId 
+     * @param string $entryId
      * @param int $thumbParamId If not set, default thumbnail will be used.
      * @return file
      */
-    public function serveByEntryId($entryId, $thumbParamId = null) {
+    public function serveByEntryId($entryid, $thumbparamid = null) {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
-        $this->client->addParam($kparams, "entryId", $entryId);
-        $this->client->addParam($kparams, "thumbParamId", $thumbParamId);
+        $this->client->addParam($kparams, "entryId", $entryid);
+        $this->client->addParam($kparams, "thumbParamId", $thumbparamid);
         $this->client->queueServiceActionCall("thumbasset", "serveByEntryId", $kparams);
         if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
@@ -7590,11 +7591,11 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     /**
      * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
      Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
-     * @param string $thumbAssetId 
+     * @param string $thumbAssetId
      */
-    public function setAsDefault($thumbAssetId) {
+    public function setAsDefault($thumbassetid) {
         $kparams = array();
-        $this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+        $this->client->addParam($kparams, "thumbAssetId", $thumbassetid);
         $this->client->queueServiceActionCall("thumbasset", "setAsDefault", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7606,14 +7607,14 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Update content of thumbnail asset
-     * @param string $id 
-     * @param KalturaContentResource $contentResource 
+     * @param string $id
+     * @param KalturaContentResource $contentResource
      * @return KalturaThumbAsset
      */
-    public function setContent($id, KalturaContentResource $contentResource) {
+    public function setContent($id, KalturaContentResource $contentresource) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+        $this->client->addParam($kparams, "contentResource", $contentresource->toParams());
         $this->client->queueServiceActionCall("thumbasset", "setContent", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7626,14 +7627,14 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Update thumbnail asset
-     * @param string $id 
+     * @param string $id
      * @param KalturaThumbAsset $thumbAsset 
      * @return KalturaThumbAsset
      */
-    public function update($id, KalturaThumbAsset $thumbAsset) {
+    public function update($id, KalturaThumbAsset $thumbasset) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "thumbAsset", $thumbAsset->toParams());
+        $this->client->addParam($kparams, "thumbAsset", $thumbasset->toParams());
         $this->client->queueServiceActionCall("thumbasset", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7661,7 +7662,7 @@ class KalturaThumbParamsOutputService extends KalturaServiceBase {
 
     /**
      * Get thumb params output object by ID
-     * @param int $id 
+     * @param int $id
      * @return KalturaThumbParamsOutput
      */
     public function get($id) {
@@ -7679,8 +7680,8 @@ class KalturaThumbParamsOutputService extends KalturaServiceBase {
 
     /**
      * List thumb params output objects by filter and pager
-     * @param KalturaThumbParamsOutputFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaThumbParamsOutputFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaThumbParamsOutputListResponse
      */
     public function listAction(KalturaThumbParamsOutputFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -7721,9 +7722,9 @@ class KalturaThumbParamsService extends KalturaServiceBase {
      * @param KalturaThumbParams $thumbParams 
      * @return KalturaThumbParams
      */
-    public function add(KalturaThumbParams $thumbParams) {
+    public function add(KalturaThumbParams $thumbparams) {
         $kparams = array();
-        $this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
+        $this->client->addParam($kparams, "thumbParams", $thumbparams->toParams());
         $this->client->queueServiceActionCall("thumbparams", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7736,7 +7737,7 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * Delete Thumb Params by ID
-     * @param int $id 
+     * @param int $id
      */
     public function delete($id) {
         $kparams = array();
@@ -7752,7 +7753,7 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * Get Thumb Params by ID
-     * @param int $id 
+     * @param int $id
      * @return KalturaThumbParams
      */
     public function get($id) {
@@ -7770,12 +7771,12 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * Get Thumb Params by Conversion Profile ID
-     * @param int $conversionProfileId 
+     * @param int $conversionProfileId
      * @return array
      */
-    public function getByConversionProfileId($conversionProfileId) {
+    public function getByConversionProfileId($conversionprofileid) {
         $kparams = array();
-        $this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
+        $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         $this->client->queueServiceActionCall("thumbparams", "getByConversionProfileId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7788,8 +7789,8 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * List Thumb Params by filter with paging support (By default - all system default params will be listed too)
-     * @param KalturaThumbParamsFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaThumbParamsFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaThumbParamsListResponse
      */
     public function listAction(KalturaThumbParamsFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -7812,14 +7813,14 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * Update Thumb Params by ID
-     * @param int $id 
+     * @param int $id
      * @param KalturaThumbParams $thumbParams 
      * @return KalturaThumbParams
      */
-    public function update($id, KalturaThumbParams $thumbParams) {
+    public function update($id, KalturaThumbParams $thumbparams) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
+        $this->client->addParam($kparams, "thumbParams", $thumbparams->toParams());
         $this->client->queueServiceActionCall("thumbparams", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7850,9 +7851,9 @@ class KalturaUiConfService extends KalturaServiceBase {
      * @param KalturaUiConf $uiConf Mandatory input parameter of type KalturaUiConf
      * @return KalturaUiConf
      */
-    public function add(KalturaUiConf $uiConf) {
+    public function add(KalturaUiConf $uiconf) {
         $kparams = array();
-        $this->client->addParam($kparams, "uiConf", $uiConf->toParams());
+        $this->client->addParam($kparams, "uiConf", $uiconf->toParams());
         $this->client->queueServiceActionCall("uiconf", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -7865,7 +7866,7 @@ class KalturaUiConfService extends KalturaServiceBase {
 
     /**
      * Clone an existing UIConf
-     * @param int $id 
+     * @param int $id
      * @return KalturaUiConf
      */
     public function cloneAction($id) {
@@ -7883,7 +7884,7 @@ class KalturaUiConfService extends KalturaServiceBase {
 
     /**
      * Delete an existing UIConf
-     * @param int $id 
+     * @param int $id
      */
     public function delete($id) {
         $kparams = array();
@@ -7899,7 +7900,7 @@ class KalturaUiConfService extends KalturaServiceBase {
 
     /**
      * Retrieve a UIConf by id
-     * @param int $id 
+     * @param int $id
      * @return KalturaUiConf
      */
     public function get($id) {
@@ -7933,8 +7934,8 @@ class KalturaUiConfService extends KalturaServiceBase {
 
     /**
      * Retrieve a list of available UIConfs
-     * @param KalturaUiConfFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaUiConfFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaUiConfListResponse
      */
     public function listAction(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -7957,8 +7958,8 @@ class KalturaUiConfService extends KalturaServiceBase {
 
     /**
      * Retrieve a list of available template UIConfs
-     * @param KalturaUiConfFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaUiConfFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaUiConfListResponse
      */
     public function listTemplates(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -7981,14 +7982,14 @@ class KalturaUiConfService extends KalturaServiceBase {
 
     /**
      * Update an existing UIConf
-     * @param int $id 
-     * @param KalturaUiConf $uiConf 
+     * @param int $id
+     * @param KalturaUiConf $uiConf
      * @return KalturaUiConf
      */
-    public function update($id, KalturaUiConf $uiConf) {
+    public function update($id, KalturaUiConf $uiconf) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "uiConf", $uiConf->toParams());
+        $this->client->addParam($kparams, "uiConf", $uiconf->toParams());
         $this->client->queueServiceActionCall("uiconf", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8018,9 +8019,9 @@ class KalturaUploadService extends KalturaServiceBase {
      * @param string $fileName 
      * @return KalturaUploadResponse
      */
-    public function getUploadedFileTokenByFileName($fileName) {
+    public function getUploadedFileTokenByFileName($filename) {
         $kparams = array();
-        $this->client->addParam($kparams, "fileName", $fileName);
+        $this->client->addParam($kparams, "fileName", $filename);
         $this->client->queueServiceActionCall("upload", "getUploadedFileTokenByFileName", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8035,10 +8036,10 @@ class KalturaUploadService extends KalturaServiceBase {
      * @param file $fileData The file data
      * @return string
      */
-    public function upload($fileData) {
+    public function upload($filedata) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->queueServiceActionCall("upload", "upload", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8066,13 +8067,13 @@ class KalturaUploadTokenService extends KalturaServiceBase {
 
     /**
      * Adds new upload token to upload a file
-     * @param KalturaUploadToken $uploadToken 
+     * @param KalturaUploadToken $uploadToken
      * @return KalturaUploadToken
      */
-    public function add(KalturaUploadToken $uploadToken = null) {
+    public function add(KalturaUploadToken $uploadtoken = null) {
         $kparams = array();
-        if ($uploadToken !== null) {
-            $this->client->addParam($kparams, "uploadToken", $uploadToken->toParams());
+        if ($uploadtoken !== null) {
+            $this->client->addParam($kparams, "uploadToken", $uploadtoken->toParams());
         }
         $this->client->queueServiceActionCall("uploadtoken", "add", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -8086,11 +8087,11 @@ class KalturaUploadTokenService extends KalturaServiceBase {
 
     /**
      * Deletes the upload token by upload token id
-     * @param string $uploadTokenId 
+     * @param string $uploadTokenId
      */
-    public function delete($uploadTokenId) {
+    public function delete($uploadtokenid) {
         $kparams = array();
-        $this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
+        $this->client->addParam($kparams, "uploadTokenId", $uploadtokenid);
         $this->client->queueServiceActionCall("uploadtoken", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8102,12 +8103,12 @@ class KalturaUploadTokenService extends KalturaServiceBase {
 
     /**
      * Get upload token by id
-     * @param string $uploadTokenId 
+     * @param string $uploadTokenId
      * @return KalturaUploadToken
      */
-    public function get($uploadTokenId) {
+    public function get($uploadtokenid) {
         $kparams = array();
-        $this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
+        $this->client->addParam($kparams, "uploadTokenId", $uploadtokenid);
         $this->client->queueServiceActionCall("uploadtoken", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8121,7 +8122,7 @@ class KalturaUploadTokenService extends KalturaServiceBase {
     /**
      * List upload token by filter with pager support. 
      When using a user session the service will be restricted to users objects only.
-     * @param KalturaUploadTokenFilter $filter 
+     * @param KalturaUploadTokenFilter $filter
      * @param KalturaFilterPager $pager 
      * @return KalturaUploadTokenListResponse
      */
@@ -8145,29 +8146,29 @@ class KalturaUploadTokenService extends KalturaServiceBase {
 
     /**
      * Upload a file using the upload token id, returns an error on failure (an exception will be thrown when using one of the Kaltura clients)
-     Chunks can be uploaded in parallel and they will be appended according to their resumeAt position.
-     A parallel upload session should have three stages:
-     1. A single upload with resume=false and finalChunk=false
-     2. Parallel upload requests each with resume=true,finalChunk=false and the expected resumetAt position.
-     If a chunk fails to upload it can be re-uploaded.
-     3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded 
-     with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
-     has been returned (indicating not all of the chunks were appended yet) the final request can be retried.
-     * @param string $uploadTokenId 
-     * @param file $fileData 
-     * @param bool $resume 
-     * @param bool $finalChunk 
-     * @param float $resumeAt 
+     * Chunks can be uploaded in parallel and they will be appended according to their resumeAt position.
+     * A parallel upload session should have three stages:
+     * 1. A single upload with resume=false and finalChunk=false
+     * 2. Parallel upload requests each with resume=true,finalChunk=false and the expected resumetAt position.
+     * If a chunk fails to upload it can be re-uploaded.
+     * 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded 
+     * with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
+     * has been returned (indicating not all of the chunks were appended yet) the final request can be retried.
+     * @param string $uploadTokenId
+     * @param file $fileData
+     * @param bool $resume
+     * @param bool $finalChunk
+     * @param float $resumeAt
      * @return KalturaUploadToken
      */
-    public function upload($uploadTokenId, $fileData, $resume = false, $finalChunk = true, $resumeAt = -1) {
+    public function upload($uploadtokenid, $filedata, $resume = false, $finalchunk = true, $resumeat = -1) {
         $kparams = array();
-        $this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
+        $this->client->addParam($kparams, "uploadTokenId", $uploadtokenid);
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
+        $this->client->addParam($kfiles, "fileData", $filedata);
         $this->client->addParam($kparams, "resume", $resume);
-        $this->client->addParam($kparams, "finalChunk", $finalChunk);
-        $this->client->addParam($kparams, "resumeAt", $resumeAt);
+        $this->client->addParam($kparams, "finalChunk", $finalchunk);
+        $this->client->addParam($kparams, "resumeAt", $resumeat);
         $this->client->queueServiceActionCall("uploadtoken", "upload", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8198,9 +8199,9 @@ class KalturaUserEntryService extends KalturaServiceBase {
      * @param KalturaUserEntry $userEntry 
      * @return KalturaUserEntry
      */
-    public function add(KalturaUserEntry $userEntry) {
+    public function add(KalturaUserEntry $userentry) {
         $kparams = array();
-        $this->client->addParam($kparams, "userEntry", $userEntry->toParams());
+        $this->client->addParam($kparams, "userEntry", $userentry->toParams());
         $this->client->queueServiceActionCall("userentry", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8212,7 +8213,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaUserEntryFilter $filter 
+     * @param KalturaUserEntryFilter $filter
      * @return int
      */
     public function bulkDelete(KalturaUserEntryFilter $filter) {
@@ -8229,7 +8230,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id 
+     * @param int $id
      * @return KalturaUserEntry
      */
     public function delete($id) {
@@ -8246,7 +8247,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $id 
+     * @param string $id
      * @return KalturaUserEntry
      */
     public function get($id) {
@@ -8263,8 +8264,8 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaUserEntryFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaUserEntryFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaUserEntryListResponse
      */
     public function listAction(KalturaUserEntryFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -8287,7 +8288,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
 
     /**
      * Submits the quiz so that it's status will be submitted and calculates the score for the quiz
-     * @param int $id 
+     * @param int $id
      * @return KalturaQuizUserEntry
      */
     public function submitQuiz($id) {
@@ -8304,13 +8305,13 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id 
-     * @param KalturaUserEntry $userEntry 
+     * @param int $id
+     * @param KalturaUserEntry $userEntry
      */
-    public function update($id, KalturaUserEntry $userEntry) {
+    public function update($id, KalturaUserEntry $userentry) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "userEntry", $userEntry->toParams());
+        $this->client->addParam($kparams, "userEntry", $userentry->toParams());
         $this->client->queueServiceActionCall("userentry", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8340,9 +8341,9 @@ class KalturaUserRoleService extends KalturaServiceBase {
      * @param KalturaUserRole $userRole A new role
      * @return KalturaUserRole
      */
-    public function add(KalturaUserRole $userRole) {
+    public function add(KalturaUserRole $userrole) {
         $kparams = array();
-        $this->client->addParam($kparams, "userRole", $userRole->toParams());
+        $this->client->addParam($kparams, "userRole", $userrole->toParams());
         $this->client->queueServiceActionCall("userrole", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8358,9 +8359,9 @@ class KalturaUserRoleService extends KalturaServiceBase {
      * @param int $userRoleId The user role's unique identifier
      * @return KalturaUserRole
      */
-    public function cloneAction($userRoleId) {
+    public function cloneAction($userroleid) {
         $kparams = array();
-        $this->client->addParam($kparams, "userRoleId", $userRoleId);
+        $this->client->addParam($kparams, "userRoleId", $userroleid);
         $this->client->queueServiceActionCall("userrole", "clone", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8376,9 +8377,9 @@ class KalturaUserRoleService extends KalturaServiceBase {
      * @param int $userRoleId The user role's unique identifier
      * @return KalturaUserRole
      */
-    public function delete($userRoleId) {
+    public function delete($userroleid) {
         $kparams = array();
-        $this->client->addParam($kparams, "userRoleId", $userRoleId);
+        $this->client->addParam($kparams, "userRoleId", $userroleid);
         $this->client->queueServiceActionCall("userrole", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8394,9 +8395,9 @@ class KalturaUserRoleService extends KalturaServiceBase {
      * @param int $userRoleId The user role's unique identifier
      * @return KalturaUserRole
      */
-    public function get($userRoleId) {
+    public function get($userroleid) {
         $kparams = array();
-        $this->client->addParam($kparams, "userRoleId", $userRoleId);
+        $this->client->addParam($kparams, "userRoleId", $userroleid);
         $this->client->queueServiceActionCall("userrole", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8409,8 +8410,8 @@ class KalturaUserRoleService extends KalturaServiceBase {
 
     /**
      * Lists user role objects that are associated with an account.
-     Blocked user roles are listed unless you use a filter to exclude them.
-     Deleted user roles are not listed unless you use a filter to include them.
+     * Blocked user roles are listed unless you use a filter to exclude them.
+     * Deleted user roles are not listed unless you use a filter to include them.
      * @param KalturaUserRoleFilter $filter A filter used to exclude specific types of user roles
      * @param KalturaFilterPager $pager A limit for the number of records to display on a page
      * @return KalturaUserRoleListResponse
@@ -8439,10 +8440,10 @@ class KalturaUserRoleService extends KalturaServiceBase {
      * @param KalturaUserRole $userRole Id The user role's unique identifier
      * @return KalturaUserRole
      */
-    public function update($userRoleId, KalturaUserRole $userRole) {
+    public function update($userroleid, KalturaUserRole $userrole) {
         $kparams = array();
-        $this->client->addParam($kparams, "userRoleId", $userRoleId);
-        $this->client->addParam($kparams, "userRole", $userRole->toParams());
+        $this->client->addParam($kparams, "userRoleId", $userroleid);
+        $this->client->addParam($kparams, "userRole", $userrole->toParams());
         $this->client->queueServiceActionCall("userrole", "update", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8470,7 +8471,7 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Adds a new user to an existing account in the Kaltura database.
-     Input param $id is the unique identifier in the partner's system.
+     * Input param $id is the unique identifier in the partner's system.
      * @param KalturaUser $user The new user
      * @return KalturaUser
      */
@@ -8493,15 +8494,15 @@ class KalturaUserService extends KalturaServiceBase {
      * @param KalturaBulkUploadUserData $bulkUploadUserData 
      * @return KalturaBulkUpload
      */
-    public function addFromBulkUpload($fileData, KalturaBulkUploadJobData $bulkUploadData = null, KalturaBulkUploadUserData $bulkUploadUserData = null) {
+    public function addFromBulkUpload($filedata, KalturaBulkUploadJobData $bulkuploaddata = null, KalturaBulkUploadUserData $bulkuploaduserdata = null) {
         $kparams = array();
         $kfiles = array();
-        $this->client->addParam($kfiles, "fileData", $fileData);
-        if ($bulkUploadData !== null) {
-            $this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+        $this->client->addParam($kfiles, "fileData", $filedata);
+        if ($bulkuploaddata !== null) {
+            $this->client->addParam($kparams, "bulkUploadData", $bulkuploaddata->toParams());
         }
-        if ($bulkUploadUserData !== null) {
-            $this->client->addParam($kparams, "bulkUploadUserData", $bulkUploadUserData->toParams());
+        if ($bulkuploaduserdata !== null) {
+            $this->client->addParam($kparams, "bulkUploadUserData", $bulkuploaduserdata->toParams());
         }
         $this->client->queueServiceActionCall("user", "addFromBulkUpload", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
@@ -8515,7 +8516,7 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Action which checks whther user login
-     * @param KalturaUserLoginDataFilter $filter 
+     * @param KalturaUserLoginDataFilter $filter
      * @return bool
      */
     public function checkLoginDataExists(KalturaUserLoginDataFilter $filter) {
@@ -8536,9 +8537,9 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $userId The user's unique identifier in the partner's system
      * @return KalturaUser
      */
-    public function delete($userId) {
+    public function delete($userid) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->queueServiceActionCall("user", "delete", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8551,15 +8552,15 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Disables a user's ability to log into a partner account using an email address and a password.
-     You may use either a userId or a loginId parameter for this action.
+     * You may use either a userId or a loginId parameter for this action.
      * @param string $userId The user's unique identifier in the partner's system
      * @param string $loginId The user's email address that identifies the user for login
      * @return KalturaUser
      */
-    public function disableLogin($userId = null, $loginId = null) {
+    public function disableLogin($userid = null, $loginid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
-        $this->client->addParam($kparams, "loginId", $loginId);
+        $this->client->addParam($kparams, "userId", $userid);
+        $this->client->addParam($kparams, "loginId", $loginid);
         $this->client->queueServiceActionCall("user", "disableLogin", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8577,10 +8578,10 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $password The user's password
      * @return KalturaUser
      */
-    public function enableLogin($userId, $loginId, $password = null) {
+    public function enableLogin($userid, $loginid, $password = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
-        $this->client->addParam($kparams, "loginId", $loginId);
+        $this->client->addParam($kparams, "userId", $userid);
+        $this->client->addParam($kparams, "loginId", $loginid);
         $this->client->addParam($kparams, "password", $password);
         $this->client->queueServiceActionCall("user", "enableLogin", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -8597,9 +8598,9 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $userId The user's unique identifier in the partner's system
      * @return KalturaUser
      */
-    public function get($userId = null) {
+    public function get($userid = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->queueServiceActionCall("user", "get", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8612,13 +8613,13 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Retrieves a user object for a user's login ID and partner ID.
-     A login ID is the email address used by a user to log into the system.
+     * A login ID is the email address used by a user to log into the system.
      * @param string $loginId The user's email address that identifies the user for login
      * @return KalturaUser
      */
-    public function getByLoginId($loginId) {
+    public function getByLoginId($loginid) {
         $kparams = array();
-        $this->client->addParam($kparams, "loginId", $loginId);
+        $this->client->addParam($kparams, "loginId", $loginid);
         $this->client->queueServiceActionCall("user", "getByLoginId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8631,14 +8632,14 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Index an entry by id.
-     * @param string $id 
-     * @param bool $shouldUpdate 
+     * @param string $id
+     * @param bool $shouldUpdate
      * @return string
      */
-    public function index($id, $shouldUpdate = true) {
+    public function index($id, $shouldupdate = true) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
-        $this->client->addParam($kparams, "shouldUpdate", $shouldUpdate);
+        $this->client->addParam($kparams, "shouldUpdate", $shouldupdate);
         $this->client->queueServiceActionCall("user", "index", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8651,8 +8652,8 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Lists user objects that are associated with an account.
-     Blocked users are listed unless you use a filter to exclude them.
-     Deleted users are not listed unless you use a filter to include them.
+     * Blocked users are listed unless you use a filter to exclude them.
+     * Deleted users are not listed unless you use a filter to include them.
      * @param KalturaUserFilter $filter A filter used to exclude specific types of users
      * @param KalturaFilterPager $pager A limit for the number of records to display on a page
      * @return KalturaUserListResponse
@@ -8684,10 +8685,10 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $privileges Special privileges
      * @return string
      */
-    public function login($partnerId, $userId, $password, $expiry = 86400, $privileges = "*") {
+    public function login($partnerid, $userid, $password, $expiry = 86400, $privileges = "*") {
         $kparams = array();
-        $this->client->addParam($kparams, "partnerId", $partnerId);
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "partnerId", $partnerid);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->addParam($kparams, "password", $password);
         $this->client->addParam($kparams, "expiry", $expiry);
         $this->client->addParam($kparams, "privileges", $privileges);
@@ -8703,12 +8704,12 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Loges a user to the destination account as long the ks user id exists in the desc acount and the loginData id match for both accounts
-     * @param int $requestedPartnerId 
+     * @param int $requestedPartnerId
      * @return KalturaSessionResponse
      */
-    public function loginByKs($requestedPartnerId) {
+    public function loginByKs($requestedpartnerid) {
         $kparams = array();
-        $this->client->addParam($kparams, "requestedPartnerId", $requestedPartnerId);
+        $this->client->addParam($kparams, "requestedPartnerId", $requestedpartnerid);
         $this->client->queueServiceActionCall("user", "loginByKs", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8729,11 +8730,11 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $otp The user's one-time password
      * @return string
      */
-    public function loginByLoginId($loginId, $password, $partnerId = null, $expiry = 86400, $privileges = "*", $otp = null) {
+    public function loginByLoginId($loginid, $password, $partnerid = null, $expiry = 86400, $privileges = "*", $otp = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "loginId", $loginId);
+        $this->client->addParam($kparams, "loginId", $loginid);
         $this->client->addParam($kparams, "password", $password);
-        $this->client->addParam($kparams, "partnerId", $partnerId);
+        $this->client->addParam($kparams, "partnerId", $partnerid);
         $this->client->addParam($kparams, "expiry", $expiry);
         $this->client->addParam($kparams, "privileges", $privileges);
         $this->client->addParam($kparams, "otp", $otp);
@@ -8751,9 +8752,9 @@ class KalturaUserService extends KalturaServiceBase {
      * Notifies that a user is banned from an account.
      * @param string $userId The user's unique identifier in the partner's system
      */
-    public function notifyBan($userId) {
+    public function notifyBan($userid) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->queueServiceActionCall("user", "notifyBan", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8784,10 +8785,10 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $hashKey The hash key used to identify the user (retrieved by email)
      * @param string $newPassword The new password to set for the user
      */
-    public function setInitialPassword($hashKey, $newPassword) {
+    public function setInitialPassword($hashkey, $newpassword) {
         $kparams = array();
-        $this->client->addParam($kparams, "hashKey", $hashKey);
-        $this->client->addParam($kparams, "newPassword", $newPassword);
+        $this->client->addParam($kparams, "hashKey", $hashkey);
+        $this->client->addParam($kparams, "newPassword", $newpassword);
         $this->client->queueServiceActionCall("user", "setInitialPassword", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8799,14 +8800,14 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Updates an existing user object.
-     You can also use this action to update the userId.
+     * You can also use this action to update the userId.
      * @param string $userId The user's unique identifier in the partner's system
      * @param KalturaUser $user Id The user's unique identifier in the partner's system
      * @return KalturaUser
      */
-    public function update($userId, KalturaUser $user) {
+    public function update($userid, KalturaUser $user) {
         $kparams = array();
-        $this->client->addParam($kparams, "userId", $userId);
+        $this->client->addParam($kparams, "userId", $userid);
         $this->client->addParam($kparams, "user", $user->toParams());
         $this->client->queueServiceActionCall("user", "update", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -8827,14 +8828,14 @@ class KalturaUserService extends KalturaServiceBase {
      * @param string $newFirstName Optional, The user's new first name
      * @param string $newLastName Optional, The user's new last name
      */
-    public function updateLoginData($oldLoginId, $password, $newLoginId = "", $newPassword = "", $newFirstName = null, $newLastName = null) {
+    public function updateLoginData($oldloginid, $password, $newloginid = "", $newpassword = "", $newfirstname = null, $newlastname = null) {
         $kparams = array();
-        $this->client->addParam($kparams, "oldLoginId", $oldLoginId);
+        $this->client->addParam($kparams, "oldLoginId", $oldloginid);
         $this->client->addParam($kparams, "password", $password);
-        $this->client->addParam($kparams, "newLoginId", $newLoginId);
-        $this->client->addParam($kparams, "newPassword", $newPassword);
-        $this->client->addParam($kparams, "newFirstName", $newFirstName);
-        $this->client->addParam($kparams, "newLastName", $newLastName);
+        $this->client->addParam($kparams, "newLoginId", $newloginid);
+        $this->client->addParam($kparams, "newPassword", $newpassword);
+        $this->client->addParam($kparams, "newFirstName", $newfirstname);
+        $this->client->addParam($kparams, "newLastName", $newlastname);
         $this->client->queueServiceActionCall("user", "updateLoginData", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -8861,7 +8862,7 @@ class KalturaWidgetService extends KalturaServiceBase {
 
     /**
      * Add new widget, can be attached to entry or kshow
-     SourceWidget is ignored.
+     * SourceWidget is ignored.
      * @param KalturaWidget $widget 
      * @return KalturaWidget
      */
@@ -8880,7 +8881,7 @@ class KalturaWidgetService extends KalturaServiceBase {
 
     /**
      * Add widget based on existing widget.
-     Must provide valid sourceWidgetId
+     * Must provide valid sourceWidgetId
      * @param KalturaWidget $widget 
      * @return KalturaWidget
      */
@@ -8917,8 +8918,8 @@ class KalturaWidgetService extends KalturaServiceBase {
 
     /**
      * Retrieve a list of available widget depends on the filter given
-     * @param KalturaWidgetFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaWidgetFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaWidgetListResponse
      */
     public function listAction(KalturaWidgetFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -8941,8 +8942,8 @@ class KalturaWidgetService extends KalturaServiceBase {
 
     /**
      * Update exisiting widget
-     * @param string $id 
-     * @param KalturaWidget $widget 
+     * @param string $id
+     * @param KalturaWidget $widget
      * @return KalturaWidget
      */
     public function update($id, KalturaWidget $widget) {
@@ -9257,7 +9258,7 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * UiConf service lets you create and manage your UIConfs for the various flash components
-     *  This service is used by the KMC-ApplicationStudio
+     * This service is used by the KMC-ApplicationStudio
      * @var KalturaUiConfService
      */
     public $uiConf = null;
@@ -9285,7 +9286,7 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * Manage partner users on Kaltura's side
-     *  The userId in kaltura is the unique Id in the partner's system, and the [partnerId,Id] couple are unique key in kaltura's DB
+     * The userId in kaltura is the unique Id in the partner's system, and the [partnerId,Id] couple are unique key in kaltura's DB
      * @var KalturaUserService
      */
     public $user = null;
@@ -9463,8 +9464,8 @@ class KalturaClient extends KalturaClientBase {
      * Response profile - this attribute will be automatically unset after every API call.
      * @param KalturaBaseResponseProfile $responseProfile
      */
-    public function setResponseProfile(KalturaBaseResponseProfile $responseProfile) {
-        $this->requestConfiguration['responseProfile'] = $responseProfile;
+    public function setResponseProfile(KalturaBaseResponseProfile $responseprofile) {
+        $this->requestConfiguration['responseProfile'] = $responseprofile;
     }
     
     /**

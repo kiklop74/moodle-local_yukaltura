@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -618,7 +618,8 @@ class KalturaMetadataReplacementOptionsItem extends KalturaPluginReplacementOpti
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaMetadataResponseProfileMapping extends KalturaResponseProfileMapping {}
+class KalturaMetadataResponseProfileMapping extends KalturaResponseProfileMapping {
+}
 
 /**
  * Kaltura Client API.
@@ -917,7 +918,8 @@ class KalturaMetadataFieldChangedCondition extends KalturaMatchCondition {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaMetadataProfileFilter extends KalturaMetadataProfileBaseFilter {}
+class KalturaMetadataProfileFilter extends KalturaMetadataProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -983,8 +985,8 @@ class KalturaMetadataField extends KalturaStringField {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaMetadataFilter extends KalturaMetadataBaseFilter {}
-
+class KalturaMetadataFilter extends KalturaMetadataBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1210,7 +1212,7 @@ class KalturaMetadataService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("metadata_metadata", "serve", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();
@@ -1451,7 +1453,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("metadata_metadataprofile", "serve", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();
@@ -1469,7 +1471,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("metadata_metadataprofile", "serveView", $kparams);
-        if(!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
+        if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();
         }
         return $this->client->doQueue();

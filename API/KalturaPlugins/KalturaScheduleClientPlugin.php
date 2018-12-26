@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -907,7 +907,8 @@ class KalturaLiveEntryScheduleResource extends KalturaScheduleResource {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaLocationScheduleResource extends KalturaScheduleResource {}
+class KalturaLocationScheduleResource extends KalturaScheduleResource {
+}
 
 /**
  * Kaltura Client API.
@@ -985,7 +986,8 @@ class KalturaLiveStreamScheduleEvent extends KalturaEntryScheduleEvent {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaRecordScheduleEvent extends KalturaEntryScheduleEvent {}
+class KalturaRecordScheduleEvent extends KalturaEntryScheduleEvent {
+}
 
 /**
  * Kaltura Client API.
@@ -1454,7 +1456,8 @@ class KalturaScheduleEventResourceFilter extends KalturaScheduleEventResourceBas
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaScheduleResourceFilter extends KalturaScheduleResourceBaseFilter {}
+class KalturaScheduleResourceFilter extends KalturaScheduleResourceBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1464,7 +1467,8 @@ class KalturaScheduleResourceFilter extends KalturaScheduleResourceBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaCameraScheduleResourceBaseFilter extends KalturaScheduleResourceFilter {}
+abstract class KalturaCameraScheduleResourceBaseFilter extends KalturaScheduleResourceFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1526,7 +1530,8 @@ abstract class KalturaEntryScheduleEventBaseFilter extends KalturaScheduleEventF
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaLiveEntryScheduleResourceBaseFilter extends KalturaScheduleResourceFilter {}
+abstract class KalturaLiveEntryScheduleResourceBaseFilter extends KalturaScheduleResourceFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1536,7 +1541,8 @@ abstract class KalturaLiveEntryScheduleResourceBaseFilter extends KalturaSchedul
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaLocationScheduleResourceBaseFilter extends KalturaScheduleResourceFilter {}
+abstract class KalturaLocationScheduleResourceBaseFilter extends KalturaScheduleResourceFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1546,7 +1552,8 @@ abstract class KalturaLocationScheduleResourceBaseFilter extends KalturaSchedule
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaCameraScheduleResourceFilter extends KalturaCameraScheduleResourceBaseFilter {}
+class KalturaCameraScheduleResourceFilter extends KalturaCameraScheduleResourceBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1584,7 +1591,8 @@ class KalturaEntryScheduleEventFilter extends KalturaEntryScheduleEventBaseFilte
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaLiveEntryScheduleResourceFilter extends KalturaLiveEntryScheduleResourceBaseFilter {}
+class KalturaLiveEntryScheduleResourceFilter extends KalturaLiveEntryScheduleResourceBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1594,7 +1602,8 @@ class KalturaLiveEntryScheduleResourceFilter extends KalturaLiveEntryScheduleRes
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaLocationScheduleResourceFilter extends KalturaLocationScheduleResourceBaseFilter {}
+class KalturaLocationScheduleResourceFilter extends KalturaLocationScheduleResourceBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1604,7 +1613,8 @@ class KalturaLocationScheduleResourceFilter extends KalturaLocationScheduleResou
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaLiveStreamScheduleEventBaseFilter extends KalturaEntryScheduleEventFilter {}
+abstract class KalturaLiveStreamScheduleEventBaseFilter extends KalturaEntryScheduleEventFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1614,7 +1624,8 @@ abstract class KalturaLiveStreamScheduleEventBaseFilter extends KalturaEntrySche
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaRecordScheduleEventBaseFilter extends KalturaEntryScheduleEventFilter {}
+abstract class KalturaRecordScheduleEventBaseFilter extends KalturaEntryScheduleEventFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1624,7 +1635,8 @@ abstract class KalturaRecordScheduleEventBaseFilter extends KalturaEntrySchedule
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaLiveStreamScheduleEventFilter extends KalturaLiveStreamScheduleEventBaseFilter {}
+class KalturaLiveStreamScheduleEventFilter extends KalturaLiveStreamScheduleEventBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1634,7 +1646,8 @@ class KalturaLiveStreamScheduleEventFilter extends KalturaLiveStreamScheduleEven
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaRecordScheduleEventFilter extends KalturaRecordScheduleEventBaseFilter {}
+class KalturaRecordScheduleEventFilter extends KalturaRecordScheduleEventBaseFilter {
+}
 
 
 /**
@@ -1682,7 +1695,7 @@ class KalturaScheduleEventService extends KalturaServiceBase {
         $kparams = array();
         $kfiles = array();
         $this->client->addParam($kfiles, "fileData", $filedata);
-        if ($bulkUploadData !== null) {
+        if ($bulkuploaddata !== null) {
             $this->client->addParam($kparams, "bulkUploadData", $bulkuploaddata->toParams());
         }
         $this->client->queueServiceActionCall("schedule_scheduleevent", "addFromBulkUpload", $kparams, $kfiles);

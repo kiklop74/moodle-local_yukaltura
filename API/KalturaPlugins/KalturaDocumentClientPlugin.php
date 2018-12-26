@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -242,7 +242,8 @@ class KalturaDocumentListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDocumentFlavorParams extends KalturaFlavorParams {}
+class KalturaDocumentFlavorParams extends KalturaFlavorParams {
+}
 
 /**
  * Kaltura Client API.
@@ -322,7 +323,8 @@ class KalturaSwfFlavorParams extends KalturaFlavorParams {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDocumentFlavorParamsOutput extends KalturaFlavorParamsOutput {}
+class KalturaDocumentFlavorParamsOutput extends KalturaFlavorParamsOutput {
+}
 
 /**
  * Kaltura Client API.
@@ -432,7 +434,8 @@ abstract class KalturaDocumentEntryBaseFilter extends KalturaBaseEntryFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDocumentEntryFilter extends KalturaDocumentEntryBaseFilter {}
+class KalturaDocumentEntryFilter extends KalturaDocumentEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -442,7 +445,8 @@ class KalturaDocumentEntryFilter extends KalturaDocumentEntryBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaDocumentFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaDocumentFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -452,7 +456,8 @@ abstract class KalturaDocumentFlavorParamsBaseFilter extends KalturaFlavorParams
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaImageFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaImageFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -462,7 +467,9 @@ abstract class KalturaImageFlavorParamsBaseFilter extends KalturaFlavorParamsFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaPdfFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaPdfFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {
+
+}
 
 /**
  * Kaltura Client API.
@@ -472,7 +479,8 @@ abstract class KalturaPdfFlavorParamsBaseFilter extends KalturaFlavorParamsFilte
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaSwfFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {}
+abstract class KalturaSwfFlavorParamsBaseFilter extends KalturaFlavorParamsFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -482,7 +490,8 @@ abstract class KalturaSwfFlavorParamsBaseFilter extends KalturaFlavorParamsFilte
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDocumentFlavorParamsFilter extends KalturaDocumentFlavorParamsBaseFilter {}
+class KalturaDocumentFlavorParamsFilter extends KalturaDocumentFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -492,7 +501,8 @@ class KalturaDocumentFlavorParamsFilter extends KalturaDocumentFlavorParamsBaseF
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaImageFlavorParamsFilter extends KalturaImageFlavorParamsBaseFilter {}
+class KalturaImageFlavorParamsFilter extends KalturaImageFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -502,7 +512,8 @@ class KalturaImageFlavorParamsFilter extends KalturaImageFlavorParamsBaseFilter 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaPdfFlavorParamsFilter extends KalturaPdfFlavorParamsBaseFilter {}
+class KalturaPdfFlavorParamsFilter extends KalturaPdfFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -512,7 +523,8 @@ class KalturaPdfFlavorParamsFilter extends KalturaPdfFlavorParamsBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSwfFlavorParamsFilter extends KalturaSwfFlavorParamsBaseFilter {}
+class KalturaSwfFlavorParamsFilter extends KalturaSwfFlavorParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -522,7 +534,8 @@ class KalturaSwfFlavorParamsFilter extends KalturaSwfFlavorParamsBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaDocumentFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {}
+abstract class KalturaDocumentFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -532,7 +545,8 @@ abstract class KalturaDocumentFlavorParamsOutputBaseFilter extends KalturaFlavor
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaImageFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {}
+abstract class KalturaImageFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -542,7 +556,8 @@ abstract class KalturaImageFlavorParamsOutputBaseFilter extends KalturaFlavorPar
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaPdfFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {}
+abstract class KalturaPdfFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -552,7 +567,8 @@ abstract class KalturaPdfFlavorParamsOutputBaseFilter extends KalturaFlavorParam
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaSwfFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {}
+abstract class KalturaSwfFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -562,7 +578,8 @@ abstract class KalturaSwfFlavorParamsOutputBaseFilter extends KalturaFlavorParam
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDocumentFlavorParamsOutputFilter extends KalturaDocumentFlavorParamsOutputBaseFilter {}
+class KalturaDocumentFlavorParamsOutputFilter extends KalturaDocumentFlavorParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -572,7 +589,8 @@ class KalturaDocumentFlavorParamsOutputFilter extends KalturaDocumentFlavorParam
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaImageFlavorParamsOutputFilter extends KalturaImageFlavorParamsOutputBaseFilter {}
+class KalturaImageFlavorParamsOutputFilter extends KalturaImageFlavorParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -582,7 +600,8 @@ class KalturaImageFlavorParamsOutputFilter extends KalturaImageFlavorParamsOutpu
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaPdfFlavorParamsOutputFilter extends KalturaPdfFlavorParamsOutputBaseFilter {}
+class KalturaPdfFlavorParamsOutputFilter extends KalturaPdfFlavorParamsOutputBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -592,7 +611,8 @@ class KalturaPdfFlavorParamsOutputFilter extends KalturaPdfFlavorParamsOutputBas
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSwfFlavorParamsOutputFilter extends KalturaSwfFlavorParamsOutputBaseFilter {}
+class KalturaSwfFlavorParamsOutputFilter extends KalturaSwfFlavorParamsOutputBaseFilter {
+}
 
 
 /**
@@ -726,7 +746,7 @@ class KalturaDocumentsService extends KalturaServiceBase {
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
         if ($dynamicconversionattributes !== null) {
-            foreach($dynamicconversionattributes as $index => $obj) {
+            foreach ($dynamicconversionattributes as $index => $obj) {
                 $this->client->addParam($kparams, "dynamicConversionAttributes:$index", $obj->toParams());
             }
         }

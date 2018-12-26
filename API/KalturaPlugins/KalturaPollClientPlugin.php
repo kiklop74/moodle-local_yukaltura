@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -125,9 +125,9 @@ class KalturaPollService extends KalturaServiceBase {
 
     /**
      * Vote Action
-     * @param string $pollId 
-     * @param string $userId 
-     * @param string $answerIds 
+     * @param string $pollid - polling id.
+     * @param string $userid - user id.
+     * @param string $answerids - id of answers.
      * @return string - vote status.
      */
     public function vote($pollid, $userid, $answerids) {

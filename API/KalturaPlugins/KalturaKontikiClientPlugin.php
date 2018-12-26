@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 /**
  * Kaltura Client API.
@@ -137,7 +137,8 @@ class KalturaKontikiStorageExportJobData extends KalturaStorageExportJobData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaKontikiStorageProfileBaseFilter extends KalturaStorageProfileFilter {}
+abstract class KalturaKontikiStorageProfileBaseFilter extends KalturaStorageProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -147,7 +148,8 @@ abstract class KalturaKontikiStorageProfileBaseFilter extends KalturaStorageProf
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaKontikiStorageProfileFilter extends KalturaKontikiStorageProfileBaseFilter {}
+class KalturaKontikiStorageProfileFilter extends KalturaKontikiStorageProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

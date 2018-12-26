@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -500,7 +499,8 @@ class KalturaSyndicationDistributionProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaAssetDistributionCondition extends KalturaObjectBase {}
+abstract class KalturaAssetDistributionCondition extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -593,7 +593,8 @@ class KalturaDistributionFieldConfig extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaDistributionJobProviderData extends KalturaObjectBase {}
+abstract class KalturaDistributionJobProviderData extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -1879,7 +1880,8 @@ class KalturaSyndicationDistributionProfile extends KalturaDistributionProfile {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSyndicationDistributionProvider extends KalturaDistributionProvider {}
+class KalturaSyndicationDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -1926,7 +1928,8 @@ class KalturaDistributionFetchReportJobData extends KalturaDistributionJobData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDistributionProfileFilter extends KalturaDistributionProfileBaseFilter {}
+class KalturaDistributionProfileFilter extends KalturaDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1936,7 +1939,8 @@ class KalturaDistributionProfileFilter extends KalturaDistributionProfileBaseFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDistributionProviderFilter extends KalturaDistributionProviderBaseFilter {}
+class KalturaDistributionProviderFilter extends KalturaDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1946,7 +1950,8 @@ class KalturaDistributionProviderFilter extends KalturaDistributionProviderBaseF
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDistributionSubmitJobData extends KalturaDistributionJobData {}
+class KalturaDistributionSubmitJobData extends KalturaDistributionJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -1956,7 +1961,8 @@ class KalturaDistributionSubmitJobData extends KalturaDistributionJobData {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDistributionUpdateJobData extends KalturaDistributionJobData {}
+class KalturaDistributionUpdateJobData extends KalturaDistributionJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -2092,7 +2098,8 @@ abstract class KalturaEntryDistributionBaseFilter extends KalturaRelatedFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaGenericDistributionProviderActionFilter extends KalturaGenericDistributionProviderActionBaseFilter {}
+class KalturaGenericDistributionProviderActionFilter extends KalturaGenericDistributionProviderActionBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2102,7 +2109,8 @@ class KalturaGenericDistributionProviderActionFilter extends KalturaGenericDistr
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaConfigurableDistributionProfileBaseFilter extends KalturaDistributionProfileFilter {}
+abstract class KalturaConfigurableDistributionProfileBaseFilter extends KalturaDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2112,7 +2120,8 @@ abstract class KalturaConfigurableDistributionProfileBaseFilter extends KalturaD
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDistributionDisableJobData extends KalturaDistributionUpdateJobData {}
+class KalturaDistributionDisableJobData extends KalturaDistributionUpdateJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -2122,7 +2131,8 @@ class KalturaDistributionDisableJobData extends KalturaDistributionUpdateJobData
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDistributionEnableJobData extends KalturaDistributionUpdateJobData {}
+class KalturaDistributionEnableJobData extends KalturaDistributionUpdateJobData {
+}
 
 /**
  * Kaltura Client API.
@@ -2132,7 +2142,8 @@ class KalturaDistributionEnableJobData extends KalturaDistributionUpdateJobData 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaEntryDistributionFilter extends KalturaEntryDistributionBaseFilter {}
+class KalturaEntryDistributionFilter extends KalturaEntryDistributionBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2142,7 +2153,8 @@ class KalturaEntryDistributionFilter extends KalturaEntryDistributionBaseFilter 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaGenericDistributionProfileBaseFilter extends KalturaDistributionProfileFilter {}
+abstract class KalturaGenericDistributionProfileBaseFilter extends KalturaDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.

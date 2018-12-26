@@ -23,15 +23,14 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
 require_once(dirname(__FILE__) . "/../KalturaTypes.php");
-
 
 /**
  * Kaltura Client API.
@@ -46,8 +45,7 @@ class KalturaAsperaService extends KalturaServiceBase {
      * Constructor of Kaltura Aspera Service.
      * @param KalturaClient $client - instance of KalturaClinet.
      */
-    public function __construct(KalturaClient $client = null)
-    {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
@@ -56,8 +54,7 @@ class KalturaAsperaService extends KalturaServiceBase {
      * @param string $flavorassetid - id of kaltura flavor asset.
      * @return string - fasp url.
      */
-    public function getFaspUrl($flavorassetid)
-    {
+    public function getFaspUrl($flavorassetid) {
         $kparams = array();
         $this->client->addParam($kparams, "flavorAssetId", $flavorassetid);
         $this->client->queueServiceActionCall("aspera_aspera", "getFaspUrl", $kparams);

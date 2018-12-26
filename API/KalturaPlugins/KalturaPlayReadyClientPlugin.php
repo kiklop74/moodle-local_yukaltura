@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -345,7 +345,8 @@ class KalturaPlayReadyDigitalAudioOPIdHolder extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaPlayReadyRight extends KalturaObjectBase {}
+abstract class KalturaPlayReadyRight extends KalturaObjectBase {
+}
 
 /**
  * Kaltura Client API.
@@ -552,7 +553,8 @@ class KalturaPlayReadyProfile extends KalturaDrmProfile {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaPlayReadyPolicyBaseFilter extends KalturaDrmPolicyFilter {}
+abstract class KalturaPlayReadyPolicyBaseFilter extends KalturaDrmPolicyFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -562,7 +564,8 @@ abstract class KalturaPlayReadyPolicyBaseFilter extends KalturaDrmPolicyFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaPlayReadyProfileBaseFilter extends KalturaDrmProfileFilter {}
+abstract class KalturaPlayReadyProfileBaseFilter extends KalturaDrmProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -572,7 +575,8 @@ abstract class KalturaPlayReadyProfileBaseFilter extends KalturaDrmProfileFilter
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaPlayReadyPolicyFilter extends KalturaPlayReadyPolicyBaseFilter {}
+class KalturaPlayReadyPolicyFilter extends KalturaPlayReadyPolicyBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -597,7 +601,7 @@ class KalturaPlayReadyDrmService extends KalturaServiceBase {
      * Constructor of Kaltura Play Ready Drm Sservice.
      * @param KalturaClient $client - instance of KalturaClinet.
      */
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
@@ -605,7 +609,7 @@ class KalturaPlayReadyDrmService extends KalturaServiceBase {
      * Generate key id and content key for PlayReady encryption
      * @return KalturaPlayReadyContentKey - object.
      */
-    function generateKey() {
+    public function generateKey() {
         $kparams = array();
         $this->client->queueServiceActionCall("playready_playreadydrm", "generateKey", $kparams);
         if ($this->client->isMultiRequest()) {
@@ -622,7 +626,7 @@ class KalturaPlayReadyDrmService extends KalturaServiceBase {
      * @param string $keyids - comma separated key id's
      * @return array - list of id.
      */
-    function getContentKeys($keyids) {
+    public function getContentKeys($keyids) {
         $kparams = array();
         $this->client->addParam($kparams, "keyIds", $keyids);
         $this->client->queueServiceActionCall("playready_playreadydrm", "getContentKeys", $kparams);
@@ -641,7 +645,7 @@ class KalturaPlayReadyDrmService extends KalturaServiceBase {
      * @param bool $createifmissing - Create entry content key if there exists the entry.
      * @return KalturaPlayReadyContentKey
      */
-    function getEntryContentKey($entryid, $createifmissing = false) {
+    public function getEntryContentKey($entryid, $createifmissing = false) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "createIfMissing", $createifmissing);
@@ -664,7 +668,7 @@ class KalturaPlayReadyDrmService extends KalturaServiceBase {
      * @param string $referrer - 64base encoded
      * @return KalturaPlayReadyLicenseDetails - Play Ready policy and dates.
      */
-    function getLicenseDetails($keyid, $deviceid, $devicetype, $entryid = null, $referrer = null) {
+    public function getLicenseDetails($keyid, $deviceid, $devicetype, $entryid = null, $referrer = null) {
         $kparams = array();
         $this->client->addParam($kparams, "keyId", $keyid);
         $this->client->addParam($kparams, "deviceId", $deviceid);

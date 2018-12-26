@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -118,7 +117,8 @@ class KalturaFacebookCaptionDistributionInfo extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFacebookDistributionProvider extends KalturaDistributionProvider {}
+class KalturaFacebookDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -208,7 +208,8 @@ class KalturaFacebookDistributionProfile extends KalturaConfigurableDistribution
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaFacebookDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaFacebookDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -218,7 +219,8 @@ abstract class KalturaFacebookDistributionProviderBaseFilter extends KalturaDist
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFacebookDistributionProviderFilter extends KalturaFacebookDistributionProviderBaseFilter {}
+class KalturaFacebookDistributionProviderFilter extends KalturaFacebookDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -228,7 +230,8 @@ class KalturaFacebookDistributionProviderFilter extends KalturaFacebookDistribut
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaFacebookDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaFacebookDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -238,7 +241,8 @@ abstract class KalturaFacebookDistributionProfileBaseFilter extends KalturaConfi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFacebookDistributionProfileFilter extends KalturaFacebookDistributionProfileBaseFilter {}
+class KalturaFacebookDistributionProfileFilter extends KalturaFacebookDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

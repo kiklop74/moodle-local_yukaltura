@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -1288,7 +1288,8 @@ class KalturaDropFolderListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaRemoteDropFolder extends KalturaDropFolder {}
+abstract class KalturaRemoteDropFolder extends KalturaDropFolder {
+}
 
 /**
  * Kaltura Client API.
@@ -1298,7 +1299,8 @@ abstract class KalturaRemoteDropFolder extends KalturaDropFolder {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaDropFolderFileFilter extends KalturaDropFolderFileBaseFilter {}
+class KalturaDropFolderFileFilter extends KalturaDropFolderFileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1426,7 +1428,8 @@ class KalturaDropFolderImportJobData extends KalturaSshImportJobData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaRemoteDropFolderBaseFilter extends KalturaDropFolderFilter {}
+abstract class KalturaRemoteDropFolderBaseFilter extends KalturaDropFolderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1436,7 +1439,8 @@ abstract class KalturaRemoteDropFolderBaseFilter extends KalturaDropFolderFilter
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaScpDropFolder extends KalturaSshDropFolder {}
+class KalturaScpDropFolder extends KalturaSshDropFolder {
+}
 
 /**
  * Kaltura Client API.
@@ -1446,7 +1450,8 @@ class KalturaScpDropFolder extends KalturaSshDropFolder {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSftpDropFolder extends KalturaSshDropFolder {}
+class KalturaSftpDropFolder extends KalturaSshDropFolder {
+}
 
 /**
  * Kaltura Client API.
@@ -1473,7 +1478,8 @@ class KalturaDropFolderFileResource extends KalturaGenericDataCenterContentResou
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaRemoteDropFolderFilter extends KalturaRemoteDropFolderBaseFilter {}
+class KalturaRemoteDropFolderFilter extends KalturaRemoteDropFolderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1483,7 +1489,8 @@ class KalturaRemoteDropFolderFilter extends KalturaRemoteDropFolderBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaFtpDropFolderBaseFilter extends KalturaRemoteDropFolderFilter {}
+abstract class KalturaFtpDropFolderBaseFilter extends KalturaRemoteDropFolderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1493,7 +1500,8 @@ abstract class KalturaFtpDropFolderBaseFilter extends KalturaRemoteDropFolderFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaSshDropFolderBaseFilter extends KalturaRemoteDropFolderFilter {}
+abstract class KalturaSshDropFolderBaseFilter extends KalturaRemoteDropFolderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1503,7 +1511,8 @@ abstract class KalturaSshDropFolderBaseFilter extends KalturaRemoteDropFolderFil
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaFtpDropFolderFilter extends KalturaFtpDropFolderBaseFilter {}
+class KalturaFtpDropFolderFilter extends KalturaFtpDropFolderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1513,7 +1522,8 @@ class KalturaFtpDropFolderFilter extends KalturaFtpDropFolderBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSshDropFolderFilter extends KalturaSshDropFolderBaseFilter {}
+class KalturaSshDropFolderFilter extends KalturaSshDropFolderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1523,7 +1533,8 @@ class KalturaSshDropFolderFilter extends KalturaSshDropFolderBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaScpDropFolderBaseFilter extends KalturaSshDropFolderFilter {}
+abstract class KalturaScpDropFolderBaseFilter extends KalturaSshDropFolderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1533,7 +1544,8 @@ abstract class KalturaScpDropFolderBaseFilter extends KalturaSshDropFolderFilter
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaSftpDropFolderBaseFilter extends KalturaSshDropFolderFilter {}
+abstract class KalturaSftpDropFolderBaseFilter extends KalturaSshDropFolderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1543,7 +1555,8 @@ abstract class KalturaSftpDropFolderBaseFilter extends KalturaSshDropFolderFilte
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaScpDropFolderFilter extends KalturaScpDropFolderBaseFilter {}
+class KalturaScpDropFolderFilter extends KalturaScpDropFolderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -1553,7 +1566,8 @@ class KalturaScpDropFolderFilter extends KalturaScpDropFolderBaseFilter {}
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSftpDropFolderFilter extends KalturaSftpDropFolderBaseFilter {}
+class KalturaSftpDropFolderFilter extends KalturaSftpDropFolderBaseFilter {
+}
 
 
 /**

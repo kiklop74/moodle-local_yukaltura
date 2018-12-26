@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -73,7 +73,8 @@ class KalturaComcastMrssDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaComcastMrssDistributionProvider extends KalturaDistributionProvider {}
+class KalturaComcastMrssDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -155,7 +156,9 @@ class KalturaComcastMrssDistributionProfile extends KalturaConfigurableDistribut
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaComcastMrssDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaComcastMrssDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+
+}
 
 /**
  * Kaltura Client API.
@@ -175,7 +178,8 @@ class KalturaComcastMrssDistributionProviderFilter extends KalturaComcastMrssDis
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaComcastMrssDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {}
+abstract class KalturaComcastMrssDistributionProfileBaseFilter extends KalturaConfigurableDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -185,7 +189,8 @@ abstract class KalturaComcastMrssDistributionProfileBaseFilter extends KalturaCo
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaComcastMrssDistributionProfileFilter extends KalturaComcastMrssDistributionProfileBaseFilter {}
+class KalturaComcastMrssDistributionProfileFilter extends KalturaComcastMrssDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

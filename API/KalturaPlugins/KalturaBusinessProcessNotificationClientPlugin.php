@@ -23,11 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-error_reporting(E_STRICT);
-
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/config.php');
 defined('MOODLE_INTERNAL') || die();
+
+error_reporting(E_STRICT);
 
 require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
 require_once(dirname(__FILE__) . "/../KalturaEnums.php");
@@ -423,7 +422,8 @@ class KalturaBusinessProcessServerListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaBusinessProcessAbortNotificationTemplate extends KalturaBusinessProcessNotificationTemplate {}
+class KalturaBusinessProcessAbortNotificationTemplate extends KalturaBusinessProcessNotificationTemplate {
+}
 
 /**
  * Kaltura Client API.
@@ -511,7 +511,8 @@ class KalturaBusinessProcessStartNotificationTemplate extends KalturaBusinessPro
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaBusinessProcessNotificationTemplateBaseFilter extends KalturaEventNotificationTemplateFilter {}
+abstract class KalturaBusinessProcessNotificationTemplateBaseFilter extends KalturaEventNotificationTemplateFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -521,7 +522,8 @@ abstract class KalturaBusinessProcessNotificationTemplateBaseFilter extends Kalt
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaBusinessProcessNotificationTemplateFilter extends KalturaBusinessProcessNotificationTemplateBaseFilter {}
+class KalturaBusinessProcessNotificationTemplateFilter extends KalturaBusinessProcessNotificationTemplateBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -541,7 +543,8 @@ abstract class KalturaBusinessProcessAbortNotificationTemplateBaseFilter extends
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {}
+abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -552,7 +555,8 @@ abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter extend
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaBusinessProcessStartNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {}
+abstract class KalturaBusinessProcessStartNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -562,7 +566,8 @@ abstract class KalturaBusinessProcessStartNotificationTemplateBaseFilter extends
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaBusinessProcessAbortNotificationTemplateFilter extends KalturaBusinessProcessAbortNotificationTemplateBaseFilter {}
+class KalturaBusinessProcessAbortNotificationTemplateFilter extends KalturaBusinessProcessAbortNotificationTemplateBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -572,7 +577,8 @@ class KalturaBusinessProcessAbortNotificationTemplateFilter extends KalturaBusin
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaBusinessProcessSignalNotificationTemplateFilter extends KalturaBusinessProcessSignalNotificationTemplateBaseFilter {}
+class KalturaBusinessProcessSignalNotificationTemplateFilter extends KalturaBusinessProcessSignalNotificationTemplateBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -582,8 +588,8 @@ class KalturaBusinessProcessSignalNotificationTemplateFilter extends KalturaBusi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaBusinessProcessStartNotificationTemplateFilter extends KalturaBusinessProcessStartNotificationTemplateBaseFilter {}
-
+class KalturaBusinessProcessStartNotificationTemplateFilter extends KalturaBusinessProcessStartNotificationTemplateBaseFilter {
+}
 
 /**
  * Kaltura Client API.

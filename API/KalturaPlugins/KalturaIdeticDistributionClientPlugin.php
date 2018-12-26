@@ -67,7 +67,8 @@ class KalturaIdeticDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaIdeticDistributionProvider extends KalturaDistributionProvider {}
+class KalturaIdeticDistributionProvider extends KalturaDistributionProvider {
+}
 
 /**
  * Kaltura Client API.
@@ -166,7 +167,8 @@ abstract class KalturaIdeticDistributionProfileBaseFilter extends KalturaConfigu
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaIdeticDistributionProfileFilter extends KalturaIdeticDistributionProfileBaseFilter {}
+class KalturaIdeticDistributionProfileFilter extends KalturaIdeticDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

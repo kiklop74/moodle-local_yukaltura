@@ -421,7 +421,7 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Add new application authentication token
-     * @param KalturaAppToken $appToken 
+     * @param KalturaAppToken $appToken
      * @return KalturaAppToken
      */
     public function add(KalturaAppToken $apptoken) {
@@ -439,7 +439,7 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Delete application authentication token by id
-     * @param string $id 
+     * @param string $id
      */
     public function delete($id) {
         $kparams = array();
@@ -455,7 +455,7 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Get application authentication token by id
-     * @param string $id 
+     * @param string $id
      * @return KalturaAppToken
      */
     public function get($id) {
@@ -656,7 +656,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
     /**
      * Clone an entry with optional attributes to apply to the clone
      * @param string $entryId Id of entry to clone
-     * @param array $cloneOptions 
+     * @param array $cloneOptions
      * @return KalturaBaseEntry
      */
     public function cloneAction($entryid, array $cloneoptions = null) {
@@ -788,8 +788,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * This action delivers entry-related data, based on the user's context: access control, restriction, playback format and storage information.
-     * @param string $entryId 
-     * @param KalturaEntryContextDataParams $contextDataParams 
+     * @param string $entryId
+     * @param KalturaEntryContextDataParams $contextDataParams
      * @return KalturaEntryContextDataResult
      */
     public function getContextData($entryid, KalturaEntryContextDataParams $contextdataparams) {
@@ -913,7 +913,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
     /**
      * List all pending flags for the entry.
      * @param string $entryId
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFilterPager $pager
      * @return KalturaModerationFlagListResponse
      */
     public function listFlags($entryid, KalturaFilterPager $pager = null) {
@@ -1949,8 +1949,8 @@ class KalturaConversionProfileService extends KalturaServiceBase {
 
     /**
      * List Conversion Profiles by filter with paging support
-     * @param KalturaConversionProfileFilter $filter 
-     * @param KalturaFilterPager $pager 
+     * @param KalturaConversionProfileFilter $filter
+     * @param KalturaFilterPager $pager
      * @return KalturaConversionProfileListResponse
      */
     public function listAction(KalturaConversionProfileFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -1992,7 +1992,7 @@ class KalturaConversionProfileService extends KalturaServiceBase {
     /**
      * Update Conversion Profile by ID
      * @param int $id
-     * @param KalturaConversionProfile $conversionProfile 
+     * @param KalturaConversionProfile $conversionProfile
      * @return KalturaConversionProfile
      */
     public function update($id, KalturaConversionProfile $conversionprofile) {
@@ -2045,7 +2045,7 @@ class KalturaDataService extends KalturaServiceBase {
     /**
      * Update the dataContent of data entry using a resource
      * @param string $entryId
-     * @param KalturaGenericDataCenterContentResource $resource 
+     * @param KalturaGenericDataCenterContentResource $resource
      * @return string
      */
     public function addContent($entryid, KalturaGenericDataCenterContentResource $resource) {
@@ -2133,7 +2133,7 @@ class KalturaDataService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
-        
+
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "version", $version);
@@ -2392,7 +2392,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
 
     /**
      * Update an existing EmailIngestionProfile
-     * @param int $id 
+     * @param int $id
      * @param KalturaEmailIngestionProfile $EmailIP
      * @return KalturaEmailIngestionProfile
      */
@@ -2426,7 +2426,7 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $id 
+     * @param string $id
      * @return KalturaEntryServerNode
      */
     public function get($id) {
@@ -2830,7 +2830,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
 
     /**
      * Get remote storage existing paths for the asset
-     * @param string $id 
+     * @param string $id
      * @return KalturaRemotePathListResponse
      */
     public function getRemotePaths($id) {
@@ -3043,7 +3043,7 @@ class KalturaFlavorParamsOutputService extends KalturaServiceBase {
 
     /**
      * Get flavor params output object by ID
-     * @param int $id 
+     * @param int $id
      * @return KalturaFlavorParamsOutput
      */
     public function get($id) {
@@ -3229,7 +3229,7 @@ class KalturaGroupUserService extends KalturaServiceBase {
 
     /**
      * Add new GroupUser
-     * @param KalturaGroupUser $groupUser 
+     * @param KalturaGroupUser $groupUser
      * @return KalturaGroupUser
      */
     public function add(KalturaGroupUser $groupuser) {
@@ -3248,7 +3248,7 @@ class KalturaGroupUserService extends KalturaServiceBase {
     /**
      * Delete by userId and groupId
      * @param string $userId
-     * @param string $groupId 
+     * @param string $groupId
      */
     public function delete($userid, $groupid) {
         $kparams = array();
@@ -3304,7 +3304,7 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
 
     /**
      * Add new live channel segment
-     * @param KalturaLiveChannelSegment $liveChannelSegment 
+     * @param KalturaLiveChannelSegment $liveChannelSegment
      * @return KalturaLiveChannelSegment
      */
     public function add(KalturaLiveChannelSegment $livechannelsegment) {
@@ -3564,7 +3564,7 @@ class KalturaLiveChannelService extends KalturaServiceBase {
      * @param string $mediaServerIndex Media server index primary / secondary
      * @param string $applicationName The application to which entry is being broadcast
      * @param int $liveEntryStatus The status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING
-     * @param bool $shouldCreateRecordedEntry 
+     * @param bool $shouldCreateRecordedEntry
      * @return KalturaLiveEntry
      */
     public function registerMediaServer($entryid, $hostname, $mediaserverindex, $applicationname = null, $liveentrystatus = 1, $shouldcreaterecordedentry = true) {
@@ -3732,7 +3732,7 @@ class KalturaLiveReportsService extends KalturaServiceBase {
 
     /**
      * @param string $reportType
-     * @param KalturaLiveReportInputFilter $filter 
+     * @param KalturaLiveReportInputFilter $filter
      * @param KalturaFilterPager $pager
      * @return KalturaLiveStatsListResponse
      */
@@ -3791,7 +3791,7 @@ class KalturaLiveStatsService extends KalturaServiceBase {
     /**
      * Will write to the event log a single line representing the event
      KalturaStatsEvent $event
-     * @param KalturaLiveStatsEvent $event 
+     * @param KalturaLiveStatsEvent $event
      * @return bool
      */
     public function collect(KalturaLiveStatsEvent $event) {
@@ -3845,7 +3845,7 @@ class KalturaLiveStreamService extends KalturaServiceBase {
 
     /**
      * Add new pushPublish configuration to entry
-     * @param string $entryId 
+     * @param string $entryId
      * @param string $protocol
      * @param string $url
      * @param KalturaLiveStreamConfiguration $liveStreamConfiguration
@@ -4253,7 +4253,7 @@ class KalturaMediaInfoService extends KalturaServiceBase {
 
     /**
      * List media info objects by filter and pager
-     * @param KalturaMediaInfoFilter $filter 
+     * @param KalturaMediaInfoFilter $filter
      * @param KalturaFilterPager $pager
      * @return KalturaMediaInfoListResponse
      */
@@ -5113,7 +5113,7 @@ class KalturaMixingService extends KalturaServiceBase {
 
     /**
      * Get the mixes in which the media entry is included
-     * @param string $mediaEntryId 
+     * @param string $mediaEntryId
      * @return array
      */
     public function getMixesByMediaId($mediaentryid) {
@@ -5246,7 +5246,7 @@ class KalturaPartnerService extends KalturaServiceBase {
 
     /**
      * Count partner's existing sub-publishers (count includes the partner itself).
-     * @param KalturaPartnerFilter $filter 
+     * @param KalturaPartnerFilter $filter
      * @return int
      */
     public function count(KalturaPartnerFilter $filter = null) {
@@ -5780,7 +5780,7 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Delete existing playlist
-     * @param string $id 
+     * @param string $id
      */
     public function delete($id) {
         $kparams = array();
@@ -5882,7 +5882,7 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Retrieve a playlist
-     * @param string $id 
+     * @param string $id
      * @param int $version Desired version of the data
      * @return KalturaPlaylist
      */
@@ -6036,7 +6036,7 @@ class KalturaReportService extends KalturaServiceBase {
         if ($this->client->isMultiRequest()) {
             throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
-        
+
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         if ($params !== null) {
@@ -6310,7 +6310,7 @@ class KalturaResponseProfileService extends KalturaServiceBase {
 
     /**
      * Recalculate response profile cached objects
-     * @param KalturaResponseProfileCacheRecalculateOptions $options 
+     * @param KalturaResponseProfileCacheRecalculateOptions $options
      * @return KalturaResponseProfileCacheRecalculateResults
      */
     public function recalculate(KalturaResponseProfileCacheRecalculateOptions $options) {
@@ -6515,7 +6515,7 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Adds a server node to the Kaltura DB.
-     * @param KalturaServerNode $serverNode 
+     * @param KalturaServerNode $serverNode
      * @return KalturaServerNode
      */
     public function add(KalturaServerNode $servernode) {
@@ -6855,7 +6855,7 @@ class KalturaStatsService extends KalturaServiceBase {
      * new point
      * referrer
      * KalturaStatsEvent $event
-     * @param KalturaStatsEvent $event 
+     * @param KalturaStatsEvent $event
      * @return bool
      */
     public function collect(KalturaStatsEvent $event) {
@@ -6956,7 +6956,7 @@ class KalturaStorageProfileService extends KalturaServiceBase {
 
     /**
      * Adds a storage profile to the Kaltura DB.
-     * @param KalturaStorageProfile $storageProfile 
+     * @param KalturaStorageProfile $storageProfile
      * @return KalturaStorageProfile
      */
     public function add(KalturaStorageProfile $storageprofile) {
@@ -7290,7 +7290,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Add thumbnail asset
-     * @param string $entryId 
+     * @param string $entryId
      * @param KalturaThumbAsset $thumbAsset
      * @return KalturaThumbAsset
      */
@@ -7504,8 +7504,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
      * @param KalturaFilterPager $pager
      * @return KalturaThumbAssetListResponse
      */
-    public function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null)
-    {
+    public function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());
@@ -7545,7 +7544,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
      * @param string $thumbAssetId
      * @param int $version
      * @param KalturaThumbParams $thumbParams
-     * @param KalturaThumbnailServeOptions $options 
+     * @param KalturaThumbnailServeOptions $options
      * @return file
      */
     public function serve($thumbassetid, $version = null, KalturaThumbParams $thumbparams = null, KalturaThumbnailServeOptions $options = null) {
@@ -7628,7 +7627,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     /**
      * Update thumbnail asset
      * @param string $id
-     * @param KalturaThumbAsset $thumbAsset 
+     * @param KalturaThumbAsset $thumbAsset
      * @return KalturaThumbAsset
      */
     public function update($id, KalturaThumbAsset $thumbasset) {
@@ -7719,7 +7718,7 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * Add new Thumb Params
-     * @param KalturaThumbParams $thumbParams 
+     * @param KalturaThumbParams $thumbParams
      * @return KalturaThumbParams
      */
     public function add(KalturaThumbParams $thumbparams) {
@@ -7814,7 +7813,7 @@ class KalturaThumbParamsService extends KalturaServiceBase {
     /**
      * Update Thumb Params by ID
      * @param int $id
-     * @param KalturaThumbParams $thumbParams 
+     * @param KalturaThumbParams $thumbParams
      * @return KalturaThumbParams
      */
     public function update($id, KalturaThumbParams $thumbparams) {
@@ -8016,7 +8015,7 @@ class KalturaUploadService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $fileName 
+     * @param string $fileName
      * @return KalturaUploadResponse
      */
     public function getUploadedFileTokenByFileName($filename) {
@@ -8120,10 +8119,10 @@ class KalturaUploadTokenService extends KalturaServiceBase {
     }
 
     /**
-     * List upload token by filter with pager support. 
+     * List upload token by filter with pager support.
      When using a user session the service will be restricted to users objects only.
      * @param KalturaUploadTokenFilter $filter
-     * @param KalturaFilterPager $pager 
+     * @param KalturaFilterPager $pager
      * @return KalturaUploadTokenListResponse
      */
     public function listAction(KalturaUploadTokenFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -8151,7 +8150,7 @@ class KalturaUploadTokenService extends KalturaServiceBase {
      * 1. A single upload with resume=false and finalChunk=false
      * 2. Parallel upload requests each with resume=true,finalChunk=false and the expected resumetAt position.
      * If a chunk fails to upload it can be re-uploaded.
-     * 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded 
+     * 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded
      * with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
      * has been returned (indicating not all of the chunks were appended yet) the final request can be retried.
      * @param string $uploadTokenId
@@ -8196,7 +8195,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
 
     /**
      * Adds a user_entry to the Kaltura DB.
-     * @param KalturaUserEntry $userEntry 
+     * @param KalturaUserEntry $userEntry
      * @return KalturaUserEntry
      */
     public function add(KalturaUserEntry $userentry) {
@@ -8489,9 +8488,9 @@ class KalturaUserService extends KalturaServiceBase {
     }
 
     /**
-     * @param file $fileData 
-     * @param KalturaBulkUploadJobData $bulkUploadData 
-     * @param KalturaBulkUploadUserData $bulkUploadUserData 
+     * @param file $fileData
+     * @param KalturaBulkUploadJobData $bulkUploadData
+     * @param KalturaBulkUploadUserData $bulkUploadUserData
      * @return KalturaBulkUpload
      */
     public function addFromBulkUpload($filedata, KalturaBulkUploadJobData $bulkuploaddata = null, KalturaBulkUploadUserData $bulkuploaduserdata = null) {
@@ -8863,7 +8862,7 @@ class KalturaWidgetService extends KalturaServiceBase {
     /**
      * Add new widget, can be attached to entry or kshow
      * SourceWidget is ignored.
-     * @param KalturaWidget $widget 
+     * @param KalturaWidget $widget
      * @return KalturaWidget
      */
     public function add(KalturaWidget $widget) {
@@ -8882,7 +8881,7 @@ class KalturaWidgetService extends KalturaServiceBase {
     /**
      * Add widget based on existing widget.
      * Must provide valid sourceWidgetId
-     * @param KalturaWidget $widget 
+     * @param KalturaWidget $widget
      * @return KalturaWidget
      */
     public function cloneAction(KalturaWidget $widget) {
@@ -8900,7 +8899,7 @@ class KalturaWidgetService extends KalturaServiceBase {
 
     /**
      * Get widget by id
-     * @param string $id 
+     * @param string $id
      * @return KalturaWidget
      */
     public function get($id) {
@@ -9304,10 +9303,10 @@ class KalturaClient extends KalturaClientBase {
      */
     public function __construct(KalturaConfiguration $config) {
         parent::__construct($config);
-        
+
         $this->setClientTag('php5:17-12-02');
         $this->setApiVersion('3.3.0');
-        
+
         $this->accessControlProfile = new KalturaAccessControlProfileService($this);
         $this->accessControl = new KalturaAccessControlService($this);
         $this->adminUser = new KalturaAdminUserService($this);
@@ -9363,14 +9362,14 @@ class KalturaClient extends KalturaClientBase {
         $this->user = new KalturaUserService($this);
         $this->widget = new KalturaWidgetService($this);
     }
-    
+
     /**
      * @param string $clientTag
      */
     public function setClientTag($clientTag) {
         $this->clientConfiguration['clientTag'] = $clientTag;
     }
-    
+
     /**
      * @return string
      */
@@ -9381,14 +9380,14 @@ class KalturaClient extends KalturaClientBase {
         
         return null;
     }
-    
+
     /**
      * @param string $apiVersion
      */
     public function setApiVersion($apiVersion) {
         $this->clientConfiguration['apiVersion'] = $apiVersion;
     }
-    
+
     /**
      * @return string
      */
@@ -9396,10 +9395,10 @@ class KalturaClient extends KalturaClientBase {
         if (isset($this->clientConfiguration['apiVersion'])) {
             return $this->clientConfiguration['apiVersion'];
         }
-        
+
         return null;
     }
-    
+
     /**
      * Impersonated partner id
      * @param int $partnerId
@@ -9407,7 +9406,7 @@ class KalturaClient extends KalturaClientBase {
     public function setPartnerId($partnerId) {
         $this->requestConfiguration['partnerId'] = $partnerId;
     }
-    
+
     /**
      * Impersonated partner id
      * @return int
@@ -9419,7 +9418,7 @@ class KalturaClient extends KalturaClientBase {
         
         return null;
     }
-    
+
     /**
      * Kaltura API session
      * @param string $ks
@@ -9427,7 +9426,7 @@ class KalturaClient extends KalturaClientBase {
     public function setKs($ks) {
         $this->requestConfiguration['ks'] = $ks;
     }
-    
+
     /**
      * Kaltura API session
      * @return string
@@ -9439,7 +9438,7 @@ class KalturaClient extends KalturaClientBase {
         
         return null;
     }
-    
+
     /**
      * Kaltura API session
      * @param string $sessionId
@@ -9456,10 +9455,10 @@ class KalturaClient extends KalturaClientBase {
         if (isset($this->requestConfiguration['ks'])) {
             return $this->requestConfiguration['ks'];
         }
-        
+
         return null;
     }
-    
+
     /**
      * Response profile - this attribute will be automatically unset after every API call.
      * @param KalturaBaseResponseProfile $responseProfile
@@ -9467,7 +9466,7 @@ class KalturaClient extends KalturaClientBase {
     public function setResponseProfile(KalturaBaseResponseProfile $responseprofile) {
         $this->requestConfiguration['responseProfile'] = $responseprofile;
     }
-    
+
     /**
      * Response profile - this attribute will be automatically unset after every API call.
      * @return KalturaBaseResponseProfile
@@ -9476,10 +9475,10 @@ class KalturaClient extends KalturaClientBase {
         if (isset($this->requestConfiguration['responseProfile'])) {
             return $this->requestConfiguration['responseProfile'];
         }
-        
+
         return null;
     }
-    
+
     /**
      * Clear all volatile configuration parameters
      */

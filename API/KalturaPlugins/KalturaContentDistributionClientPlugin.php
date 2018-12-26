@@ -2243,8 +2243,10 @@ abstract class KalturaSyndicationDistributionProfileBaseFilter extends KalturaDi
  * @copyright (C) 2018 Kaltura Inc.
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ 
  */
-abstract class KalturaSyndicationDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {}
+abstract class KalturaSyndicationDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2254,7 +2256,8 @@ abstract class KalturaSyndicationDistributionProviderBaseFilter extends KalturaD
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaConfigurableDistributionProfileFilter extends KalturaConfigurableDistributionProfileBaseFilter {}
+class KalturaConfigurableDistributionProfileFilter extends KalturaConfigurableDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2264,7 +2267,8 @@ class KalturaConfigurableDistributionProfileFilter extends KalturaConfigurableDi
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaGenericDistributionProfileFilter extends KalturaGenericDistributionProfileBaseFilter {}
+class KalturaGenericDistributionProfileFilter extends KalturaGenericDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2274,7 +2278,8 @@ class KalturaGenericDistributionProfileFilter extends KalturaGenericDistribution
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaGenericDistributionProviderFilter extends KalturaGenericDistributionProviderBaseFilter {}
+class KalturaGenericDistributionProviderFilter extends KalturaGenericDistributionProviderBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2284,7 +2289,8 @@ class KalturaGenericDistributionProviderFilter extends KalturaGenericDistributio
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaSyndicationDistributionProfileFilter extends KalturaSyndicationDistributionProfileBaseFilter {}
+class KalturaSyndicationDistributionProfileFilter extends KalturaSyndicationDistributionProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.

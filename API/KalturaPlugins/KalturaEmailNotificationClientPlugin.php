@@ -418,7 +418,7 @@ class KalturaEmailNotificationTemplate extends KalturaEventNotificationTemplate 
     public $confirmReadingTo = null;
 
     /**
-     * Hostname to use in Message-Id and Received headers and as default HELLO string. 
+     * Hostname to use in Message-Id and Received headers and as default HELLO string.
      * If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
      *
      * @var string
@@ -541,7 +541,7 @@ class KalturaEmailNotificationDispatchJobData extends KalturaEventNotificationDi
     public $confirmReadingTo = null;
 
     /**
-     * Hostname to use in Message-Id and Received headers and as default HELO string. 
+     * Hostname to use in Message-Id and Received headers and as default HELO string.
      * If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
      *
      * @var string

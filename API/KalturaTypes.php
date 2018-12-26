@@ -12464,7 +12464,8 @@ class KalturaBulkUploadResultUser extends KalturaBulkUploadResult {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaBulkUploadUserData extends KalturaBulkUploadObjectData {}
+class KalturaBulkUploadUserData extends KalturaBulkUploadObjectData {
+}
 
 /**
  * Kaltura Client API.
@@ -16893,7 +16894,8 @@ class KalturaUrlTokenizerChinaCache extends KalturaUrlTokenizer {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaUrlTokenizerCht extends KalturaUrlTokenizer {}
+class KalturaUrlTokenizerCht extends KalturaUrlTokenizer {
+}
 
 /**
  * Kaltura Client API.
@@ -19484,7 +19486,8 @@ class KalturaRemoteStorageResources extends KalturaContentResource {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaResponseProfileFilter extends KalturaResponseProfileBaseFilter {}
+class KalturaResponseProfileFilter extends KalturaResponseProfileBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20037,7 +20040,8 @@ class KalturaAmazonS3StorageExportJobData extends KalturaStorageExportJobData {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-abstract class KalturaAmazonS3StorageProfileBaseFilter extends KalturaStorageProfileFilter {}
+abstract class KalturaAmazonS3StorageProfileBaseFilter extends KalturaStorageProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20066,7 +20070,8 @@ class KalturaAnonymousIPContextField extends KalturaStringField {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaAssetParamsFilter extends KalturaAssetParamsBaseFilter {}
+class KalturaAssetParamsFilter extends KalturaAssetParamsBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20128,7 +20133,8 @@ class KalturaBatchJobFilterExt extends KalturaBatchJobFilter {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaCategoryEntryFilter extends KalturaCategoryEntryBaseFilter {}
+class KalturaCategoryEntryFilter extends KalturaCategoryEntryBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20588,7 +20594,8 @@ abstract class KalturaGoogleVideoSyndicationFeedBaseFilter extends KalturaBaseSy
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaGroupUserFilter extends KalturaGroupUserBaseFilter {}
+class KalturaGroupUserFilter extends KalturaGroupUserBaseFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -20611,7 +20618,8 @@ abstract class KalturaITunesSyndicationFeedBaseFilter extends KalturaBaseSyndica
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class KalturaIpAddressContextField extends KalturaStringField {}
+class KalturaIpAddressContextField extends KalturaStringField {
+}
 
 /**
  * Kaltura Client API.

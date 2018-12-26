@@ -365,7 +365,7 @@ class KalturaClientBase {
                 }
                 $dump = print_r($result, true);
                 $this->log("result (object dump): " . $dump);
-            } elseif ($this->config->format == self::KALTURA_SERVICE_FORMAT_JSON) {
+            } else if ($this->config->format == self::KALTURA_SERVICE_FORMAT_JSON) {
                 $result = json_decode($postResult);
                 if (is_null($result) && strtolower($postResult) !== 'null') {
                     $this->resetRequest();
@@ -914,7 +914,7 @@ class KalturaClientBase {
         $info = implode ( ";" , $fields );
 
         $signature = $this->hash ( $adminSecretForSigning , $info );
-        $strToHash =  $signature . "|" . $info ;
+        $strToHash = $signature . "|" . $info;
         $encoded_str = base64_encode($strToHash);
 
         return $encoded_str;

@@ -1351,7 +1351,8 @@ abstract class KalturaConfigurableDistributionProfile extends KalturaDistributio
     public $itemXpathsToExtend;
 
     /**
-     * When checking custom XSLT conditions using the fieldConfigArray - address only categories associated with the entry via the categoryEntry object
+     * When checking custom XSLT conditions using the fieldConfigArray -
+     * address only categories associated with the entry via the categoryEntry object.
      * @var bool
      */
     public $useCategoryEntries = null;
@@ -2570,7 +2571,8 @@ class KalturaEntryDistributionService extends KalturaServiceBase {
      */
     public function serveReturnedData($id, $actiontype) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
@@ -2939,7 +2941,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $this->client->addParam($kparams, "id", $id);
         $kfiles = array();
         $this->client->addParam($kfiles, "xslFile", $xslfile);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssTransformFromFile", $kparams, $kfiles);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "addMrssTransformFromFile", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -3115,7 +3118,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
      * @param KalturaFilterPager $pager - pager object.
      * @return KalturaGenericDistributionProviderActionListResponse - list object.
      */
-    public function listAction(KalturaGenericDistributionProviderActionFilter $filter = null, KalturaFilterPager $pager = null) {
+    public function listAction(KalturaGenericDistributionProviderActionFilter $filter = null,
+                               KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($filter !== null) {
             $this->client->addParam($kparams, "filter", $filter->toParams());

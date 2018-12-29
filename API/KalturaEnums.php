@@ -38,10 +38,12 @@ require_once(dirname(__FILE__) . "/KalturaClientBase.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAppTokenStatus extends KalturaEnumBase {
+    /** @var disabled */
     const DISABLED = 1;
+    /** @var active */
     const ACTIVE = 2;
+    /** @var deleted */
     const DELETED = 3;
 }
 
@@ -53,9 +55,10 @@ class KalturaAppTokenStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAppearInListType extends KalturaEnumBase {
+    /** @var partner only */
     const PARTNER_ONLY = 1;
+    /** @var category members only */
     const CATEGORY_MEMBERS_ONLY = 3;
 }
 
@@ -67,9 +70,10 @@ class KalturaAppearInListType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAssetParamsDeletePolicy extends KalturaEnumBase {
+    /** @var keep */
     const KEEP = 0;
+    /** @var delete */
     const DELETE = 1;
 }
 
@@ -81,10 +85,12 @@ class KalturaAssetParamsDeletePolicy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAssetParamsOrigin extends KalturaEnumBase {
+    /** @var convert */
     const CONVERT = 0;
+    /** @var ingest */
     const INGEST = 1;
+    /** @var convert when missing */
     const CONVERT_WHEN_MISSING = 2;
 }
 
@@ -96,13 +102,18 @@ class KalturaAssetParamsOrigin extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBatchJobErrorTypes extends KalturaEnumBase {
+    /** @var app */
     const APP = 0;
+    /** @var runtime */
     const RUNTIME = 1;
+    /** @var http */
     const HTTP = 2;
+    /** @var curl */
     const CURL = 3;
+    /** @var kaltura api */
     const KALTURA_API = 4;
+    /** @var kaltura client */
     const KALTURA_CLIENT = 5;
 }
 
@@ -114,20 +125,32 @@ class KalturaBatchJobErrorTypes extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBatchJobStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 0;
+    /** @var queued */
     const QUEUED = 1;
+    /** @var processing */
     const PROCESSING = 2;
+    /** @var processed */
     const PROCESSED = 3;
+    /** @var movefile */
     const MOVEFILE = 4;
+    /** @var finished */
     const FINISHED = 5;
+    /** @var failed */
     const FAILED = 6;
+    /** @var aborted */
     const ABORTED = 7;
+    /** @var almost done */
     const ALMOST_DONE = 8;
+    /** @var retry */
     const RETRY = 9;
+    /** @var fatal */
     const FATAL = 10;
+    /** @var dont process*/
     const DONT_PROCESS = 11;
+    /** @var finished partially */
     const FINISHED_PARTIALLY = 12;
 }
 
@@ -139,9 +162,10 @@ class KalturaBatchJobStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBitRateMode extends KalturaEnumBase {
+    /** @var cbr */
     const CBR = 1;
+    /** @var vbr */
     const VBR = 2;
 }
 
@@ -153,11 +177,14 @@ class KalturaBitRateMode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryEntryStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 1;
+    /** @var active */
     const ACTIVE = 2;
+    /** @var deleted */
     const DELETED = 3;
+    /** @var rejected */
     const REJECTED = 4;
 }
 
@@ -169,11 +196,14 @@ class KalturaCategoryEntryStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryStatus extends KalturaEnumBase {
+    /** @var updating */
     const UPDATING = 1;
+    /** @var active */
     const ACTIVE = 2;
+    /** @var deleted */
     const DELETED = 3;
+    /** @var purged */
     const PURGED = 4;
 }
 
@@ -185,12 +215,16 @@ class KalturaCategoryStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryUserPermissionLevel extends KalturaEnumBase {
+    /** @var manager */
     const MANAGER = 0;
+    /** @var moderator */
     const MODERATOR = 1;
+    /** @var contributor */
     const CONTRIBUTOR = 2;
+    /** @var member */
     const MEMBER = 3;
+    /** @var none */
     const NONE = 4;
 }
 
@@ -202,11 +236,14 @@ class KalturaCategoryUserPermissionLevel extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryUserStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 1;
+    /** @var pending */
     const PENDING = 2;
+    /** @var not active */
     const NOT_ACTIVE = 3;
+    /** @var deleted */
     const DELETED = 4;
 }
 
@@ -218,9 +255,10 @@ class KalturaCategoryUserStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaChinaCacheAlgorithmType extends KalturaEnumBase {
+    /** @var sha1 */
     const SHA1 = 1;
+    /** @var sha256 */
     const SHA256 = 2;
 }
 
@@ -232,9 +270,10 @@ class KalturaChinaCacheAlgorithmType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCommercialUseType extends KalturaEnumBase {
+    /** @var non commercial use */
     const NON_COMMERCIAL_USE = 0;
+    /** @var commercial use */
     const COMMERCIAL_USE = 1;
 }
 
@@ -246,9 +285,10 @@ class KalturaCommercialUseType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaContributionPolicyType extends KalturaEnumBase {
+    /** @var all */
     const ALL = 1;
+    /** @var members with contribution permission */
     const MEMBERS_WITH_CONTRIBUTION_PERMISSION = 2;
 }
 
@@ -260,11 +300,14 @@ class KalturaContributionPolicyType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaControlPanelCommandStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 1;
+    /** @var handled */
     const HANDLED = 2;
+    /** @var done */
     const DONE = 3;
+    /** @var failed */
     const FAILED = 4;
 }
 
@@ -276,12 +319,16 @@ class KalturaControlPanelCommandStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaControlPanelCommandTargetType extends KalturaEnumBase {
+    /** @var data center */
     const DATA_CENTER = 1;
+    /** @var scheduler */
     const SCHEDULER = 2;
+    /** @var job type */
     const JOB_TYPE = 3;
+    /** @var job */
     const JOB = 4;
+    /** @var batch */
     const BATCH = 5;
 }
 
@@ -293,8 +340,8 @@ class KalturaControlPanelCommandTargetType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaControlPanelCommandType extends KalturaEnumBase {
+    /** @var kill */
     const KILL = 4;
 }
 
@@ -306,9 +353,10 @@ class KalturaControlPanelCommandType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCountryRestrictionType extends KalturaEnumBase {
+    /** @var restrict country list */
     const RESTRICT_COUNTRY_LIST = 0;
+    /** @var allow country list */
     const ALLOW_COUNTRY_LIST = 1;
 }
 
@@ -320,9 +368,10 @@ class KalturaCountryRestrictionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDVRStatus extends KalturaEnumBase {
+    /** @var disabled */
     const DISABLED = 0;
+    /** @var enabled */
     const ENABLED = 1;
 }
 
@@ -334,11 +383,14 @@ class KalturaDVRStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 0;
+    /** @var deleted */
     const DELETED = 1;
+    /** @var staging in */
     const STAGING_IN = 2;
+    /** @var staging out */
     const STAGING_OUT = 3;
 }
 
@@ -350,9 +402,10 @@ class KalturaDeliveryStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDirectoryRestrictionType extends KalturaEnumBase {
+    /** @var dont display */
     const DONT_DISPLAY = 0;
+    /** @var display with link */
     const DISPLAY_WITH_LINK = 1;
 }
 
@@ -364,9 +417,10 @@ class KalturaDirectoryRestrictionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEditorType extends KalturaEnumBase {
+    /** @var simple */
     const SIMPLE = 1;
+    /** @var advanced */
     const ADVANCED = 2;
 }
 
@@ -378,9 +432,10 @@ class KalturaEditorType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEmailIngestionProfileStatus extends KalturaEnumBase {
+    /** @var inactive */
     const INACTIVE = 0;
+    /** @var active */
     const ACTIVE = 1;
 }
 
@@ -392,11 +447,14 @@ class KalturaEmailIngestionProfileStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryDisplayInSearchType extends KalturaEnumBase {
+    /** @var system */
     const SYSTEM = -1;
+    /** @var none */
     const NONE = 0;
+    /** @var partner only */
     const PARTNER_ONLY = 1;
+    /** @var kaltura network */
     const KALTURA_NETWORK = 2;
 }
 
@@ -408,13 +466,18 @@ class KalturaEntryDisplayInSearchType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryModerationStatus extends KalturaEnumBase {
+    /** @var pending moderation */
     const PENDING_MODERATION = 1;
+    /** @var approved */
     const APPROVED = 2;
+    /** @var rejected */
     const REJECTED = 3;
+    /** @var deleted */
     const DELETED = 4;
+    /** @var flagged for review */
     const FLAGGED_FOR_REVIEW = 5;
+    /** @var auto approved */
     const AUTO_APPROVED = 6;
 }
 
@@ -426,11 +489,14 @@ class KalturaEntryModerationStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryServerNodeRecordingStatus extends KalturaEnumBase {
+    /** @var stopped */
     const STOPPED = 0;
+    /** @var on going */
     const ON_GOING = 1;
+    /** @var done */
     const DONE = 2;
+    /** @var dissmissed */
     const DISMISSED = 3;
 }
 
@@ -442,12 +508,16 @@ class KalturaEntryServerNodeRecordingStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryServerNodeStatus extends KalturaEnumBase {
+    /** @var stoppoed */
     const STOPPED = 0;
+    /** @var playable */
     const PLAYABLE = 1;
+    /** @var broadcasting */
     const BROADCASTING = 2;
+    /** @var authenticated */
     const AUTHENTICATED = 3;
+    /** @var marked for deletion */
     const MARKED_FOR_DELETION = 4;
 }
 
@@ -459,13 +529,18 @@ class KalturaEntryServerNodeStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFeatureStatusType extends KalturaEnumBase {
+    /** @var lock category */
     const LOCK_CATEGORY = 1;
+    /** @var category */
     const CATEGORY = 2;
+    /** @var category entry */
     const CATEGORY_ENTRY = 3;
+    /** @var entry */
     const ENTRY = 4;
+    /** @var category user */
     const CATEGORY_USER = 5;
+    /** @var user */
     const USER = 6;
 }
 
@@ -477,18 +552,28 @@ class KalturaFeatureStatusType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorAssetStatus extends KalturaEnumBase {
+    /** @var error */
     const ERROR = -1;
+    /** @var queued */
     const QUEUED = 0;
+    /** @var converting */
     const CONVERTING = 1;
+    /** @var ready */
     const READY = 2;
+    /** @var deleted */
     const DELETED = 3;
+    /** @var not applicable */
     const NOT_APPLICABLE = 4;
+    /** @var temp */
     const TEMP = 5;
+    /** @var wait for convert */
     const WAIT_FOR_CONVERT = 6;
+    /** @var importing */
     const IMPORTING = 7;
+    /** @var validating */
     const VALIDATING = 8;
+    /** @var exporting */
     const EXPORTING = 9;
 }
 
@@ -500,11 +585,14 @@ class KalturaFlavorAssetStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorReadyBehaviorType extends KalturaEnumBase {
+    /** @var no impact */
     const NO_IMPACT = 0;
+    /** @var inherit flavor params */
     const INHERIT_FLAVOR_PARAMS = 0;
+    /** @var requeued */
     const REQUIRED = 1;
+    /** @var optional */
     const OPTIONAL = 2;
 }
 
@@ -516,10 +604,12 @@ class KalturaFlavorReadyBehaviorType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGender extends KalturaEnumBase {
+    /** @var unknown */
     const UNKNOWN = 0;
+    /** @var male */
     const MALE = 1;
+    /** @var female */
     const FEMALE = 2;
 }
 
@@ -531,9 +621,10 @@ class KalturaGender extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGroupUserStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 0;
+    /** @var deleted */
     const DELETED = 1;
 }
 
@@ -545,9 +636,10 @@ class KalturaGroupUserStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaInheritanceType extends KalturaEnumBase {
+    /** @var inherit */
     const INHERIT = 1;
+    /** @var manual */
     const MANUAL = 2;
 }
 
@@ -559,9 +651,10 @@ class KalturaInheritanceType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaIpAddressRestrictionType extends KalturaEnumBase {
+    /** @var restrict list */
     const RESTRICT_LIST = 0;
+    /** @var allow list */
     const ALLOW_LIST = 1;
 }
 
@@ -573,24 +666,40 @@ class KalturaIpAddressRestrictionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLicenseType extends KalturaEnumBase {
+    /** @var unknown */
     const UNKNOWN = -1;
+    /** @var none */
     const NONE = 0;
+    /** @var copyrighted */
     const COPYRIGHTED = 1;
+    /** @var public domain */
     const PUBLIC_DOMAIN = 2;
+    /** @var creativecommons attribution */
     const CREATIVECOMMONS_ATTRIBUTION = 3;
+    /** @var creativecommons attribution share alike */
     const CREATIVECOMMONS_ATTRIBUTION_SHARE_ALIKE = 4;
+    /** @var creativecommons attribution no derivatives */
     const CREATIVECOMMONS_ATTRIBUTION_NO_DERIVATIVES = 5;
+    /** @var creativecommons attribution non commercial */
     const CREATIVECOMMONS_ATTRIBUTION_NON_COMMERCIAL = 6;
+    /** @var creativecommons attribution non commercial share alike */
     const CREATIVECOMMONS_ATTRIBUTION_NON_COMMERCIAL_SHARE_ALIKE = 7;
+    /** @var creativecommons attribution non commercial no derivatives */
     const CREATIVECOMMONS_ATTRIBUTION_NON_COMMERCIAL_NO_DERIVATIVES = 8;
+    /** @var gfdl */
     const GFDL = 9;
+    /** @var gpl */
     const GPL = 10;
+    /** @var affero gpl */
     const AFFERO_GPL = 11;
+    /** @var lgpl */
     const LGPL = 12;
+    /** @var bsd */
     const BSD = 13;
+    /** @var apache */
     const APACHE = 14;
+    /** @var moziila */
     const MOZILLA = 15;
 }
 
@@ -602,9 +711,10 @@ class KalturaLicenseType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLimitFlavorsRestrictionType extends KalturaEnumBase {
+    /** @var restrict list */
     const RESTRICT_LIST = 0;
+    /** @var allow list */
     const ALLOW_LIST = 1;
 }
 
@@ -616,9 +726,10 @@ class KalturaLimitFlavorsRestrictionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLivePublishStatus extends KalturaEnumBase {
+    /** @var disabled */
     const DISABLED = 0;
+    /** @var enabled */
     const ENABLED = 1;
 }
 
@@ -630,15 +741,22 @@ class KalturaLivePublishStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveReportExportType extends KalturaEnumBase {
+    /** @var partner total all */
     const PARTNER_TOTAL_ALL = 1;
+    /** @var partner total live */
     const PARTNER_TOTAL_LIVE = 2;
+    /** @var entry time line all */
     const ENTRY_TIME_LINE_ALL = 11;
+    /** @var entry time line live */
     const ENTRY_TIME_LINE_LIVE = 12;
+    /** @var location all */
     const LOCATION_ALL = 21;
+    /** @var location live */
     const LOCATION_LIVE = 22;
+    /** @var syndication all */
     const SYNDICATION_ALL = 31;
+    /** @var syndication live */
     const SYNDICATION_LIVE = 32;
 }
 
@@ -650,9 +768,10 @@ class KalturaLiveReportExportType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStatsEventType extends KalturaEnumBase {
+    /** @var live */
     const LIVE = 1;
+    /** @var dvr */
     const DVR = 2;
 }
 
@@ -664,11 +783,14 @@ class KalturaLiveStatsEventType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMailJobStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 1;
+    /** @var sent */
     const SENT = 2;
+    /** @var error */
     const ERROR = 3;
+    /** @var queued */
     const QUEUED = 4;
 }
 
@@ -680,14 +802,20 @@ class KalturaMailJobStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaType extends KalturaEnumBase {
+    /** @var video */
     const VIDEO = 1;
+    /** @var image */
     const IMAGE = 2;
+    /** @var audio */
     const AUDIO = 5;
+    /** @var live stream flash */
     const LIVE_STREAM_FLASH = 201;
+    /** @var live stream windows media */
     const LIVE_STREAM_WINDOWS_MEDIA = 202;
+    /** @var live stream real media */
     const LIVE_STREAM_REAL_MEDIA = 203;
+    /** @var live stream quicktime */
     const LIVE_STREAM_QUICKTIME = 204;
 }
 
@@ -699,13 +827,18 @@ class KalturaMediaType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaModerationFlagType extends KalturaEnumBase {
+    /** @var sexual content */
     const SEXUAL_CONTENT = 1;
+    /** @var violent repulsive */
     const VIOLENT_REPULSIVE = 2;
+    /** @var harmful dangerous */
     const HARMFUL_DANGEROUS = 3;
+    /** @var spam commercials */
     const SPAM_COMMERCIALS = 4;
+    /** @var copyright */
     const COPYRIGHT = 5;
+    /** @var terms of use violation */
     const TERMS_OF_USE_VIOLATION = 6;
 }
 
@@ -717,9 +850,10 @@ class KalturaModerationFlagType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMrssExtensionMode extends KalturaEnumBase {
+    /** @var append */
     const APPEND = 1;
+    /** @var replace */
     const REPLACE = 2;
 }
 
@@ -731,11 +865,14 @@ class KalturaMrssExtensionMode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaNotificationObjectType extends KalturaEnumBase {
+    /** @var entry */
     const ENTRY = 1;
+    /** @var kshow */
     const KSHOW = 2;
+    /** @var user */
     const USER = 3;
+    /** @var batch job */
     const BATCH_JOB = 4;
 }
 
@@ -747,14 +884,20 @@ class KalturaNotificationObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaNotificationStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 1;
+    /** @var sent */
     const SENT = 2;
+    /** @var error */
     const ERROR = 3;
+    /** @var should resend */
     const SHOULD_RESEND = 4;
+    /** @var error resending */
     const ERROR_RESENDING = 5;
+    /** @var sent synch */
     const SENT_SYNCH = 6;
+    /** @var queued */
     const QUEUED = 7;
 }
 
@@ -766,16 +909,24 @@ class KalturaNotificationStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaNotificationType extends KalturaEnumBase {
+    /** @var entry add */
     const ENTRY_ADD = 1;
+    /** @var enter update permissions */
     const ENTR_UPDATE_PERMISSIONS = 2;
+    /** @var entry delete */
     const ENTRY_DELETE = 3;
+    /** @var entry block */
     const ENTRY_BLOCK = 4;
+    /** @var entry update */
     const ENTRY_UPDATE = 5;
+    /** @var entry update thumbnail */
     const ENTRY_UPDATE_THUMBNAIL = 6;
+    /** @var entry update moderation */
     const ENTRY_UPDATE_MODERATION = 7;
+    /** @var user add */
     const USER_ADD = 21;
+    /** @var user banned */
     const USER_BANNED = 26;
 }
 
@@ -787,10 +938,12 @@ class KalturaNotificationType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaNullableBoolean extends KalturaEnumBase {
+    /** @var null value */
     const NULL_VALUE = -1;
+    /** @var false value */
     const FALSE_VALUE = 0;
+    /** @var true value */
     const TRUE_VALUE = 1;
 }
 
@@ -802,11 +955,14 @@ class KalturaNullableBoolean extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPartnerGroupType extends KalturaEnumBase {
+    /** @var publisher */
     const PUBLISHER = 1;
+    /** @var var group */
     const VAR_GROUP = 2;
+    /** @var group */
     const GROUP = 3;
+    /** @var template */
     const TEMPLATE = 4;
 }
 
@@ -818,11 +974,14 @@ class KalturaPartnerGroupType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPartnerStatus extends KalturaEnumBase {
+    /** @var deleted */
     const DELETED = 0;
+    /** @var active */
     const ACTIVE = 1;
+    /** @var blocked */
     const BLOCKED = 2;
+    /** @var full block */
     const FULL_BLOCK = 3;
 }
 
@@ -834,18 +993,28 @@ class KalturaPartnerStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPartnerType extends KalturaEnumBase {
+    /** @var kmc */
     const KMC = 1;
+    /** @var wiki */
     const WIKI = 100;
+    /** @var wordpress */
     const WORDPRESS = 101;
+    /** @var drupal */
     const DRUPAL = 102;
+    /** @var dekiwiki */
     const DEKIWIKI = 103;
+    /** @var moodle */
     const MOODLE = 104;
+    /** @var community edition */
     const COMMUNITY_EDITION = 105;
+    /** @var joomla */
     const JOOMLA = 106;
+    /** @var blackboard */
     const BLACKBOARD = 107;
+    /** @var sakai */
     const SAKAI = 108;
+    /** @var admin console */
     const ADMIN_CONSOLE = 109;
 }
 
@@ -857,10 +1026,12 @@ class KalturaPartnerType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 1;
+    /** @var blocked */
     const BLOCKED = 2;
+    /** @var deleted */
     const DELETED = 3;
 }
 
@@ -872,11 +1043,14 @@ class KalturaPermissionStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionType extends KalturaEnumBase {
+    /** @var normal */
     const NORMAL = 1;
+    /** @var special feature */
     const SPECIAL_FEATURE = 2;
+    /** @var plugin */
     const PLUGIN = 3;
+    /** @var partner group */
     const PARTNER_GROUP = 4;
 }
 
@@ -888,10 +1062,12 @@ class KalturaPermissionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlaylistType extends KalturaEnumBase {
+    /** @var static list */
     const STATIC_LIST = 3;
+    /** @var dynamic */
     const DYNAMIC = 10;
+    /** @var external */
     const EXTERNAL = 101;
 }
 
@@ -903,10 +1079,12 @@ class KalturaPlaylistType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPrivacyType extends KalturaEnumBase {
+    /** @var all */
     const ALL = 1;
+    /** @var authenticated users */
     const AUTHENTICATED_USERS = 2;
+    /** @var members only */
     const MEMBERS_ONLY = 3;
 }
 
@@ -918,10 +1096,12 @@ class KalturaPrivacyType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaRecordStatus extends KalturaEnumBase {
+    /** @var disabled */
     const DISABLED = 0;
+    /** @var appended */
     const APPENDED = 1;
+    /** @var per session */
     const PER_SESSION = 2;
 }
 
@@ -933,11 +1113,14 @@ class KalturaRecordStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaRecordingStatus extends KalturaEnumBase {
+    /** @var stopped */
     const STOPPED = 0;
+    /** @var paused */
     const PAUSED = 1;
+    /** @var active */
     const ACTIVE = 2;
+    /** @var disabled */
     const DISABLED = 3;
 }
 
@@ -949,10 +1132,12 @@ class KalturaRecordingStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaResponseProfileStatus extends KalturaEnumBase {
+    /** @var disabled */
     const DISABLED = 1;
+    /** @var enabled */
     const ENABLED = 2;
+    /** @var deleted */
     const DELETED = 3;
 }
 
@@ -964,9 +1149,10 @@ class KalturaResponseProfileStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaResponseProfileType extends KalturaEnumBase {
+    /** @var include fields */
     const INCLUDE_FIELDS = 1;
+    /** @var exclude fields */
     const EXCLUDE_FIELDS = 2;
 }
 
@@ -978,14 +1164,20 @@ class KalturaResponseProfileType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaResponseType extends KalturaEnumBase {
+    /** @var response type json */
     const RESPONSE_TYPE_JSON = 1;
+    /** @var response type xml */
     const RESPONSE_TYPE_XML = 2;
+    /** @var response type php */
     const RESPONSE_TYPE_PHP = 3;
+    /** @var response type php array */
     const RESPONSE_TYPE_PHP_ARRAY = 4;
+    /** @var response type html */
     const RESPONSE_TYPE_HTML = 7;
+    /** @var response type mrss */
     const RESPONSE_TYPE_MRSS = 8;
+    /** @var response type jsonp */
     const RESPONSE_TYPE_JSONP = 9;
 }
 
@@ -997,14 +1189,20 @@ class KalturaResponseType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSchedulerStatusType extends KalturaEnumBase {
+    /** @var running batches count */
     const RUNNING_BATCHES_COUNT = 1;
+    /** @var running batches cpu */
     const RUNNING_BATCHES_CPU = 2;
+    /** @var running batches memory */
     const RUNNING_BATCHES_MEMORY = 3;
+    /** @var running batches network */
     const RUNNING_BATCHES_NETWORK = 4;
+    /** @var running batches disc io */
     const RUNNING_BATCHES_DISC_IO = 5;
+    /** @var running batches disc space */
     const RUNNING_BATCHES_DISC_SPACE = 6;
+    /** @var running batches is running */
     const RUNNING_BATCHES_IS_RUNNING = 7;
 }
 
@@ -1016,9 +1214,10 @@ class KalturaSchedulerStatusType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSearchOperatorType extends KalturaEnumBase {
+    /** @var search and */
     const SEARCH_AND = 1;
+    /** @var search or */
     const SEARCH_OR = 2;
 }
 
@@ -1030,23 +1229,38 @@ class KalturaSearchOperatorType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSearchProviderType extends KalturaEnumBase {
+    /** @var flickr */
     const FLICKR = 3;
+    /** @var youtube */
     const YOUTUBE = 4;
+    /** @var myspace */
     const MYSPACE = 7;
+    /** @var photobucket */
     const PHOTOBUCKET = 8;
+    /** @var jamendo */
     const JAMENDO = 9;
+    /** @var ccmixter */
     const CCMIXTER = 10;
+    /** @var nypl */
     const NYPL = 11;
+    /** @var current */
     const CURRENT = 12;
+    /** @var media commons */
     const MEDIA_COMMONS = 13;
+    /** @var kaltura */
     const KALTURA = 20;
+    /** @var kaltura user clips */
     const KALTURA_USER_CLIPS = 21;
+    /** @var archive org */
     const ARCHIVE_ORG = 22;
+    /** @var kaltura partner */
     const KALTURA_PARTNER = 23;
+    /** @var metacafe */
     const METACAFE = 24;
+    /** @var search proxy */
     const SEARCH_PROXY = 28;
+    /** @var partner specific */
     const PARTNER_SPECIFIC = 100;
 }
 
@@ -1058,11 +1272,14 @@ class KalturaSearchProviderType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaServerNodeStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 1;
+    /** @var disabled */
     const DISABLED = 2;
+    /** @var deleted */
     const DELETED = 3;
+    /** @var not regstered */
     const NOT_REGISTERED = 4;
 }
 
@@ -1074,9 +1291,10 @@ class KalturaServerNodeStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSessionType extends KalturaEnumBase {
+    /** @var user */
     const USER = 0;
+    /** @var admin */
     const ADMIN = 2;
 }
 
@@ -1088,9 +1306,10 @@ class KalturaSessionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSiteRestrictionType extends KalturaEnumBase {
+    /** @var restrict site list */
     const RESTRICT_SITE_LIST = 0;
+    /** @var allow site list */
     const ALLOW_SITE_LIST = 1;
 }
 
@@ -1102,47 +1321,86 @@ class KalturaSiteRestrictionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStatsEventType extends KalturaEnumBase {
+    /** @var widget loaded */
     const WIDGET_LOADED = 1;
+    /** @var media loaded */
     const MEDIA_LOADED = 2;
+    /** @var play */
     const PLAY = 3;
+    /** @var play reached 25 */
     const PLAY_REACHED_25 = 4;
+    /** @var play reached 50 */
     const PLAY_REACHED_50 = 5;
+    /** @var play reached 75 */
     const PLAY_REACHED_75 = 6;
+    /** @var play reached 100 */
     const PLAY_REACHED_100 = 7;
+    /** @var open edit */
     const OPEN_EDIT = 8;
+    /** @var open viral */
     const OPEN_VIRAL = 9;
+    /** @var open download */
     const OPEN_DOWNLOAD = 10;
+    /** @var open report */
     const OPEN_REPORT = 11;
+    /** @var buffer start */
     const BUFFER_START = 12;
+    /** @var buffer end */
     const BUFFER_END = 13;
+    /** @var open full screen */
     const OPEN_FULL_SCREEN = 14;
+    /** @var close full screen */
     const CLOSE_FULL_SCREEN = 15;
+    /** @var replay */
     const REPLAY = 16;
+    /** @var seek */
     const SEEK = 17;
+    /** @var open upload */
     const OPEN_UPLOAD = 18;
+    /** @var save publish */
     const SAVE_PUBLISH = 19;
+    /** @var close editor */
     const CLOSE_EDITOR = 20;
+    /** @var bumper played */
     const PRE_BUMPER_PLAYED = 21;
+    /** @var bumper played */
     const POST_BUMPER_PLAYED = 22;
+    /** @var bumper clicked */
     const BUMPER_CLICKED = 23;
+    /** @var preroll started */
     const PREROLL_STARTED = 24;
+    /** @var midroll started */
     const MIDROLL_STARTED = 25;
+    /** @var postroll started */
     const POSTROLL_STARTED = 26;
+    /** @var overlay started */
     const OVERLAY_STARTED = 27;
+    /** @var preroll clicked */
     const PREROLL_CLICKED = 28;
+    /** @var midroll clicked */
     const MIDROLL_CLICKED = 29;
+    /** @var postroll clicked */
     const POSTROLL_CLICKED = 30;
+    /** @var overlay clicked */
     const OVERLAY_CLICKED = 31;
+    /** @var preroll 25 */
     const PREROLL_25 = 32;
+    /** @var preroll 50 */
     const PREROLL_50 = 33;
+    /** @var preroll 75 */
     const PREROLL_75 = 34;
+    /** @var midroll 25 */
     const MIDROLL_25 = 35;
+    /** @var midroll 50 */
     const MIDROLL_50 = 36;
+    /** @var midroll 75 */
     const MIDROLL_75 = 37;
+    /** @var postroll 25 */
     const POSTROLL_25 = 38;
+    /** @var postroll 50 */
     const POSTROLL_50 = 39;
+    /** @var postroll 75 */
     const POSTROLL_75 = 40;
 }
 
@@ -1154,9 +1412,10 @@ class KalturaStatsEventType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStatsFeatureType extends KalturaEnumBase {
+    /** @var none */
     const NONE = 0;
+    /** @var related */
     const RELATED = 1;
 }
 
@@ -1168,71 +1427,134 @@ class KalturaStatsFeatureType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStatsKmcEventType extends KalturaEnumBase {
+    /** @var content page view */
     const CONTENT_PAGE_VIEW = 1001;
+    /** @var content add playlist */
     const CONTENT_ADD_PLAYLIST = 1010;
+    /** @var content edit playlist */
     const CONTENT_EDIT_PLAYLIST = 1011;
+    /** @var content delete playlist */
     const CONTENT_DELETE_PLAYLIST = 1012;
+    /** @var content edit entry */
     const CONTENT_EDIT_ENTRY = 1013;
+    /** @var content change thumbnail */
     const CONTENT_CHANGE_THUMBNAIL = 1014;
+    /** @var content add tags */
     const CONTENT_ADD_TAGS = 1015;
+    /** @var content remove tags */
     const CONTENT_REMOVE_TAGS = 1016;
+    /** @var content add admin tags */
     const CONTENT_ADD_ADMIN_TAGS = 1017;
+    /** @var content remove admin tags */
     const CONTENT_REMOVE_ADMIN_TAGS = 1018;
+    /** @var content download */
     const CONTENT_DOWNLOAD = 1019;
+    /** @var content approve moderation */
     const CONTENT_APPROVE_MODERATION = 1020;
+    /** @var content reject moderation */
     const CONTENT_REJECT_MODERATION = 1021;
+    /** @var content bulk upload */
     const CONTENT_BULK_UPLOAD = 1022;
+    /** @var content admin kcw upload */
     const CONTENT_ADMIN_KCW_UPLOAD = 1023;
+    /** @var account change partner info */
     const ACCOUNT_CHANGE_PARTNER_INFO = 1030;
+    /** @var account change login info */
     const ACCOUNT_CHANGE_LOGIN_INFO = 1031;
+    /** @var account contact us usage */
     const ACCOUNT_CONTACT_US_USAGE = 1032;
+    /** @var account update server setting */
     const ACCOUNT_UPDATE_SERVER_SETTINGS = 1033;
+    /** @var account account overview */
     const ACCOUNT_ACCOUNT_OVERVIEW = 1034;
+    /** @var account access control */
     const ACCOUNT_ACCESS_CONTROL = 1035;
+    /** @var account transcoding settings */
     const ACCOUNT_TRANSCODING_SETTINGS = 1036;
+    /** @var account account upgrade */
     const ACCOUNT_ACCOUNT_UPGRADE = 1037;
+    /** @var account save server settings */
     const ACCOUNT_SAVE_SERVER_SETTINGS = 1038;
+    /** @var account access control delete */
     const ACCOUNT_ACCESS_CONTROL_DELETE = 1039;
+    /** @var account save transcoding settings */
     const ACCOUNT_SAVE_TRANSCODING_SETTINGS = 1040;
+    /** @var login */
     const LOGIN = 1041;
+    /** @var dashboard import content */
     const DASHBOARD_IMPORT_CONTENT = 1042;
+    /** @var dashboard update content */
     const DASHBOARD_UPDATE_CONTENT = 1043;
+    /** @var dashboard account contact us */
     const DASHBOARD_ACCOUNT_CONTACT_US = 1044;
+    /** @var dashboard view reports */
     const DASHBOARD_VIEW_REPORTS = 1045;
+    /** @var dashboard embed player */
     const DASHBOARD_EMBED_PLAYER = 1046;
+    /** @var dashboard emved playlist */
     const DASHBOARD_EMBED_PLAYLIST = 1047;
+    /** @var dashboard customize players */
     const DASHBOARD_CUSTOMIZE_PLAYERS = 1048;
+    /** @var app studio new player single video */
     const APP_STUDIO_NEW_PLAYER_SINGLE_VIDEO = 1050;
+    /** @var app studio new player playlist */
     const APP_STUDIO_NEW_PLAYER_PLAYLIST = 1051;
+    /** @var app studio new player multi tab playlist */
     const APP_STUDIO_NEW_PLAYER_MULTI_TAB_PLAYLIST = 1052;
+    /** @var app studio edit player single video */
     const APP_STUDIO_EDIT_PLAYER_SINGLE_VIDEO = 1053;
+    /** @var app studio edit player playlist */
     const APP_STUDIO_EDIT_PLAYER_PLAYLIST = 1054;
+    /** @var app studio edit player multi tab playlist */
     const APP_STUDIO_EDIT_PLAYER_MULTI_TAB_PLAYLIST = 1055;
+    /** @var app studio duplicate player */
     const APP_STUDIO_DUPLICATE_PLAYER = 1056;
+    /** @var content content go to page */
     const CONTENT_CONTENT_GO_TO_PAGE = 1057;
+    /** @var content delete item */
     const CONTENT_DELETE_ITEM = 1058;
+    /** @var content delete mix */
     const CONTENT_DELETE_MIX = 1059;
+    /** @var reports and analytics bandwidth usage tab */
     const REPORTS_AND_ANALYTICS_BANDWIDTH_USAGE_TAB = 1070;
+    /** @var reports and analytics content reports tab */
     const REPORTS_AND_ANALYTICS_CONTENT_REPORTS_TAB = 1071;
+    /** @var reports and analytics users and community reports tab */
     const REPORTS_AND_ANALYTICS_USERS_AND_COMMUNITY_REPORTS_TAB = 1072;
+    /** @var reports and analytics top contributors */
     const REPORTS_AND_ANALYTICS_TOP_CONTRIBUTORS = 1073;
+    /** @var reports and analytics map overlays */
     const REPORTS_AND_ANALYTICS_MAP_OVERLAYS = 1074;
+    /** @var reports and analytics top syndications */
     const REPORTS_AND_ANALYTICS_TOP_SYNDICATIONS = 1075;
+    /** @var reports and analytics top content */
     const REPORTS_AND_ANALYTICS_TOP_CONTENT = 1076;
+    /** @var reports and analytics content dropoff */
     const REPORTS_AND_ANALYTICS_CONTENT_DROPOFF = 1077;
+    /** @var reports and analytics content interactions */
     const REPORTS_AND_ANALYTICS_CONTENT_INTERACTIONS = 1078;
+    /** @var reports and analytics content contributions */
     const REPORTS_AND_ANALYTICS_CONTENT_CONTRIBUTIONS = 1079;
+    /** @var reports and analytics video drill down */
     const REPORTS_AND_ANALYTICS_VIDEO_DRILL_DOWN = 1080;
+    /** @var reports and analytics drill down interaction */
     const REPORTS_AND_ANALYTICS_CONTENT_DRILL_DOWN_INTERACTION = 1081;
+    /** @var reports and analytics content contributions drilldown */
     const REPORTS_AND_ANALYTICS_CONTENT_CONTRIBUTIONS_DRILLDOWN = 1082;
+    /** @var reports and analytics video drill down dropoff */
     const REPORTS_AND_ANALYTICS_VIDEO_DRILL_DOWN_DROPOFF = 1083;
+    /** @var reports and analytics map overlays drilldown */
     const REPORTS_AND_ANALYTICS_MAP_OVERLAYS_DRILLDOWN = 1084;
+    /** @var reports and analytics top syndications drill down */
     const REPORTS_AND_ANALYTICS_TOP_SYNDICATIONS_DRILL_DOWN = 1085;
+    /** @var reports and analytics bandwidth usage view monthly */
     const REPORTS_AND_ANALYTICS_BANDWIDTH_USAGE_VIEW_MONTHLY = 1086;
+    /** @var reports and analytics bandwidth usage view yearly */
     const REPORTS_AND_ANALYTICS_BANDWIDTH_USAGE_VIEW_YEARLY = 1087;
+    /** @var cntent entry drilldown */
     const CONTENT_ENTRY_DRILLDOWN = 1088;
+    /** @var content open preview and embed */
     const CONTENT_OPEN_PREVIEW_AND_EMBED = 1089;
 }
 
@@ -1244,9 +1566,10 @@ class KalturaStatsKmcEventType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStorageProfileDeliveryStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 1;
+    /** @var blocked */
     const BLOCKED = 2;
 }
 
@@ -1258,9 +1581,10 @@ class KalturaStorageProfileDeliveryStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStorageProfileReadyBehavior extends KalturaEnumBase {
+    /** @var no impact */
     const NO_IMPACT = 0;
+    /** @var required */
     const REQUIRED = 1;
 }
 
@@ -1272,10 +1596,12 @@ class KalturaStorageProfileReadyBehavior extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStorageProfileStatus extends KalturaEnumBase {
+    /** @var disabled */
     const DISABLED = 1;
+    /** @var automatic */
     const AUTOMATIC = 2;
+    /** @var manual */
     const MANUAL = 3;
 }
 
@@ -1287,9 +1613,10 @@ class KalturaStorageProfileStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSyndicationFeedStatus extends KalturaEnumBase {
+    /** @var deleted */
     const DELETED = -1;
+    /** @var active */
     const ACTIVE = 1;
 }
 
@@ -1301,15 +1628,22 @@ class KalturaSyndicationFeedStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSyndicationFeedType extends KalturaEnumBase {
+    /** @var google video */
     const GOOGLE_VIDEO = 1;
+    /** @var yahoo */
     const YAHOO = 2;
+    /** @var itunes */
     const ITUNES = 3;
+    /** @var tube mogul */
     const TUBE_MOGUL = 4;
+    /** @var kaltura */
     const KALTURA = 5;
+    /** @var kaltura xslt */
     const KALTURA_XSLT = 6;
+    /** @var roku direct publisher */
     const ROKU_DIRECT_PUBLISHER = 7;
+    /** @var opera tv snap */
     const OPERA_TV_SNAP = 8;
 }
 
@@ -1321,14 +1655,20 @@ class KalturaSyndicationFeedType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbAssetStatus extends KalturaEnumBase {
+    /** @var error */
     const ERROR = -1;
+    /** @var queued */
     const QUEUED = 0;
+    /** @var capturing */
     const CAPTURING = 1;
+    /** @var ready */
     const READY = 2;
+    /** @var deleted */
     const DELETED = 3;
+    /** @var importing */
     const IMPORTING = 7;
+    /** @var exporting */
     const EXPORTING = 9;
 }
 
@@ -1340,12 +1680,16 @@ class KalturaThumbAssetStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbCropType extends KalturaEnumBase {
+    /** @var resize */
     const RESIZE = 1;
+    /** @var reseize with padding */
     const RESIZE_WITH_PADDING = 2;
+    /** @var crop */
     const CROP = 3;
+    /** @var crop from top */
     const CROP_FROM_TOP = 4;
+    /** @var resize with force */
     const RESIZE_WITH_FORCE = 5;
 }
 
@@ -1357,9 +1701,10 @@ class KalturaThumbCropType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUiConfCreationMode extends KalturaEnumBase {
+    /** @var wizard */
     const WIZARD = 2;
+    /** @var advanced */
     const ADVANCED = 3;
 }
 
@@ -1371,28 +1716,48 @@ class KalturaUiConfCreationMode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUiConfObjType extends KalturaEnumBase {
+    /** @var player */
     const PLAYER = 1;
+    /** @var contribution wizard */
     const CONTRIBUTION_WIZARD = 2;
+    /** @var simple editor */
     const SIMPLE_EDITOR = 3;
+    /** @var advanced editor */
     const ADVANCED_EDITOR = 4;
+    /** @var playlist */
     const PLAYLIST = 5;
+    /** @var app studio */
     const APP_STUDIO = 6;
+    /** @var krecord */
     const KRECORD = 7;
+    /** @var player */
     const PLAYER_V3 = 8;
+    /** @var kmc account */
     const KMC_ACCOUNT = 9;
+    /** @var kmc analytics */
     const KMC_ANALYTICS = 10;
+    /** @var kmc content */
     const KMC_CONTENT = 11;
+    /** @var dashboard */
     const KMC_DASHBOARD = 12;
+    /** @var kmc login */
     const KMC_LOGIN = 13;
+    /** @var player sl */
     const PLAYER_SL = 14;
+    /** @var clientside encoder */
     const CLIENTSIDE_ENCODER = 15;
+    /** @var kmc general */
     const KMC_GENERAL = 16;
+    /** @var kmc roles and premissions */
     const KMC_ROLES_AND_PERMISSIONS = 17;
+    /** @var clipper */
     const CLIPPER = 18;
+    /** @var ksr */
     const KSR = 19;
+    /** @var kupload */
     const KUPLOAD = 20;
+    /** @var webcasting */
     const WEBCASTING = 21;
 }
 
@@ -1404,9 +1769,10 @@ class KalturaUiConfObjType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUpdateMethodType extends KalturaEnumBase {
+    /** @var manual */
     const MANUAL = 0;
+    /** @var automatic */
     const AUTOMATIC = 1;
 }
 
@@ -1418,10 +1784,12 @@ class KalturaUpdateMethodType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUploadErrorCode extends KalturaEnumBase {
+    /** @var no error */
     const NO_ERROR = 0;
+    /** @var general error */
     const GENERAL_ERROR = 1;
+    /** @var partial upload */
     const PARTIAL_UPLOAD = 2;
 }
 
@@ -1433,13 +1801,18 @@ class KalturaUploadErrorCode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUploadTokenStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 0;
+    /** @var partial uplaod */
     const PARTIAL_UPLOAD = 1;
+    /** @var full upload */
     const FULL_UPLOAD = 2;
+    /** @var closed */
     const CLOSED = 3;
+    /** @var timed out */
     const TIMED_OUT = 4;
+    /** @var deleted */
     const DELETED = 5;
 }
 
@@ -1451,9 +1824,10 @@ class KalturaUploadTokenStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserAgentRestrictionType extends KalturaEnumBase {
+    /** @var restrict list */
     const RESTRICT_LIST = 0;
+    /** @var allow list */
     const ALLOW_LIST = 1;
 }
 
@@ -1465,10 +1839,12 @@ class KalturaUserAgentRestrictionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserJoinPolicyType extends KalturaEnumBase {
+    /** @var auto join */
     const AUTO_JOIN = 1;
+    /** @var request to join */
     const REQUEST_TO_JOIN = 2;
+    /** @var not allowed */
     const NOT_ALLOWED = 3;
 }
 
@@ -1480,10 +1856,12 @@ class KalturaUserJoinPolicyType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserRoleStatus extends KalturaEnumBase {
+    /** @var active */
     const ACTIVE = 1;
+    /** @var blocked */
     const BLOCKED = 2;
+    /** @var deleted */
     const DELETED = 3;
 }
 
@@ -1495,10 +1873,12 @@ class KalturaUserRoleStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserStatus extends KalturaEnumBase {
+    /** @var blocked */
     const BLOCKED = 0;
+    /** @var active */
     const ACTIVE = 1;
+    /** @var deleted */
     const DELETED = 2;
 }
 
@@ -1510,9 +1890,10 @@ class KalturaUserStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserType extends KalturaEnumBase {
+    /** @var user */
     const USER = 0;
+    /** @var group */
     const GROUP = 1;
 }
 
@@ -1524,9 +1905,10 @@ class KalturaUserType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaViewMode extends KalturaEnumBase {
+    /** @var preview */
     const PREVIEW = 0;
+    /** @var allow all */
     const ALLOW_ALL = 1;
 }
 
@@ -1538,9 +1920,10 @@ class KalturaViewMode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaWidgetSecurityType extends KalturaEnumBase {
+    /** @var none */
     const NONE = 1;
+    /** @var timehash */
     const TIMEHASH = 2;
 }
 
@@ -1552,9 +1935,10 @@ class KalturaWidgetSecurityType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAccessControlOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
 }
 
@@ -1566,11 +1950,14 @@ class KalturaAccessControlOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAccessControlProfileOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -1582,11 +1969,14 @@ class KalturaAccessControlProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdminUserOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by id */
     const ID_ASC = "+id";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by id */
     const ID_DESC = "-id";
 }
 
@@ -1598,9 +1988,10 @@ class KalturaAdminUserOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAkamaiUniversalStreamType extends KalturaEnumBase {
+    /** @var hd iphone ipad live */
     const HD_IPHONE_IPAD_LIVE = "HD iPhone/iPad Live";
+    /** @var univeral streaming live */
     const UNIVERSAL_STREAMING_LIVE = "Universal Streaming Live";
 }
 
@@ -1612,11 +2003,14 @@ class KalturaAkamaiUniversalStreamType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAmazonS3StorageProfileFilesPermissionLevel extends KalturaEnumBase {
+    /** @var acl authenticated read */
     const ACL_AUTHENTICATED_READ = "authenticated-read";
+    /** @var acl private */
     const ACL_PRIVATE = "private";
+    /** @var acl public read */
     const ACL_PUBLIC_READ = "public-read";
+    /** @var acl public read write */
     const ACL_PUBLIC_READ_WRITE = "public-read-write";
 }
 
@@ -1628,11 +2022,14 @@ class KalturaAmazonS3StorageProfileFilesPermissionLevel extends KalturaEnumBase 
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAmazonS3StorageProfileOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -1644,13 +2041,18 @@ class KalturaAmazonS3StorageProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaApiActionPermissionItemOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by id */
     const ID_ASC = "+id";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by id */
     const ID_DESC = "-id";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -1662,11 +2064,14 @@ class KalturaApiActionPermissionItemOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaApiParameterPermissionItemAction extends KalturaEnumBase {
+    /** @var usage */
     const USAGE = "all";
+    /** @var insert */
     const INSERT = "insert";
+    /** @var read */
     const READ = "read";
+    /** @var update */
     const UPDATE = "update";
 }
 
@@ -1678,13 +2083,18 @@ class KalturaApiParameterPermissionItemAction extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaApiParameterPermissionItemOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by id */
     const ID_ASC = "+id";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by id */
     const ID_DESC = "-id";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -1696,11 +2106,14 @@ class KalturaApiParameterPermissionItemOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAppTokenHashType extends KalturaEnumBase {
+    /** @var md5 */
     const MD5 = "MD5";
+    /** @var sha1 */
     const SHA1 = "SHA1";
+    /** @var sha256 */
     const SHA256 = "SHA256";
+    /** @var sha512 */
     const SHA512 = "SHA512";
 }
 
@@ -1712,11 +2125,14 @@ class KalturaAppTokenHashType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAppTokenOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -1728,15 +2144,22 @@ class KalturaAppTokenOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAssetOrderBy extends KalturaEnumBase {
+    /** @var order by cerated */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by deleted */
     const DELETED_AT_ASC = "+deletedAt";
+    /** @var order by size */
     const SIZE_ASC = "+size";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by deleted */
     const DELETED_AT_DESC = "-deletedAt";
+    /** @var order by size */
     const SIZE_DESC = "-size";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -1748,7 +2171,6 @@ class KalturaAssetOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAssetParamsOrderBy extends KalturaEnumBase {
 }
 
@@ -1760,7 +2182,6 @@ class KalturaAssetParamsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAssetParamsOutputOrderBy extends KalturaEnumBase {
 }
 
@@ -1772,7 +2193,6 @@ class KalturaAssetParamsOutputOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAssetType extends KalturaEnumBase {
     const ATTACHMENT = "attachment.Attachment";
     const CAPTION = "caption.Caption";
@@ -1796,7 +2216,6 @@ class KalturaAssetType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAudioCodec extends KalturaEnumBase {
     const NONE = "";
     const AAC = "aac";
@@ -1821,7 +2240,6 @@ class KalturaAudioCodec extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBaseEntryCloneOptions extends KalturaEnumBase {
     const AD_CUE_POINTS = "adCuePoint.AD_CUE_POINTS";
     const ANNOTATION_CUE_POINTS = "annotation.ANNOTATION_CUE_POINTS";
@@ -1844,7 +2262,6 @@ class KalturaBaseEntryCloneOptions extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBaseEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -1870,7 +2287,6 @@ class KalturaBaseEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBaseEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -1895,7 +2311,6 @@ class KalturaBaseEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBaseEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const END_DATE_ASC = "+endDate";
@@ -1929,7 +2344,6 @@ class KalturaBaseEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBaseSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";
@@ -1951,7 +2365,6 @@ class KalturaBaseSyndicationFeedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBatchJobObjectType extends KalturaEnumBase {
     const ENTRY_DISTRIBUTION = "contentDistribution.EntryDistribution";
     const DROP_FOLDER_FILE = "dropFolderXmlBulkUpload.DropFolderFile";
@@ -1972,7 +2385,6 @@ class KalturaBatchJobObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBatchJobOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const ESTIMATED_EFFORT_ASC = "+estimatedEffort";
@@ -2002,7 +2414,6 @@ class KalturaBatchJobOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBatchJobType extends KalturaEnumBase {
     const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
     const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
@@ -2073,7 +2484,6 @@ class KalturaBatchJobType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBulkUploadAction extends KalturaEnumBase {
     const CANCEL = "scheduleBulkUpload.CANCEL";
     const ADD = "1";
@@ -2092,7 +2502,6 @@ class KalturaBulkUploadAction extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBulkUploadObjectType extends KalturaEnumBase {
     const SCHEDULE_EVENT = "scheduleBulkUpload.SCHEDULE_EVENT";
     const SCHEDULE_RESOURCE = "scheduleBulkUpload.SCHEDULE_RESOURCE";
@@ -2111,7 +2520,6 @@ class KalturaBulkUploadObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBulkUploadOrderBy extends KalturaEnumBase {
 }
 
@@ -2123,7 +2531,6 @@ class KalturaBulkUploadOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBulkUploadResultStatus extends KalturaEnumBase {
     const ERROR = "1";
     const OK = "2";
@@ -2138,7 +2545,6 @@ class KalturaBulkUploadResultStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBulkUploadType extends KalturaEnumBase {
     const CSV = "bulkUploadCsv.CSV";
     const FILTER = "bulkUploadFilter.FILTER";
@@ -2156,7 +2562,6 @@ class KalturaBulkUploadType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryEntryAdvancedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const CREATED_AT_DESC = "-createdAt";
@@ -2170,7 +2575,6 @@ class KalturaCategoryEntryAdvancedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const CREATED_AT_DESC = "-createdAt";
@@ -2184,7 +2588,6 @@ class KalturaCategoryEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryIdentifierField extends KalturaEnumBase {
     const FULL_NAME = "fullName";
     const ID = "id";
@@ -2199,7 +2602,6 @@ class KalturaCategoryIdentifierField extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DEPTH_ASC = "+depth";
@@ -2231,7 +2633,6 @@ class KalturaCategoryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryUserOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2247,7 +2648,6 @@ class KalturaCategoryUserOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCloneComponentSelectorType extends KalturaEnumBase {
     const INCLUDE_COMPONENT = "0";
     const EXCLUDE_COMPONENT = "1";
@@ -2261,7 +2661,6 @@ class KalturaCloneComponentSelectorType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConditionType extends KalturaEnumBase {
     const EVENT_NOTIFICATION_FIELD = "eventNotification.BooleanField";
     const EVENT_NOTIFICATION_OBJECT_CHANGED = "eventNotification.ObjectChanged";
@@ -2293,7 +2692,6 @@ class KalturaConditionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaContainerFormat extends KalturaEnumBase {
     const _3GP = "3gp";
     const APPLEHTTP = "applehttp";
@@ -2334,7 +2732,6 @@ class KalturaContainerFormat extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaContextType extends KalturaEnumBase {
     const PLAY = "1";
     const DOWNLOAD = "2";
@@ -2352,7 +2749,6 @@ class KalturaContextType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaControlPanelCommandOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2368,7 +2764,6 @@ class KalturaControlPanelCommandOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConversionProfileAssetParamsOrderBy extends KalturaEnumBase {
 }
 
@@ -2380,7 +2775,6 @@ class KalturaConversionProfileAssetParamsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConversionProfileOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const CREATED_AT_DESC = "-createdAt";
@@ -2394,7 +2788,6 @@ class KalturaConversionProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConversionProfileStatus extends KalturaEnumBase {
     const DISABLED = "1";
     const ENABLED = "2";
@@ -2409,7 +2802,6 @@ class KalturaConversionProfileStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConversionProfileType extends KalturaEnumBase {
     const MEDIA = "1";
     const LIVE_STREAM = "2";
@@ -2423,7 +2815,6 @@ class KalturaConversionProfileType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDataEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -2449,7 +2840,6 @@ class KalturaDataEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDataEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -2474,7 +2864,6 @@ class KalturaDataEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDataEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const END_DATE_ASC = "+endDate";
@@ -2508,7 +2897,6 @@ class KalturaDataEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileAkamaiAppleHttpManifestOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2524,7 +2912,6 @@ class KalturaDeliveryProfileAkamaiAppleHttpManifestOrderBy extends KalturaEnumBa
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileAkamaiHdsOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2540,7 +2927,6 @@ class KalturaDeliveryProfileAkamaiHdsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileAkamaiHttpOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2556,7 +2942,6 @@ class KalturaDeliveryProfileAkamaiHttpOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileGenericAppleHttpOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2572,7 +2957,6 @@ class KalturaDeliveryProfileGenericAppleHttpOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileGenericHdsOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2588,7 +2972,6 @@ class KalturaDeliveryProfileGenericHdsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileGenericHttpOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2604,7 +2987,6 @@ class KalturaDeliveryProfileGenericHttpOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileGenericRtmpOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2620,7 +3002,6 @@ class KalturaDeliveryProfileGenericRtmpOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileGenericSilverLightOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2636,7 +3017,6 @@ class KalturaDeliveryProfileGenericSilverLightOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileLiveAppleHttpOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2652,7 +3032,6 @@ class KalturaDeliveryProfileLiveAppleHttpOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2668,7 +3047,6 @@ class KalturaDeliveryProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileRtmpOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2684,7 +3062,6 @@ class KalturaDeliveryProfileRtmpOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileType extends KalturaEnumBase {
     const EDGE_CAST_HTTP = "edgeCast.EDGE_CAST_HTTP";
     const EDGE_CAST_RTMP = "edgeCast.EDGE_CAST_RTMP";
@@ -2746,7 +3123,6 @@ class KalturaDeliveryProfileType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryServerNodeOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const HEARTBEAT_TIME_ASC = "+heartbeatTime";
@@ -2764,7 +3140,6 @@ class KalturaDeliveryServerNodeOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDocumentEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -2790,7 +3165,6 @@ class KalturaDocumentEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDocumentEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -2815,7 +3189,6 @@ class KalturaDocumentEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDrmSchemeName extends KalturaEnumBase {
     const PLAYREADY_CENC = "drm.PLAYREADY_CENC";
     const WIDEVINE_CENC = "drm.WIDEVINE_CENC";
@@ -2832,7 +3205,6 @@ class KalturaDrmSchemeName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDurationType extends KalturaEnumBase {
     const LONG = "long";
     const MEDIUM = "medium";
@@ -2848,7 +3220,6 @@ class KalturaDurationType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchLanguage extends KalturaEnumBase {
     const ARABIC = "Arabic";
     const BASQUE = "Basque";
@@ -2893,7 +3264,6 @@ class KalturaESearchLanguage extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEdgeServerNodeOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const HEARTBEAT_TIME_ASC = "+heartbeatTime";
@@ -2911,7 +3281,6 @@ class KalturaEdgeServerNodeOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryIdentifierField extends KalturaEnumBase {
     const ID = "id";
     const REFERENCE_ID = "referenceId";
@@ -2925,7 +3294,6 @@ class KalturaEntryIdentifierField extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryReplacementStatus extends KalturaEnumBase {
     const NONE = "0";
     const APPROVED_BUT_NOT_READY = "1";
@@ -2942,7 +3310,6 @@ class KalturaEntryReplacementStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryServerNodeOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -2958,7 +3325,6 @@ class KalturaEntryServerNodeOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryServerNodeType extends KalturaEnumBase {
     const LIVE_PRIMARY = "0";
     const LIVE_BACKUP = "1";
@@ -2972,7 +3338,6 @@ class KalturaEntryServerNodeType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryStatus extends KalturaEnumBase {
     const ERROR_IMPORTING = "-2";
     const ERROR_CONVERTING = "-1";
@@ -2996,7 +3361,6 @@ class KalturaEntryStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryType extends KalturaEnumBase {
     const AUTOMATIC = "-1";
     const EXTERNAL_MEDIA = "externalMedia.externalMedia";
@@ -3017,7 +3381,6 @@ class KalturaEntryType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaExternalMediaEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -3049,7 +3412,6 @@ class KalturaExternalMediaEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaExternalMediaEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -3076,7 +3438,6 @@ class KalturaExternalMediaEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileAssetObjectType extends KalturaEnumBase {
     const UI_CONF = "2";
 }
@@ -3089,7 +3450,6 @@ class KalturaFileAssetObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileAssetOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -3105,7 +3465,6 @@ class KalturaFileAssetOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileAssetStatus extends KalturaEnumBase {
     const PENDING = "0";
     const UPLOADING = "1";
@@ -3122,7 +3481,6 @@ class KalturaFileAssetStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileSyncObjectType extends KalturaEnumBase {
     const DISTRIBUTION_PROFILE = "contentDistribution.DistributionProfile";
     const ENTRY_DISTRIBUTION = "contentDistribution.EntryDistribution";
@@ -3149,7 +3507,6 @@ class KalturaFileSyncObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorAssetOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DELETED_AT_ASC = "+deletedAt";
@@ -3169,7 +3526,6 @@ class KalturaFlavorAssetOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorParamsOrderBy extends KalturaEnumBase {
 }
 
@@ -3181,7 +3537,6 @@ class KalturaFlavorParamsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorParamsOutputOrderBy extends KalturaEnumBase {
 }
 
@@ -3193,7 +3548,6 @@ class KalturaFlavorParamsOutputOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGenericSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";
@@ -3215,7 +3569,6 @@ class KalturaGenericSyndicationFeedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGenericXsltSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";
@@ -3237,7 +3590,6 @@ class KalturaGenericXsltSyndicationFeedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGeoCoderType extends KalturaEnumBase {
     const KALTURA = "1";
     const MAX_MIND = "2";
@@ -3252,7 +3604,6 @@ class KalturaGeoCoderType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGoogleSyndicationFeedAdultValues extends KalturaEnumBase {
     const NO = "No";
     const YES = "Yes";
@@ -3266,7 +3617,6 @@ class KalturaGoogleSyndicationFeedAdultValues extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGoogleVideoSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";
@@ -3288,7 +3638,6 @@ class KalturaGoogleVideoSyndicationFeedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGroupUserOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -3304,7 +3653,6 @@ class KalturaGroupUserOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaITunesSyndicationFeedAdultValues extends KalturaEnumBase {
     const CLEAN = "clean";
     const NO = "no";
@@ -3319,7 +3667,6 @@ class KalturaITunesSyndicationFeedAdultValues extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaITunesSyndicationFeedCategories extends KalturaEnumBase {
     const ARTS = "Arts";
     const ARTS_DESIGN = "Arts/Design";
@@ -3398,7 +3745,6 @@ class KalturaITunesSyndicationFeedCategories extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaITunesSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";
@@ -3420,7 +3766,6 @@ class KalturaITunesSyndicationFeedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLanguage extends KalturaEnumBase {
     const ABQ = "Abaza";
     const AB = "Abkhazian";
@@ -3980,7 +4325,6 @@ class KalturaLanguage extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLanguageCode extends KalturaEnumBase {
     const AA = "aa";
     const AB = "ab";
@@ -4138,7 +4482,6 @@ class KalturaLanguageCode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveAssetOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DELETED_AT_ASC = "+deletedAt";
@@ -4158,7 +4501,6 @@ class KalturaLiveAssetOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -4190,7 +4532,6 @@ class KalturaLiveChannelCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -4217,7 +4558,6 @@ class KalturaLiveChannelMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -4265,7 +4605,6 @@ class KalturaLiveChannelOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelSegmentOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const START_TIME_ASC = "+startTime";
@@ -4283,7 +4622,6 @@ class KalturaLiveChannelSegmentOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelSegmentStatus extends KalturaEnumBase {
     const ACTIVE = "2";
     const DELETED = "3";
@@ -4297,7 +4635,6 @@ class KalturaLiveChannelSegmentStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelSegmentTriggerType extends KalturaEnumBase {
     const CHANNEL_RELATIVE = "1";
     const ABSOLUTE_TIME = "2";
@@ -4313,7 +4650,6 @@ class KalturaLiveChannelSegmentTriggerType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelSegmentType extends KalturaEnumBase {
     const VIDEO_AND_AUDIO = "1";
 }
@@ -4326,7 +4662,6 @@ class KalturaLiveChannelSegmentType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -4358,7 +4693,6 @@ class KalturaLiveEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -4385,7 +4719,6 @@ class KalturaLiveEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -4433,7 +4766,6 @@ class KalturaLiveEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveParamsOrderBy extends KalturaEnumBase {
 }
 
@@ -4445,7 +4777,6 @@ class KalturaLiveParamsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveReportOrderBy extends KalturaEnumBase {
     const NAME_ASC = "+name";
     const AUDIENCE_DESC = "-audience";
@@ -4461,7 +4792,6 @@ class KalturaLiveReportOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveReportType extends KalturaEnumBase {
     const ENTRY_GEO_TIME_LINE = "ENTRY_GEO_TIME_LINE";
     const ENTRY_SYNDICATION_TOTAL = "ENTRY_SYNDICATION_TOTAL";
@@ -4478,7 +4808,6 @@ class KalturaLiveReportType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamAdminEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -4510,7 +4839,6 @@ class KalturaLiveStreamAdminEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamAdminEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -4537,7 +4865,6 @@ class KalturaLiveStreamAdminEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamAdminEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -4585,7 +4912,6 @@ class KalturaLiveStreamAdminEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -4617,7 +4943,6 @@ class KalturaLiveStreamEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamEntryMatchAttribute extends KalturaEnumBase
 {
     const ADMIN_TAGS = "adminTags";
@@ -4645,7 +4970,6 @@ class KalturaLiveStreamEntryMatchAttribute extends KalturaEnumBase
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -4693,7 +5017,6 @@ class KalturaLiveStreamEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMailType extends KalturaEnumBase {
     const MAIL_TYPE_KALTURA_NEWSLETTER = "10";
     const MAIL_TYPE_ADDED_TO_FAVORITES = "11";
@@ -4747,7 +5070,6 @@ class KalturaMailType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMatchConditionType extends KalturaEnumBase {
     const MATCH_ANY = "1";
     const MATCH_ALL = "2";
@@ -4761,7 +5083,6 @@ class KalturaMatchConditionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -4793,7 +5114,6 @@ class KalturaMediaEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -4820,7 +5140,6 @@ class KalturaMediaEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -4864,7 +5183,6 @@ class KalturaMediaEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaFlavorParamsOrderBy extends KalturaEnumBase {
 }
 
@@ -4876,7 +5194,6 @@ class KalturaMediaFlavorParamsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaFlavorParamsOutputOrderBy extends KalturaEnumBase {
 }
 
@@ -4888,7 +5205,6 @@ class KalturaMediaFlavorParamsOutputOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaInfoOrderBy extends KalturaEnumBase {
 }
 
@@ -4900,7 +5216,6 @@ class KalturaMediaInfoOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaParserType extends KalturaEnumBase {
     const MEDIAINFO = "0";
     const FFMPEG = "1";
@@ -4914,7 +5229,6 @@ class KalturaMediaParserType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaServerNodeOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const HEARTBEAT_TIME_ASC = "+heartbeatTime";
@@ -4932,7 +5246,6 @@ class KalturaMediaServerNodeOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMixEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -4962,7 +5275,6 @@ class KalturaMixEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMixEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -4988,7 +5300,6 @@ class KalturaMixEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMixEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -5030,7 +5341,6 @@ class KalturaMixEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaModerationFlagStatus extends KalturaEnumBase {
     const PENDING = "1";
     const MODERATED = "2";
@@ -5044,7 +5354,6 @@ class KalturaModerationFlagStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaModerationObjectType extends KalturaEnumBase {
     const ENTRY = "2";
     const USER = "3";
@@ -5058,7 +5367,6 @@ class KalturaModerationObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPartnerOrderBy extends KalturaEnumBase {
     const ADMIN_EMAIL_ASC = "+adminEmail";
     const ADMIN_NAME_ASC = "+adminName";
@@ -5084,7 +5392,6 @@ class KalturaPartnerOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionItemOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const ID_ASC = "+id";
@@ -5102,7 +5409,6 @@ class KalturaPermissionItemOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionItemType extends KalturaEnumBase {
     const API_ACTION_ITEM = "kApiActionPermissionItem";
     const API_PARAMETER_ITEM = "kApiParameterPermissionItem";
@@ -5116,7 +5422,6 @@ class KalturaPermissionItemType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const ID_ASC = "+id";
@@ -5136,7 +5441,6 @@ class KalturaPermissionOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlayableEntryCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -5166,7 +5470,6 @@ class KalturaPlayableEntryCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlayableEntryMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -5192,7 +5495,6 @@ class KalturaPlayableEntryMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlayableEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DURATION_ASC = "+duration";
@@ -5234,7 +5536,6 @@ class KalturaPlayableEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlaybackProtocol extends KalturaEnumBase {
     const APPLE_HTTP = "applehttp";
     const APPLE_HTTP_TO_MC = "applehttp_to_mc";
@@ -5260,7 +5561,6 @@ class KalturaPlaybackProtocol extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlaylistCompareAttribute extends KalturaEnumBase {
     const ACCESS_CONTROL_ID = "accessControlId";
     const CREATED_AT = "createdAt";
@@ -5286,7 +5586,6 @@ class KalturaPlaylistCompareAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlaylistMatchAttribute extends KalturaEnumBase {
     const ADMIN_TAGS = "adminTags";
     const CATEGORIES_IDS = "categoriesIds";
@@ -5311,7 +5610,6 @@ class KalturaPlaylistMatchAttribute extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlaylistOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const END_DATE_ASC = "+endDate";
@@ -5345,7 +5643,6 @@ class KalturaPlaylistOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaQuizUserEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -5361,7 +5658,6 @@ class KalturaQuizUserEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaReportInterval extends KalturaEnumBase
 {
     const DAYS = "days";
@@ -5376,7 +5672,6 @@ class KalturaReportInterval extends KalturaEnumBase
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaReportOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const CREATED_AT_DESC = "-createdAt";
@@ -5390,7 +5685,6 @@ class KalturaReportOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaReportType extends KalturaEnumBase {
     const QUIZ = "quiz.QUIZ";
     const QUIZ_AGGREGATE_BY_QUESTION = "quiz.QUIZ_AGGREGATE_BY_QUESTION";
@@ -5430,7 +5724,6 @@ class KalturaReportType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaResponseProfileOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -5446,7 +5739,6 @@ class KalturaResponseProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaRuleActionType extends KalturaEnumBase {
     const DRM_POLICY = "drm.DRM_POLICY";
     const BLOCK = "1";
@@ -5467,7 +5759,6 @@ class KalturaRuleActionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSchemaType extends KalturaEnumBase {
     const BULK_UPLOAD_RESULT_XML = "bulkUploadXml.bulkUploadResultXML";
     const BULK_UPLOAD_XML = "bulkUploadXml.bulkUploadXML";
@@ -5485,7 +5776,6 @@ class KalturaSchemaType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSearchConditionComparison extends KalturaEnumBase {
     const EQUAL = "1";
     const GREATER_THAN = "2";
@@ -5503,7 +5793,6 @@ class KalturaSearchConditionComparison extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaServerNodeOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const HEARTBEAT_TIME_ASC = "+heartbeatTime";
@@ -5521,7 +5810,6 @@ class KalturaServerNodeOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaServerNodeType extends KalturaEnumBase {
     const WOWZA_MEDIA_SERVER = "wowza.WOWZA_MEDIA_SERVER";
     const EDGE = "1";
@@ -5535,7 +5823,6 @@ class KalturaServerNodeType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSourceType extends KalturaEnumBase {
     const LIMELIGHT_LIVE = "limeLight.LIVE_STREAM";
     const VELOCIX_LIVE = "velocix.VELOCIX_LIVE";
@@ -5563,7 +5850,6 @@ class KalturaSourceType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStorageProfileOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -5579,7 +5865,6 @@ class KalturaStorageProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStorageProfileProtocol extends KalturaEnumBase {
     const KONTIKI = "kontiki.KONTIKI";
     const KALTURA_DC = "0";
@@ -5598,7 +5883,6 @@ class KalturaStorageProfileProtocol extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSyndicationFeedEntriesOrderBy extends KalturaEnumBase {
     const CREATED_AT_DESC = "-createdAt";
     const RECENT = "recent";
@@ -5612,7 +5896,6 @@ class KalturaSyndicationFeedEntriesOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaTaggedObjectType extends KalturaEnumBase {
     const ENTRY = "1";
     const CATEGORY = "2";
@@ -5626,7 +5909,6 @@ class KalturaTaggedObjectType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbAssetOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const DELETED_AT_ASC = "+deletedAt";
@@ -5646,7 +5928,6 @@ class KalturaThumbAssetOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbParamsOrderBy extends KalturaEnumBase {
 }
 
@@ -5658,7 +5939,6 @@ class KalturaThumbParamsOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbParamsOutputOrderBy extends KalturaEnumBase {
 }
 
@@ -5670,7 +5950,6 @@ class KalturaThumbParamsOutputOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaTubeMogulSyndicationFeedCategories extends KalturaEnumBase {
     const ANIMALS_AND_PETS = "Animals &amp; Pets";
     const ARTS_AND_ANIMATION = "Arts &amp; Animation";
@@ -5697,7 +5976,6 @@ class KalturaTubeMogulSyndicationFeedCategories extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaTubeMogulSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";
@@ -5719,7 +5997,6 @@ class KalturaTubeMogulSyndicationFeedOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUiConfOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -5735,7 +6012,6 @@ class KalturaUiConfOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUploadTokenOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const CREATED_AT_DESC = "-createdAt";
@@ -5749,7 +6025,6 @@ class KalturaUploadTokenOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserEntryExtendedStatus extends KalturaEnumBase {
     const PLAYBACK_COMPLETE = "viewHistory.PLAYBACK_COMPLETE";
     const PLAYBACK_STARTED = "viewHistory.PLAYBACK_STARTED";
@@ -5764,7 +6039,6 @@ class KalturaUserEntryExtendedStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserEntryOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const UPDATED_AT_ASC = "+updatedAt";
@@ -5780,7 +6054,6 @@ class KalturaUserEntryOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserEntryStatus extends KalturaEnumBase {
     const QUIZ_SUBMITTED = "quiz.3";
     const ACTIVE = "1";
@@ -5795,7 +6068,6 @@ class KalturaUserEntryStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserEntryType extends KalturaEnumBase {
     const QUIZ = "quiz.QUIZ";
     const VIEW_HISTORY = "viewHistory.VIEW_HISTORY";
@@ -5809,7 +6081,6 @@ class KalturaUserEntryType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserLoginDataOrderBy extends KalturaEnumBase {
 }
 
@@ -5821,7 +6092,6 @@ class KalturaUserLoginDataOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const ID_ASC = "+id";
@@ -5837,7 +6107,6 @@ class KalturaUserOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserRoleOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const ID_ASC = "+id";
@@ -5857,7 +6126,6 @@ class KalturaUserRoleOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaVideoCodec extends KalturaEnumBase {
     const NONE = "";
     const APCH = "apch";
@@ -5893,7 +6161,6 @@ class KalturaVideoCodec extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaWidgetOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const CREATED_AT_DESC = "-createdAt";
@@ -5907,7 +6174,6 @@ class KalturaWidgetOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaYahooSyndicationFeedAdultValues extends KalturaEnumBase {
     const ADULT = "adult";
     const NON_ADULT = "nonadult";
@@ -5921,7 +6187,6 @@ class KalturaYahooSyndicationFeedAdultValues extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaYahooSyndicationFeedCategories extends KalturaEnumBase {
     const ACTION = "Action";
     const ANIMALS = "Animals";
@@ -5953,7 +6218,6 @@ class KalturaYahooSyndicationFeedCategories extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaYahooSyndicationFeedOrderBy extends KalturaEnumBase {
     const CREATED_AT_ASC = "+createdAt";
     const NAME_ASC = "+name";

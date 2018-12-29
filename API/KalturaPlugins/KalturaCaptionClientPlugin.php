@@ -555,7 +555,8 @@ class KalturaCaptionAssetService extends KalturaServiceBase {
      */
     public function serve($captionassetid) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "captionAssetId", $captionassetid);
@@ -574,7 +575,8 @@ class KalturaCaptionAssetService extends KalturaServiceBase {
      */
     public function serveByEntryId($entryid, $captionparamid = null) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
@@ -596,7 +598,8 @@ class KalturaCaptionAssetService extends KalturaServiceBase {
      */
     public function serveWebVTT($captionassetid, $segmentduration = 30, $segmentindex = null, $localtimestamp = 10000) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "captionAssetId", $captionassetid);

@@ -506,8 +506,9 @@ class KalturaClientBase {
         }
 
         if ($this->destinationPath || $this->returnServedResult) {
-            throw new KalturaClientException("Downloading files is not supported with stream context http request, please use curl.",
-                                             KalturaClientException::ERROR_DOWNLOAD_NOT_SUPPORTED);
+            throw new KalturaClientException(
+                "Downloading files is not supported with stream context http request, please use curl.",
+                KalturaClientException::ERROR_DOWNLOAD_NOT_SUPPORTED);
         }
         return $this->doPostRequest($url, $params, $files);
     }

@@ -636,7 +636,8 @@ class KalturaDocumentsService extends KalturaServiceBase {
      * Copy entry into new entry
      * @param string $sourceentryid - Document entry id to copy from
      * @param KalturaDocumentEntry $documententry - Document entry metadata
-     * @param int $sourceflavorparamsid - The flavor to be used as the new entry source, source flavor will be used if not specified.
+     * @param int $sourceflavorparamsid - The flavor to be used as the new entry source,
+     * source flavor will be used if not specified.
      * @return  KalturaDocumentEntry - instance of KalturaDocumentEntry.
      */
     public function addFromEntry($sourceentryid, KalturaDocumentEntry $documententry = null, $sourceflavorparamsid = null) {

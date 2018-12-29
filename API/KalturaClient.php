@@ -550,7 +550,6 @@ class KalturaAppTokenService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBaseEntryService extends KalturaServiceBase
 {
     public function __construct(KalturaClient $client = null) {
@@ -1085,7 +1084,6 @@ class KalturaBaseEntryService extends KalturaServiceBase
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBulkUploadService extends KalturaServiceBase {
 
     public function __construct(KalturaClient $client = null) {
@@ -1222,7 +1220,6 @@ class KalturaBulkUploadService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryEntryService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1394,7 +1391,6 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1587,7 +1583,6 @@ class KalturaCategoryService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCategoryUserService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1810,7 +1805,6 @@ class KalturaCategoryUserService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConversionProfileAssetParamsService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1871,7 +1865,6 @@ class KalturaConversionProfileAssetParamsService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaConversionProfileService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2018,7 +2011,6 @@ class KalturaConversionProfileService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDataService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2174,7 +2166,6 @@ class KalturaDataService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDeliveryProfileService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2288,7 +2279,6 @@ class KalturaDeliveryProfileService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEmailIngestionProfileService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2419,7 +2409,6 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaEntryServerNodeService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2509,7 +2498,6 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileAssetService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2656,7 +2644,6 @@ class KalturaFileAssetService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorAssetService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3035,7 +3022,6 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorParamsOutputService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3092,7 +3078,6 @@ class KalturaFlavorParamsOutputService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFlavorParamsService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3221,7 +3206,6 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaGroupUserService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3296,7 +3280,6 @@ class KalturaGroupUserService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelSegmentService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3407,7 +3390,6 @@ class KalturaLiveChannelSegmentService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveChannelService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3680,7 +3662,6 @@ class KalturaLiveChannelService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveReportsService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3782,7 +3763,6 @@ class KalturaLiveReportsService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStatsService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -3816,7 +3796,6 @@ class KalturaLiveStatsService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaLiveStreamService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -4245,7 +4224,6 @@ class KalturaLiveStreamService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaInfoService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -4284,7 +4262,6 @@ class KalturaMediaInfoService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMediaService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -4974,7 +4951,6 @@ class KalturaMediaService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaMixingService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -5203,7 +5179,6 @@ class KalturaMixingService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaNotificationService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -5238,7 +5213,6 @@ class KalturaNotificationService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPartnerService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -5482,7 +5456,6 @@ class KalturaPartnerService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionItemService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -5598,7 +5571,6 @@ class KalturaPermissionItemService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPermissionService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -5729,7 +5701,6 @@ class KalturaPermissionService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlaylistService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -5976,7 +5947,6 @@ class KalturaPlaylistService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaReportService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6206,7 +6176,6 @@ class KalturaReportService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaResponseProfileService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6375,7 +6344,6 @@ class KalturaResponseProfileService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSchemaService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6408,7 +6376,6 @@ class KalturaSchemaService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSearchService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6507,7 +6474,6 @@ class KalturaSearchService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaServerNodeService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6675,7 +6641,6 @@ class KalturaServerNodeService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSessionService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6828,7 +6793,6 @@ class KalturaSessionService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStatsService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -6948,7 +6912,6 @@ class KalturaStatsService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaStorageProfileService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -7059,7 +7022,6 @@ class KalturaStorageProfileService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSyndicationFeedService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -7207,7 +7169,6 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSystemService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -7282,7 +7243,6 @@ class KalturaSystemService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbAssetService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -7653,7 +7613,6 @@ class KalturaThumbAssetService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbParamsOutputService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -7710,7 +7669,6 @@ class KalturaThumbParamsOutputService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbParamsService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -7839,7 +7797,6 @@ class KalturaThumbParamsService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUiConfService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8008,7 +7965,6 @@ class KalturaUiConfService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUploadService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8058,7 +8014,6 @@ class KalturaUploadService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUploadTokenService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8187,7 +8142,6 @@ class KalturaUploadTokenService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserEntryService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8329,7 +8283,6 @@ class KalturaUserEntryService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserRoleService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8462,7 +8415,6 @@ class KalturaUserRoleService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUserService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8853,7 +8805,6 @@ class KalturaUserService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaWidgetService extends KalturaServiceBase {
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -8968,7 +8919,6 @@ class KalturaWidgetService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaClient extends KalturaClientBase {
     /**
      * Manage access control profiles

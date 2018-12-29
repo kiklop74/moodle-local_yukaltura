@@ -171,7 +171,8 @@ class KalturaUnicornDistributionProfile extends KalturaConfigurableDistributionP
     public $domainGuid = null;
 
     /**
-     * The GUID for the application in which to record metrics and enforce business rules obtained through your Unicorn representative.
+     * The GUID for the application in which to record metrics and enforce business rules obtained
+     * through your Unicorn representative.
      *
      * @var string
      */

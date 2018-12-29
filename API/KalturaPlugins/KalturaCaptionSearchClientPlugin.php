@@ -215,7 +215,8 @@ class KalturaCaptionAssetItemService extends KalturaServiceBase {
      * @param KalturaFilterPager $captionassetitempager - instance of KalturaFilterPager.
      * @return KalturaCaptionAssetItemListResponse - instance of KalturaCaptionAssetItemListResponse.
      */
-    public function listAction($captionassetid, KalturaCaptionAssetItemFilter $captionassetitemfilter = null, KalturaFilterPager $captionassetitempager = null) {
+    public function listAction($captionassetid, KalturaCaptionAssetItemFilter $captionassetitemfilter = null,
+                               KalturaFilterPager $captionassetitempager = null) {
         $kparams = array();
         $this->client->addParam($kparams, "captionAssetId", $captionassetid);
         if ($captionassetitemfilter !== null) {
@@ -241,7 +242,9 @@ class KalturaCaptionAssetItemService extends KalturaServiceBase {
      * @param KalturaFilterPager $captionassetitempager - instance of KalturaFilterPager.
      * @return KalturaCaptionAssetItemListResponse - instance of KalturaCaptionAssetItemListResponse.
      */
-    public function search(KalturaBaseEntryFilter $entryfilter = null, KalturaCaptionAssetItemFilter $captionassetitemfilter = null, KalturaFilterPager $captionassetitempager = null) {
+    public function search(KalturaBaseEntryFilter $entryfilter = null,
+                           KalturaCaptionAssetItemFilter $captionassetitemfilter = null,
+                           KalturaFilterPager $captionassetitempager = null) {
         $kparams = array();
         if ($entryfilter !== null) {
             $this->client->addParam($kparams, "entryFilter", $entryfilter->toParams());
@@ -269,7 +272,9 @@ class KalturaCaptionAssetItemService extends KalturaServiceBase {
      * @param KalturaFilterPager $captionassetitempager - instance of KalturaFilterPager.
      * @return KalturaBaseEntryListResponse - instance of KalturaBaseEntryListResponse.
      */
-    public function searchEntries(KalturaBaseEntryFilter $entryfilter = null, KalturaCaptionAssetItemFilter $captionassetitemfilter = null, KalturaFilterPager $captionassetitempager = null) {
+    public function searchEntries(KalturaBaseEntryFilter $entryfilter = null,
+                                  KalturaCaptionAssetItemFilter $captionassetitemfilter = null,
+                                  KalturaFilterPager $captionassetitempager = null) {
         $kparams = array();
         if ($entryfilter !== null) {
             $this->client->addParam($kparams, "entryFilter", $entryfilter->toParams());

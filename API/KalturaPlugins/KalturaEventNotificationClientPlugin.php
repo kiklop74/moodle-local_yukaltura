@@ -628,7 +628,9 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     }
 
     /**
-     * This action allows for the creation of new backend event types in the system. This action requires access to the Kaltura server Admin Console. If you're looking to register to existing event types, please use the clone action instead.
+     * This action allows for the creation of new backend event types in the system.
+     * This action requires access to the Kaltura server Admin Console.
+     * If you're looking to register to existing event types, please use the clone action instead.
      * @param KalturaEventNotificationTemplate $eventnotificationtemplate - templated object.
      * @return KalturaEventNotificationTemplate - template object.
      */
@@ -646,7 +648,9 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     }
 
     /**
-     * This action allows registering to various backend event. Use this action to create notifications that will react to events such as new video was uploaded or metadata field was updated. To see the list of available event types, call the listTemplates action.
+     * This action allows registering to various backend event.
+     * Use this action to create notifications that will react to events such as new video was uploaded
+     * or metadata field was updated. To see the list of available event types, call the listTemplates action.
      * @param int $id - Source template to clone
      * @param KalturaEventNotificationTemplate $eventnotificationtemplate -  template object.
      * @return KalturaEventNotificationTemplate - template object.
@@ -794,8 +798,9 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     }
 
     /**
-     * Register to a queue from which event messages will be provided according to given template. Queue will be created if not already exists
-     * @param string $notificationtemplatesystemname - Existing push notification template system name
+     * Register to a queue from which event messages will be provided according to given template.
+     * Queue will be created if not already exists
+     * @param string $notificationtemplatesystemname - Existing push notification template system name.
      * @param KalturaPushNotificationParams $pushnotificationparams - params.
      * @return KalturaPushNotificationData - pus notification object.
      */

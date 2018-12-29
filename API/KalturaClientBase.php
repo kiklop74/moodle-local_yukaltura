@@ -354,7 +354,8 @@ class KalturaClientBase {
     public function doQueue() {
         if ($this->isMultiRequest && ($this->destinationPath || $this->returnServedResult)) {
             $this->resetRequest();
-            throw new KalturaClientException("Downloading files is not supported as part of multi-request.", KalturaClientException::ERROR_DOWNLOAD_IN_MULTIREQUEST);
+            throw new KalturaClientException("Downloading files is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_DOWNLOAD_IN_MULTIREQUEST);
         }
 
         if (count($this->callsQueue) == 0) {
@@ -437,7 +438,8 @@ class KalturaClientBase {
 
                 if ($result === false && serialize(false) !== $postresult) {
                     $this->resetRequest();
-                    throw new KalturaClientException("failed to unserialize server result\n$postresult", KalturaClientException::ERROR_UNSERIALIZE_FAILED);
+                    throw new KalturaClientException("failed to unserialize server result\n$postresult",
+                                                     KalturaClientException::ERROR_UNSERIALIZE_FAILED);
                 }
                 $dump = print_r($result, true);
                 $this->log("result (object dump): " . $dump);
@@ -445,14 +447,16 @@ class KalturaClientBase {
                 $result = json_decode($postresult);
                 if (is_null($result) && strtolower($postresult) !== 'null') {
                     $this->resetRequest();
-                    throw new KalturaClientException("failed to unserialize server result\n$postresult", KalturaClientException::ERROR_UNSERIALIZE_FAILED);
+                    throw new KalturaClientException("failed to unserialize server result\n$postresult",
+                                                     KalturaClientException::ERROR_UNSERIALIZE_FAILED);
                 }
                 $result = $this->jsObjectToClientObject($result);
                 $dump = print_r($result, true);
                 $this->log("result (object dump): " . $dump);
             } else {
                 $this->resetRequest();
-                throw new KalturaClientException("unsupported format: $postresult", KalturaClientException::ERROR_FORMAT_NOT_SUPPORTED);
+                throw new KalturaClientException("unsupported format: $postresult",
+                                                 KalturaClientException::ERROR_FORMAT_NOT_SUPPORTED);
             }
         }
         $this->resetRequest();
@@ -502,7 +506,8 @@ class KalturaClientBase {
         }
 
         if ($this->destinationPath || $this->returnServedResult) {
-            throw new KalturaClientException("Downloading files is not supported with stream context http request, please use curl.", KalturaClientException::ERROR_DOWNLOAD_NOT_SUPPORTED);
+            throw new KalturaClientException("Downloading files is not supported with stream context http request, please use curl.",
+                                             KalturaClientException::ERROR_DOWNLOAD_NOT_SUPPORTED);
         }
         return $this->doPostRequest($url, $params, $files);
     }
@@ -622,7 +627,8 @@ class KalturaClientBase {
      */
     private function doPostRequest($url, $params = array(), $files = array()) {
         if (count($files) > 0) {
-            throw new KalturaClientException("Uploading files is not supported with stream context http request, please use curl.", KalturaClientException::ERROR_UPLOAD_NOT_SUPPORTED);
+            throw new KalturaClientException("Uploading files is not supported with stream context http request, please use curl.",
+                                             KalturaClientException::ERROR_UPLOAD_NOT_SUPPORTED);
         }
         $formatteddata = http_build_query($params , "", "&");
         $this->log("post: $url?$formatteddata");
@@ -633,7 +639,8 @@ class KalturaClientBase {
                                         "content" => $formatteddata));
 
         if (isset($this->config->proxyType) && $this->config->proxyType === 'SOCKS5') {
-            throw new KalturaClientException("Cannot use SOCKS5 without curl installed.", KalturaClientException::ERROR_CONNECTION_FAILED);
+            throw new KalturaClientException("Cannot use SOCKS5 without curl installed.",
+                                             KalturaClientException::ERROR_CONNECTION_FAILED);
         }
         if (isset($this->config->proxyHost)) {
             $proxyhost = 'tcp://' . $this->config->proxyHost;
@@ -652,11 +659,13 @@ class KalturaClientBase {
         $fp = @fopen($url, 'rb', false, $ctx);
         if (!$fp) {
             $phperrormsg = "";
-            throw new KalturaClientException("Problem with $url, $phperrormsg", KalturaClientException::ERROR_CONNECTION_FAILED);
+            throw new KalturaClientException("Problem with $url, $phperrormsg",
+                                             KalturaClientException::ERROR_CONNECTION_FAILED);
         }
         $response = @stream_get_contents($fp);
         if ($response === false) {
-           throw new KalturaClientException("Problem reading data from $url, $phperrormsg", KalturaClientException::ERROR_READ_FAILED);
+            throw new KalturaClientException("Problem reading data from $url, $phperrormsg",
+                                             KalturaClientException::ERROR_READ_FAILED);
         }
         return array($response, '');
     }
@@ -818,7 +827,8 @@ class KalturaClientBase {
             }
 
             if (!isset($value->objectType)) {
-                throw new KalturaClientException("Response format not supported - objectType is required for all objects", KalturaClientException::ERROR_FORMAT_NOT_SUPPORTED);
+                throw new KalturaClientException("Response format not supported - objectType is required for all objects",
+                                                 KalturaClientException::ERROR_FORMAT_NOT_SUPPORTED);
             }
 
             $objecttype = $value->objectType;
@@ -907,16 +917,19 @@ class KalturaClientBase {
             return; // We do not check native simple types.
         } else if (is_object($resultobject)) {
             if (!($resultobject instanceof $objecttype)) {
-                throw new KalturaClientException("Invalid object type - not instance of $objecttype", KalturaClientException::ERROR_INVALID_OBJECT_TYPE);
+                throw new KalturaClientException("Invalid object type - not instance of $objecttype",
+                                                 KalturaClientException::ERROR_INVALID_OBJECT_TYPE);
             }
         } else if (class_exists($objecttype) && is_subclass_of($objecttype, 'KalturaEnumBase')) {
             $enum = new ReflectionClass($objecttype);
             $values = array_map('strval', $enum->getConstants());
             if (!in_array($resultobject, $values)) {
-                throw new KalturaClientException("Invalid enum value", KalturaClientException::ERROR_INVALID_ENUM_VALUE);
+                throw new KalturaClientException("Invalid enum value",
+                                                 KalturaClientException::ERROR_INVALID_ENUM_VALUE);
             }
         } else if (gettype($resultobject) !== $objecttype) {
-            throw new KalturaClientException("Invalid object type", KalturaClientException::ERROR_INVALID_OBJECT_TYPE);
+            throw new KalturaClientException("Invalid object type",
+                                             KalturaClientException::ERROR_INVALID_OBJECT_TYPE);
         }
     }
 
@@ -1070,7 +1083,8 @@ class KalturaClientBase {
      * @return string - encrypted message.
      */
     protected static function aesEncrypt($key, $message) {
-        $iv = str_repeat("\0", 16);    // no need for an IV since we add a random string to the message anyway
+        // No need for an IV since we add a random string to the message anyway.
+        $iv = str_repeat("\0", 16);
         $key = substr(sha1($key, true), 0, 16);
         // Pad with null byte to be compatible with mcrypt PKCS#5 padding.
         // See http://thefsb.tumblr.com/post/110749271235/using-opensslendecrypt-in-php-instead-of as reference.
@@ -1300,7 +1314,8 @@ abstract class KalturaObjectBase {
     public function __construct($params = array()) {
         foreach ($params as $key => $value) {
             if (!property_exists($this, $key)) {
-                throw new KalturaClientException("property [{$key}] does not exist on object [".get_class($this)."]", KalturaClientException::ERROR_INVALID_OBJECT_FIELD);
+                throw new KalturaClientException("property [{$key}] does not exist on object [".get_class($this)."]",
+                                                 KalturaClientException::ERROR_INVALID_OBJECT_FIELD);
             }
             $this->$key = $value;
         }

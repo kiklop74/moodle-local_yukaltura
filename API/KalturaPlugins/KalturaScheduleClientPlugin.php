@@ -469,11 +469,12 @@ class KalturaScheduleEventRecurrence extends KalturaObjectBase {
 
     /**
      * Comma separated of KalturaScheduleEventRecurrenceDay
-     *      Each byDay value can also be preceded by a positive (+n) or negative (-n) integer.
-     *      If present, this indicates the nth occurrence of the specific day within the MONTHLY or YEARLY RRULE.
-     *      For example, within a MONTHLY rule, +1MO (or simply 1MO) represents the first Monday within the month, whereas -1MO represents the last Monday of the month.
-     *      If an integer modifier is not present, it means all days of this type within the specified frequency.
-     *      For example, within a MONTHLY rule, MO represents all Mondays within the month.
+     * Each byDay value can also be preceded by a positive (+n) or negative (-n) integer.
+     * If present, this indicates the nth occurrence of the specific day within the MONTHLY or YEARLY RRULE.
+     * For example, within a MONTHLY rule, +1MO (or simply 1MO) represents the first Monday within the month,
+     * whereas -1MO represents the last Monday of the month.
+     * If an integer modifier is not present, it means all days of this type within the specified frequency.
+     * For example, within a MONTHLY rule, MO represents all Mondays within the month.
      *
      * @var string
      */
@@ -489,7 +490,8 @@ class KalturaScheduleEventRecurrence extends KalturaObjectBase {
 
     /**
      * Comma separated of numbers between -366 to 366, excluding 0.
-     *      For example, -1 represents the last day of the year (December 31st) and -306 represents the 306th to the last day of the year (March 1st).
+     * For example, -1 represents the last day of the year (December 31st) and
+     * -306 represents the 306th to the last day of the year (March 1st).
      *
      * @var string
      */
@@ -497,11 +499,11 @@ class KalturaScheduleEventRecurrence extends KalturaObjectBase {
 
     /**
      * Comma separated of numbers between -53 to 53, excluding 0.
-     *      This corresponds to weeks according to week numbering.
-     *      A week is defined as a seven day period, starting on the day of the week defined to be the week start.
-     *      Week number one of the calendar year is the first week which contains at least four (4) days in that calendar year.
-     *      This rule part is only valid for YEARLY frequency.
-     *      For example, 3 represents the third week of the year.
+     * This corresponds to weeks according to week numbering.
+     * A week is defined as a seven day period, starting on the day of the week defined to be the week start.
+     * Week number one of the calendar year is the first week which contains at least four (4) days in that calendar year.
+     * This rule part is only valid for YEARLY frequency.
+     * For example, 3 represents the third week of the year.
      *
      * @var string
      */
@@ -516,11 +518,11 @@ class KalturaScheduleEventRecurrence extends KalturaObjectBase {
 
     /**
      * Comma separated of numbers between -366 to 366, excluding 0.
-     *      Corresponds to the nth occurrence within the set of events specified by the rule.
-     *      It must only be used in conjunction with another byrule part.
-     *      For example "the last work day of the month" could be represented as: frequency=MONTHLY;byDay=MO,TU,WE,TH,FR;byOffset=-1
-     *      Each byOffset value can include a positive (+n) or negative (-n) integer.
-     *      If present, this indicates the nth occurrence of the specific occurrence within the set of events specified by the rule.
+     * Corresponds to the nth occurrence within the set of events specified by the rule.
+     * It must only be used in conjunction with another byrule part.
+     * For example "the last work day of the month" could be represented as: frequency=MONTHLY;byDay=MO,TU,WE,TH,FR;byOffset=-1
+     * Each byOffset value can include a positive (+n) or negative (-n) integer.
+     * If present, this indicates the nth occurrence of the specific occurrence within the set of events specified by the rule.
      *
      * @var string
      */

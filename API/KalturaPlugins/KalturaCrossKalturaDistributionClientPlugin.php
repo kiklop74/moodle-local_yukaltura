@@ -84,43 +84,50 @@ class KalturaCrossKalturaDistributionProvider extends KalturaDistributionProvide
  */
 class KalturaCrossKalturaDistributionJobProviderData extends KalturaConfigurableDistributionJobProviderData {
     /**
-     * Key-value array where the keys are IDs of distributed flavor assets in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed flavor assets in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedFlavorAssets = null;
 
     /**
-     * Key-value array where the keys are IDs of distributed thumb assets in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed thumb assets in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedThumbAssets = null;
 
     /**
-     * Key-value array where the keys are IDs of distributed metadata objects in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed metadata objects in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedMetadata = null;
 
     /**
-     * Key-value array where the keys are IDs of distributed caption assets in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed caption assets in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedCaptionAssets = null;
 
     /**
-     * Key-value array where the keys are IDs of distributed cue points in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed cue points in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedCuePoints = null;
 
     /**
-     * Key-value array where the keys are IDs of distributed thumb cue points in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed thumb cue points in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedThumbCuePoints = null;
 
     /**
-     * Key-value array where the keys are IDs of distributed timed thumb assets in the source account and the values are the matching IDs in the target account
+     * Key-value array where the keys are IDs of distributed timed thumb assets in the source account
+     * and the values are the matching IDs in the target account.
      * @var string
      */
     public $distributedTimedThumbAssets = null;

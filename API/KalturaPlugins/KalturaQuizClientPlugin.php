@@ -326,7 +326,8 @@ class KalturaQuizFilter extends KalturaRelatedFilter {
     public $entryIdEqual = null;
 
     /**
-     * This filter should be in use for retrieving few specific quiz entries (string should include comma separated list of entryId strings).
+     * This filter should be in use for retrieving few specific quiz entries
+     * (string should include comma separated list of entryId strings).
      *
      * @var string
      */
@@ -537,7 +538,8 @@ class KalturaQuizService extends KalturaServiceBase {
      */
     public function serve($entryid, $quizoutputtype) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);

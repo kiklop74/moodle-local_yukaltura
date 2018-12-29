@@ -538,7 +538,8 @@ class KalturaBusinessProcessNotificationTemplateFilter extends KalturaBusinessPr
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaBusinessProcessAbortNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {
+abstract class KalturaBusinessProcessAbortNotificationTemplateBaseFilter
+extends KalturaBusinessProcessNotificationTemplateFilter {
 }
 
 /**
@@ -549,7 +550,8 @@ abstract class KalturaBusinessProcessAbortNotificationTemplateBaseFilter extends
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {
+abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter
+extends KalturaBusinessProcessNotificationTemplateFilter {
 }
 
 /**
@@ -560,7 +562,8 @@ abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter extend
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaBusinessProcessStartNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {
+abstract class KalturaBusinessProcessStartNotificationTemplateBaseFilter
+extends KalturaBusinessProcessNotificationTemplateFilter {
 }
 
 /**
@@ -623,7 +626,8 @@ class KalturaBusinessProcessCaseService extends KalturaServiceBase {
         $kparams = array();
         $this->client->addParam($kparams, "objectType", $objecttype);
         $this->client->addParam($kparams, "objectId", $objectid);
-        $this->client->addParam($kparams, "businessProcessStartNotificationTemplateId", $businessprocessstartnotificationtemplateid);
+        $this->client->addParam($kparams, "businessProcessStartNotificationTemplateId",
+                                $businessprocessstartnotificationtemplateid);
         $this->client->queueServiceActionCall("businessprocessnotification_businessprocesscase", "abort", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -662,12 +666,14 @@ class KalturaBusinessProcessCaseService extends KalturaServiceBase {
      */
     public function serveDiagram($objecttype, $objectid, $businessprocessstartnotificationtemplateid) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "objectType", $objecttype);
         $this->client->addParam($kparams, "objectId", $objectid);
-        $this->client->addParam($kparams, "businessProcessStartNotificationTemplateId", $businessprocessstartnotificationtemplateid);
+        $this->client->addParam($kparams, "businessProcessStartNotificationTemplateId",
+                                $businessprocessstartnotificationtemplateid);
         $this->client->queueServiceActionCall("businessprocessnotification_businessprocesscase", "serveDiagram", $kparams);
         if (!$this->client->getDestinationPath() && !$this->client->getReturnServedResult()) {
             return $this->client->getServeUrl();

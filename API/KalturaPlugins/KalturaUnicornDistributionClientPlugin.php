@@ -250,7 +250,7 @@ class KalturaUnicornService extends KalturaServiceBase {
      * Constructor of Kaltura Unicorn Service.
      * @param KalturaClient $client - instance of KalturaClient.
      */
-    function __construct(KalturaClient $client = null) {
+    public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
@@ -258,16 +258,16 @@ class KalturaUnicornService extends KalturaServiceBase {
      * Notify.
      * @param int $id - Distribution job id
      */
-    function notify($id) {
+    public function notify($id) {
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->queueServiceActionCall("unicorndistribution_unicorn", "notify", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
-        $resultObject = $this->client->doQueue();
-        $this->client->throwExceptionIfError($resultObject);
-        $this->client->validateObjectType($resultObject, "null");
+        $resultobject = $this->client->doQueue();
+        $this->client->throwExceptionIfError($resultobject);
+        $this->client->validateObjectType($resultobject, "null");
     }
 }
 /**

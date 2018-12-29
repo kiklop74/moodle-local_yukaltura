@@ -386,7 +386,8 @@ class KalturaAnnotationService extends KalturaServiceBase {
      */
     public function serveBulk(KalturaCuePointFilter $filter = null, KalturaFilterPager $pager = null) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         if ($filter !== null) {

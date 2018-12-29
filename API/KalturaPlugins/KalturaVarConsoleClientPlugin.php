@@ -253,7 +253,8 @@ class KalturaVarConsoleService extends KalturaServiceBase {
      * @param KalturaFilterPager $pager - pager object.
      * @return KalturaPartnerUsageListResponse
      */
-    public function getPartnerUsage(KalturaPartnerFilter $partnerfilter = null, KalturaReportInputFilter $usagefilter = null, KalturaFilterPager $pager = null) {
+    public function getPartnerUsage(KalturaPartnerFilter $partnerfilter = null, KalturaReportInputFilter $usagefilter = null,
+                                    KalturaFilterPager $pager = null) {
         $kparams = array();
         if ($partnerfilter !== null) {
             $this->client->addParam($kparams, "partnerFilter", $partnerfilter->toParams());

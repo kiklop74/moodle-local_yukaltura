@@ -531,7 +531,8 @@ class KalturaDropFolder extends KalturaObjectBase {
     public $path = null;
 
     /**
-     * The ammount of time, in seconds, that should pass so that a file with no change in size we'll be treated as "finished uploading to folder"
+     * The ammount of time, in seconds,
+     * that should pass so that a file with no change in size we'll be treated as "finished uploading to folder"
      *
      * @var int
      */

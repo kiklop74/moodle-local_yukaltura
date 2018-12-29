@@ -511,7 +511,8 @@ abstract class KalturaAssetDistributionCondition extends KalturaObjectBase {
  */
 class KalturaAssetDistributionRule extends KalturaObjectBase {
     /**
-     * The validation error description that will be set on the "data" property on KalturaDistributionValidationErrorMissingAsset if rule was not fulfilled
+     * The validation error description that will be set on the "data" property
+     * on KalturaDistributionValidationErrorMissingAsset if rule was not fulfilled
      * @var string
      */
     public $validationError = null;
@@ -547,7 +548,8 @@ class KalturaDistributionFieldConfig extends KalturaObjectBase {
 
     /**
      * An XSLT string that extracts the right value from the Kaltura entry MRSS XML.
-     * The value of the current connector field will be the one that is returned from transforming the Kaltura entry MRSS XML using this XSLT string.
+     * The value of the current connector field will be the one that is returned
+     * from transforming the Kaltura entry MRSS XML using this XSLT string.
      * @var string
      */
     public $entryMrssXslt = null;
@@ -2588,7 +2590,8 @@ class KalturaEntryDistributionService extends KalturaServiceBase {
      */
     public function serveSentData($id, $actiontype) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
@@ -2914,7 +2917,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "xslData", $xsldata);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssTransform", $kparams);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "addMrssTransform", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -2955,7 +2959,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "xsdData", $xsddata);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssValidate", $kparams);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "addMrssValidate", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -2976,7 +2981,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $this->client->addParam($kparams, "id", $id);
         $kfiles = array();
         $this->client->addParam($kfiles, "xsdFile", $xsdfile);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addMrssValidateFromFile", $kparams, $kfiles);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "addMrssValidateFromFile", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -2996,7 +3002,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $kparams = array();
         $this->client->addParam($kparams, "id", $id);
         $this->client->addParam($kparams, "transformData", $transformdata);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addResultsTransform", $kparams);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "addResultsTransform", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -3017,7 +3024,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $this->client->addParam($kparams, "id", $id);
         $kfiles = array();
         $this->client->addParam($kfiles, "transformFile", $transformfile);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "addResultsTransformFromFile", $kparams, $kfiles);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "addResultsTransformFromFile", $kparams, $kfiles);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -3052,7 +3060,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $kparams = array();
         $this->client->addParam($kparams, "genericDistributionProviderId", $genericdistributionproviderid);
         $this->client->addParam($kparams, "actionType", $actiontype);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "deleteByProviderId", $kparams);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "deleteByProviderId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -3089,7 +3098,8 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
         $kparams = array();
         $this->client->addParam($kparams, "genericDistributionProviderId", $genericdistributionproviderid);
         $this->client->addParam($kparams, "actionType", $actiontype);
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "getByProviderId", $kparams);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "getByProviderId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }
@@ -3150,12 +3160,14 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
      * @param KalturaGenericDistributionProviderAction $genericdistributionprovideraction - object to updated.
      * @return KalturaGenericDistributionProviderAction - object after updated.
      */
-    public function updateByProviderId($genericdistributionproviderid, $actiontype, KalturaGenericDistributionProviderAction $genericdistributionprovideraction) {
+    public function updateByProviderId($genericdistributionproviderid, $actiontype,
+                                       KalturaGenericDistributionProviderAction $genericdistributionprovideraction) {
         $kparams = array();
         $this->client->addParam($kparams, "genericDistributionProviderId", $genericdistributionproviderid);
         $this->client->addParam($kparams, "actionType", $actiontype);
         $this->client->addParam($kparams, "genericDistributionProviderAction", $genericdistributionprovideraction->toParams());
-        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction", "updateByProviderId", $kparams);
+        $this->client->queueServiceActionCall("contentdistribution_genericdistributionprovideraction",
+                                              "updateByProviderId", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
         }

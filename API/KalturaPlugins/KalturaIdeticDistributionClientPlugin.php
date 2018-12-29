@@ -42,9 +42,13 @@ require_once(dirname(__FILE__) . "/KalturaContentDistributionClientPlugin.php");
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaIdeticDistributionProfileOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -181,7 +185,7 @@ class KalturaIdeticDistributionProfileFilter extends KalturaIdeticDistributionPr
 class KalturaIdeticDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Idetic Distribution Client Plugin.
-     * @param KatluraClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

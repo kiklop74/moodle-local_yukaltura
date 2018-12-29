@@ -359,7 +359,7 @@ class KalturaWidevineFlavorParamsOutputFilter extends KalturaWidevineFlavorParam
 class KalturaWidevineDrmService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Widevine Drm Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -401,7 +401,7 @@ class KalturaWidevineClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Widevine Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

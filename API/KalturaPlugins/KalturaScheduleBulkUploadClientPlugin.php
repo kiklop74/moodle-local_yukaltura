@@ -136,7 +136,7 @@ class KalturaBulkUploadICalJobData extends KalturaBulkUploadJobData {
 class KalturaScheduleBulkUploadClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Schedule Bulk Upload Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaContentDistributionClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaYouTubeDistributionFeedSpecVersion extends KalturaEnumBase {
     /** @var version 1 */
     const VERSION_1 = "1";
@@ -57,7 +56,6 @@ class KalturaYouTubeDistributionFeedSpecVersion extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaYouTubeDistributionProfileOrderBy extends KalturaEnumBase {
     /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
@@ -472,7 +470,7 @@ class KalturaYouTubeDistributionProfileFilter extends KalturaYouTubeDistribution
 class KalturaYouTubeDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Youtube Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

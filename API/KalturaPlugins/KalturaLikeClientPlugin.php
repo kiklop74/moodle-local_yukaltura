@@ -153,7 +153,7 @@ class KalturaLikeFilter extends KalturaLikeBaseFilter {
 class KalturaLikeService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Like Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -255,7 +255,7 @@ class KalturaLikeClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Like Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

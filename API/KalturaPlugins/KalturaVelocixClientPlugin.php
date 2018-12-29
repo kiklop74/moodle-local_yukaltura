@@ -71,7 +71,7 @@ class KalturaVelocixProvisionJobData extends KalturaProvisionJobData {
 class KalturaVelocixClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Velocix Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

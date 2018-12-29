@@ -41,11 +41,17 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaCaptionAssetStatus extends KalturaEnumBase {
+    /** @var error */
     const ERROR = -1;
+    /** @var queued */
     const QUEUED = 0;
+    /** @var ready */
     const READY = 2;
+    /** @var deleted */
     const DELETED = 3;
+    /** @var importing */
     const IMPORTING = 7;
+    /** @var exporting */
     const EXPORTING = 9;
 }
 
@@ -58,13 +64,21 @@ class KalturaCaptionAssetStatus extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaCaptionAssetOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by deleted */
     const DELETED_AT_ASC = "+deletedAt";
+    /** @var order by size */
     const SIZE_ASC = "+size";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by deleted */
     const DELETED_AT_DESC = "-deletedAt";
+    /** @var order by size */
     const SIZE_DESC = "-size";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -106,7 +120,6 @@ class KalturaCaptionType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCaptionAsset extends KalturaAsset {
     /**
      * The Caption Params used to create this Caption Asset
@@ -413,7 +426,7 @@ class KalturaCaptionParamsFilter extends KalturaCaptionParamsBaseFilter {
 class KalturaCaptionAssetService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Caption Asset Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -665,7 +678,7 @@ class KalturaCaptionAssetService extends KalturaServiceBase {
 class KalturaCaptionParamsService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Caption Params Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -788,7 +801,7 @@ class KalturaCaptionClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Caption Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

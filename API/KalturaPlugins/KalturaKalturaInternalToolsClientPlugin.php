@@ -43,7 +43,7 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 class KalturaKalturaInternalToolsClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Drop Folder Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

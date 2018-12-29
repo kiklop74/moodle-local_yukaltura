@@ -40,7 +40,6 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAttachmentAssetStatus extends KalturaEnumBase {
     /** @var ERROR */
     const ERROR = -1;
@@ -64,7 +63,6 @@ class KalturaAttachmentAssetStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAttachmentAssetOrderBy extends KalturaEnumBase {
     /** @var order by created timestamp */
     const CREATED_AT_ASC = "+createdAt";
@@ -222,7 +220,7 @@ class KalturaAttachmentAssetFilter extends KalturaAttachmentAssetBaseFilter {
 class KalturaAttachmentAssetService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Attachment Asset Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -422,7 +420,7 @@ class KalturaAttachmentClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Attachment Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

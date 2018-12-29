@@ -154,7 +154,7 @@ class KalturaCielo24JobProviderData extends KalturaIntegrationJobProviderData {
 class KalturaCielo24ClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Cielo24ClientPlugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -88,6 +88,7 @@ class KalturaBusinessProcessNotificationTemplateOrderBy extends KalturaEnumBase 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaBusinessProcessProvider extends KalturaEnumBase {
+    /** @var activiti */
     const ACTIVITI = "activitiBusinessProcessNotification.Activiti";
 }
 
@@ -100,9 +101,13 @@ class KalturaBusinessProcessProvider extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaBusinessProcessServerOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -555,7 +560,6 @@ abstract class KalturaBusinessProcessSignalNotificationTemplateBaseFilter extend
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaBusinessProcessStartNotificationTemplateBaseFilter extends KalturaBusinessProcessNotificationTemplateFilter {
 }
 
@@ -603,7 +607,7 @@ class KalturaBusinessProcessStartNotificationTemplateFilter extends KalturaBusin
 class KalturaBusinessProcessCaseService extends KalturaServiceBase {
     /**
      * Constructor of Business Process Case Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -679,7 +683,6 @@ class KalturaBusinessProcessCaseService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaBusinessProcessNotificationClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaBusinessProcessCaseService
@@ -688,7 +691,7 @@ class KalturaBusinessProcessNotificationClientPlugin extends KalturaClientPlugin
 
     /**
      * Constructor of Kaltura Business Process Notification Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

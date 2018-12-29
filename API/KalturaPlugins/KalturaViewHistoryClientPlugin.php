@@ -142,7 +142,7 @@ class KalturaViewHistoryUserEntryFilter extends KalturaUserEntryFilter {
 class KalturaViewHistoryClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura View History Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -150,7 +150,7 @@ class KalturaViewHistoryClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
-     * @param KalturaClient - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      * @return KalturaViewHistoryClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

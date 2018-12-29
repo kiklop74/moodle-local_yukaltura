@@ -670,7 +670,7 @@ class KalturaScheduledTaskProfileFilter extends KalturaScheduledTaskProfileBaseF
 class KalturaScheduledTaskProfileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Scheduled Task Profile Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -827,7 +827,7 @@ class KalturaScheduledTaskClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Schedule Bulk Upload Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

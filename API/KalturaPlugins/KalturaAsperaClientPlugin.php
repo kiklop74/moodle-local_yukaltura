@@ -43,7 +43,7 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
 class KalturaAsperaService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Aspera Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -83,7 +83,7 @@ class KalturaAsperaClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Aspera Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

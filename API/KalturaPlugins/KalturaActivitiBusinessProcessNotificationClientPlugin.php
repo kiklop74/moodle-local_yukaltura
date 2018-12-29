@@ -125,7 +125,7 @@ class KalturaActivitiBusinessProcessServerFilter extends KalturaActivitiBusiness
 class KalturaActivitiBusinessProcessNotificationClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura ActivityBusinessProcessNotificationClientPlugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

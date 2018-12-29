@@ -245,7 +245,7 @@ class KalturaMsnDistributionProfileFilter extends KalturaMsnDistributionProfileB
 class KalturaMsnDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Msn Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

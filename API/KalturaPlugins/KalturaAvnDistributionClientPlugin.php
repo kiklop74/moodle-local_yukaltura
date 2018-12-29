@@ -150,7 +150,7 @@ class KalturaAvnDistributionProfileFilter extends KalturaAvnDistributionProfileB
 class KalturaAvnDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Avn Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

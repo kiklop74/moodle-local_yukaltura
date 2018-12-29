@@ -162,7 +162,7 @@ class KalturaKontikiStorageProfileFilter extends KalturaKontikiStorageProfileBas
 class KalturaKontikiClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Kontiki Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

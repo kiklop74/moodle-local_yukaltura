@@ -62,7 +62,7 @@ class KalturaDispatchEventNotificationObjectTask extends KalturaObjectTask {
 class KalturaScheduledTaskEventNotificationClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Scheduled Task Event Notification Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

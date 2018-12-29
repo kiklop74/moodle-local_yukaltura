@@ -94,7 +94,6 @@ class KalturaPlayReadyDigitalAudioOPL extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaPlayReadyLicenseRemovalPolicy extends KalturaEnumBase {
     /** @var fixed from expiration */
     const FIXED_FROM_EXPIRATION = 1;
@@ -600,7 +599,7 @@ class KalturaPlayReadyProfileFilter extends KalturaPlayReadyProfileBaseFilter {
 class KalturaPlayReadyDrmService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Play Ready Drm Sservice.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -703,7 +702,7 @@ class KalturaPlayReadyClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Play Ready Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -712,6 +711,7 @@ class KalturaPlayReadyClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
+     * @param KalturaClient $client - instance of KalturaClient
      * @return KalturaPlayReadyClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

@@ -999,7 +999,7 @@ class KalturaMetadataFilter extends KalturaMetadataBaseFilter {
 class KalturaMetadataService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Metadata Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1294,7 +1294,7 @@ class KalturaMetadataService extends KalturaServiceBase {
 class KalturaMetadataProfileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Metadata Profile Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1585,7 +1585,7 @@ class KalturaMetadataClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Metadata Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

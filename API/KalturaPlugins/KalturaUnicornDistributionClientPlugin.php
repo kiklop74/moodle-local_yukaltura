@@ -248,7 +248,7 @@ class KalturaUnicornDistributionProfileFilter extends KalturaUnicornDistribution
 class KalturaUnicornService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Unicorn Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -278,7 +278,6 @@ class KalturaUnicornService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaUnicornDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaUnicornService
@@ -287,7 +286,7 @@ class KalturaUnicornDistributionClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Unicron Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

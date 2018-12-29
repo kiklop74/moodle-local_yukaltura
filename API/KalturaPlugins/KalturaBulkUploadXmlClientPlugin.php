@@ -55,7 +55,7 @@ class KalturaBulkUploadXmlJobData extends KalturaBulkUploadJobData {
 class KalturaBulkUploadXmlClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Bulk Upload Xml Client Plugin.
-     * @param KalturaCleint $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

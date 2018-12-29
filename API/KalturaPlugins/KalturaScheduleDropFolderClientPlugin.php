@@ -62,7 +62,7 @@ class KalturaDropFolderICalBulkUploadFileHandlerConfig extends KalturaDropFolder
 class KalturaScheduleDropFolderClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Schedule Drop Folder Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

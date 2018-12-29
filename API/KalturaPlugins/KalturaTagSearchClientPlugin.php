@@ -108,7 +108,6 @@ class KalturaTag extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaIndexTagsByPrivacyContextJobData extends KalturaJobData {
     /**
      *
@@ -195,11 +194,10 @@ class KalturaTagListResponse extends KalturaListResponse {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaTagService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Tag Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -223,6 +221,7 @@ class KalturaTagService extends KalturaServiceBase {
     }
 
     /**
+     * Index category entry tags.
      * @param int $categoryid - category id.
      * @param string $pctodecrement - PC to decrement.
      * @param string $pctoincrement - PC to increment.
@@ -279,7 +278,7 @@ class KalturaTagSearchClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Tag Search Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

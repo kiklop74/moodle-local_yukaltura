@@ -136,7 +136,7 @@ class KalturaEventNotificationEventObjectType extends KalturaEnumBase {
     const SYNDICATIONFEED = "29";
     /** @var thumbparams */
     const THUMBPARAMS = "31";
-    /** @var thumbparamsoutput *
+    /** @var thumbparamsoutput */
     const THUMBPARAMSOUTPUT = "32";
     /** @var uploadtoken */
     const UPLOADTOKEN = "33";
@@ -621,7 +621,7 @@ class KalturaEventNotificationTemplateFilter extends KalturaEventNotificationTem
 class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Event Notification Template Service.
-     * @param KalturaClinet $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -629,7 +629,7 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
 
     /**
      * This action allows for the creation of new backend event types in the system. This action requires access to the Kaltura server Admin Console. If you're looking to register to existing event types, please use the clone action instead.
-     * @param KalturaEventNotificationTemplate $eventNotificationTemplate - templated object.
+     * @param KalturaEventNotificationTemplate $eventnotificationtemplate - templated object.
      * @return KalturaEventNotificationTemplate - template object.
      */
     public function add(KalturaEventNotificationTemplate $eventnotificationtemplate) {
@@ -746,6 +746,7 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     }
 
     /**
+     * List event notification order by partner.
      * @param KalturaPartnerFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
      * @return {object} - instance of KalturaEventNotificationTemplateListResponse.
@@ -770,7 +771,7 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
 
     /**
      * Action lists the template partner event notification templates.
-     * @param KalturaEventNotificationTemplateFilter $filer - filter object.
+     * @param KalturaEventNotificationTemplateFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
      * @return KalturaEventNotificationTemplateListResponse - list object.
      */
@@ -813,9 +814,9 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     }
 
     /**
-     * Clear queue messages
-     * @param string $notificationTemplateSystemName - Existing push notification template system name
-     * @param KalturaPushNotificationParams $pushNotificationParams - params.
+     * Clear queue messages.
+     * @param string $notificationtemplatesystemname - Existing push notification template system name
+     * @param KalturaPushNotificationParams $pushnotificationparams - params.
      * @param string $command - Command to be sent to push server.
      */
     public function sendCommand($notificationtemplatesystemname, KalturaPushNotificationParams $pushnotificationparams, $command) {
@@ -833,9 +834,9 @@ class KalturaEventNotificationTemplateService extends KalturaServiceBase {
     }
 
     /**
-     * Update an existing event notification template object
+     * Update an existing event notification template object.
      * @param int $id - id of event notification template
-     * @param KalturaEventNotificationTemplate $eventnotifictiontemplate - template object to update.
+     * @param KalturaEventNotificationTemplate $eventnotificationtemplate - template object to update.
      * @return KalturaEventNotificationTemplate - template object after update.
      */
     public function update($id, KalturaEventNotificationTemplate $eventnotificationtemplate) {
@@ -888,7 +889,7 @@ class KalturaEventNotificationClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Event notification Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

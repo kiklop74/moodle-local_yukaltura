@@ -479,7 +479,6 @@ class KalturaGenericDistributionProviderOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaSyndicationDistributionProfileOrderBy extends KalturaEnumBase {
     /** @var created timestamp */
     const CREATED_AT_ASC = "+createdAt";
@@ -2234,7 +2233,8 @@ abstract class KalturaGenericDistributionProviderBaseFilter extends KalturaDistr
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class KalturaSyndicationDistributionProfileBaseFilter extends KalturaDistributionProfileFilter {}
+abstract class KalturaSyndicationDistributionProfileBaseFilter extends KalturaDistributionProfileFilter {
+}
 
 /**
  * Kaltura Client API.
@@ -2243,7 +2243,6 @@ abstract class KalturaSyndicationDistributionProfileBaseFilter extends KalturaDi
  * @copyright (C) 2018 Kaltura Inc.
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- 
  */
 abstract class KalturaSyndicationDistributionProviderBaseFilter extends KalturaDistributionProviderFilter {
 }
@@ -2303,7 +2302,7 @@ class KalturaSyndicationDistributionProfileFilter extends KalturaSyndicationDist
 class KalturaDistributionProfileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura ActivityBusinessProcessNotificationClientPlugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2364,7 +2363,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase {
     /**
      * List all distribution providers.
      * @param KalturaDistributionProfileFilter $filter - instance of KalturaDistributionProfileFilter.
-     * @param KalturaFilterPager $pagerr - instance of KalturaFilterPager.
+     * @param KalturaFilterPager $pager - instance of KalturaFilterPager.
      * @return KalturaDistributionProfileListResponse - list object.
      */
     public function listAction(KalturaDistributionProfileFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -2461,7 +2460,7 @@ class KalturaDistributionProfileService extends KalturaServiceBase {
 class KalturaEntryDistributionService extends KalturaServiceBase {
     /**
      * Constructor of KalturaEntryDistributionService.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2725,7 +2724,7 @@ class KalturaEntryDistributionService extends KalturaServiceBase {
 class KalturaDistributionProviderService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Distribution Provider Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2767,7 +2766,7 @@ class KalturaDistributionProviderService extends KalturaServiceBase {
 class KalturaGenericDistributionProviderService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Generic Distribution Provider Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2775,8 +2774,8 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase {
 
     /**
      * Add new Generic Distribution Provider
-     * @param {object} $genericdistributionprovider - instance of KalturaGenericDistributionProvider.
-     * @return {object} - instance of KalturaGenericDistributionProvider.
+     * @param KalturaGenericDistributionProvider $genericdistributionprovider - instance of KalturaGenericDistributionProvider.
+     * @return KalturaGenericDistributionProvider - instance of KalturaGenericDistributionProvider.
      */
     public function add(KalturaGenericDistributionProvider $genericdistributionprovider) {
         $kparams = array();
@@ -2881,7 +2880,7 @@ class KalturaGenericDistributionProviderService extends KalturaServiceBase {
 class KalturaGenericDistributionProviderActionService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Generic Distribution Provider.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2889,7 +2888,7 @@ class KalturaGenericDistributionProviderActionService extends KalturaServiceBase
 
     /**
      * Add new Generic Distribution Provider Action.
-     * @param KalturaGenericDistributionProviderAction $genericdistributionprovider - object to added.
+     * @param KalturaGenericDistributionProviderAction $genericdistributionprovideraction - object to added.
      * @return KalturaGenericDistributionProviderAction - object after added.
      */
     public function add(KalturaGenericDistributionProviderAction $genericdistributionprovideraction) {
@@ -3202,7 +3201,7 @@ class KalturaContentDistributionClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Content Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -62,7 +62,7 @@ class KalturaDistributeObjectTask extends KalturaObjectTask {
 class KalturaScheduledTaskContentDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Scheduled Task Content Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

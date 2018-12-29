@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaDropFolderClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFeedItemInfo extends KalturaObjectBase {
     /**
      *
@@ -106,7 +105,6 @@ class KalturaFeedItemInfo extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFeedDropFolder extends KalturaDropFolder {
     /**
      *
@@ -129,7 +127,6 @@ class KalturaFeedDropFolder extends KalturaDropFolder {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFeedDropFolderFile extends KalturaDropFolderFile {
     /**
      * MD5 or Sha1 encrypted string
@@ -154,11 +151,10 @@ class KalturaFeedDropFolderFile extends KalturaDropFolderFile {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFeedDropFolderClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Drop Folder Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

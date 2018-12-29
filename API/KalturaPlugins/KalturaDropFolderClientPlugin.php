@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaMetadataClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDropFolderContentFileHandlerMatchPolicy extends KalturaEnumBase {
     /** @var add as new */
     const ADD_AS_NEW = 1;
@@ -59,7 +58,6 @@ class KalturaDropFolderContentFileHandlerMatchPolicy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDropFolderFileDeletePolicy extends KalturaEnumBase {
     /** @var manual delete */
     const MANUAL_DELETE = 1;
@@ -77,7 +75,6 @@ class KalturaDropFolderFileDeletePolicy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDropFolderFileStatus extends KalturaEnumBase {
     /** @var uploading */
     const UPLOADING = 1;
@@ -119,7 +116,6 @@ class KalturaDropFolderFileStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDropFolderStatus extends KalturaEnumBase {
     /** @var disabled */
     const DISABLED = 0;
@@ -139,7 +135,6 @@ class KalturaDropFolderStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDropFolderErrorCode extends KalturaEnumBase {
     /** @var error connect */
     const ERROR_CONNECT = "1";
@@ -163,7 +158,6 @@ class KalturaDropFolderErrorCode extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDropFolderFileErrorCode extends KalturaEnumBase {
     /** @var error adding bulk upload */
     const ERROR_ADDING_BULK_UPLOAD = "dropFolderXmlBulkUpload.ERROR_ADDING_BULK_UPLOAD";
@@ -1581,7 +1575,7 @@ class KalturaSftpDropFolderFilter extends KalturaSftpDropFolderBaseFilter {
 class KalturaDropFolderService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Drop Folder Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1589,7 +1583,7 @@ class KalturaDropFolderService extends KalturaServiceBase {
 
     /**
      * Allows you to add a new KalturaDropFolder object
-     * @param KalturaDropFolder $dropfolter - object to add.
+     * @param KalturaDropFolder $dropfolder - object to add.
      * @return KalturaDropFolder - object after added.
      */
     public function add(KalturaDropFolder $dropfolder) {
@@ -1739,7 +1733,7 @@ class KalturaDropFolderService extends KalturaServiceBase {
 class KalturaDropFolderFileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Drop Folder File Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1902,7 +1896,7 @@ class KalturaDropFolderClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Drop Folder Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

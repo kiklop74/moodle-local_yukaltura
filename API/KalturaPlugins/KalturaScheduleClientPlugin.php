@@ -41,8 +41,11 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaScheduleEventClassificationType extends KalturaEnumBase {
+    /** @var public event */
     const PUBLIC_EVENT = 1;
+    /** @var private event */
     const PRIVATE_EVENT = 2;
+    /** @var confidential event */
     const CONFIDENTIAL_EVENT = 3;
 }
 
@@ -106,7 +109,7 @@ class KalturaScheduleEventType extends KalturaEnumBase {
 class KalturaScheduleResourceStatus extends KalturaEnumBase {
     /** @var disabled */
     const DISABLED = 1;
-    /** @var active *
+    /** @var active */
     const ACTIVE = 2;
     /** @var deleted */
     const DELETED = 3;
@@ -1661,7 +1664,7 @@ class KalturaRecordScheduleEventFilter extends KalturaRecordScheduleEventBaseFil
 class KalturaScheduleEventService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Schedule Event Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1837,11 +1840,10 @@ class KalturaScheduleEventService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaScheduleResourceService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Schedule Resource Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -1852,9 +1854,9 @@ class KalturaScheduleResourceService extends KalturaServiceBase {
      * @param KalturaScheduleResource $scheduleresource - schedule resource object to add.
      * @return KalturaScheduleResource - schedule resource object after added.
      */
-    public function add(KalturaScheduleResource $scheduleeesource) {
+    public function add(KalturaScheduleResource $scheduleresource) {
         $kparams = array();
-        $this->client->addParam($kparams, "scheduleResource", $scheduleeesource->toParams());
+        $this->client->addParam($kparams, "scheduleResource", $scheduleresource->toParams());
         $this->client->queueServiceActionCall("schedule_scheduleresource", "add", $kparams);
         if ($this->client->isMultiRequest()) {
             return $this->client->getMultiRequestResult();
@@ -1977,11 +1979,10 @@ class KalturaScheduleResourceService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaScheduleEventResourceService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Schedule Event Resource Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -2097,7 +2098,6 @@ class KalturaScheduleEventResourceService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaScheduleClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaScheduleEventService
@@ -2116,7 +2116,7 @@ class KalturaScheduleClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Schedule Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaDrmClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFairplayDrmProfile extends KalturaDrmProfile {
     /**
      *
@@ -58,7 +57,6 @@ class KalturaFairplayDrmProfile extends KalturaDrmProfile {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFairplayEntryContextPluginData extends KalturaPluginData {
     /**
      * For fairplay (and maybe in the future other drm providers) we need to return a public certificate to encrypt
@@ -77,11 +75,10 @@ class KalturaFairplayEntryContextPluginData extends KalturaPluginData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFairplayClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Fairplay Client Plugin.
-     * @param KatluraClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

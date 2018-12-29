@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaCuePointClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdCuePointOrderBy extends KalturaEnumBase {
     /** @var order of created timestamp */
     const CREATED_AT_ASC = "+createdAt";
@@ -81,7 +80,6 @@ class KalturaAdCuePointOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdProtocolType extends KalturaEnumBase {
     /** @var custom protocol */
     const CUSTOM = "0";
@@ -101,7 +99,6 @@ class KalturaAdProtocolType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdType extends KalturaEnumBase {
     /** @var video */
     const VIDEO = "1";
@@ -117,7 +114,6 @@ class KalturaAdType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdCuePoint extends KalturaCuePoint {
     /**
      * @var KalturaAdProtocolType
@@ -160,7 +156,6 @@ class KalturaAdCuePoint extends KalturaCuePoint {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaAdCuePointBaseFilter extends KalturaCuePointFilter {
     /**
      * @var KalturaAdProtocolType
@@ -216,7 +211,6 @@ abstract class KalturaAdCuePointBaseFilter extends KalturaCuePointFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdCuePointFilter extends KalturaAdCuePointBaseFilter {
 }
 
@@ -228,11 +222,10 @@ class KalturaAdCuePointFilter extends KalturaAdCuePointBaseFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAdCuePointClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura AdCue Point Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

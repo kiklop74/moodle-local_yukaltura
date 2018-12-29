@@ -41,8 +41,11 @@ require_once(dirname(__FILE__) . "/../KalturaTypes.php");
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaDrmLicenseExpirationPolicy extends KalturaEnumBase {
+    /** @var fixed duration */
     const FIXED_DURATION = 1;
+    /** @var entry scheduling end */
     const ENTRY_SCHEDULING_END = 2;
+    /** @var unlimited */
     const UNLIMITED = 3;
 }
 
@@ -84,7 +87,6 @@ class KalturaDrmProfileStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDrmLicenseScenario extends KalturaEnumBase {
     /** @var protection */
     const PROTECTION = "playReady.PROTECTION";
@@ -105,7 +107,9 @@ class KalturaDrmLicenseScenario extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaDrmLicenseType extends KalturaEnumBase {
+    /** @var no persistent */
     const NON_PERSISTENT = "playReady.NON_PERSISTENT";
+    /** @var persistent */
     const PERSISTENT = "playReady.PERSISTENT";
 }
 
@@ -592,7 +596,7 @@ class KalturaDrmProfileFilter extends KalturaDrmProfileBaseFilter {
 class KalturaDrmPolicyService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Drm Policy Service
-     * @param kalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -708,7 +712,7 @@ class KalturaDrmPolicyService extends KalturaServiceBase {
 class KalturaDrmProfileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Drm Profile Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -839,11 +843,10 @@ class KalturaDrmProfileService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDrmLicenseAccessService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Drm License Access Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -879,7 +882,6 @@ class KalturaDrmLicenseAccessService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDrmClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaDrmPolicyService
@@ -898,7 +900,7 @@ class KalturaDrmClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Drm Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

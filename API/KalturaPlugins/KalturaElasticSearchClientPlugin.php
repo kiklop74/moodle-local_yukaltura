@@ -95,7 +95,6 @@ class KalturaESearchCaptionFieldName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCategoryFieldName extends KalturaEnumBase {
     /** @var CATEGORY_CONTRIBUTION_POLICY */
     const CATEGORY_CONTRIBUTION_POLICY = "contribution_policy";
@@ -209,7 +208,6 @@ class KalturaESearchCuePointFieldName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchEntryFieldName extends KalturaEnumBase {
     /** @var ENTRY_ID */
     const ENTRY_ID = "_id";
@@ -289,7 +287,6 @@ class KalturaESearchEntryFieldName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchEntryOrderByFieldName extends KalturaEnumBase {
     /** @var ENTRY_CREATED_AT */
     const ENTRY_CREATED_AT = "created_at";
@@ -315,7 +312,6 @@ class KalturaESearchEntryOrderByFieldName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchSortOrder extends KalturaEnumBase {
     /** @var ORDER_BY_ASC */
     const ORDER_BY_ASC = "asc";
@@ -331,7 +327,6 @@ class KalturaESearchSortOrder extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchUserFieldName extends KalturaEnumBase {
     /** @var USER_CREATED_AT */
     const USER_CREATED_AT = "created_at";
@@ -365,7 +360,6 @@ class KalturaESearchUserFieldName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchUserOrderByFieldName extends KalturaEnumBase {
     /** @var USER_CREATED_AT */
     const USER_CREATED_AT = "created_at";
@@ -381,7 +375,6 @@ class KalturaESearchUserOrderByFieldName extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaESearchBaseItem extends KalturaObjectBase {
 }
 
@@ -393,7 +386,6 @@ abstract class KalturaESearchBaseItem extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaESearchItemData extends KalturaObjectBase {
     /**
      *
@@ -410,7 +402,6 @@ abstract class KalturaESearchItemData extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchItemDataResult extends KalturaObjectBase {
     /**
      *
@@ -439,7 +430,6 @@ class KalturaESearchItemDataResult extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaESearchOrderByItem extends KalturaObjectBase {
     /**
      *
@@ -456,7 +446,6 @@ abstract class KalturaESearchOrderByItem extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchOrderBy extends KalturaObjectBase {
     /**
      *
@@ -473,7 +462,6 @@ class KalturaESearchOrderBy extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchOperator extends KalturaESearchBaseItem {
     /**
      *
@@ -496,7 +484,6 @@ class KalturaESearchOperator extends KalturaESearchBaseItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchParams extends KalturaObjectBase {
     /**
      *
@@ -537,7 +524,6 @@ class KalturaESearchParams extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchRange extends KalturaObjectBase {
     /**
      *
@@ -572,7 +558,6 @@ class KalturaESearchRange extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaESearchResult extends KalturaObjectBase {
     /**
      *
@@ -601,7 +586,6 @@ abstract class KalturaESearchResult extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchResponse extends KalturaObjectBase {
     /**
      *
@@ -626,7 +610,6 @@ class KalturaESearchResponse extends KalturaObjectBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCaptionItemData extends KalturaESearchItemData {
     /**
      *
@@ -667,7 +650,6 @@ class KalturaESearchCaptionItemData extends KalturaESearchItemData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCategoryOrderByItem extends KalturaESearchOrderByItem {
     /**
      *
@@ -684,7 +666,6 @@ class KalturaESearchCategoryOrderByItem extends KalturaESearchOrderByItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCategoryResult extends KalturaESearchResult {
 }
 
@@ -696,7 +677,6 @@ class KalturaESearchCategoryResult extends KalturaESearchResult {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCuePointItemData extends KalturaESearchItemData {
     /**
      *
@@ -779,7 +759,6 @@ class KalturaESearchCuePointItemData extends KalturaESearchItemData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchEntryOrderByItem extends KalturaESearchOrderByItem {
     /**
      *
@@ -796,7 +775,6 @@ class KalturaESearchEntryOrderByItem extends KalturaESearchOrderByItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchEntryResult extends KalturaESearchResult {
 }
 
@@ -808,7 +786,6 @@ class KalturaESearchEntryResult extends KalturaESearchResult {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaESearchItem extends KalturaESearchBaseItem {
     /**
      *
@@ -837,7 +814,6 @@ abstract class KalturaESearchItem extends KalturaESearchBaseItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchMetadataItemData extends KalturaESearchItemData {
     /**
      *
@@ -878,7 +854,6 @@ class KalturaESearchMetadataItemData extends KalturaESearchItemData {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchQuery extends KalturaESearchBaseItem {
     /**
      *
@@ -895,7 +870,6 @@ class KalturaESearchQuery extends KalturaESearchBaseItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchUserOrderByItem extends KalturaESearchOrderByItem {
     /**
      *
@@ -912,7 +886,6 @@ class KalturaESearchUserOrderByItem extends KalturaESearchOrderByItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchUserResult extends KalturaESearchResult {
 }
 
@@ -924,7 +897,6 @@ class KalturaESearchUserResult extends KalturaESearchResult {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCaptionItem extends KalturaESearchItem {
     /**
      *
@@ -941,7 +913,6 @@ class KalturaESearchCaptionItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCategoryItem extends KalturaESearchItem {
     /**
      *
@@ -958,7 +929,6 @@ class KalturaESearchCategoryItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchCuePointItem extends KalturaESearchItem {
     /**
      *
@@ -975,7 +945,6 @@ class KalturaESearchCuePointItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchEntryItem extends KalturaESearchItem {
     /**
      *
@@ -992,7 +961,6 @@ class KalturaESearchEntryItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchMetadataItem extends KalturaESearchItem {
     /**
      *
@@ -1021,7 +989,6 @@ class KalturaESearchMetadataItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchUnifiedItem extends KalturaESearchItem {
 }
 
@@ -1033,7 +1000,6 @@ class KalturaESearchUnifiedItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchUserItem extends KalturaESearchItem {
     /**
      *
@@ -1051,17 +1017,17 @@ class KalturaESearchUserItem extends KalturaESearchItem {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaESearchService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura ESearch Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
+     * Get allowed search types.
      * @param KalturaESearchItem  $searchitem - instance of KalturaESearchItem.
      * @return array - array of search type.
      */
@@ -1079,6 +1045,7 @@ class KalturaESearchService extends KalturaServiceBase {
     }
 
     /**
+     * Search category.
      * @param KalturaESearchParams $searchparams - instance of KalturaESearchParams.
      * @param KalturaPager $pager - instance of KalturaPager.
      * @return KalturaESearchResponse - instance of KalturaESearchResponse.
@@ -1100,6 +1067,7 @@ class KalturaESearchService extends KalturaServiceBase {
     }
 
     /**
+     * Search entry by uging elastic search.
      * @param KalturaESearchParams $searchparams - instance of KalturaESearchParams.
      * @param KalturaPager $pager - instance of KalturaPager.
      * @return KalturaESearchResponse - instance of KalturaESearchResponse.
@@ -1121,6 +1089,7 @@ class KalturaESearchService extends KalturaServiceBase {
     }
 
     /**
+     * Search user by using elastic search.
      * @param KalturaESearchParams $searchparams - instance of KalturaESearchParams.
      * @param KalturaPager $pager - instance of KalturaPager.
      * @return KalturaESearchResponse - instance of KalturaESearchResponse.
@@ -1149,7 +1118,6 @@ class KalturaESearchService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaElasticSearchClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaESearchService
@@ -1158,7 +1126,7 @@ class KalturaElasticSearchClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura ElasticSearch Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaCuePointClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaThumbCuePointOrderBy extends KalturaEnumBase {
     /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
@@ -73,7 +72,6 @@ class KalturaThumbCuePointOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaTimedThumbAssetOrderBy extends KalturaEnumBase {
     /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
@@ -248,7 +246,7 @@ class KalturaTimedThumbAssetFilter extends KalturaTimedThumbAssetBaseFilter {
 class KalturaThumbCuePointClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura ThumbCuePoint Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

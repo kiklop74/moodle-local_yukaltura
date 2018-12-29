@@ -187,7 +187,7 @@ class KalturaDoubleClickDistributionProfileFilter extends KalturaDoubleClickDist
 class KalturaDoubleClickDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Double Click Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

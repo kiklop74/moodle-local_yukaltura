@@ -223,7 +223,6 @@ abstract class KalturaAnnotationBaseFilter extends KalturaCuePointFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAnnotationFilter extends KalturaAnnotationBaseFilter {
 }
 
@@ -235,11 +234,10 @@ class KalturaAnnotationFilter extends KalturaAnnotationBaseFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaAnnotationService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Annotation Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -382,8 +380,8 @@ class KalturaAnnotationService extends KalturaServiceBase {
 
     /**
      * Download multiple cue points objects as XML definitions
-     * @param {object} $filter - instance of KalturaCuePointFilter.
-     * @param {object} $pager - instance of KalturaFilterPager.
+     * @param KalturaCuePointFilter $filter - instance of KalturaCuePointFilter.
+     * @param KalturaFilterPager $pager - instance of KalturaFilterPager.
      * @return {object} - file data.
      */
     public function serveBulk(KalturaCuePointFilter $filter = null, KalturaFilterPager $pager = null) {
@@ -458,7 +456,7 @@ class KalturaAnnotationClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Annocation Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

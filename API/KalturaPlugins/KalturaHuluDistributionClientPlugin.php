@@ -294,7 +294,7 @@ class KalturaHuluDistributionProfileFilter extends KalturaHuluDistributionProfil
 class KalturaHuluDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Hulu Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -302,7 +302,7 @@ class KalturaHuluDistributionClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
-     * @@param KalturaClient $client - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      * @return instance of KalturaHuluDistributionClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

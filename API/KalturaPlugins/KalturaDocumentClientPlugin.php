@@ -626,7 +626,7 @@ class KalturaSwfFlavorParamsOutputFilter extends KalturaSwfFlavorParamsOutputBas
 class KalturaDocumentsService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura DocumentService.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -657,12 +657,12 @@ class KalturaDocumentsService extends KalturaServiceBase {
     }
 
     /**
-     * Copy flavor asset into new entry
-     * @param string $sourceflavorassetid - Flavor asset id to be used as the new entry source
-     * @param KalturaDocumentEntry $documententry - Document entry metadata
+     * Copy flavor asset into new entry.
+     * @param string $sourceflavorassetid - Flavor asset id to be used as the new entry source.
+     * @param KalturaDocumentEntry $documententry - Document entry metadata.
      * @return KalturaDocumentEntry - instance of KalturaDocumentEntry.
      */
-    public function addFromFlavorAsset($sourceflavorassetid, Kalturadocumententry $documententry = null) {
+    public function addFromFlavorAsset($sourceflavorassetid, KalturaDocumentEntry $documententry = null) {
         $kparams = array();
         $this->client->addParam($kparams, "sourceFlavorAssetId", $sourceflavorassetid);
         if ($documententry !== null) {
@@ -960,7 +960,7 @@ class KalturaDocumentClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Document Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

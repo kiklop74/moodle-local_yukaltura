@@ -116,7 +116,9 @@ class KalturaExternalMediaEntryOrderBy extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaExternalMediaSourceType extends KalturaEnumBase {
+    /** @var media source type is intercall */
     const INTERCALL = "InterCall";
+    /** @var media source type is youtube */
     const YOUTUBE = "YouTube";
 }
 
@@ -219,7 +221,7 @@ class KalturaExternalMediaEntryFilter extends KalturaExternalMediaEntryBaseFilte
 class KalturaExternalMediaService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura External Media Service Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -358,7 +360,7 @@ class KalturaExternalMediaClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura External Media Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -58,7 +58,6 @@ class KalturaYouTubeApiDistributionCaptionAction extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaYoutubeApiDistributionProfileOrderBy extends KalturaEnumBase {
     /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
@@ -315,7 +314,7 @@ class KalturaYoutubeApiDistributionProfileFilter extends KalturaYoutubeApiDistri
 class KalturaYoutubeApiDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Youtube Api Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -323,7 +322,7 @@ class KalturaYoutubeApiDistributionClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
-     * @ param KalturaClient $client - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      * @return KalturaYoutubeApiDistributionClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

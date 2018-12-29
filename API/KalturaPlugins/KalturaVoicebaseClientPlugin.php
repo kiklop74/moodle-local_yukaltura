@@ -42,7 +42,6 @@ require_once(dirname(__FILE__) . "/KalturaTranscriptClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaVoicebaseJobProviderData extends KalturaIntegrationJobProviderData {
     /**
      * Entry ID
@@ -130,7 +129,7 @@ class KalturaVoicebaseJobProviderData extends KalturaIntegrationJobProviderData 
 class KalturaVoicebaseClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Voicebase Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

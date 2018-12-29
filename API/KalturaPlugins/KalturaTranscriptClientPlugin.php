@@ -191,7 +191,7 @@ class KalturaTranscriptAssetFilter extends KalturaTranscriptAssetBaseFilter {
 class KalturaTranscriptClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Transcript Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

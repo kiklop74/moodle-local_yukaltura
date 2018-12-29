@@ -75,7 +75,6 @@ class KalturaDailymotionDistributionCaptionFormat extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDailymotionGeoBlockingMapping extends KalturaEnumBase {
     /** @var disabled */
     const DISABLED = 0;
@@ -93,7 +92,6 @@ class KalturaDailymotionGeoBlockingMapping extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaDailymotionDistributionProfileOrderBy extends KalturaEnumBase {
     /** @var order by created timestamp */
     const CREATED_AT_ASC = "+createdAt";
@@ -283,7 +281,7 @@ class KalturaDailymotionDistributionProfileFilter extends KalturaDailymotionDist
 class KalturaDailymotionDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of DailymotionDistributionClientPlugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

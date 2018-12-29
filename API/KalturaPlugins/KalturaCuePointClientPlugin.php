@@ -60,6 +60,7 @@ class KalturaCuePointStatus extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaQuizOutputType extends KalturaEnumBase {
+    /** @var pdf */
     const PDF = 1;
 }
 
@@ -142,7 +143,6 @@ class KalturaCuePointType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 abstract class KalturaCuePoint extends KalturaObjectBase {
     /**
      * @var string
@@ -435,11 +435,10 @@ class KalturaCuePointFilter extends KalturaCuePointBaseFilter {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCuePointService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Cue Point Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -650,7 +649,6 @@ class KalturaCuePointService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCuePointClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaCuePointService
@@ -659,7 +657,7 @@ class KalturaCuePointClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura CuePoint Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

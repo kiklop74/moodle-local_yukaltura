@@ -439,7 +439,7 @@ class KalturaQuizUserEntryFilter extends KalturaQuizUserEntryBaseFilter {
 class KalturaQuizService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Quiz Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -585,7 +585,7 @@ class KalturaQuizClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Quiz Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -594,7 +594,7 @@ class KalturaQuizClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
-     * @param KalturaClient - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      * @return KalturaQuizClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

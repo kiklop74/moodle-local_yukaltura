@@ -269,7 +269,7 @@ class KalturaQuickPlayDistributionProfileFilter extends KalturaQuickPlayDistribu
 class KalturaQuickPlayDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Quick Play Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

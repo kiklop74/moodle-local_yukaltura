@@ -284,7 +284,7 @@ class KalturaWebexDropFolderFilter extends KalturaWebexDropFolderBaseFilter {
 class KalturaWebexDropFolderClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Webex Drop Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -301,7 +301,6 @@ class KalturaWebexDropFolderClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get services.
-     * @param KalturaClient $client - instance of KalturaClient.
      * @return array - array of KalturaServiceBase.
      */
     public function getServices() {

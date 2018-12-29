@@ -94,8 +94,11 @@ class KalturaAuditTrailFileSyncType extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaAuditTrailStatus extends KalturaEnumBase {
+    /** @var pending */
     const PENDING = 1;
+    /** @var ready */
     const READY = 2;
+    /** @var failed */
     const FAILED = 3;
 }
 
@@ -715,7 +718,7 @@ class KalturaAuditTrailFilter extends KalturaAuditTrailBaseFilter {
 class KalturaAuditTrailService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Audit Trial Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -797,7 +800,7 @@ class KalturaAuditClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Audit Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -806,6 +809,7 @@ class KalturaAuditClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
+     * @param KalturaClient $client - instance of KalturaClient.
      * @return KalturaAuditClientPlugin - instance of KalturaAuditClientPlugin.
      */
     public static function get(KalturaClient $client) {

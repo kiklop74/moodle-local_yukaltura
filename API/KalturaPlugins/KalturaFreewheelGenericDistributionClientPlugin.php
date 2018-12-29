@@ -236,7 +236,7 @@ class KalturaFreewheelGenericDistributionProfileFilter extends KalturaFreewheelG
 class KalturaFreewheelGenericDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Freewheel Generic Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

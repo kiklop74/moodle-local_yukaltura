@@ -33,7 +33,7 @@ require_once(dirname(__FILE__) . "/KalturaEnums.php");
 require_once(dirname(__FILE__) . "/KalturaTypes.php");
 
 /**
- * Kaltura Access Control Service
+ * Kaltura Access Control Profile Service
  *
  * @package   local_yukaltura
  * @copyright (C) 2014 Kaltura Inc.
@@ -43,7 +43,7 @@ require_once(dirname(__FILE__) . "/KalturaTypes.php");
 class KalturaAccessControlProfileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Access Control Service.
-     * @param {object} $client - instance of KalturaClinet.
+     * @param {object} $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -158,7 +158,7 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 class KalturaAccessControlService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Access Control Service.
-     * @param {object} $client - instance of KalturaClinet.
+     * @param {object} $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -273,7 +273,7 @@ class KalturaAccessControlService extends KalturaServiceBase {
 class KalturaAdminUserService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Admin User Service.
-     * @param {object} $client - instance of KalturaClinet.
+     * @param {object} $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -373,7 +373,7 @@ class KalturaAdminUserService extends KalturaServiceBase {
 class KalturaAnalyticsService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Analytics Service.
-     * @param {object} $client - instance of KalturaClinet.
+     * @param {object} $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -413,7 +413,7 @@ class KalturaAnalyticsService extends KalturaServiceBase {
 class KalturaAppTokenService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura App Token Service.
-     * @param {object} $client - instance of KalturaClinet.
+     * @param {object} $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -9377,7 +9377,7 @@ class KalturaClient extends KalturaClientBase {
         if (isset($this->clientConfiguration['clientTag'])) {
             return $this->clientConfiguration['clientTag'];
         }
-        
+
         return null;
     }
 
@@ -9415,7 +9415,7 @@ class KalturaClient extends KalturaClientBase {
         if (isset($this->requestConfiguration['partnerId'])) {
             return $this->requestConfiguration['partnerId'];
         }
-        
+
         return null;
     }
 
@@ -9435,7 +9435,7 @@ class KalturaClient extends KalturaClientBase {
         if (isset($this->requestConfiguration['ks'])) {
             return $this->requestConfiguration['ks'];
         }
-        
+
         return null;
     }
 
@@ -9446,7 +9446,7 @@ class KalturaClient extends KalturaClientBase {
     public function setSessionId($sessionId) {
         $this->requestConfiguration['ks'] = $sessionId;
     }
-    
+
     /**
      * Kaltura API session
      * @return string

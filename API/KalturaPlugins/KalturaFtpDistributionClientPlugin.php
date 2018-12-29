@@ -354,7 +354,7 @@ class KalturaFtpScheduledDistributionProviderFilter extends KalturaFtpScheduledD
 class KalturaFtpDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Ftp Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

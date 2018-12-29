@@ -211,7 +211,7 @@ class KalturaPushNotificationTemplateFilter extends KalturaPushNotificationTempl
 class KalturaPushNotificationClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura PushNotificationClientPlugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -219,6 +219,7 @@ class KalturaPushNotificationClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
+     * @param KalturaClient $client - instance of KalturaClient
      * @return KalturaPushNotificationClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

@@ -255,7 +255,7 @@ class KalturaFacebookDistributionProfileFilter extends KalturaFacebookDistributi
 class KalturaFacebookDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Facebook Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

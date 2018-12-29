@@ -221,7 +221,7 @@ class KalturaMetroPcsDistributionProfileFilter extends KalturaMetroPcsDistributi
 class KalturaMetroPcsDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Metro Pcs Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

@@ -240,7 +240,7 @@ class KalturaVarPartnerUsageTotalItem extends KalturaVarPartnerUsageItem {
 class KalturaVarConsoleService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Var Cosole Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -300,7 +300,6 @@ class KalturaVarConsoleService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaVarConsoleClientPlugin extends KalturaClientPlugin {
     /**
      * @var KalturaVarConsoleService
@@ -309,7 +308,7 @@ class KalturaVarConsoleClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Var Console Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

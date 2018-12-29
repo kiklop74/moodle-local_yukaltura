@@ -41,7 +41,6 @@ require_once(dirname(__FILE__) . "/KalturaCuePointClientPlugin.php");
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCodeCuePointOrderBy extends KalturaEnumBase {
     /** @var order by created timestamp */
     const CREATED_AT_ASC = "+createdAt";
@@ -81,7 +80,6 @@ class KalturaCodeCuePointOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCodeCuePoint extends KalturaCuePoint {
     /**
      * @var string
@@ -198,7 +196,7 @@ class KalturaCodeCuePointFilter extends KalturaCodeCuePointBaseFilter {
 class KalturaCodeCuePointClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura CodeCuePoint Client Plugin.
-     * @param kalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

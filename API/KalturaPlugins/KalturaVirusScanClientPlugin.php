@@ -376,7 +376,7 @@ class KalturaVirusScanProfileFilter extends KalturaVirusScanProfileBaseFilter {
 class KalturaVirusScanProfileService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Scan Profile Service.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -516,7 +516,7 @@ class KalturaVirusScanClientPlugin extends KalturaClientPlugin {
 
     /**
      * Constructor of Kaltura Virus Scan Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -534,7 +534,6 @@ class KalturaVirusScanClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get services.
-     * @param Kaltura Client $client - instance of KalturaClient.
      * @return array - array of KalturaServiceBase.
      */
     public function getServices() {

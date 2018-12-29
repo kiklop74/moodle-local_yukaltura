@@ -61,7 +61,6 @@ class KalturaFileSyncStatus extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileSyncType extends KalturaEnumBase {
     /** @var file */
     const FILE = 1;
@@ -79,7 +78,6 @@ class KalturaFileSyncType extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileSyncOrderBy extends KalturaEnumBase {
     /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
@@ -115,7 +113,6 @@ class KalturaFileSyncOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaFileSync extends KalturaObjectBase {
     /**
      *
@@ -518,7 +515,7 @@ class KalturaFileSyncFilter extends KalturaFileSyncBaseFilter {
 class KalturaFileSyncClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura File Sync Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);
@@ -526,7 +523,7 @@ class KalturaFileSyncClientPlugin extends KalturaClientPlugin {
 
     /**
      * Get object.
-     * @param KalturaClinet $client - instance of KalutaClient.
+     * @param KalturaClient $client - instance of KalutaClient.
      * @return KalturaFileSyncClientPlugin - object.
      */
     public static function get(KalturaClient $client) {

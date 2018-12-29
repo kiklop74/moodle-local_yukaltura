@@ -42,9 +42,13 @@ require_once(dirname(__FILE__) . "/KalturaContentDistributionClientPlugin.php");
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaCrossKalturaDistributionProfileOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -56,7 +60,6 @@ class KalturaCrossKalturaDistributionProfileOrderBy extends KalturaEnumBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCrossKalturaDistributionProviderOrderBy extends KalturaEnumBase {
 }
 
@@ -131,7 +134,6 @@ class KalturaCrossKalturaDistributionJobProviderData extends KalturaConfigurable
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class KalturaCrossKalturaDistributionProfile extends KalturaConfigurableDistributionProfile {
     /**
      * @var string
@@ -279,7 +281,7 @@ class KalturaCrossKalturaDistributionProfileFilter extends KalturaCrossKalturaDi
 class KalturaCrossKalturaDistributionClientPlugin extends KalturaClientPlugin {
     /**
      * Constructor of Kaltura Cross Kaltura Distribution Client Plugin.
-     * @param KalturaClient $client - instance of KalturaClinet.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client) {
         parent::__construct($client);

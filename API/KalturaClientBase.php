@@ -158,7 +158,7 @@ class KalturaClientBase {
     const FIELD_TYPE = '_t';
     /** @var field user */
     const FIELD_USER = '_u';
-    /** @var method is post */ 
+    /** @var method is post */
     const METHOD_POST = 'POST';
     /** @var method is get */
     const METHOD_GET = 'GET';
@@ -201,8 +201,8 @@ class KalturaClientBase {
     protected $pluginServices = array();
 
     /**
-    * @var Array of response headers
-    */
+     * @var Array of response headers
+     */
     private $responseHeaders = array();
 
     /**
@@ -244,27 +244,27 @@ class KalturaClientBase {
         }
 
         // Load all plugins.
-        $pluginsFolder = realpath(dirname(__FILE__)) . '/KalturaPlugins';
-        if (is_dir($pluginsFolder)) {
-            $dir = dir($pluginsFolder);
-            while (false !== $fileName = $dir->read()) {
+        $pluginsfolder = realpath(dirname(__FILE__)) . '/KalturaPlugins';
+        if (is_dir($pluginsfolder)) {
+            $dir = dir($pluginsfolder);
+            while (false !== $filename = $dir->read()) {
                 $matches = null;
-                if (preg_match('/^([^.]+).php$/', $fileName, $matches)) {
-                    require_once("$pluginsFolder/$fileName");
+                if (preg_match('/^([^.]+).php$/', $filename, $matches)) {
+                    require_once("$pluginsfolder/$filename");
 
-                    $pluginClass = $matches[1];
-                    if (!class_exists($pluginClass) || !in_array('IKalturaClientPlugin', class_implements($pluginClass))) {
+                    $pluginclass = $matches[1];
+                    if (!class_exists($pluginclass) || !in_array('IKalturaClientPlugin', class_implements($pluginclass))) {
                         continue;
                     }
-                    $plugin = call_user_func(array($pluginClass, 'get'), $this);
+                    $plugin = call_user_func(array($pluginclass, 'get'), $this);
                     if (!($plugin instanceof IKalturaClientPlugin)) {
                         continue;
                     }
-                    $pluginName = $plugin->getName();
+                    $pluginname = $plugin->getName();
                     $services = $plugin->getServices();
-                    foreach ($services as $serviceName => $service) {
+                    foreach ($services as $servicename => $service) {
                         $service->setClient($this);
-                        $this->pluginServices[$serviceName] = $service;
+                        $this->pluginServices[$servicename] = $service;
                     }
                 }
             }
@@ -294,14 +294,14 @@ class KalturaClientBase {
      * @return string - service url.
      */
     public function getServeUrl() {
-        if (count($this->callsQueue) != 1)
+        if (count($this->callsQueue) != 1) {
             return null;
-
+        }
         $params = array();
         $files = array();
         $this->log("service url: [" . $this->config->serviceUrl . "]");
 
-        // append the basic params
+        // Append the basic params.
         $this->addParam($params, "format", $this->config->format);
 
         foreach ($this->clientConfiguration as $param => $value) {
@@ -399,7 +399,7 @@ class KalturaClientBase {
 
         try {
             list($postresult, $error) = $this->doHttpRequest($url, $params, $files);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->resetRequest();
             throw $e;
         }
@@ -432,7 +432,7 @@ class KalturaClientBase {
                     $this->resetRequest();
                     throw new KalturaClientException("failed to download file", KalturaClientException::ERROR_READ_FAILED);
                 }
-            }else if ($this->config->format == self::KALTURA_SERVICE_FORMAT_PHP) {
+            } else if ($this->config->format == self::KALTURA_SERVICE_FORMAT_PHP) {
                 $result = @unserialize($postresult);
 
                 if ($result === false && serialize(false) !== $postresult) {
@@ -470,7 +470,7 @@ class KalturaClientBase {
      * @param int $flags - flags.
      * @return boolean - this function always returns true.
      */
-    protected function ksortRecursive(&$array, $flags = null)  {
+    protected function ksortRecursive(&$array, $flags = null) {
         ksort($array, $flags);
         foreach ($array as &$arr) {
             if (is_array($arr)) {
@@ -515,13 +515,13 @@ class KalturaClientBase {
      * @return array - array of of result and error.
      */
     private function doCurl($url, $params = array(), $files = array()) {
-        $requestHeaders = $this->config->requestHeaders;
-        
+        $requestheaders = $this->config->requestHeaders;
+
         $params = $this->jsonEncode($params);
         $this->log("curl: $url");
         $this->log("post: $params");
         if ($this->config->format == self::KALTURA_SERVICE_FORMAT_JSON) {
-            $requestHeaders[] = 'Accept: application/json';
+            $requestheaders[] = 'Accept: application/json';
         }
 
         $this->responseHeaders = array();
@@ -538,12 +538,13 @@ class KalturaClientBase {
                     if (PHP_VERSION_ID >= 50500) {
                         $params[$key] = new \CURLFile($file);
                     } else {
-                        $params[$key] = "@" . $file; // let curl know its a file
+                        // Let curl know its a file.
+                        $params[$key] = "@" . $file;
                     }
                 }
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
             } else {
-                $requestHeaders[] = 'Content-Type: application/json';
+                $requestheaders[] = 'Content-Type: application/json';
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
             }
         }
@@ -556,13 +557,13 @@ class KalturaClientBase {
         }
 
         if ($this->config->startZendDebuggerSession === true) {
-            $zendDebuggerParams = $this->getZendDebuggerParams($url);
-            $cookies = array_merge($cookies, $zendDebuggerParams);
+            $zenddebuggerparams = $this->getZendDebuggerParams($url);
+            $cookies = array_merge($cookies, $zenddebuggerparams);
         }
 
         if (count($cookies) > 0) {
-            $cookiesStr = http_build_query($cookies, null, '; ');
-            curl_setopt($ch, CURLOPT_COOKIE, $cookiesStr);
+            $cookiesstr = http_build_query($cookies, null, '; ');
+            curl_setopt($ch, CURLOPT_COOKIE, $cookiesstr);
         }
 
         if (isset($this->config->proxyHost)) {
@@ -583,34 +584,34 @@ class KalturaClientBase {
         if (!$this->getConfig()->verifySSL) {
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        } elseif ($this->getConfig()->sslCertificatePath) {
+        } else if ($this->getConfig()->sslCertificatePath) {
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($ch, CURLOPT_CAINFO, $this->getConfig()->sslCertificatePath);
         }
 
         // Set custom headers.
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $requestHeaders);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $requestheaders);
 
         // Save response headers.
         curl_setopt($ch, CURLOPT_HEADERFUNCTION, array($this, 'readHeader'));
 
-        $destinationResource = null;
+        $destinationresource = null;
         if ($this->destinationPath) {
-            $destinationResource = fopen($this->destinationPath, "wb");
-            curl_setopt($ch, CURLOPT_FILE, $destinationResource);
+            $destinationresource = fopen($this->destinationPath, "wb");
+            curl_setopt($ch, CURLOPT_FILE, $destinationresource);
         } else {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         }
 
         $result = curl_exec($ch);
 
-        if ($destinationResource) {
-            fclose($destinationResource);
+        if ($destinationresource) {
+            fclose($destinationresource);
         }
 
-        $curlError = curl_error($ch);
+        $curlerror = curl_error($ch);
         curl_close($ch);
-        return array($result, $curlError);
+        return array($result, $curlerror);
     }
 
     /**
@@ -623,13 +624,13 @@ class KalturaClientBase {
         if (count($files) > 0) {
             throw new KalturaClientException("Uploading files is not supported with stream context http request, please use curl.", KalturaClientException::ERROR_UPLOAD_NOT_SUPPORTED);
         }
-        $formattedData = http_build_query($params , "", "&");
-        $this->log("post: $url?$formattedData");
+        $formatteddata = http_build_query($params , "", "&");
+        $this->log("post: $url?$formatteddata");
 
         $params = array('http' => array("method" => "POST",
                                         "User-Agent: " . $this->config->userAgent . "\r\n" . "Accept-language: en\r\n" .
                                         "Content-type: application/x-www-form-urlencoded\r\n",
-                                        "content" => $formattedData));
+                                        "content" => $formatteddata));
 
         if (isset($this->config->proxyType) && $this->config->proxyType === 'SOCKS5') {
             throw new KalturaClientException("Cannot use SOCKS5 without curl installed.", KalturaClientException::ERROR_CONNECTION_FAILED);
@@ -650,12 +651,12 @@ class KalturaClientBase {
         $ctx = stream_context_create($params);
         $fp = @fopen($url, 'rb', false, $ctx);
         if (!$fp) {
-            $phpErrorMsg = "";
-            throw new KalturaClientException("Problem with $url, $phpErrorMsg", KalturaClientException::ERROR_CONNECTION_FAILED);
+            $phperrormsg = "";
+            throw new KalturaClientException("Problem with $url, $phperrormsg", KalturaClientException::ERROR_CONNECTION_FAILED);
         }
         $response = @stream_get_contents($fp);
         if ($response === false) {
-           throw new KalturaClientException("Problem reading data from $url, $phpErrorMsg", KalturaClientException::ERROR_READ_FAILED);
+           throw new KalturaClientException("Problem reading data from $url, $phperrormsg", KalturaClientException::ERROR_READ_FAILED);
         }
         return array($response, '');
     }
@@ -765,7 +766,7 @@ class KalturaClientBase {
 
         if (is_object($paramvalue) && $paramvalue instanceof KalturaObjectBase) {
             $params[$paramname] = array('objectType' => get_class($paramvalue));
-            
+
             foreach ($paramvalue as $prop => $val) {
                 $this->addParam($params[$paramname], $prop, $val);
             }
@@ -785,8 +786,9 @@ class KalturaClientBase {
 
         $params[$paramname] = array();
         if ($paramvalue) {
-            foreach ($paramvalue as $subparamname => $subparamvalue)
+            foreach ($paramvalue as $subparamname => $subparamvalue) {
                 $this->addParam($params[$paramname], $subparamname, $subparamvalue);
+            }
         } else {
             $params[$paramname]['-'] = '';
         }
@@ -803,7 +805,7 @@ class KalturaClientBase {
                 $item = $this->jsObjectToClientObject($item);
             }
         }
-        
+
         if (is_object($value)) {
             if (isset($value->message) && isset($value->code)) {
                 if ($this->isMultiRequest) {
@@ -814,11 +816,11 @@ class KalturaClientBase {
                 }
                 throw new KalturaException($value->message, $value->code, $value->args);
             }
-            
+
             if (!isset($value->objectType)) {
                 throw new KalturaClientException("Response format not supported - objectType is required for all objects", KalturaClientException::ERROR_FORMAT_NOT_SUPPORTED);
             }
-            
+
             $objecttype = $value->objectType;
             $object = new $objecttype();
             $attributes = get_object_vars($value);
@@ -826,13 +828,13 @@ class KalturaClientBase {
                 if ($attribute === 'objectType') {
                     continue;
                 }
-                
+
                 $object->$attribute = $this->jsObjectToClientObject($attributevalue);
             }
-            
+
             $value = $object;
         }
-        
+
         return $value;
     }
 
@@ -869,7 +871,7 @@ class KalturaClientBase {
         if (is_object($object)) {
             $array['objectType'] = get_class($object);
         }
-            
+
         return $array;
     }
 
@@ -880,7 +882,7 @@ class KalturaClientBase {
      */
     public function throwExceptionIfError($resultobject) {
         if ($this->isError($resultobject)) {
-            throw new KalturaException($resultObject["message"], $resultobject["code"], $resultobject["args"]);
+            throw new KalturaException($resultobject["message"], $resultobject["code"], $resultobject["args"]);
         }
     }
 
@@ -962,8 +964,9 @@ class KalturaClientBase {
      * @param string $msg - mesasge.
      */
     protected function log($msg) {
-        if ($this->shouldLog)
+        if ($this->shouldLog) {
             $this->config->getLogger()->log($msg);
+        }
     }
 
     /**
@@ -990,24 +993,24 @@ class KalturaClientBase {
         return $params;
     }
 
-   /**
-    * Generate kaltura session string (version 1).
-    * @param string $adminsecretforsinging - admin srecret.
-    * @param string $userid - username as string.
-    * @param int $type - login account type.
-    * @param int $partnerid - partner id.
-    * @param int $expiry - session expire time.
-    * @param string $privileges - privileges.
-    * @return string - session string.
-    */
+    /**
+     * Generate kaltura session string (version 1).
+     * @param string $adminsecretforsinging - admin srecret.
+     * @param string $userid - username as string.
+     * @param int $type - login account type.
+     * @param int $partnerid - partner id.
+     * @param int $expiry - session expire time.
+     * @param string $privileges - privileges.
+     * @return string - session string.
+     */
     public function generateSession($adminsecretforsigning, $userid, $type, $partnerid, $expiry = 86400, $privileges = '') {
         $rand = rand(0, 32000);
-        $expiry = time()+$expiry;
+        $expiry = time() + $expiry;
         $fields = array ($partnerid, $partnerid, $expiry, $type, $rand, $userid, $privileges);
         $info = implode(";", $fields);
 
         $signature = $this->hash($adminsecretforsigning, $info);
-        $strtohash = $signature . "|" . $info ;
+        $strtohash = $signature . "|" . $info;
         $encodedstr = base64_encode($strtohash);
 
         return $encodedstr;
@@ -1072,7 +1075,7 @@ class KalturaClientBase {
         // Pad with null byte to be compatible with mcrypt PKCS#5 padding.
         // See http://thefsb.tumblr.com/post/110749271235/using-opensslendecrypt-in-php-instead-of as reference.
         $blocksize = 16;
-        if (strlen($message) % $blockSize) {
+        if (strlen($message) % $blocksize) {
             $padlength = $blocksize - strlen($message) % $blocksize;
             $message .= str_repeat("\0", $padlength);
         }
@@ -1277,7 +1280,7 @@ abstract class KalturaEnumBase {
 }
 
 /**
- * Kaltura Object Base 
+ * Kaltura Object Base
  *
  * @package   local_yukaltura
  * @copyright (C) 2014 Kaltura Inc.
@@ -1322,7 +1325,7 @@ abstract class KalturaObjectBase {
     /**
      * Get this object as parameter array.
      * @return array - array of parameters.
-     /
+     */
     public function toParams() {
         $params = array();
         $params["objectType"] = get_class($this);

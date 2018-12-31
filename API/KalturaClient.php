@@ -42,8 +42,8 @@ require_once(dirname(__FILE__) . "/KalturaTypes.php");
  */
 class KalturaAccessControlProfileService extends KalturaServiceBase {
     /**
-     * Constructor of Kaltura Access Control Service.
-     * @param {object} $client - instance of KalturaClient.
+     * Constructor of Kaltura Access Control Profile Service.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -51,8 +51,8 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 
     /**
      * This function add new access control profile.
-     * @param {object} $accesscontrol - instance of KalturaAccessControl has description of access control profile.
-     * @return {object} - instance of KalturaAccessControl.
+     * @param KalturaAccessControlProfile $accesscontrolprofile - instance of KalturaAccessControl has description of access control profile.
+     * @return KalturaAccessControlProfile - instance of KalturaAccessControlProfile.
      */
     public function add(KalturaAccessControlProfile $accesscontrolprofile) {
         $kparams = array();
@@ -69,8 +69,8 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 
     /**
      * This function delete Access Control Profile by id.
-     * @param {int} $id - id of access control profile user want to delete.
-     * @return {object} - this function return "null".
+     * @param int $id - id of access control profile user want to delete.
+     * @return object - this function return "null".
      */
     public function delete($id) {
         $kparams = array();
@@ -86,8 +86,8 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 
     /**
      * This function get Access Control Profile by id.
-     * @param {int} $id - access control profile id.
-     * @return {object} - instance of KalturaAccessControl.
+     * @param int $id - access control profile id.
+     * @return KalturaAccessControlProfile - instance of KalturaAccessControlProfile.
      */
     public function get($id) {
         $kparams = array();
@@ -104,9 +104,9 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 
     /**
      * This function list access control profiles by filter and pager.
-     * @param {object} $filter - instance of KalturaAccessControlFilter.
-     * @param {object} $pager - instance of KalturaFilterPager.
-     * @return {object} - instance of KalturaAccessControlListResponse.
+     * @param KalturaAccessControlProfileFilter $filter - instance of KalturaAccessControlProfileFilter.
+     * @param KalturaFilterPager $pager - instance of KalturaFilterPager.
+     * @return KalturaAccessControlProfileListResponse - instance of KalturaAccessControlProfileListResponse.
      */
     public function listAction(KalturaAccessControlProfileFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -128,9 +128,9 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 
     /**
      * This function update Access Control Profile.
-     * @param {int} $id - id of access control profile.
-     * @param {object} $accesscontrol - instance of KalturaAccessControl has description of access control profile.
-     * @return {object} - instance of KalturaAccessControl after update.
+     * @param int $id - id of access control profile.
+     * @param KalturaAccessControlProfile $accesscontrolprofile - object has description of access control profile.
+     * @return KalturaAccessControlProfile - instance of KalturaAccessControlProfile after update.
      */
     public function update($id, KalturaAccessControlProfile $accesscontrolprofile) {
         $kparams = array();
@@ -158,7 +158,7 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
 class KalturaAccessControlService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Access Control Service.
-     * @param {object} $client - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -166,8 +166,8 @@ class KalturaAccessControlService extends KalturaServiceBase {
 
     /**
      * This function add new access control profile.
-     * @param {object} $accesscontrol - instance of KalturaAccessControl has description of access control profile.
-     * @return {object} - instance of KalturaAccessControl.
+     * @param KalturaAccessControl $accesscontrol - object has description of access control profile.
+     * @return KalturaAccessControl - instance of KalturaAccessControl.
      */
     public function add(KalturaAccessControl $accesscontrol) {
         $kparams = array();
@@ -184,8 +184,8 @@ class KalturaAccessControlService extends KalturaServiceBase {
 
     /**
      * This function delete Access Control Profile by id.
-     * @param {int} $id - id of access control profile user want to delete.
-     * @return {object} - this function return "null".
+     * @param int $id - id of access control profile user want to delete.
+     * @return object - this function return "null".
      */
     public function delete($id) {
         $kparams = array();
@@ -201,8 +201,8 @@ class KalturaAccessControlService extends KalturaServiceBase {
 
     /**
      * This function get Access Control Profile by id.
-     * @param {int} $id - access control profile id.
-     * @return {object} - instance of KalturaAccessControl.
+     * @param int $id - access control profile id.
+     * @return KalturaAccessControl - instance of KalturaAccessControl.
      */
     public function get($id) {
         $kparams = array();
@@ -219,9 +219,9 @@ class KalturaAccessControlService extends KalturaServiceBase {
 
     /**
      * This function list access control profiles by filter and pager.
-     * @param {object} $filter - instance of KalturaAccessControlFilter.
-     * @param {object} $pager - instance of KalturaFilterPager.
-     * @return {object} - instance of KalturaAccessControlListResponse.
+     * @param KalturaAccessControlFilter $filter - instance of KalturaAccessControlFilter.
+     * @param KalturaFilterPager $pager - instance of KalturaFilterPager.
+     * @return KalturaAccessControlListResponse - instance of KalturaAccessControlListResponse.
      */
     public function listAction(KalturaAccessControlFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -243,9 +243,9 @@ class KalturaAccessControlService extends KalturaServiceBase {
 
     /**
      * This function update Access Control Profile.
-     * @param {int} $id - id of access control profile.
-     * @param {object} $accesscontrol - instance of KalturaAccessControl has description of access control profile.
-     * @return {object} - instance of KalturaAccessControl after update.
+     * @param int $id - id of access control profile.
+     * @param KalturaAccessControl $accesscontrol - instance of KalturaAccessControl has description of access control profile.
+     * @return KalturaAccessControl - instance of KalturaAccessControl after update.
      */
     public function update($id, KalturaAccessControl $accesscontrol) {
         $kparams = array();
@@ -273,7 +273,7 @@ class KalturaAccessControlService extends KalturaServiceBase {
 class KalturaAdminUserService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Admin User Service.
-     * @param {object} $client - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -281,10 +281,10 @@ class KalturaAdminUserService extends KalturaServiceBase {
 
     /**
      * This function get an admin session using admin email and password (Used for login to the KMC application).
-     * @param {string} $email - email address of admin user.
-     * @param {string} $password - password of admin user.
-     * @param {int} - $partnerid - partner ID of admin user.
-     * @return {string} - session string.
+     * @param string $email - email address of admin user.
+     * @param string $password - password of admin user.
+     * @param int - $partnerid - partner ID of admin user.
+     * @return string - session string.
      */
     public function login($email, $password, $partnerid = null) {
         $kparams = array();
@@ -303,8 +303,8 @@ class KalturaAdminUserService extends KalturaServiceBase {
 
     /**
      * This function reset admin user password and sent it to the users email address.
-     * @param {string} $email - email address.
-     * @return {object} - this function return "null".
+     * @param string $email - email address.
+     * @return object - this function return "null".
      */
     public function resetPassword($email) {
         $kparams = array();
@@ -320,9 +320,9 @@ class KalturaAdminUserService extends KalturaServiceBase {
 
     /**
      * This func tion set initial password of admin user.
-     * @param {string} $haskkey - has key (admin secret).
-     * @param {string} $newpassword - new password of admin user.
-     * @return {object} - this function return "null".
+     * @param string $haskkey - has key (admin secret).
+     * @param string $newpassword - new password of admin user.
+     * @return object - this function return "null".
      */
     public function setInitialPassword($hashkey, $newpassword) {
         $kparams = array();
@@ -339,11 +339,11 @@ class KalturaAdminUserService extends KalturaServiceBase {
 
     /**
      * This function update admin user password and email.
-     * @param {string} $email - current email address.
-     * @param {string} $password - current password.
-     * @param {string} $newemail - new email address.
-     * @param {string} $newpassword - new password.
-     * @return {object} - instance of KalturaAdminUser.
+     * @param string $email - current email address.
+     * @param string $password - current password.
+     * @param string $newemail - new email address.
+     * @param string $newpassword - new password.
+     * @return KalturaAdminUser - instance of KalturaAdminUser.
      */
     public function updatePassword($email, $password, $newemail = "", $newpassword = "") {
         $kparams = array();
@@ -373,7 +373,7 @@ class KalturaAdminUserService extends KalturaServiceBase {
 class KalturaAnalyticsService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura Analytics Service.
-     * @param {object} $client - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -381,9 +381,9 @@ class KalturaAnalyticsService extends KalturaServiceBase {
 
     /**
      * This function reports query action allows to get a analytics data for specific query dimensions, metrics and filters.
-     * @param {object} $filter - The analytics query filter.
-     * @param {object} $pager - The analytics query result pager.
-     * @return {object} - instance of KalturaReportResponse.
+     * @param KalturaAnalyticsFilter $filter - The analytics query filter.
+     * @param KalturaFilterPager $pager - The analytics query result pager.
+     * @return KalturaReportResponse - instance of KalturaReportResponse.
      */
     public function query(KalturaAnalyticsFilter $filter, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -413,7 +413,7 @@ class KalturaAnalyticsService extends KalturaServiceBase {
 class KalturaAppTokenService extends KalturaServiceBase {
     /**
      * Constructor of Kaltura App Token Service.
-     * @param {object} $client - instance of KalturaClient.
+     * @param KalturaClient $client - instance of KalturaClient.
      */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
@@ -421,8 +421,8 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Add new application authentication token
-     * @param KalturaAppToken $appToken
-     * @return KalturaAppToken
+     * @param KalturaAppToken $appToken - application authentication token to add.
+     * @return KalturaAppToken - application authentication token after added.
      */
     public function add(KalturaAppToken $apptoken) {
         $kparams = array();
@@ -439,7 +439,7 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Delete application authentication token by id
-     * @param string $id
+     * @param string $id - id ot apptoken.
      */
     public function delete($id) {
         $kparams = array();
@@ -455,8 +455,8 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Get application authentication token by id
-     * @param string $id
-     * @return KalturaAppToken
+     * @param string $id - id of apptoken.
+     * @return KalturaAppToken - apptoken.
      */
     public function get($id) {
         $kparams = array();
@@ -472,10 +472,10 @@ class KalturaAppTokenService extends KalturaServiceBase {
     }
 
     /**
-     * List application authentication tokens by filter and pager
-     * @param KalturaAppTokenFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaAppTokenListResponse
+     * List application authentication tokens by filter and pager.
+     * @param KalturaAppTokenFilter $filter - apptoken filetr object.
+     * @param KalturaFilterPager $pager - filter pager object.
+     * @return KalturaAppTokenListResponse - instance of KalturaAppTokenListResponse.
      */
     public function listAction(KalturaAppTokenFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -497,12 +497,12 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Starts a new KS (kaltura Session) based on application authentication token id
-     * @param string $id Application token id
-     * @param string $tokenHash Hashed token, built of sha1 on current KS concatenated with the application token
-     * @param string $userId Session user id, will be ignored if a different user id already defined on the application token
-     * @param int $type Session type, will be ignored if a different session type already defined on the application token
-     * @param int $expiry Session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token
-     * @return KalturaSessionInfo
+     * @param string $id - Application token id
+     * @param string $tokenhash - Hashed token, built of sha1 on current KS concatenated with the application token
+     * @param string $userid - Session user id, will be ignored if a different user id already defined on the application token
+     * @param int $type - Session type, will be ignored if a different session type already defined on the application token
+     * @param int $expiry - Session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token.
+     * @return KalturaSessionInfo - session information.
      */
     public function startSession($id, $tokenhash, $userid = null, $type = null, $expiry = null) {
         $kparams = array();
@@ -522,10 +522,10 @@ class KalturaAppTokenService extends KalturaServiceBase {
     }
 
     /**
-     * Update application authentication token by id
-     * @param string $id
-     * @param KalturaAppToken $appToken
-     * @return KalturaAppToken
+     * Update application authentication token by id.
+     * @param string $id - id of apptoken.
+     * @param KalturaAppToken $appToken - apptoken object to update.
+     * @return KalturaAppToken - apptoken object after update.
      */
     public function update($id, KalturaAppToken $apptoken) {
         $kparams = array();
@@ -550,17 +550,20 @@ class KalturaAppTokenService extends KalturaServiceBase {
  * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class KalturaBaseEntryService extends KalturaServiceBase
-{
+class KalturaBaseEntryService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Base Entry Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
      * Generic add entry, should be used when the uploaded entry type is not known.
-     * @param KalturaBaseEntry $entry
-     * @param string $type
-     * @return KalturaBaseEntry
+     * @param KalturaBaseEntry $entry - entry object to add.
+     * @param string $type - entry type.
+     * @return KalturaBaseEntry - entry object after add.
      */
     public function add(KalturaBaseEntry $entry, $type = null) {
         $kparams = array();
@@ -578,9 +581,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Attach content resource to entry in status NO_MEDIA
-     * @param string $entryId
-     * @param KalturaResource $resource
-     * @return KalturaBaseEntry
+     * @param string $entryid - id of media entry.
+     * @param KalturaResource $resource - resource to attach.
+     * @return KalturaBaseEntry - media entry object after attach.
      */
     public function addContent($entryid, KalturaResource $resource) {
         $kparams = array();
@@ -598,10 +601,10 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Generic add entry using an uploaded file, should be used when the uploaded entry type is not known.
-     * @param KalturaBaseEntry $entry
-     * @param string $uploadTokenId
-     * @param string $type
-     * @return KalturaBaseEntry
+     * @param KalturaBaseEntry $entry - media entry object.
+     * @param string $uploadtokenid - id of upload token, the id assigns uploaded file to add int media entry.
+     * @param string $type - media type.
+     * @return KalturaBaseEntry - media entry object after add.
      */
     public function addFromUploadedFile(KalturaBaseEntry $entry, $uploadtokenid, $type = null) {
         $kparams = array();
@@ -620,8 +623,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Anonymously rank an entry, no validation is done on duplicate rankings.
-     * @param string $entryId
-     * @param int $rank
+     * @param string $entryid - id of media entry.
+     * @param int $rank - rank.
      */
     public function anonymousRank($entryid, $rank) {
         $kparams = array();
@@ -638,7 +641,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Approve the entry and mark the pending flags (if any) as moderated (this will make the entry playable).
-     * @param string $entryId
+     * @param string $entryid - id of media entry.
      */
     public function approve($entryid) {
         $kparams = array();
@@ -654,9 +657,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Clone an entry with optional attributes to apply to the clone
-     * @param string $entryId Id of entry to clone
-     * @param array $cloneOptions
-     * @return KalturaBaseEntry
+     * @param string $entryid - Id of media entry to clone
+     * @param array $cloneoptions - clone options.
+     * @return KalturaBaseEntry - media entry object after clone.
      */
     public function cloneAction($entryid, array $cloneoptions = null) {
         $kparams = array();
@@ -678,8 +681,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Count base entries by filter.
-     * @param KalturaBaseEntryFilter $filter Entry filter
-     * @return int
+     * @param KalturaBaseEntryFilter $filter - Entry filter object.
+     * @return int - number of baes entry.
      */
     public function count(KalturaBaseEntryFilter $filter = null) {
         $kparams = array();
@@ -698,7 +701,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Delete an entry.
-     * @param string $entryId Entry id to delete
+     * @param string $entryid - id of media entry to delete
      */
     public function delete($entryid) {
         $kparams = array();
@@ -713,9 +716,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
     }
 
     /**
-     * @param string $entryId
-     * @param int $storageProfileId
-     * @return KalturaBaseEntry
+     * @param string $entryid - id of media entry.
+     * @param int $storageprofileid - id of storage profile.
+     * @return KalturaBaseEntry - media entry object.
      */
     public function export($entryid, $storageprofileid) {
         $kparams = array();
@@ -733,7 +736,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Flag inappropriate entry for moderation.
-     * @param KalturaModerationFlag $moderationFlag
+     * @param KalturaModerationFlag $moderationflag - moderation flag.
      */
     public function flag(KalturaModerationFlag $moderationflag) {
         $kparams = array();
@@ -749,9 +752,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Get base entry by ID.
-     * @param string $entryId Entry id
-     * @param int $version Desired version of the data
-     * @return KalturaBaseEntry
+     * @param string $entryid - id of media entry.
+     * @param int $version - desired version of the data
+     * @return KalturaBaseEntry - media entry object.
      */
     public function get($entryid, $version = -1) {
         $kparams = array();
@@ -769,8 +772,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Get an array of KalturaBaseEntry objects by a comma-separated list of ids.
-     * @param string $entryIds Comma separated string of entry ids
-     * @return array
+     * @param string $entryids  - Comma separated string of entry ids
+     * @return array - array ob media entry object.
      */
     public function getByIds($entryids) {
         $kparams = array();
@@ -786,10 +789,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
     }
 
     /**
-     * This action delivers entry-related data, based on the user's context: access control, restriction, playback format and storage information.
-     * @param string $entryId
-     * @param KalturaEntryContextDataParams $contextDataParams
-     * @return KalturaEntryContextDataResult
+     * This action delivers entry-related data, based on the user's context:
+     * access control, restriction, playback format and storage information.
+     * @param string $entryid - id of media entry.
+     * @param KalturaEntryContextDataParams $contextdataparams - content data parameters.
+     * @return KalturaEntryContextDataResult - context data result.
      */
     public function getContextData($entryid, KalturaEntryContextDataParams $contextdataparams) {
         $kparams = array();
@@ -807,9 +811,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * This action delivers all data relevant for player
-     * @param string $entryId
-     * @param KalturaPlaybackContextOptions $contextDataParams
-     * @return KalturaPlaybackContext
+     * @param string $entryid - id of media entry.
+     * @param KalturaPlaybackContextOptions $contextdataparams - context data parameters.
+     * @return KalturaPlaybackContext - playback context.
      */
     public function getPlaybackContext($entryid, KalturaPlaybackContextOptions $contextdataparams) {
         $kparams = array();
@@ -827,8 +831,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Get remote storage existing paths for the asset.
-     * @param string $entryId
-     * @return KalturaRemotePathListResponse
+     * @param string $entryid - id of media entry.
+     * @return KalturaRemotePathListResponse - remote path list.
      */
     public function getRemotePaths($entryid) {
         $kparams = array();
@@ -845,9 +849,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Index an entry by id.
-     * @param string $id
-     * @param bool $shouldUpdate
-     * @return int
+     * @param string $id - id of media entry.
+     * @param bool $shouldupdate - whether update exist entry.
+     * @return int - index.
      */
     public function index($id, $shouldupdate = true) {
         $kparams = array();
@@ -865,9 +869,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * List base entries by filter with paging support.
-     * @param KalturaBaseEntryFilter $filter Entry filter
-     * @param KalturaFilterPager $pager Pager
-     * @return KalturaBaseEntryListResponse
+     * @param KalturaBaseEntryFilter $filter - Entry filter
+     * @param KalturaFilterPager $pager - Pager
+     * @return KalturaBaseEntryListResponse - list of base entry.
      */
     public function listAction(KalturaBaseEntryFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -889,9 +893,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * List base entries by filter according to reference id
-     * @param string $refId Entry Reference ID
-     * @param KalturaFilterPager $pager Pager
-     * @return KalturaBaseEntryListResponse
+     * @param string $refid - Entry Reference ID
+     * @param KalturaFilterPager $pager - Pager
+     * @return KalturaBaseEntryListResponse - list of base entry.
      */
     public function listByReferenceId($refid, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -911,9 +915,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * List all pending flags for the entry.
-     * @param string $entryId
-     * @param KalturaFilterPager $pager
-     * @return KalturaModerationFlagListResponse
+     * @param string $entryid - id of media entry.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaModerationFlagListResponse - moderation flag list.
      */
     public function listFlags($entryid, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -933,7 +937,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable).
-     * @param string $entryId
+     * @param string $entryid - id of media entry.
      */
     public function reject($entryid) {
         $kparams = array();
@@ -949,9 +953,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Update base entry. Only the properties that were set will be updated.
-     * @param string $entryId Entry id to update
-     * @param KalturaBaseEntry $baseEntry Base entry metadata to update
-     * @return KalturaBaseEntry
+     * @param string $entryid - Entry id to update
+     * @param KalturaBaseEntry $baseentry - Base entry metadata to update
+     * @return KalturaBaseEntry - base entry object after update.
      */
     public function update($entryid, KalturaBaseEntry $baseentry) {
         $kparams = array();
@@ -969,18 +973,18 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Update the content resource associated with the entry.
-     * @param string $entryId Entry id to update
-     * @param KalturaResource $resource Resource to be used to replace entry content
-     * @param int $conversionProfileId The conversion profile id to be used on the entry
-     * @param KalturaEntryReplacementOptions $advancedOptions Additional update content options
-     * @return KalturaBaseEntry
+     * @param string $entryid - Entry id to update
+     * @param KalturaResource $resource - Resource to be used to replace entry content
+     * @param int $conversionprofileid - The conversion profile id to be used on the entry
+     * @param KalturaEntryReplacementOptions $advancedoptions - Additional update content options
+     * @return KalturaBaseEntry - base entry object after update.
      */
     public function updateContent($entryid, KalturaResource $resource, $conversionprofileid = null, KalturaEntryReplacementOptions $advancedoptions = null) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "resource", $resource->toParams());
         $this->client->addParam($kparams, "conversionProfileId", $conversionprofileid);
-        if ($advancedOptions !== null) {
+        if ($advancedoptions !== null) {
             $this->client->addParam($kparams, "advancedoptions", $advancedoptions->toParams());
         }
         $this->client->queueServiceActionCall("baseentry", "updateContent", $kparams);
@@ -995,10 +999,10 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Update entry thumbnail from a different entry by a specified time offset (in seconds).
-     * @param string $entryId Media entry id
-     * @param string $sourceEntryId Media entry id
-     * @param int $timeOffset Time offset (in seconds)
-     * @return KalturaBaseEntry
+     * @param string $entryid - Media entry id
+     * @param string $sourceentryid - Media entry id
+     * @param int $timeoffset - Time offset (in seconds)
+     * @return KalturaBaseEntry - base entry object after update.
      */
     public function updateThumbnailFromSourceEntry($entryid, $sourceentryid, $timeoffset) {
         $kparams = array();
@@ -1017,9 +1021,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Update entry thumbnail using url.
-     * @param string $entryId Media entry id
-     * @param string $url File url
-     * @return KalturaBaseEntry
+     * @param string $entryid - Media entry id
+     * @param string $url - File url
+     * @return KalturaBaseEntry - base entry object after update.
      */
     public function updateThumbnailFromUrl($entryid, $url) {
         $kparams = array();
@@ -1037,9 +1041,9 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Update entry thumbnail using a raw jpeg file.
-     * @param string $entryId Media entry id
-     * @param file $fileData Jpeg file data
-     * @return KalturaBaseEntry
+     * @param string $entryid - Media entry id
+     * @param file $filedata - Jpeg file data
+     * @return KalturaBaseEntry - base entry object after update.
      */
     public function updateThumbnailJpeg($entryid, $filedata) {
         $kparams = array();
@@ -1058,8 +1062,8 @@ class KalturaBaseEntryService extends KalturaServiceBase
 
     /**
      * Upload a file to Kaltura, that can be used to create an entry.
-     * @param file $fileData The file data
-     * @return string
+     * @param file $filedata - The file data
+     * @return string - object type of file data.
      */
     public function upload($filedata) {
         $kparams = array();

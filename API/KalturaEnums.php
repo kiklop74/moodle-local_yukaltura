@@ -4732,7 +4732,7 @@ class KalturaLanguage extends KalturaEnumBase {
     /** @var cocopa */
     const COC = "Cocopa";
     /** @var colgnian */
-    onst KSH = "Colognian";
+    const KSH = "Colognian";
     /** @var comanche */
     const COM = "Comanche";
     /** @var comorian */
@@ -5667,7 +5667,7 @@ class KalturaLanguageCode extends KalturaEnumBase {
     /** @var dz */
     const DZ = "dz";
     /** @var el */
-    const EL =  "el";
+    const EL = "el";
     /** @var en */
     const EN = "en";
     /** @var en gb */
@@ -8081,7 +8081,7 @@ class KalturaSyndicationFeedEntriesOrderBy extends KalturaEnumBase {
 class KalturaTaggedObjectType extends KalturaEnumBase {
     /** @var entry */
     const ENTRY = "1";
-    /*: @var category */
+    /** @var category */
     const CATEGORY = "2";
 }
 

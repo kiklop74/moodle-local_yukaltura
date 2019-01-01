@@ -9343,8 +9343,9 @@ class KalturaClient extends KalturaClientBase {
     public $media = null;
 
     /**
-     * A Mix is an XML unique format invented by Kaltura, it allows the user to create a mix of videos and images, in and out points, transitions, text overlays, soundtrack, effects and much more...
-     *  Mixing service lets you create a new mix, manage its metadata and make basic manipulations.
+     * A Mix is an XML unique format invented by Kaltura, it allows the user to create a mix of videos and images,
+     * in and out points, transitions, text overlays, soundtrack, effects and much more...
+     * Mixing service lets you create a new mix, manage its metadata and make basic manipulations.
      * @var KalturaMixingService
      */
     public $mixing = null;

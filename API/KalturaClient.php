@@ -8326,14 +8326,16 @@ class KalturaUploadTokenService extends KalturaServiceBase {
     }
 
     /**
-     * Upload a file using the upload token id, returns an error on failure (an exception will be thrown when using one of the Kaltura clients)
+     * Upload a file using the upload token id, returns an error on failure
+     * (an exception will be thrown when using one of the Kaltura clients)
      * Chunks can be uploaded in parallel and they will be appended according to their resumeAt position.
      * A parallel upload session should have three stages:
      * 1. A single upload with resume=false and finalChunk=false
      * 2. Parallel upload requests each with resume=true,finalChunk=false and the expected resumetAt position.
      * If a chunk fails to upload it can be re-uploaded.
      * 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded
-     * with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
+     * with resume=true, finalChunk=true and the expected resumeAt position.
+     * In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception.
      * has been returned (indicating not all of the chunks were appended yet) the final request can be retried.
      * @param string $uploadtokenid - id of upload token.
      * @param file $filedata - file data.
@@ -8830,7 +8832,7 @@ class KalturaUserService extends KalturaServiceBase {
     /**
      * Index an entry by id.
      * @param string $id - user id.
-     * @param bool $shouldupdate - whether existing 
+     * @param bool $shouldupdate - whether existing user.
      * @return string - index.
      */
     public function index($id, $shouldupdate = true) {
@@ -9054,15 +9056,19 @@ class KalturaUserService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaWidgetService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Widget Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * Add new widget, can be attached to entry or kshow
+     * Add new widget, can be attached to entry or kshow.
      * SourceWidget is ignored.
-     * @param KalturaWidget $widget
-     * @return KalturaWidget
+     * @param KalturaWidget $widget - widget object.
+     * @return KalturaWidget - widget object.
      */
     public function add(KalturaWidget $widget) {
         $kparams = array();
@@ -9080,8 +9086,8 @@ class KalturaWidgetService extends KalturaServiceBase {
     /**
      * Add widget based on existing widget.
      * Must provide valid sourceWidgetId
-     * @param KalturaWidget $widget
-     * @return KalturaWidget
+     * @param KalturaWidget $widget - widget object.
+     * @return KalturaWidget - widget object.
      */
     public function cloneAction(KalturaWidget $widget) {
         $kparams = array();
@@ -9097,9 +9103,9 @@ class KalturaWidgetService extends KalturaServiceBase {
     }
 
     /**
-     * Get widget by id
-     * @param string $id
-     * @return KalturaWidget
+     * Get widget by id.
+     * @param string $id - id of widget.
+     * @return KalturaWidget - widget object.
      */
     public function get($id) {
         $kparams = array();
@@ -9115,10 +9121,10 @@ class KalturaWidgetService extends KalturaServiceBase {
     }
 
     /**
-     * Retrieve a list of available widget depends on the filter given
-     * @param KalturaWidgetFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaWidgetListResponse
+     * Retrieve a list of available widget depends on the filter given.
+     * @param KalturaWidgetFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaWidgetListResponse - list of widget object.
      */
     public function listAction(KalturaWidgetFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -9139,10 +9145,10 @@ class KalturaWidgetService extends KalturaServiceBase {
     }
 
     /**
-     * Update exisiting widget
-     * @param string $id
-     * @param KalturaWidget $widget
-     * @return KalturaWidget
+     * Update exisiting widget.
+     * @param string $id - id of widget.
+     * @param KalturaWidget $widget - widget object.
+     * @return KalturaWidget - widget object.
      */
     public function update($id, KalturaWidget $widget) {
         $kparams = array();
@@ -9495,9 +9501,9 @@ class KalturaClient extends KalturaClientBase {
     public $widget = null;
 
     /**
-     * Kaltura client constructor
+     * Kaltura client constructor.
      *
-     * @param KalturaConfiguration $config
+     * @param KalturaConfiguration $config - configuration object.
      */
     public function __construct(KalturaConfiguration $config) {
         parent::__construct($config);
@@ -9562,14 +9568,16 @@ class KalturaClient extends KalturaClientBase {
     }
 
     /**
-     * @param string $clientTag
+     * Set client tag.
+     * @param string $clienttag - client tag.
      */
-    public function setClientTag($clientTag) {
-        $this->clientConfiguration['clientTag'] = $clientTag;
+    public function setClientTag($clienttag) {
+        $this->clientConfiguration['clientTag'] = $clienttag;
     }
 
     /**
-     * @return string
+     * Get client tag.
+     * @return string - client tag.
      */
     public function getClientTag() {
         if (isset($this->clientConfiguration['clientTag'])) {
@@ -9580,14 +9588,16 @@ class KalturaClient extends KalturaClientBase {
     }
 
     /**
-     * @param string $apiVersion
+     * Set API version.
+     * @param string $apiversion - API version.
      */
-    public function setApiVersion($apiVersion) {
-        $this->clientConfiguration['apiVersion'] = $apiVersion;
+    public function setApiVersion($apiversion) {
+        $this->clientConfiguration['apiVersion'] = $apiversion;
     }
 
     /**
-     * @return string
+     * Get API version.
+     * @return string - API version.
      */
     public function getApiVersion() {
         if (isset($this->clientConfiguration['apiVersion'])) {
@@ -9599,15 +9609,15 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * Impersonated partner id
-     * @param int $partnerId
+     * @param int $partnerid - partner id.
      */
-    public function setPartnerId($partnerId) {
-        $this->requestConfiguration['partnerId'] = $partnerId;
+    public function setPartnerId($partnerid) {
+        $this->requestConfiguration['partnerId'] = $partnerid;
     }
 
     /**
      * Impersonated partner id
-     * @return int
+     * @return int - partner id.
      */
     public function getPartnerId() {
         if (isset($this->requestConfiguration['partnerId'])) {
@@ -9619,7 +9629,7 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * Kaltura API session
-     * @param string $ks
+     * @param string $ks - session string.
      */
     public function setKs($ks) {
         $this->requestConfiguration['ks'] = $ks;
@@ -9627,7 +9637,7 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * Kaltura API session
-     * @return string
+     * @return string - session string.
      */
     public function getKs() {
         if (isset($this->requestConfiguration['ks'])) {
@@ -9639,10 +9649,10 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * Kaltura API session
-     * @param string $sessionId
+     * @param string $sessionid - session id.
      */
-    public function setSessionId($sessionId) {
-        $this->requestConfiguration['ks'] = $sessionId;
+    public function setSessionId($sessionid) {
+        $this->requestConfiguration['ks'] = $sessionid;
     }
 
     /**
@@ -9659,7 +9669,7 @@ class KalturaClient extends KalturaClientBase {
 
     /**
      * Response profile - this attribute will be automatically unset after every API call.
-     * @param KalturaBaseResponseProfile $responseProfile
+     * @param KalturaBaseResponseProfile $responseprofile - response profile.
      */
     public function setResponseProfile(KalturaBaseResponseProfile $responseprofile) {
         $this->requestConfiguration['responseProfile'] = $responseprofile;

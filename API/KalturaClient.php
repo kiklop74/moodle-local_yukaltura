@@ -4640,7 +4640,7 @@ class KalturaMediaService extends KalturaServiceBase {
         $kparams = array();
         $kfiles = array();
         $this->client->addParam($kfiles, "fileData", $filedata);
-        if ($bulkUploadData !== null) {
+        if ($bulkuploaddata !== null) {
             $this->client->addParam($kparams, "bulkUploadData", $bulkuploaddata->toParams());
         }
         if ($bulkuploadentrydata !== null) {
@@ -4928,7 +4928,8 @@ class KalturaMediaService extends KalturaServiceBase {
      * @param KalturaEntryReplacementOptions $advancedoptions Additional update content options.
      * @return KalturaMediaEntry
      */
-    public function updateContent($entryid, KalturaResource $resource, $conversionprofileId = null, KalturaEntryReplacementOptions $advancedoptions = null) {
+    public function updateContent($entryid, KalturaResource $resource, $conversionprofileid = null,
+                                  KalturaEntryReplacementOptions $advancedoptions = null) {
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
         $this->client->addParam($kparams, "resource", $resource->toParams());
@@ -6146,7 +6147,8 @@ class KalturaReportService extends KalturaServiceBase {
      */
     public function getCsv($id, array $params = null) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
 
         $kparams = array();
@@ -6217,7 +6219,8 @@ class KalturaReportService extends KalturaServiceBase {
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
      * @return KalturaReportTable - report table table.
      */
-    public function getTable($reporttype, KalturaReportInputFilter $reportinputfilter, KalturaFilterPager $pager, $order = null, $objectids = null) {
+    public function getTable($reporttype, KalturaReportInputFilter $reportinputfilter, KalturaFilterPager $pager,
+                             $order = null, $objectids = null) {
         $kparams = array();
         $this->client->addParam($kparams, "reportType", $reporttype);
         $this->client->addParam($kparams, "reportInputFilter", $reportinputfilter->toParams());
@@ -6269,7 +6272,9 @@ class KalturaReportService extends KalturaServiceBase {
      * @param string $objectIds - one ID or more (separated by ',') of specific objects to query.
      * @return string - url for csv file.
      */
-    public function getUrlForReportAsCsv($reporttitle, $reporttext, $headers, $reporttype, KalturaReportInputFilter $reportinputfilter, $dimension = null, KalturaFilterPager $pager = null, $order = null, $objectids = null) {
+    public function getUrlForReportAsCsv($reporttitle, $reporttext, $headers, $reporttype,
+                                         KalturaReportInputFilter $reportinputfilter, $dimension = null,
+                                         KalturaFilterPager $pager = null, $order = null, $objectids = null) {
         $kparams = array();
         $this->client->addParam($kparams, "reportTitle", $reporttitle);
         $this->client->addParam($kparams, "reportText", $reporttext);
@@ -6507,7 +6512,8 @@ class KalturaSchemaService extends KalturaServiceBase {
      */
     public function serve($type) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "type", $type);
@@ -6853,7 +6859,8 @@ class KalturaSessionService extends KalturaServiceBase {
      * @param string $privileges - privileges.
      * @return string - session string.
      */
-    public function impersonate($secret, $impersonatedpartnerid, $userId = "", $type = 0, $partnerid = null, $expiry = 86400, $privileges = null) {
+    public function impersonate($secret, $impersonatedpartnerid, $userid = "", $type = 0, $partnerid = null,
+                                $expiry = 86400, $privileges = null) {
         $kparams = array();
         $this->client->addParam($kparams, "secret", $secret);
         $this->client->addParam($kparams, "impersonatedPartnerId", $impersonatedpartnerid);
@@ -7075,7 +7082,7 @@ class KalturaStatsService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Storage Profile Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -7083,14 +7090,18 @@ class KalturaStatsService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaStorageProfileService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Storage Profile Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
      * Adds a storage profile to the Kaltura DB.
-     * @param KalturaStorageProfile $storageProfile
-     * @return KalturaStorageProfile
+     * @param KalturaStorageProfile $storageprofile - storage profile to add.
+     * @return KalturaStorageProfile - storage profile after add.
      */
     public function add(KalturaStorageProfile $storageprofile) {
         $kparams = array();
@@ -7106,9 +7117,9 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
-     * Get storage profile by id
-     * @param int $storageProfileId
-     * @return KalturaStorageProfile
+     * Get storage profile by id.
+     * @param int $storageprofileid - storage profile id.
+     * @return KalturaStorageProfile - storage profile object.
      */
     public function get($storageprofileid) {
         $kparams = array();
@@ -7124,9 +7135,9 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaStorageProfileFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaStorageProfileListResponse
+     * @param KalturaStorageProfileFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaStorageProfileListResponse - list of storage profile.
      */
     public function listAction(KalturaStorageProfileFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -7147,10 +7158,10 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
-     * Update storage profile by id
-     * @param int $storageProfileId
-     * @param KalturaStorageProfile $storageProfile Id
-     * @return KalturaStorageProfile
+     * Update storage profile by id.
+     * @param int $storageprofileid - id of storage profile.
+     * @param KalturaStorageProfile $storageprofile - storage profile object to update.
+     * @return KalturaStorageProfile - storage profile object afer update.
      */
     public function update($storageprofileid, KalturaStorageProfile $storageprofile) {
         $kparams = array();
@@ -7167,8 +7178,9 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $storageid
-     * @param int $status
+     * Update storage status by id.
+     * @param int $storageid - storage id.
+     * @param int $status - status.
      */
     public function updateStatus($storageid, $status) {
         $kparams = array();
@@ -7185,7 +7197,7 @@ class KalturaStorageProfileService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Syndication Feed Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -7193,14 +7205,18 @@ class KalturaStorageProfileService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaSyndicationFeedService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Syndication Feed Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * Add new Syndication Feed
-     * @param KalturaBaseSyndicationFeed $syndicationFeed
-     * @return KalturaBaseSyndicationFeed
+     * Add new Syndication Feed.
+     * @param KalturaBaseSyndicationFeed $syndicationfeed - syndication feed object to add.
+     * @return KalturaBaseSyndicationFeed - syndication feed object after add.
      */
     public function add(KalturaBaseSyndicationFeed $syndicationfeed) {
         $kparams = array();
@@ -7217,7 +7233,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Delete Syndication Feed by ID
-     * @param string $id
+     * @param string $id - id of syndication feed.
      */
     public function delete($id) {
         $kparams = array();
@@ -7232,9 +7248,9 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
     }
 
     /**
-     * Get Syndication Feed by ID
-     * @param string $id
-     * @return KalturaBaseSyndicationFeed
+     * Get Syndication Feed by ID.
+     * @param string $id - syndication feed id.
+     * @return KalturaBaseSyndicationFeed - syndication feed object.
      */
     public function get($id) {
         $kparams = array();
@@ -7250,9 +7266,9 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
     }
 
     /**
-     * Get entry count for a syndication feed
-     * @param string $feedId
-     * @return KalturaSyndicationFeedEntryCount
+     * Get entry count for a syndication feed.
+     * @param string $feedid - syndication feed id.
+     * @return KalturaSyndicationFeedEntryCount - syndication feed entry count.
      */
     public function getEntryCount($feedid) {
         $kparams = array();
@@ -7269,9 +7285,9 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * List Syndication Feeds by filter with paging support
-     * @param KalturaBaseSyndicationFeedFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaBaseSyndicationFeedListResponse
+     * @param KalturaBaseSyndicationFeedFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaBaseSyndicationFeedListResponse - list of base syndication feed.
      */
     public function listAction(KalturaBaseSyndicationFeedFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -7294,8 +7310,8 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
     /**
      * Request conversion for all entries that doesnt have the required flavor param
      * returns a comma-separated ids of conversion jobs
-     * @param string $feedId
-     * @return string
+     * @param string $feedid - feed id.
+     * @return string - conversion object.
      */
     public function requestConversion($feedid) {
         $kparams = array();
@@ -7312,9 +7328,9 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 
     /**
      * Update Syndication Feed by ID
-     * @param string $id
-     * @param KalturaBaseSyndicationFeed $syndicationFeed
-     * @return KalturaBaseSyndicationFeed
+     * @param string $id - syndication feed id.
+     * @param KalturaBaseSyndicationFeed $syndicationfeed - syndication feed object.
+     * @return KalturaBaseSyndicationFeed - syndication feed object.
      */
     public function update($id, KalturaBaseSyndicationFeed $syndicationfeed) {
         $kparams = array();
@@ -7332,7 +7348,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura System Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -7340,12 +7356,17 @@ class KalturaSyndicationFeedService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaSystemService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura System Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * @return int
+     * Get system service time.
+     * @return int - system service time.
      */
     public function getTime() {
         $kparams = array();
@@ -7360,7 +7381,8 @@ class KalturaSystemService extends KalturaServiceBase {
     }
 
     /**
-     * @return string
+     * Get version.
+     * @return string - version string.
      */
     public function getVersion() {
         $kparams = array();
@@ -7375,7 +7397,8 @@ class KalturaSystemService extends KalturaServiceBase {
     }
 
     /**
-     * @return bool
+     * Send ping request and receive response.
+     * @return bool - whether system is active.
      */
     public function ping() {
         $kparams = array();
@@ -7390,7 +7413,8 @@ class KalturaSystemService extends KalturaServiceBase {
     }
 
     /**
-     * @return bool
+     * Send ping request to database and receive response.
+     * @return bool - whether system is active.
      */
     public function pingDatabase() {
         $kparams = array();
@@ -7406,7 +7430,7 @@ class KalturaSystemService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Thumb Asset Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -7414,15 +7438,19 @@ class KalturaSystemService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaThumbAssetService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Thumb Asset Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * Add thumbnail asset
-     * @param string $entryId
-     * @param KalturaThumbAsset $thumbAsset
-     * @return KalturaThumbAsset
+     * Add thumbnail asset.
+     * @param string $entryid - media entry id.
+     * @param KalturaThumbAsset $thumbasset - thumb asset object to add.
+     * @return KalturaThumbAsset - thumb asset object after add.
      */
     public function add($entryid, KalturaThumbAsset $thumbasset) {
         $kparams = array();
@@ -7439,9 +7467,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId
-     * @param file $fileData
-     * @return KalturaThumbAsset
+     * @param string $entryid - media entry id.
+     * @param file $filedata - file data.
+     * @return KalturaThumbAsset - thumb asset object.
      */
     public function addFromImage($entryid, $filedata) {
         $kparams = array();
@@ -7459,9 +7487,10 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId
-     * @param string $url
-     * @return KalturaThumbAsset
+     * Add thumb asset from URL.
+     * @param string $entryid - media entry id.
+     * @param string $url - URL string to add.
+     * @return KalturaThumbAsset - thumb asset object after add.
      */
     public function addFromUrl($entryid, $url) {
         $kparams = array();
@@ -7478,7 +7507,8 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $thumbAssetId
+     * Delete thumb asset by id.
+     * @param string $thumbassetid - thumb asset id.
      */
     public function delete($thumbassetid) {
         $kparams = array();
@@ -7493,10 +7523,10 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Manually export an asset
-     * @param string $assetId
-     * @param int $storageProfileId
-     * @return KalturaFlavorAsset
+     * Manually export an asset.
+     * @param string $assetid - thumb asset id.
+     * @param int $storageprofileid - storage profile id.
+     * @return KalturaFlavorAsset - flavor asset object.
      */
     public function export($assetid, $storageprofileid) {
         $kparams = array();
@@ -7513,10 +7543,10 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId
-     * @param KalturaThumbParams $thumbParams
-     * @param string $sourceAssetId Id of the source asset (flavor or thumbnail) to be used as source for the thumbnail generation
-     * @return KalturaThumbAsset
+     * @param string $entryid - media entry id.
+     * @param KalturaThumbParams $thumbparams - thumb params.
+     * @param string $sourceassetid - Id of the source asset to be used as source for the thumbnail generation.
+     * @return KalturaThumbAsset - thumb asset object.
      */
     public function generate($entryid, KalturaThumbParams $thumbparams, $sourceassetid = null) {
         $kparams = array();
@@ -7534,9 +7564,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId
-     * @param int $destThumbParamsId Indicate the id of the ThumbParams to be generate this thumbnail by
-     * @return KalturaThumbAsset
+     * @param string $entryid - media entry id.
+     * @param int $destthumbparamsid - Indicate the id of the ThumbParams to be generate this thumbnail by.
+     * @return KalturaThumbAsset - thumb asset object.
      */
     public function generateByEntryId($entryid, $destthumbparamsid) {
         $kparams = array();
@@ -7553,8 +7583,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $thumbAssetId
-     * @return KalturaThumbAsset
+     * Get thumb asset object.
+     * @param string $thumbassetid - thumb asset id.
+     * @return KalturaThumbAsset - thumb asset object.
      */
     public function get($thumbassetid) {
         $kparams = array();
@@ -7570,8 +7601,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $entryId
-     * @return array
+     * Get thumb asset list by entry id.
+     * @param string $entryid - media entry id.
+     * @return array - array of thum asset object.
      */
     public function getByEntryId($entryid) {
         $kparams = array();
@@ -7587,9 +7619,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Get remote storage existing paths for the asset
-     * @param string $id
-     * @return KalturaRemotePathListResponse
+     * Get remote storage existing paths for the asset.
+     * @param string $id - thumb asset id.
+     * @return KalturaRemotePathListResponse - list of remote path.
      */
     public function getRemotePaths($id) {
         $kparams = array();
@@ -7605,11 +7637,11 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Get download URL for the asset
-     * @param string $id
-     * @param int $storageId
-     * @param KalturaThumbParams $thumbParams
-     * @return string
+     * Get download URL for the asset.
+     * @param string $id - id of thumb asset.
+     * @param int $storageid - storage id.
+     * @param KalturaThumbParams $thumbparams - thumb params.
+     * @return string - URL string.
      */
     public function getUrl($id, $storageid = null, KalturaThumbParams $thumbparams = null) {
         $kparams = array();
@@ -7629,10 +7661,10 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * List Thumbnail Assets by filter and pager
-     * @param KalturaAssetFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaThumbAssetListResponse
+     * List Thumbnail Assets by filter and pager.
+     * @param KalturaAssetFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaThumbAssetListResponse - list of thumb asset.
      */
     public function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -7653,8 +7685,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $thumbAssetId
-     * @return KalturaThumbAsset
+     * Re-generate thumb asset by id.
+     * @param string $thumbassetid - id of thumb asset.
+     * @return KalturaThumbAsset - thumb asset object.
      */
     public function regenerate($thumbassetid) {
         $kparams = array();
@@ -7670,16 +7703,18 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Serves thumbnail by its id
-     * @param string $thumbAssetId
-     * @param int $version
-     * @param KalturaThumbParams $thumbParams
-     * @param KalturaThumbnailServeOptions $options
-     * @return file
+     * Serves thumbnail by its id.
+     * @param string $thumbassetid - thumb asset id.
+     * @param int $version - version.
+     * @param KalturaThumbParams $thumbparams - thumb params.
+     * @param KalturaThumbnailServeOptions $options - options.
+     * @return file - thumbnail file object.
      */
-    public function serve($thumbassetid, $version = null, KalturaThumbParams $thumbparams = null, KalturaThumbnailServeOptions $options = null) {
+    public function serve($thumbassetid, $version = null, KalturaThumbParams $thumbparams = null,
+                          KalturaThumbnailServeOptions $options = null) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "thumbAssetId", $thumbassetid);
@@ -7698,14 +7733,15 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Serves thumbnail by entry id and thumnail params id
-     * @param string $entryId
-     * @param int $thumbParamId If not set, default thumbnail will be used.
-     * @return file
+     * Serves thumbnail by entry id and thumnail params id.
+     * @param string $entryid - media entry id.
+     * @param int $thumbparamid - If not set, default thumbnail will be used.
+     * @return file - file object.
      */
     public function serveByEntryId($entryid, $thumbparamid = null) {
         if ($this->client->isMultiRequest()) {
-            throw new KalturaClientException("Action is not supported as part of multi-request.", KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
+            throw new KalturaClientException("Action is not supported as part of multi-request.",
+                                             KalturaClientException::ERROR_ACTION_IN_MULTIREQUEST);
         }
         $kparams = array();
         $this->client->addParam($kparams, "entryId", $entryid);
@@ -7719,8 +7755,8 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
-     Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
-     * @param string $thumbAssetId
+     * Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
+     * @param string $thumbassetid - thumb asset id.
      */
     public function setAsDefault($thumbassetid) {
         $kparams = array();
@@ -7736,9 +7772,9 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 
     /**
      * Update content of thumbnail asset
-     * @param string $id
-     * @param KalturaContentResource $contentResource
-     * @return KalturaThumbAsset
+     * @param string $id - id of thumb asset.
+     * @param KalturaContentResource $contentresource - content resource.
+     * @return KalturaThumbAsset - thumb asset after update.
      */
     public function setContent($id, KalturaContentResource $contentresource) {
         $kparams = array();
@@ -7755,10 +7791,10 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Update thumbnail asset
-     * @param string $id
-     * @param KalturaThumbAsset $thumbAsset
-     * @return KalturaThumbAsset
+     * Update thumbnail asset.
+     * @param string $id - thumb asset id.
+     * @param KalturaThumbAsset $thumbasset - thumb asset to update.
+     * @return KalturaThumbAsset - thumb aset object after update.
      */
     public function update($id, KalturaThumbAsset $thumbasset) {
         $kparams = array();
@@ -7776,7 +7812,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Thumb Params Output Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -7784,14 +7820,18 @@ class KalturaThumbAssetService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaThumbParamsOutputService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Thumb Params output Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * Get thumb params output object by ID
-     * @param int $id
-     * @return KalturaThumbParamsOutput
+     * Get thumb params output object by ID.
+     * @param int $id - id of thumb params output.
+     * @return KalturaThumbParamsOutput - thumb params output object.
      */
     public function get($id) {
         $kparams = array();
@@ -7807,10 +7847,10 @@ class KalturaThumbParamsOutputService extends KalturaServiceBase {
     }
 
     /**
-     * List thumb params output objects by filter and pager
-     * @param KalturaThumbParamsOutputFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaThumbParamsOutputListResponse
+     * List thumb params output objects by filter and pager.
+     * @param KalturaThumbParamsOutputFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaThumbParamsOutputListResponse - list of thumb params output.
      */
     public function listAction(KalturaThumbParamsOutputFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -7840,14 +7880,18 @@ class KalturaThumbParamsOutputService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaThumbParamsService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Thumb Params Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
      * Add new Thumb Params
-     * @param KalturaThumbParams $thumbParams
-     * @return KalturaThumbParams
+     * @param KalturaThumbParams $thumbparams - thumb params object to add.
+     * @return KalturaThumbParams - thumb paramas object after add.
      */
     public function add(KalturaThumbParams $thumbparams) {
         $kparams = array();
@@ -7863,8 +7907,8 @@ class KalturaThumbParamsService extends KalturaServiceBase {
     }
 
     /**
-     * Delete Thumb Params by ID
-     * @param int $id
+     * Delete Thumb Params by ID.
+     * @param int $id - thumb params id.
      */
     public function delete($id) {
         $kparams = array();
@@ -7879,9 +7923,9 @@ class KalturaThumbParamsService extends KalturaServiceBase {
     }
 
     /**
-     * Get Thumb Params by ID
-     * @param int $id
-     * @return KalturaThumbParams
+     * Get Thumb Params by ID.
+     * @param int $id - thumb params id.
+     * @return KalturaThumbParams - thumb params object.
      */
     public function get($id) {
         $kparams = array();
@@ -7897,9 +7941,9 @@ class KalturaThumbParamsService extends KalturaServiceBase {
     }
 
     /**
-     * Get Thumb Params by Conversion Profile ID
-     * @param int $conversionProfileId
-     * @return array
+     * Get Thumb Params by Conversion Profile ID.
+     * @param int $conversionprofileid - conversion profile id.
+     * @return array - array of thumb params.
      */
     public function getByConversionProfileId($conversionprofileid) {
         $kparams = array();
@@ -7916,9 +7960,9 @@ class KalturaThumbParamsService extends KalturaServiceBase {
 
     /**
      * List Thumb Params by filter with paging support (By default - all system default params will be listed too)
-     * @param KalturaThumbParamsFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaThumbParamsListResponse
+     * @param KalturaThumbParamsFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaThumbParamsListResponse - list of thumb params.
      */
     public function listAction(KalturaThumbParamsFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -7939,10 +7983,10 @@ class KalturaThumbParamsService extends KalturaServiceBase {
     }
 
     /**
-     * Update Thumb Params by ID
-     * @param int $id
-     * @param KalturaThumbParams $thumbParams
-     * @return KalturaThumbParams
+     * Update Thumb Params by ID.
+     * @param int $id - thumb params id.
+     * @param KalturaThumbParams $thumbparams - thumb params object to update.
+     * @return KalturaThumbParams - thumb params after update.
      */
     public function update($id, KalturaThumbParams $thumbparams) {
         $kparams = array();
@@ -7968,14 +8012,18 @@ class KalturaThumbParamsService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaUiConfService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Uni Conf Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * UIConf Add action allows you to add a UIConf to Kaltura DB
-     * @param KalturaUiConf $uiConf Mandatory input parameter of type KalturaUiConf
-     * @return KalturaUiConf
+     * UIConf Add action allows you to add a UIConf to Kaltura DB.
+     * @param KalturaUiConf $uiconf - Mandatory input parameter of type KalturaUiConf.
+     * @return KalturaUiConf - uiconf object.
      */
     public function add(KalturaUiConf $uiconf) {
         $kparams = array();
@@ -7991,9 +8039,9 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Clone an existing UIConf
-     * @param int $id
-     * @return KalturaUiConf
+     * Clone an existing UIConf.
+     * @param int $id - id of uiconf.
+     * @return KalturaUiConf - uiconf object.
      */
     public function cloneAction($id) {
         $kparams = array();
@@ -8009,8 +8057,8 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Delete an existing UIConf
-     * @param int $id
+     * Delete an existing UIConf.
+     * @param int $id - uiconfi id.
      */
     public function delete($id) {
         $kparams = array();
@@ -8025,9 +8073,9 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Retrieve a UIConf by id
-     * @param int $id
-     * @return KalturaUiConf
+     * Retrieve a UIConf by id.
+     * @param int $id - uiconf id.
+     * @return KalturaUiConf - uiconf object.
      */
     public function get($id) {
         $kparams = array();
@@ -8043,8 +8091,8 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Retrieve a list of all available versions by object type
-     * @return array
+     * Retrieve a list of all available versions by object type.
+     * @return array - array of available versions.
      */
     public function getAvailableTypes() {
         $kparams = array();
@@ -8059,10 +8107,10 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Retrieve a list of available UIConfs
-     * @param KalturaUiConfFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaUiConfListResponse
+     * Retrieve a list of available UIConfs.
+     * @param KalturaUiConfFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaUiConfListResponse - list of uiconf.
      */
     public function listAction(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -8083,10 +8131,10 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Retrieve a list of available template UIConfs
-     * @param KalturaUiConfFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaUiConfListResponse
+     * Retrieve a list of available template UIConfs.
+     * @param KalturaUiConfFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaUiConfListResponse - list of uiconf.
      */
     public function listTemplates(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -8107,10 +8155,10 @@ class KalturaUiConfService extends KalturaServiceBase {
     }
 
     /**
-     * Update an existing UIConf
-     * @param int $id
-     * @param KalturaUiConf $uiConf
-     * @return KalturaUiConf
+     * Update an existing UIConf.
+     * @param int $id - uiconf id.
+     * @param KalturaUiConf $uiconf - uiconf object.
+     * @return KalturaUiConf - uiconf object.
      */
     public function update($id, KalturaUiConf $uiconf) {
         $kparams = array();
@@ -8128,7 +8176,7 @@ class KalturaUiConfService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Upload Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -8136,13 +8184,17 @@ class KalturaUiConfService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaUploadService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura Upload Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * @param string $fileName
-     * @return KalturaUploadResponse
+     * @param string $filename - file name.
+     * @return KalturaUploadResponse - kaltura upload.
      */
     public function getUploadedFileTokenByFileName($filename) {
         $kparams = array();
@@ -8158,8 +8210,9 @@ class KalturaUploadService extends KalturaServiceBase {
     }
 
     /**
-     * @param file $fileData The file data
-     * @return string
+     * Upload file.
+     * @param file $filedata - The file data.
+     * @return string - upload status.
      */
     public function upload($filedata) {
         $kparams = array();
@@ -8177,7 +8230,7 @@ class KalturaUploadService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Upload Token Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -8185,14 +8238,18 @@ class KalturaUploadService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaUploadTokenService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura UploadToken Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
-     * Adds new upload token to upload a file
-     * @param KalturaUploadToken $uploadToken
-     * @return KalturaUploadToken
+     * Adds new upload token to upload a file.
+     * @param KalturaUploadToken $uploadtoken - upload token object.
+     * @return KalturaUploadToken - upload token object.
      */
     public function add(KalturaUploadToken $uploadtoken = null) {
         $kparams = array();
@@ -8210,8 +8267,8 @@ class KalturaUploadTokenService extends KalturaServiceBase {
     }
 
     /**
-     * Deletes the upload token by upload token id
-     * @param string $uploadTokenId
+     * Deletes the upload token by upload token id.
+     * @param string $uploadtokenid - id of upload token.
      */
     public function delete($uploadtokenid) {
         $kparams = array();
@@ -8226,9 +8283,9 @@ class KalturaUploadTokenService extends KalturaServiceBase {
     }
 
     /**
-     * Get upload token by id
-     * @param string $uploadTokenId
-     * @return KalturaUploadToken
+     * Get upload token by id.
+     * @param string $uploadtokenid - id of upload token.
+     * @return KalturaUploadToken - upload token object.
      */
     public function get($uploadtokenid) {
         $kparams = array();
@@ -8245,10 +8302,10 @@ class KalturaUploadTokenService extends KalturaServiceBase {
 
     /**
      * List upload token by filter with pager support.
-     When using a user session the service will be restricted to users objects only.
-     * @param KalturaUploadTokenFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaUploadTokenListResponse
+     * When using a user session the service will be restricted to users objects only.
+     * @param KalturaUploadTokenFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaUploadTokenListResponse - list of upload token.
      */
     public function listAction(KalturaUploadTokenFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -8278,12 +8335,12 @@ class KalturaUploadTokenService extends KalturaServiceBase {
      * 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded
      * with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
      * has been returned (indicating not all of the chunks were appended yet) the final request can be retried.
-     * @param string $uploadTokenId
-     * @param file $fileData
-     * @param bool $resume
-     * @param bool $finalChunk
-     * @param float $resumeAt
-     * @return KalturaUploadToken
+     * @param string $uploadtokenid - id of upload token.
+     * @param file $filedata - file data.
+     * @param bool $resume - whether this chunk is resume.
+     * @param bool $finalchunk - whether this is final chunk.
+     * @param float $resumeat - file offset position of this chunk.
+     * @return KalturaUploadToken - upload token object.
      */
     public function upload($uploadtokenid, $filedata, $resume = false, $finalchunk = true, $resumeat = -1) {
         $kparams = array();
@@ -8305,7 +8362,7 @@ class KalturaUploadTokenService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura User Entry Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -8313,14 +8370,18 @@ class KalturaUploadTokenService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaUserEntryService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura User Entry Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
      * Adds a user_entry to the Kaltura DB.
-     * @param KalturaUserEntry $userEntry
-     * @return KalturaUserEntry
+     * @param KalturaUserEntry $userentry - user entry object.
+     * @return KalturaUserEntry - user entry object.
      */
     public function add(KalturaUserEntry $userentry) {
         $kparams = array();
@@ -8336,8 +8397,9 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaUserEntryFilter $filter
-     * @return int
+     * Bulk Delete users by using filter.
+     * @param KalturaUserEntryFilter $filter - filter object.
+     * @return int - delete status.
      */
     public function bulkDelete(KalturaUserEntryFilter $filter) {
         $kparams = array();
@@ -8353,8 +8415,9 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id
-     * @return KalturaUserEntry
+     * Delete user by id.
+     * @param int $id - user id.
+     * @return KalturaUserEntry - user entry object.
      */
     public function delete($id) {
         $kparams = array();
@@ -8370,8 +8433,9 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param string $id
-     * @return KalturaUserEntry
+     * Get user entry object.
+     * @param string $id - user id.
+     * @return KalturaUserEntry - user entry.
      */
     public function get($id) {
         $kparams = array();
@@ -8387,9 +8451,10 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param KalturaUserEntryFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaUserEntryListResponse
+     * List users.
+     * @param KalturaUserEntryFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaUserEntryListResponse - list of user entry.
      */
     public function listAction(KalturaUserEntryFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -8410,9 +8475,10 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * Submits the quiz so that it's status will be submitted and calculates the score for the quiz
-     * @param int $id
-     * @return KalturaQuizUserEntry
+     * Submit quiz user entry.
+     * Submits the quiz so that it's status will be submitted and calculates the score for the quiz.
+     * @param int $id - user id.
+     * @return KalturaQuizUserEntry - quiz user entry object.
      */
     public function submitQuiz($id) {
         $kparams = array();
@@ -8428,8 +8494,8 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id
-     * @param KalturaUserEntry $userEntry
+     * @param int $id - user id.
+     * @param KalturaUserEntry $userentry - user entry object.
      */
     public function update($id, KalturaUserEntry $userentry) {
         $kparams = array();
@@ -8446,7 +8512,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura Client User Role Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -8454,14 +8520,18 @@ class KalturaUserEntryService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaUserRoleService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura User Role Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
 
     /**
      * Adds a new user role object to the account.
-     * @param KalturaUserRole $userRole A new role
-     * @return KalturaUserRole
+     * @param KalturaUserRole $userrole - A new role.
+     * @return KalturaUserRole - user role object.
      */
     public function add(KalturaUserRole $userrole) {
         $kparams = array();
@@ -8478,8 +8548,8 @@ class KalturaUserRoleService extends KalturaServiceBase {
 
     /**
      * Creates a new user role object that is a duplicate of an existing role.
-     * @param int $userRoleId The user role's unique identifier
-     * @return KalturaUserRole
+     * @param int $userroleid The user role's unique identifier
+     * @return KalturaUserRole - user role object.
      */
     public function cloneAction($userroleid) {
         $kparams = array();
@@ -8496,8 +8566,8 @@ class KalturaUserRoleService extends KalturaServiceBase {
 
     /**
      * Deletes an existing user role object.
-     * @param int $userRoleId The user role's unique identifier
-     * @return KalturaUserRole
+     * @param int $userroleid - The user role's unique identifier
+     * @return KalturaUserRole - user role object.
      */
     public function delete($userroleid) {
         $kparams = array();
@@ -8514,8 +8584,8 @@ class KalturaUserRoleService extends KalturaServiceBase {
 
     /**
      * Retrieves a user role object using its ID.
-     * @param int $userRoleId The user role's unique identifier
-     * @return KalturaUserRole
+     * @param int $userroleid - The user role's unique identifier.
+     * @return KalturaUserRole - user role object.
      */
     public function get($userroleid) {
         $kparams = array();
@@ -8534,9 +8604,9 @@ class KalturaUserRoleService extends KalturaServiceBase {
      * Lists user role objects that are associated with an account.
      * Blocked user roles are listed unless you use a filter to exclude them.
      * Deleted user roles are not listed unless you use a filter to include them.
-     * @param KalturaUserRoleFilter $filter A filter used to exclude specific types of user roles
-     * @param KalturaFilterPager $pager A limit for the number of records to display on a page
-     * @return KalturaUserRoleListResponse
+     * @param KalturaUserRoleFilter $filter - A filter used to exclude specific types of user roles
+     * @param KalturaFilterPager $pager - A limit for the number of records to display on a page
+     * @return KalturaUserRoleListResponse - list of user role.
      */
     public function listAction(KalturaUserRoleFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -8558,9 +8628,9 @@ class KalturaUserRoleService extends KalturaServiceBase {
 
     /**
      * Updates an existing user role object.
-     * @param int $userRoleId The user role's unique identifier
-     * @param KalturaUserRole $userRole Id The user role's unique identifier
-     * @return KalturaUserRole
+     * @param int $userroleid - The user role's unique identifier
+     * @param KalturaUserRole $userrole - The user role's unique identifier
+     * @return KalturaUserRole - user role object.
      */
     public function update($userroleid, KalturaUserRole $userrole) {
         $kparams = array();
@@ -8578,7 +8648,7 @@ class KalturaUserRoleService extends KalturaServiceBase {
 }
 
 /**
- * Kaltura Client API.
+ * Kaltura User Service.
  *
  * @package   local_yukaltura
  * @copyright (C) 2018 Kaltura Inc.
@@ -8586,6 +8656,10 @@ class KalturaUserRoleService extends KalturaServiceBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaUserService extends KalturaServiceBase {
+    /**
+     * Constructor of Kaltura User Service.
+     * @param KalturaClient $client - instance of KalturaClient.
+     */
     public function __construct(KalturaClient $client = null) {
         parent::__construct($client);
     }
@@ -8593,8 +8667,8 @@ class KalturaUserService extends KalturaServiceBase {
     /**
      * Adds a new user to an existing account in the Kaltura database.
      * Input param $id is the unique identifier in the partner's system.
-     * @param KalturaUser $user The new user
-     * @return KalturaUser
+     * @param KalturaUser $user - The new user
+     * @return KalturaUser - user object.
      */
     public function add(KalturaUser $user) {
         $kparams = array();
@@ -8610,12 +8684,14 @@ class KalturaUserService extends KalturaServiceBase {
     }
 
     /**
-     * @param file $fileData
-     * @param KalturaBulkUploadJobData $bulkUploadData
-     * @param KalturaBulkUploadUserData $bulkUploadUserData
-     * @return KalturaBulkUpload
+     * Add from bulkupload.
+     * @param file $filedata - file data.
+     * @param KalturaBulkUploadJobData $bulkuploaddata - bulkupload data.
+     * @param KalturaBulkUploadUserData $bulkuploaduserdata - bulkupload user data.
+     * @return KalturaBulkUpload - bulkupload object.
      */
-    public function addFromBulkUpload($filedata, KalturaBulkUploadJobData $bulkuploaddata = null, KalturaBulkUploadUserData $bulkuploaduserdata = null) {
+    public function addFromBulkUpload($filedata, KalturaBulkUploadJobData $bulkuploaddata = null,
+                                      KalturaBulkUploadUserData $bulkuploaduserdata = null) {
         $kparams = array();
         $kfiles = array();
         $this->client->addParam($kfiles, "fileData", $filedata);
@@ -8636,9 +8712,9 @@ class KalturaUserService extends KalturaServiceBase {
     }
 
     /**
-     * Action which checks whther user login
-     * @param KalturaUserLoginDataFilter $filter
-     * @return bool
+     * Action which checks whether user login.
+     * @param KalturaUserLoginDataFilter $filter - filter object.
+     * @return bool - wheter user login.
      */
     public function checkLoginDataExists(KalturaUserLoginDataFilter $filter) {
         $kparams = array();
@@ -8655,8 +8731,8 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Deletes a user from a partner account.
-     * @param string $userId The user's unique identifier in the partner's system
-     * @return KalturaUser
+     * @param string $userid - The user's unique identifier in the partner's system.
+     * @return KalturaUser - user object.
      */
     public function delete($userid) {
         $kparams = array();
@@ -8674,9 +8750,9 @@ class KalturaUserService extends KalturaServiceBase {
     /**
      * Disables a user's ability to log into a partner account using an email address and a password.
      * You may use either a userId or a loginId parameter for this action.
-     * @param string $userId The user's unique identifier in the partner's system
-     * @param string $loginId The user's email address that identifies the user for login
-     * @return KalturaUser
+     * @param string $userid - The user's unique identifier in the partner's system.
+     * @param string $loginid - The user's email address that identifies the user for login.
+     * @return KalturaUser - user object.
      */
     public function disableLogin($userid = null, $loginid = null) {
         $kparams = array();
@@ -8693,10 +8769,10 @@ class KalturaUserService extends KalturaServiceBase {
     }
 
     /**
-     * Enables a user to log into a partner account using an email address and a password
-     * @param string $userId The user's unique identifier in the partner's system
-     * @param string $loginId The user's email address that identifies the user for login
-     * @param string $password The user's password
+     * Enables a user to log into a partner account using an email address and a password.
+     * @param string $userid - The user's unique identifier in the partner's system.
+     * @param string $loginid - The user's email address that identifies the user for login.
+     * @param string $password - The user's password.
      * @return KalturaUser
      */
     public function enableLogin($userid, $loginid, $password = null) {
@@ -8716,8 +8792,8 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Retrieves a user object for a specified user ID.
-     * @param string $userId The user's unique identifier in the partner's system
-     * @return KalturaUser
+     * @param string $userid - The user's unique identifier in the partner's system.
+     * @return KalturaUser - user object.
      */
     public function get($userid = null) {
         $kparams = array();
@@ -8735,8 +8811,8 @@ class KalturaUserService extends KalturaServiceBase {
     /**
      * Retrieves a user object for a user's login ID and partner ID.
      * A login ID is the email address used by a user to log into the system.
-     * @param string $loginId The user's email address that identifies the user for login
-     * @return KalturaUser
+     * @param string $loginid - The user's email address that identifies the user for login
+     * @return KalturaUser - user object.
      */
     public function getByLoginId($loginid) {
         $kparams = array();
@@ -8753,9 +8829,9 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Index an entry by id.
-     * @param string $id
-     * @param bool $shouldUpdate
-     * @return string
+     * @param string $id - user id.
+     * @param bool $shouldupdate - whether existing 
+     * @return string - index.
      */
     public function index($id, $shouldupdate = true) {
         $kparams = array();
@@ -8775,9 +8851,9 @@ class KalturaUserService extends KalturaServiceBase {
      * Lists user objects that are associated with an account.
      * Blocked users are listed unless you use a filter to exclude them.
      * Deleted users are not listed unless you use a filter to include them.
-     * @param KalturaUserFilter $filter A filter used to exclude specific types of users
-     * @param KalturaFilterPager $pager A limit for the number of records to display on a page
-     * @return KalturaUserListResponse
+     * @param KalturaUserFilter $filter - filter used to exclude specific types of users
+     * @param KalturaFilterPager $pager - A limit for the number of records to display on a page
+     * @return KalturaUserListResponse - list of user object.
      */
     public function listAction(KalturaUserFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -8799,12 +8875,12 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Logs a user into a partner account with a partner ID, a partner user ID (puser), and a user password.
-     * @param int $partnerId The identifier of the partner account
-     * @param string $userId The user's unique identifier in the partner's system
-     * @param string $password The user's password
-     * @param int $expiry The requested time (in seconds) before the generated KS expires (By default, a KS expires after 24 hours).
-     * @param string $privileges Special privileges
-     * @return string
+     * @param int $partnerid - The identifier of the partner account
+     * @param string $userid - The user's unique identifier in the partner's system
+     * @param string $password - The user's password
+     * @param int $expiry - The requested time (in seconds) before the generated KS expires (default is 24 hours).
+     * @param string $privileges - Special privileges.
+     * @return string - login status.
      */
     public function login($partnerid, $userid, $password, $expiry = 86400, $privileges = "*") {
         $kparams = array();
@@ -8824,9 +8900,10 @@ class KalturaUserService extends KalturaServiceBase {
     }
 
     /**
-     * Loges a user to the destination account as long the ks user id exists in the desc acount and the loginData id match for both accounts
-     * @param int $requestedPartnerId
-     * @return KalturaSessionResponse
+     * Loges a user to the destination account as long the ks user id exists.
+     * in the desc acount and the loginData id match for both accounts.
+     * @param int $requestedpartnerid - partner id.
+     * @return KalturaSessionResponse - session string.
      */
     public function loginByKs($requestedpartnerid) {
         $kparams = array();
@@ -8843,13 +8920,13 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Logs a user into a partner account with a user login ID and a user password.
-     * @param string $loginId The user's email address that identifies the user for login
-     * @param string $password The user's password
-     * @param int $partnerId The identifier of the partner account
-     * @param int $expiry The requested time (in seconds) before the generated KS expires (By default, a KS expires after 24 hours).
-     * @param string $privileges Special privileges
-     * @param string $otp The user's one-time password
-     * @return string
+     * @param string $loginid - The user's email address that identifies the user for login
+     * @param string $password - The user's password
+     * @param int $partnerid - The identifier of the partner account
+     * @param int $expiry - The requested time (in seconds) before the generated KS expires (default is 24 hours).
+     * @param string $privileges - Special privileges
+     * @param string $otp - The user's one-time password
+     * @return string - login status.
      */
     public function loginByLoginId($loginid, $password, $partnerid = null, $expiry = 86400, $privileges = "*", $otp = null) {
         $kparams = array();
@@ -8871,7 +8948,7 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Notifies that a user is banned from an account.
-     * @param string $userId The user's unique identifier in the partner's system
+     * @param string $userid - The user's unique identifier in the partner's system
      */
     public function notifyBan($userid) {
         $kparams = array();
@@ -8887,7 +8964,7 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Reset user's password and send the user an email to generate a new one.
-     * @param string $email The user's email address (login email)
+     * @param string $email - The user's email address (login email).
      */
     public function resetPassword($email) {
         $kparams = array();
@@ -8902,9 +8979,9 @@ class KalturaUserService extends KalturaServiceBase {
     }
 
     /**
-     * Set initial users password
-     * @param string $hashKey The hash key used to identify the user (retrieved by email)
-     * @param string $newPassword The new password to set for the user
+     * Set initial users password.
+     * @param string $hashkey - The hash key used to identify the user (retrieved by email)
+     * @param string $newpassword - The new password to set for the user
      */
     public function setInitialPassword($hashkey, $newpassword) {
         $kparams = array();
@@ -8922,9 +8999,9 @@ class KalturaUserService extends KalturaServiceBase {
     /**
      * Updates an existing user object.
      * You can also use this action to update the userId.
-     * @param string $userId The user's unique identifier in the partner's system
-     * @param KalturaUser $user Id The user's unique identifier in the partner's system
-     * @return KalturaUser
+     * @param string $userid - The user's unique identifier in the partner's system
+     * @param KalturaUser $user - Id The user's unique identifier in the partner's system
+     * @return KalturaUser - user object.
      */
     public function update($userid, KalturaUser $user) {
         $kparams = array();
@@ -8942,14 +9019,15 @@ class KalturaUserService extends KalturaServiceBase {
 
     /**
      * Updates a user's login data: email, password, name.
-     * @param string $oldLoginId The user's current email address that identified the user for login
-     * @param string $password The user's current email address that identified the user for login
-     * @param string $newLoginId Optional, The user's email address that will identify the user for login
-     * @param string $newPassword Optional, The user's new password
-     * @param string $newFirstName Optional, The user's new first name
-     * @param string $newLastName Optional, The user's new last name
+     * @param string $oldloginid - The user's current email address that identified the user for login
+     * @param string $password - The user's current email address that identified the user for login
+     * @param string $newloginid - Optional, The user's email address that will identify the user for login
+     * @param string $newpassword - Optional, The user's new password
+     * @param string $newfirstname - Optional, The user's new first name
+     * @param string $newlastname - Optional, The user's new last name
      */
-    public function updateLoginData($oldloginid, $password, $newloginid = "", $newpassword = "", $newfirstname = null, $newlastname = null) {
+    public function updateLoginData($oldloginid, $password, $newloginid = "", $newpassword = "",
+                                    $newfirstname = null, $newlastname = null) {
         $kparams = array();
         $this->client->addParam($kparams, "oldLoginId", $oldloginid);
         $this->client->addParam($kparams, "password", $password);

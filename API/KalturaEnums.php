@@ -2198,7 +2198,7 @@ class KalturaAssetType extends KalturaEnumBase {
     const ATTACHMENT = "attachment.Attachment";
     /** @var caption */
     const CAPTION = "caption.Caption";
-    /** @var documment /
+    /** @var documment */
     const DOCUMENT = "document.Document";
     /** @var image */
     const IMAGE = "document.Image";
@@ -5025,7 +5025,7 @@ class KalturaLanguage extends KalturaEnumBase {
     const KFA = "Kodava";
     /** @var komi-permyak */
     const KOI = "Komi-Permyak";
-    /** @var *konkani /
+    /** @var *konkani */
     const KOK = "Konkani (generic)";
     /** @var konkani */
     const KNN = "Konkani (specific)";
@@ -5923,13 +5923,21 @@ class KalturaLanguageCode extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaLiveAssetOrderBy extends KalturaEnumBase {
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
+    /** @var order by deleted */
     const DELETED_AT_ASC = "+deletedAt";
+    /** @var order by size */
     const SIZE_ASC = "+size";
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
+    /** @var order by deleted */
     const DELETED_AT_DESC = "-deletedAt";
+    /** @var order by size */
     const SIZE_DESC = "-size";
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
 }
 
@@ -6505,77 +6513,77 @@ class KalturaLiveStreamAdminEntryMatchAttribute extends KalturaEnumBase {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaLiveStreamAdminEntryOrderBy extends KalturaEnumBase {
-    /* @var order by created */
+    /** @var order by created */
     const CREATED_AT_ASC = "+createdAt";
-    /* @var order by duration */
+    /** @var order by duration */
     const DURATION_ASC = "+duration";
-    /* @var order by end date */
+    /** @var order by end date */
     const END_DATE_ASC = "+endDate";
-    /* @var order by first broadcast */
+    /** @var order by first broadcast */
     const FIRST_BROADCAST_ASC = "+firstBroadcast";
-    /* @var order by last broadcast */
+    /** @var order by last broadcast */
     const LAST_BROADCAST_ASC = "+lastBroadcast";
-    /* @var order by last played */
+    /** @var order by last played */
     const LAST_PLAYED_AT_ASC = "+lastPlayedAt";
-    /* @var order by media type */
+    /** @var order by media type */
     const MEDIA_TYPE_ASC = "+mediaType";
-    /* @var order by moderation count */
+    /** @var order by moderation count */
     const MODERATION_COUNT_ASC = "+moderationCount";
-    /* @var order by name */
+    /** @var order by name */
     const NAME_ASC = "+name";
-    /* @var order by partner sort value */
+    /** @var order by partner sort value */
     const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";
-    /* @var order by plays */
+    /** @var order by plays */
     const PLAYS_ASC = "+plays";
-    /* @var order by rank */
+    /** @var order by rank */
     const RANK_ASC = "+rank";
-    /* @var order by recent */
+    /** @var order by recent */
     const RECENT_ASC = "+recent";
-    /* @var order by start date */
+    /** @var order by start date */
     const START_DATE_ASC = "+startDate";
-    /* @var order by total rank */
+    /** @var order by total rank */
     const TOTAL_RANK_ASC = "+totalRank";
-    /* @var order by updated */
+    /** @var order by updated */
     const UPDATED_AT_ASC = "+updatedAt";
-    /* @var order by views */
+    /** @var order by views */
     const VIEWS_ASC = "+views";
-    /* @var order by weight */
+    /** @var order by weight */
     const WEIGHT_ASC = "+weight";
-    /* @var order by created */
+    /** @var order by created */
     const CREATED_AT_DESC = "-createdAt";
-    /* @var order by duration */
+    /** @var order by duration */
     const DURATION_DESC = "-duration";
-    /* @var order by end date */
+    /** @var order by end date */
     const END_DATE_DESC = "-endDate";
-    /* @var order by first broadcast */
+    /** @var order by first broadcast */
     const FIRST_BROADCAST_DESC = "-firstBroadcast";
-    /* @var order by last boradcast */
+    /** @var order by last boradcast */
     const LAST_BROADCAST_DESC = "-lastBroadcast";
-    /* @var order by last played */
+    /** @var order by last played */
     const LAST_PLAYED_AT_DESC = "-lastPlayedAt";
-    /* @var order by media */
+    /** @var order by media */
     const MEDIA_TYPE_DESC = "-mediaType";
-    /* @var order by moderation count */
+    /** @var order by moderation count */
     const MODERATION_COUNT_DESC = "-moderationCount";
-    /* @var order by name */
+    /** @var order by name */
     const NAME_DESC = "-name";
-    /* @var order by partner sort value */
+    /** @var order by partner sort value */
     const PARTNER_SORT_VALUE_DESC = "-partnerSortValue";
-    /* @var order by plays */
+    /** @var order by plays */
     const PLAYS_DESC = "-plays";
-    /* @var order by rank */
+    /** @var order by rank */
     const RANK_DESC = "-rank";
-    /* @var order by recent */
+    /** @var order by recent */
     const RECENT_DESC = "-recent";
-    /* @var order by start date */
+    /** @var order by start date */
     const START_DATE_DESC = "-startDate";
-    /* @var order by total rank */
+    /** @var order by total rank */
     const TOTAL_RANK_DESC = "-totalRank";
-    /* @var order by updated */
+    /** @var order by updated */
     const UPDATED_AT_DESC = "-updatedAt";
-    /* @var order by views */
+    /** @var order by views */
     const VIEWS_DESC = "-views";
-    /* @var order by wight */
+    /** @var order by wight */
     const WEIGHT_DESC = "-weight";
 }
 

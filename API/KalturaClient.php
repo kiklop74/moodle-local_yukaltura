@@ -36,8 +36,8 @@ require_once(dirname(__FILE__) . "/KalturaTypes.php");
  * Kaltura Access Control Profile Service
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaAccessControlProfileService extends KalturaServiceBase {
@@ -151,8 +151,8 @@ class KalturaAccessControlProfileService extends KalturaServiceBase {
  * Kaltura Access Control Service
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaAccessControlService extends KalturaServiceBase {
@@ -266,8 +266,8 @@ class KalturaAccessControlService extends KalturaServiceBase {
  * Kaltura Admin User Service
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaAdminUserService extends KalturaServiceBase {
@@ -283,7 +283,7 @@ class KalturaAdminUserService extends KalturaServiceBase {
      * This function get an admin session using admin email and password (Used for login to the KMC application).
      * @param string $email - email address of admin user.
      * @param string $password - password of admin user.
-     * @param int - $partnerid - partner ID of admin user.
+     * @param int $partnerid - partner ID of admin user.
      * @return string - session string.
      */
     public function login($email, $password, $partnerid = null) {
@@ -320,7 +320,7 @@ class KalturaAdminUserService extends KalturaServiceBase {
 
     /**
      * This func tion set initial password of admin user.
-     * @param string $haskkey - has key (admin secret).
+     * @param string $hashkey - has key (admin secret).
      * @param string $newpassword - new password of admin user.
      * @return object - this function return "null".
      */
@@ -366,8 +366,8 @@ class KalturaAdminUserService extends KalturaServiceBase {
  * KalturaAnalyticService.
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaAnalyticsService extends KalturaServiceBase {
@@ -406,8 +406,8 @@ class KalturaAnalyticsService extends KalturaServiceBase {
  * KalturaAppTokenService.
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaAppTokenService extends KalturaServiceBase {
@@ -421,7 +421,7 @@ class KalturaAppTokenService extends KalturaServiceBase {
 
     /**
      * Add new application authentication token
-     * @param KalturaAppToken $appToken - application authentication token to add.
+     * @param KalturaAppToken $apptoken - application authentication token to add.
      * @return KalturaAppToken - application authentication token after added.
      */
     public function add(KalturaAppToken $apptoken) {
@@ -524,7 +524,7 @@ class KalturaAppTokenService extends KalturaServiceBase {
     /**
      * Update application authentication token by id.
      * @param string $id - id of apptoken.
-     * @param KalturaAppToken $appToken - apptoken object to update.
+     * @param KalturaAppToken $apptoken - apptoken object to update.
      * @return KalturaAppToken - apptoken object after update.
      */
     public function update($id, KalturaAppToken $apptoken) {
@@ -716,6 +716,7 @@ class KalturaBaseEntryService extends KalturaServiceBase {
     }
 
     /**
+     * Export storage profile.
      * @param string $entryid - id of media entry.
      * @param int $storageprofileid - id of storage profile.
      * @return KalturaBaseEntry - media entry object.
@@ -1276,6 +1277,7 @@ class KalturaCategoryEntryService extends KalturaServiceBase {
     }
 
     /**
+     * Add new CategoryEntry from bulk upload content.
      * @param KalturaBulkServiceData $bulkuploaddata - bulkupload service data.
      * @param KalturaBulkUploadCategoryEntryData $bulkuploadcategoryentrydata - bulkupload categoryentry data to add.
      * @return KalturaBulkUpload - bulkupload object after add.
@@ -1434,6 +1436,7 @@ class KalturaCategoryService extends KalturaServiceBase {
     }
 
     /**
+     * Add new category from bulk upload content.
      * @param file $filedata - uploaded file data.
      * @param KalturaBulkUploadJobData $bulkuploaddata - bulk upload data.
      * @param KalturaBulkUploadCategoryData $bulkuploadcategorydata - bulk upload category data.
@@ -1652,6 +1655,7 @@ class KalturaCategoryUserService extends KalturaServiceBase {
     }
 
     /**
+     * Add new CategoryUser from bulk upload content.
      * @param file $filedata - file data.
      * @param KalturaBulkUploadJobData $bulkuploaddata - bulkupload data.
      * @param KalturaBulkUploadCategoryUserData $bulkuploadcategoryuserdata - bulkupload categoryuser data.
@@ -2430,7 +2434,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase {
 
     /**
      * Update an existing EmailIngestionProfile
-     * @param int $id- id of email ingestion profile.
+     * @param int $id - id of email ingestion profile.
      * @param KalturaEmailIngestionProfile $emailip - eimail ip.
      * @return KalturaEmailIngestionProfile - email ingestion profile object.
      */
@@ -2467,6 +2471,7 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
     }
 
     /**
+     * Get server node by id.
      * @param string $id - id of entry server node.
      * @return KalturaEntryServerNode - entry server node object.
      */
@@ -2484,6 +2489,7 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
     }
 
     /**
+     * List server nodes.
      * @param KalturaEntryServerNodeFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
      * @return KalturaEntryServerNodeListResponse - list of entry server node.
@@ -2507,9 +2513,10 @@ class KalturaEntryServerNodeService extends KalturaServiceBase {
     }
 
     /**
-     * @param int $id
-     * @param KalturaEntryServerNode $entryServerNode
-     * @return KalturaEntryServerNode
+     * Update entry server node.
+     * @param int $id - server node id.
+     * @param KalturaEntryServerNode $entryservernode - server node object to update.
+     * @return KalturaEntryServerNode - server node after update.
      */
     public function update($id, KalturaEntryServerNode $entryservernode) {
         $kparams = array();
@@ -2733,7 +2740,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
     /**
      * Add and convert new Flavor Asset for Entry with specific Flavor Params
      * @param string $entryid - id of media entry.
-     * @param int $flavorParamsId - flavor params id.
+     * @param int $flavorparamsid - flavor params id.
      * @param int $priority - priority of conversion batch job.
      */
     public function convert($entryid, $flavorparamsid, $priority = 0) {
@@ -2921,9 +2928,9 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
     }
 
     /**
-     * Get volume map by entry id
-     * @param string $flavorId Flavor id
-     * @return file
+     * Get volume map by entry id.
+     * @param string $flavorid - Flavor id
+     * @return file - volume map file.
      */
     public function getVolumeMap($flavorid) {
         if ($this->client->isMultiRequest()) {
@@ -3000,7 +3007,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase {
     /**
      * Serve cmd line to transcode the ad.
      * @param string $assetid - flavor asset id.
-     * @param string $ffprobeJson - ffprobe json parameters.
+     * @param string $ffprobejson - ffprobe json parameters.
      * @param string $duration - duration time.
      * @return string - serve status.
      */
@@ -3155,8 +3162,8 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Add new Flavor Params
-     * @param KalturaFlavorParams $flavorParams
-     * @return KalturaFlavorParams
+     * @param KalturaFlavorParams $flavorparams - flavor params object to add.
+     * @return KalturaFlavorParams - flavor params object after add.
      */
     public function add(KalturaFlavorParams $flavorparams) {
         $kparams = array();
@@ -3173,7 +3180,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Delete Flavor Params by ID
-     * @param int $id
+     * @param int $id - flavor params id.
      */
     public function delete($id) {
         $kparams = array();
@@ -3189,8 +3196,8 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Get Flavor Params by ID
-     * @param int $id
-     * @return KalturaFlavorParams
+     * @param int $id - flavor params id.
+     * @return KalturaFlavorParams - flavor params object.
      */
     public function get($id) {
         $kparams = array();
@@ -3207,8 +3214,8 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Get Flavor Params by Conversion Profile ID
-     * @param int $conversionProfileId
-     * @return array
+     * @param int $conversionprofileid - conversion profile id.
+     * @return array - array of flavor params.
      */
     public function getByConversionProfileId($conversionprofileid) {
         $kparams = array();
@@ -3225,9 +3232,9 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * List Flavor Params by filter with paging support (By default - all system default params will be listed too)
-     * @param KalturaFlavorParamsFilter $filter
-     * @param KalturaFilterPager $pager
-     * @return KalturaFlavorParamsListResponse
+     * @param KalturaFlavorParamsFilter $filter - filter object.
+     * @param KalturaFilterPager $pager - pager object.
+     * @return KalturaFlavorParamsListResponse - list of flavor params.
      */
     public function listAction(KalturaFlavorParamsFilter $filter = null, KalturaFilterPager $pager = null) {
         $kparams = array();
@@ -3249,9 +3256,9 @@ class KalturaFlavorParamsService extends KalturaServiceBase {
 
     /**
      * Update Flavor Params by ID
-     * @param int $id
-     * @param KalturaFlavorParams $flavorParams
-     * @return KalturaFlavorParams
+     * @param int $id - flavor params id.
+     * @param KalturaFlavorParams $flavorparams - flavor params object to update.
+     * @return KalturaFlavorParams - flavor params object after update.
      */
     public function update($id, KalturaFlavorParams $flavorparams) {
         $kparams = array();
@@ -3777,6 +3784,7 @@ class KalturaLiveReportsService extends KalturaServiceBase {
     }
 
     /**
+     * Get events.
      * @param string $reporttype - report type.
      * @param KalturaLiveReportInputFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
@@ -3802,6 +3810,7 @@ class KalturaLiveReportsService extends KalturaServiceBase {
     }
 
     /**
+     * Get report.
      * @param string $reporttype - report type.
      * @param KalturaLiveReportInputFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
@@ -6011,8 +6020,8 @@ class KalturaPlaylistService extends KalturaServiceBase {
 
     /**
      * Retrieve playlist statistics.
-     * @param int $playlistType - playlist type.
-     * @param string $playlistContent - playlist content.
+     * @param int $playlisttype - playlist type.
+     * @param string $playlistcontent - playlist content.
      * @return KalturaPlaylist - playlist object.
      */
     public function getStatsFromContent($playlisttype, $playlistcontent) {
@@ -6095,6 +6104,7 @@ class KalturaReportService extends KalturaServiceBase {
     }
 
     /**
+     * Execute report.
      * @param int $id - id of report.
      * @param array $params - array of parameters.
      * @return KalturaReportResponse - report response object.
@@ -6118,10 +6128,11 @@ class KalturaReportService extends KalturaServiceBase {
     }
 
     /**
+     * Get base total.
      * Report getBaseTotal action allows to get a the total base for storage reports
      * @param string $reporttype - report type.
      * @param KalturaReportInputFilter $reportinputfilter - report input filter.
-     * @param string $objectIds - one ID or more (separated by ',') of specific objects to query.
+     * @param string $objectids - one ID or more (separated by ',') of specific objects to query.
      * @return array - array of reports.
      */
     public function getBaseTotal($reporttype, KalturaReportInputFilter $reportinputfilter, $objectids = null) {
@@ -6216,7 +6227,7 @@ class KalturaReportService extends KalturaServiceBase {
      * @param KalturaReportInputFilter $reportinputfilter - report input filter.
      * @param KalturaFilterPager $pager - pager.
      * @param string $order - order.
-     * @param string $objectIds - one ID or more (separated by ',') of specific objects to query
+     * @param string $objectids - one ID or more (separated by ',') of specific objects to query
      * @return KalturaReportTable - report table table.
      */
     public function getTable($reporttype, KalturaReportInputFilter $reportinputfilter, KalturaFilterPager $pager,
@@ -6239,9 +6250,9 @@ class KalturaReportService extends KalturaServiceBase {
 
     /**
      * Report getTotal action allows to get a graph data for a specific report.
-     * @param string $reportType - report type.
+     * @param string $reporttype - report type.
      * @param KalturaReportInputFilter $reportinputfilter - report input filter.
-     * @param string $objectIds - one ID or more (separated by ',') of specific objects to query.
+     * @param string $objectids - one ID or more (separated by ',') of specific objects to query.
      * @return KalturaReportTotal - report total object.
      */
     public function getTotal($reporttype, KalturaReportInputFilter $reportinputfilter, $objectids = null) {
@@ -6269,7 +6280,7 @@ class KalturaReportService extends KalturaServiceBase {
      * @param string $dimension - dimension.
      * @param KalturaFilterPager $pager - pager.
      * @param string $order - order.
-     * @param string $objectIds - one ID or more (separated by ',') of specific objects to query.
+     * @param string $objectids - one ID or more (separated by ',') of specific objects to query.
      * @return string - url for csv file.
      */
     public function getUrlForReportAsCsv($reporttitle, $reporttext, $headers, $reporttype,
@@ -6543,6 +6554,7 @@ class KalturaSearchService extends KalturaServiceBase {
     }
 
     /**
+     * External login.
      * @param int $searchsource - search source.
      * @param string $username - username.
      * @param string $password - password.
@@ -6716,7 +6728,7 @@ class KalturaServerNodeService extends KalturaServiceBase {
 
     /**
      * Get server node by id.
-     * @param int $serverNodeId - server node id.
+     * @param int $servernodeid - server node id.
      * @return KalturaServerNode - server node object.
      */
     public function get($servernodeid) {
@@ -6733,6 +6745,7 @@ class KalturaServerNodeService extends KalturaServiceBase {
     }
 
     /**
+     * List server nodes.
      * @param KalturaServerNodeFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
      * @return KalturaServerNodeListResponse - list of server node.
@@ -7135,6 +7148,7 @@ class KalturaStorageProfileService extends KalturaServiceBase {
     }
 
     /**
+     * List storage profile.
      * @param KalturaStorageProfileFilter $filter - filter object.
      * @param KalturaFilterPager $pager - pager object.
      * @return KalturaStorageProfileListResponse - list of storage profile.
@@ -7467,6 +7481,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
+     * Add new thumb asset from image file.
      * @param string $entryid - media entry id.
      * @param file $filedata - file data.
      * @return KalturaThumbAsset - thumb asset object.
@@ -7543,6 +7558,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
+     * Generate new thumnail asset.
      * @param string $entryid - media entry id.
      * @param KalturaThumbParams $thumbparams - thumb params.
      * @param string $sourceassetid - Id of the source asset to be used as source for the thumbnail generation.
@@ -7564,6 +7580,7 @@ class KalturaThumbAssetService extends KalturaServiceBase {
     }
 
     /**
+     * Generate new thumbnail asset by entry id.
      * @param string $entryid - media entry id.
      * @param int $destthumbparamsid - Indicate the id of the ThumbParams to be generate this thumbnail by.
      * @return KalturaThumbAsset - thumb asset object.
@@ -8193,6 +8210,7 @@ class KalturaUploadService extends KalturaServiceBase {
     }
 
     /**
+     * Get uploaded file token by file name.
      * @param string $filename - file name.
      * @return KalturaUploadResponse - kaltura upload.
      */
@@ -8496,6 +8514,7 @@ class KalturaUserEntryService extends KalturaServiceBase {
     }
 
     /**
+     * Update user entry.
      * @param int $id - user id.
      * @param KalturaUserEntry $userentry - user entry object.
      */

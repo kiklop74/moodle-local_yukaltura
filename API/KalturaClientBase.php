@@ -32,14 +32,15 @@ error_reporting(E_STRICT);
  * MultiRequestSubResult
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class MultiRequestSubResult implements ArrayAccess {
     /**
      * Constructor of MultiRequestResult
      * @param object $value - internal data.
+     */
     public function __construct($value) {
         $this->value = $value;
     }
@@ -72,7 +73,7 @@ class MultiRequestSubResult implements ArrayAccess {
 
     /**
      * Returns offset value.
-     * @param string $string - offset name.
+     * @param string $offset - offset name.
      * @return object - offset value.
      */
     public function offsetGet($offset) {
@@ -99,8 +100,8 @@ class MultiRequestSubResult implements ArrayAccess {
  * Kaltura Null
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaNull {
@@ -137,8 +138,8 @@ class KalturaNull {
  * KalturaClientBase
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaClientBase {
@@ -149,7 +150,7 @@ class KalturaClientBase {
     /** @var php format */
     const KALTURA_SERVICE_FORMAT_PHP = 3;
 
-    // KS V2 constants.
+    /** @var KS V2 constants */
     const RANDOM_SIZE = 16;
 
     /** @var field expiry */
@@ -470,7 +471,7 @@ class KalturaClientBase {
 
     /**
      * Sorts array recursively.
-     * @param array $params - array of parameter.
+     * @param array $array - array of parameter.
      * @param int $flags - flags.
      * @return boolean - this function always returns true.
      */
@@ -498,6 +499,7 @@ class KalturaClientBase {
      * Send http request by using curl (if available) or php stream_context
      * @param string $url - url.
      * @param array $params - array of parameters.
+     * @param array $files - array of file objects.
      * @return array - array of result and error.
      */
     protected function doHttpRequest($url, $params = array(), $files = array()) {
@@ -624,6 +626,7 @@ class KalturaClientBase {
      * HTTP stream context request
      * @param string $url - url.
      * @param array $params - array of parameters.
+     * @param array $files - array of file objects.
      * @return array - array of result and error.
      */
     private function doPostRequest($url, $params = array(), $files = array()) {
@@ -1009,7 +1012,7 @@ class KalturaClientBase {
 
     /**
      * Generate kaltura session string (version 1).
-     * @param string $adminsecretforsinging - admin srecret.
+     * @param string $adminsecretforsigning - admin srecret.
      * @param string $userid - username as string.
      * @param int $type - login account type.
      * @param int $partnerid - partner id.
@@ -1032,7 +1035,7 @@ class KalturaClientBase {
 
     /**
      * Generate kaltura session string (version 2)
-     * @param string $adminsecretforsinging - admin secret.
+     * @param string $adminsecretforsigning - admin secret.
      * @param string $userid - username as string.
      * @param int $type - login account type.
      * @param int $partnerid - partner id.
@@ -1079,8 +1082,8 @@ class KalturaClientBase {
 
     /**
      * Encrypt message by using AES.
-     * @param $key - ecnryption key.
-     * @param $message - message string to encrypt.
+     * @param string $key - ecnryption key.
+     * @param string $message - message string to encrypt.
      * @return string - encrypted message.
      */
     protected static function aesEncrypt($key, $message) {
@@ -1099,8 +1102,8 @@ class KalturaClientBase {
 
     /**
      * Get hash value (mesasge digest).
-     * @param $salt - salt for sha1.
-     * @param $str - message to hash.
+     * @param string $salt - salt for sha1.
+     * @param string $str - message to hash.
      * @return - message digest by sha1.
      */
     private function hash ($salt, $str) {
@@ -1121,8 +1124,8 @@ class KalturaClientBase {
  * Interface Kaltura Client Plugin
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface IKalturaClientPlugin {
@@ -1150,8 +1153,8 @@ interface IKalturaClientPlugin {
  * Kaltura Client Plugin
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class KalturaClientPlugin implements IKalturaClientPlugin {
@@ -1168,8 +1171,8 @@ abstract class KalturaClientPlugin implements IKalturaClientPlugin {
  * Kaltura Service Action Call
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaServiceActionCall {
@@ -1255,10 +1258,12 @@ class KalturaServiceActionCall {
 }
 
 /**
- * Abstract base class for all client services
+ * Kaltura Service Base
  *
- * @package Kaltura
- * @subpackage Client
+ * @package   local_yukaltura
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class KalturaServiceBase {
     /**
@@ -1287,8 +1292,8 @@ abstract class KalturaServiceBase {
  * Kaltura Enum Base
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class KalturaEnumBase {
@@ -1298,8 +1303,8 @@ abstract class KalturaEnumBase {
  * Kaltura Object Base
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class KalturaObjectBase {
@@ -1356,8 +1361,8 @@ abstract class KalturaObjectBase {
  * Kaltura Exception
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaException extends Exception {
@@ -1402,8 +1407,8 @@ class KalturaException extends Exception {
  * Kaltura Client Exception
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaClientException extends Exception {
@@ -1439,8 +1444,8 @@ class KalturaClientException extends Exception {
  * Kaltura Configuration
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class KalturaConfiguration {
@@ -1497,8 +1502,8 @@ class KalturaConfiguration {
  * Kaltura Logger Interface
  *
  * @package   local_yukaltura
- * @copyright (C) 2014 Kaltura Inc.
- * @copyright (C) 2016-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
+ * @copyright (C) 2018 Kaltura Inc.
+ * @copyright (C) 2018-2019 Yamaguchi University (gh-cc@mlex.cc.yamaguchi-u.ac.jp)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface IKalturaLogger {

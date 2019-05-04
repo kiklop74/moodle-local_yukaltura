@@ -50,7 +50,7 @@ How to use
 Targeted Moodle versions
 ------
 
-Moodle 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+Moodle 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7
 
 Branches
 ------
@@ -63,6 +63,7 @@ Branches
 * MOODLE_34_STABLE -> Moodle3.4 branch
 * MOODLE_35_STABLE -> Moodle3.5 branch
 * MOODLE_36_STABLE -> Moodle3.6 branch
+* MOODLE_37_STABLE -> Moodle3.7 branch
 
 First clone the repository with "git clone", then "git checkout MOODLE_29_STABLE(branch name)" to switch branches.
 

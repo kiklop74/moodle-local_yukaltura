@@ -5,14 +5,14 @@ sudo: true
 addons:
   firefox: "47.0.1"
   postgresql: "9.4"
-  mariadb: "10.0"
+  # mariadb: "10.0"
   apt:
     packages:
       - openjdk-8-jdk
       - java-common
 
 services:
-  - mariadb
+  - mysql
 
 cache:
   directories:
@@ -29,7 +29,7 @@ env:
   - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
  matrix:
   - DB=pgsql
-  - DB=mariadb
+  - DB=mysqli
 
 before_install:
   - phpenv config-rm xdebug.ini

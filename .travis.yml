@@ -23,6 +23,7 @@ php:
 env:
  global:
   - MOODLE_BRANCH=MOODLE_33_STABLE
+  - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
  matrix:
   - DB=pgsql
   - DB=mysqli

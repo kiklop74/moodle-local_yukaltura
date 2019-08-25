@@ -10,6 +10,7 @@ addons:
     packages:
       - openjdk-8-jdk
       - java-common
+      - mysql
 
 cache:
   directories:

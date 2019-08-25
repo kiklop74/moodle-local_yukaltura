@@ -12,7 +12,7 @@ addons:
     packages:
       - openjdk-8-jdk
       - java-common
-      - mysql-server
+      - mysql-server-5.7
 
 services:
   - mysql

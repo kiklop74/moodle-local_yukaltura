@@ -7,9 +7,17 @@ addons:
   postgresql: "9.4"
   mysql-server: "5.7"
   apt:
+    sources:
+      - mysql-5.7-trusty
     packages:
       - openjdk-8-jdk
       - java-common
+      - mysql-server
+
+services:
+  - mysql
+
+dist: trusty
 
 cache:
   directories:

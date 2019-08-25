@@ -12,7 +12,8 @@ addons:
     packages:
       - openjdk-8-jdk
       - java-common
-      - mysql-server-5.7
+      - mysql-community-client
+      - mysql-community-server
 
 services:
   - mysql

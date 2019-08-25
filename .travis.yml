@@ -22,7 +22,8 @@ php:
 
 env:
  global:
-  - MOODLE_BRANCH=MOODLE_33_STABLE
+ - MOODLE_BRANCH=MOODLE_33_STABLE DB=mysqli V2=true
+ - MOODLE_BRANCH=MOODLE_33_STABLE DB=pgsql V2=true
   - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
  matrix:
   - DB=pgsql
@@ -36,7 +37,9 @@ before_install:
   - nvm alias default v8.9.1
   - node --version
   - cd ../..
-  - composer create-project -n --no-dev --prefer-dist moodlerooms/moodle-plugin-ci ci ^2
+  # You must install the correct version of this project:
+  - if [ "$V2" = false ]; then composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^1; fi
+  - if [ "$V2" = true ]; then composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2; fi
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
 
 install:
@@ -49,7 +52,8 @@ script:
   - moodle-plugin-ci codechecker
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
-  - moodle-plugin-ci mustache
+  - if [ "$V2" = true ]; then moodle-plugin-ci mustache; fi
+  - if [ "$V2" = false ]; then moodle-plugin-ci csslint; fi
   - moodle-plugin-ci grunt --tasks amd
   - moodle-plugin-ci grunt --tasks gherkinlint
   - moodle-plugin-ci phpunit

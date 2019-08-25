@@ -7,8 +7,8 @@ addons:
   postgresql: "9.3"
   apt:
     packages:
-      - oracle-java8-unlimited-jce-policy
-      - oracle-java8-installer
+      - openjdk-8-jdk
+      - java-common
 
 cache:
   directories:

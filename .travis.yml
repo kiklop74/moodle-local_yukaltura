@@ -5,16 +5,14 @@ sudo: true
 addons:
   firefox: "47.0.1"
   postgresql: "9.4"
-  mariadb: '10.0'
+  mariadb: "10.0"
   apt:
-    sources:
-      - mysql-5.7-trusty
     packages:
       - openjdk-8-jdk
       - java-common
 
 services:
-  - mysqld
+  - mariadb
 
 cache:
   directories:

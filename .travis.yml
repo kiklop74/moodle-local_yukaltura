@@ -10,7 +10,7 @@ addons:
     packages:
       - openjdk-8-jdk
       - java-common
-      - mysql
+      - if [ "$DB" = "mysqli" ]; then mysql-server; fi
 
 cache:
   directories:

@@ -26,7 +26,7 @@ env:
   - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
  matrix:
   - DB=pgsql
-  - DB=mysql
+  - DB=mysqli
 
 before_install:
   - phpenv config-rm xdebug.ini

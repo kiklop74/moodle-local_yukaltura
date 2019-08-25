@@ -39,6 +39,7 @@ before_install:
   - cd ../..
   - composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
+  - if [ "$DB" = "mysqli" ]; then sudo systemctl start mysqld; fi
 
 install:
   - moodle-plugin-ci install

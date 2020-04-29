@@ -430,7 +430,7 @@ function local_yukaltura_get_credentials($upload = false) {
 
     if ($upload) {
         $login = get_config(KALTURA_PLUGIN_NAME, 'upload_login');
-	$password = get_config(KALTURA_PLUGIN_NAME, 'upload_password');
+        $password = get_config(KALTURA_PLUGIN_NAME, 'upload_password');
     }
 
     if ($upload == false || empty($login) || $login == false) {
